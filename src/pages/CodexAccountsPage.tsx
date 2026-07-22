@@ -129,6 +129,7 @@ import {
   readCodexImportSyncApiService,
   writeCodexImportSyncApiService,
 } from "../utils/codexImportPreferences";
+import { recoverCodexBatchImportStartFromPreview } from "../utils/codexBatchImportQueue";
 import {
   CODEX_OPEN_ADD_ACCOUNT_EVENT,
   type CodexOpenAddAccountDetail,
@@ -5933,6 +5934,28 @@ export function CodexAccountsPage() {
         );
       } catch {
         // ignore storage failures
+      }
+      // The backend starts scanning before this invoke resolves. A fast scan can
+      // therefore emit its terminal event while the listener still filters on
+      // __pending__. Re-read the now-addressable session to recover that event.
+      try {
+        const recoveredPreview =
+          await codexService.getCodexBatchImportPreview(started.sessionId);
+        const recovery = recoverCodexBatchImportStartFromPreview(
+          batchImportSessionIdRef.current,
+          started.sessionId,
+          recoveredPreview,
+          batchImportSelectedIds,
+        );
+        if (recovery) {
+          setBatchImportPreview(recovery.preview);
+          setBatchImportCheckQuota(recovery.preview.checkQuota);
+          setBatchImportSelectedIds(recovery.selectedIds);
+          setBatchImportBusy(false);
+        }
+      } catch {
+        // If this read fails, only later listener events follow their normal path;
+        // it cannot recover terminal or error events that were already missed.
       }
     } catch (e) {
       cleanupBatchImportListeners();
