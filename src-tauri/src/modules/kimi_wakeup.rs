@@ -1,7 +1,7 @@
 //! Kimi Code wakeup tasks — Codex-shaped state machine on a single official slot.
 //! Run path: acquire slot lock → inject_to_default(account) → invoke Kimi CLI → release.
 
-use crate::modules::{config, kimi_account, logger};
+use crate::modules::{config, kimi_account, logger, process_timeout};
 use serde::{Deserialize, Serialize};
 use std::path::{Path, PathBuf};
 use std::process::Command;
@@ -14,7 +14,44 @@ const HISTORY_FILE: &str = "kimi_wakeup_history.json";
 const RUNTIME_CONFIG_FILE: &str = "kimi_wakeup_runtime.json";
 const MAX_HISTORY: usize = 200;
 const DEFAULT_PROMPT: &str = "hi";
-const DEFAULT_MODEL: &str = "kimi-for-coding";
+/// Official model alias as used by `kimi -m` / config.toml `default_model`.
+const DEFAULT_MODEL: &str = "kimi-code/kimi-for-coding";
+const CLI_VERSION_PROBE_TIMEOUT: Duration = Duration::from_secs(5);
+/// Wakeup CLI may call the model; keep a hard upper bound so slot lock cannot stick forever.
+const CLI_WAKEUP_TIMEOUT: Duration = Duration::from_secs(10 * 60);
+
+/// Built-in model aliases from official Kimi Code docs (config-files.md).
+pub fn builtin_models() -> Vec<KimiWakeupModelInfo> {
+    vec![
+        KimiWakeupModelInfo {
+            id: "kimi-code/k3".into(),
+            display_name: "K3".into(),
+            model: "k3".into(),
+        },
+        KimiWakeupModelInfo {
+            id: "kimi-code/kimi-for-coding".into(),
+            display_name: "Kimi for Coding".into(),
+            model: "kimi-for-coding".into(),
+        },
+        KimiWakeupModelInfo {
+            id: "kimi-code/kimi-for-coding-highspeed".into(),
+            display_name: "Kimi for Coding Highspeed".into(),
+            model: "kimi-for-coding-highspeed".into(),
+        },
+    ]
+}
+
+/// Normalize short ids (`kimi-for-coding`) to full alias (`kimi-code/kimi-for-coding`).
+pub fn normalize_model_id(raw: &str) -> String {
+    let trimmed = raw.trim();
+    if trimmed.is_empty() {
+        return DEFAULT_MODEL.to_string();
+    }
+    if trimmed.contains('/') {
+        return trimmed.to_string();
+    }
+    format!("kimi-code/{}", trimmed)
+}
 
 static SLOT_LOCK: OnceLock<Mutex<()>> = OnceLock::new();
 static STATE_LOCK: OnceLock<Mutex<()>> = OnceLock::new();
@@ -167,6 +204,14 @@ pub struct KimiCliStatus {
     pub checked_at: i64,
 }
 
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct KimiWakeupModelInfo {
+    pub id: String,
+    pub display_name: String,
+    pub model: String,
+}
+
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 #[serde(rename_all = "camelCase")]
 pub struct KimiWakeupRuntimeConfig {
@@ -276,24 +321,253 @@ pub fn clear_history() -> Result<(), String> {
 
 fn which_on_path(name: &str) -> Option<PathBuf> {
     let path_var = std::env::var_os("PATH")?;
+    let mut found: Vec<PathBuf> = Vec::new();
     for dir in std::env::split_paths(&path_var) {
-        let candidate = dir.join(name);
-        if candidate.is_file() {
-            return Some(candidate);
-        }
         #[cfg(windows)]
         {
-            let with_exe = dir.join(format!("{}.exe", name));
-            if with_exe.is_file() {
-                return Some(with_exe);
+            // Prefer native .exe over npm/scoop script shims.
+            for ext in [".exe", "", ".cmd", ".bat"] {
+                let candidate = if ext.is_empty() {
+                    dir.join(name)
+                } else {
+                    dir.join(format!("{}{}", name, ext))
+                };
+                if candidate.is_file() {
+                    found.push(candidate);
+                }
             }
-            let with_cmd = dir.join(format!("{}.cmd", name));
-            if with_cmd.is_file() {
-                return Some(with_cmd);
+        }
+        #[cfg(not(windows))]
+        {
+            let candidate = dir.join(name);
+            if candidate.is_file() {
+                found.push(candidate);
             }
         }
     }
-    None
+    pick_preferred_cli(found)
+}
+
+fn push_if_file(out: &mut Vec<PathBuf>, path: PathBuf) {
+    if path.is_file() && !out.iter().any(|p| p == &path) {
+        out.push(path);
+    }
+}
+
+/// Lower score = preferred. Native binaries beat shell shims.
+fn cli_path_rank(path: &Path) -> u8 {
+    let ext = path
+        .extension()
+        .and_then(|e| e.to_str())
+        .unwrap_or("")
+        .to_ascii_lowercase();
+    match ext.as_str() {
+        "exe" => 0,
+        "" => 1,
+        "cmd" | "bat" => 2,
+        "ps1" => 3,
+        _ => 4,
+    }
+}
+
+fn pick_preferred_cli(mut candidates: Vec<PathBuf>) -> Option<PathBuf> {
+    if candidates.is_empty() {
+        return None;
+    }
+    candidates.sort_by(|a, b| {
+        cli_path_rank(a)
+            .cmp(&cli_path_rank(b))
+            .then_with(|| a.to_string_lossy().cmp(&b.to_string_lossy()))
+    });
+    candidates.into_iter().next()
+}
+
+/// Quote a single Windows cmd.exe token.
+fn quote_cmd_arg(value: &str) -> String {
+    if value.is_empty() {
+        return "\"\"".to_string();
+    }
+    if !value.contains([' ', '\t', '"', '&', '|', '<', '>', '^', '%']) {
+        return value.to_string();
+    }
+    format!("\"{}\"", value.replace('"', "\"\""))
+}
+
+/// Build a process command that can launch `.exe` as well as `.cmd` / `.bat` / `.ps1` shims.
+pub fn build_kimi_cli_command(cli_path: &Path, args: &[&str]) -> Command {
+    #[cfg(windows)]
+    {
+        use std::os::windows::process::CommandExt;
+        const CREATE_NO_WINDOW: u32 = 0x0800_0000;
+        let ext = cli_path
+            .extension()
+            .and_then(|e| e.to_str())
+            .unwrap_or("")
+            .to_ascii_lowercase();
+        if ext == "cmd" || ext == "bat" {
+            let mut line = quote_cmd_arg(&cli_path.to_string_lossy());
+            for arg in args {
+                line.push(' ');
+                line.push_str(&quote_cmd_arg(arg));
+            }
+            let mut command = Command::new("cmd.exe");
+            command.creation_flags(CREATE_NO_WINDOW);
+            command.arg("/D").arg("/S").arg("/C").arg(line);
+            return command;
+        }
+        if ext == "ps1" {
+            let mut command = Command::new("powershell.exe");
+            command.creation_flags(CREATE_NO_WINDOW);
+            command
+                .arg("-NoProfile")
+                .arg("-NonInteractive")
+                .arg("-ExecutionPolicy")
+                .arg("Bypass")
+                .arg("-File")
+                .arg(cli_path);
+            for arg in args {
+                command.arg(arg);
+            }
+            return command;
+        }
+        let mut command = Command::new(cli_path);
+        command.creation_flags(CREATE_NO_WINDOW);
+        for arg in args {
+            command.arg(arg);
+        }
+        return command;
+    }
+    #[cfg(not(windows))]
+    {
+        let mut command = Command::new(cli_path);
+        for arg in args {
+            command.arg(arg);
+        }
+        command
+    }
+}
+
+/// System-wide discovery of Kimi Code CLI, ignoring any saved custom path.
+pub fn discover_kimi_cli_binary() -> Option<PathBuf> {
+    let mut candidates: Vec<PathBuf> = Vec::new();
+
+    if let Some(p) = which_on_path("kimi") {
+        push_if_file(&mut candidates, p);
+    }
+    if let Some(p) = which_on_path("kimi-code") {
+        push_if_file(&mut candidates, p);
+    }
+
+    // Official / common Windows install locations (.exe before script shims).
+    if let Some(local) = std::env::var_os("LOCALAPPDATA") {
+        let local = PathBuf::from(local);
+        for rel in [
+            "kimi-code\\kimi.exe",
+            "kimi-code\\kimi-code.exe",
+            "Programs\\kimi-code\\kimi.exe",
+            "Programs\\kimi-code\\kimi-code.exe",
+            "kimi\\kimi.exe",
+            "Programs\\kimi\\kimi.exe",
+        ] {
+            push_if_file(&mut candidates, local.join(rel));
+        }
+    }
+    if let Some(roaming) = std::env::var_os("APPDATA") {
+        let roaming = PathBuf::from(roaming);
+        for rel in [
+            "npm\\kimi.exe",
+            "npm\\kimi-code.exe",
+            "npm\\kimi.cmd",
+            "npm\\kimi-code.cmd",
+        ] {
+            push_if_file(&mut candidates, roaming.join(rel));
+        }
+    }
+    if let Some(pf) = std::env::var_os("ProgramFiles") {
+        let pf = PathBuf::from(pf);
+        for rel in ["kimi-code\\kimi.exe", "Kimi Code\\kimi.exe", "kimi\\kimi.exe"] {
+            push_if_file(&mut candidates, pf.join(rel));
+        }
+    }
+    if let Some(home) = std::env::var_os("USERPROFILE").or_else(|| std::env::var_os("HOME")) {
+        let home = PathBuf::from(home);
+        for rel in [
+            ".local\\bin\\kimi.exe",
+            ".local\\bin\\kimi",
+            ".local\\bin\\kimi-code.exe",
+            ".local\\bin\\kimi-code",
+            ".local/bin/kimi",
+            ".local/bin/kimi-code",
+            "bin/kimi",
+            "bin/kimi-code",
+            ".cargo/bin/kimi.exe",
+            ".cargo/bin/kimi",
+            ".cargo/bin/kimi-code.exe",
+            ".cargo/bin/kimi-code",
+            "AppData\\Roaming\\npm\\kimi.exe",
+            "AppData\\Roaming\\npm\\kimi.cmd",
+            "scoop\\shims\\kimi.exe",
+            "scoop\\shims\\kimi.cmd",
+        ] {
+            push_if_file(&mut candidates, home.join(rel));
+        }
+    }
+    // Unix-ish fixed paths.
+    for rel in [
+        "/usr/local/bin/kimi",
+        "/usr/bin/kimi",
+        "/opt/homebrew/bin/kimi",
+        "/usr/local/bin/kimi-code",
+        "/opt/homebrew/bin/kimi-code",
+    ] {
+        push_if_file(&mut candidates, PathBuf::from(rel));
+    }
+
+    pick_preferred_cli(candidates)
+}
+
+fn probe_cli_version(bin: &Path) -> Option<String> {
+    let mut command = build_kimi_cli_command(bin, &["--version"]);
+    let out = process_timeout::output_with_timeout(&mut command, CLI_VERSION_PROBE_TIMEOUT).ok()?;
+    let text = String::from_utf8_lossy(&out.stdout);
+    let err = String::from_utf8_lossy(&out.stderr);
+    let combined = format!("{}{}", text, err).trim().to_string();
+    if combined.is_empty() {
+        return None;
+    }
+    Some(combined.lines().next().unwrap_or("").to_string())
+}
+
+fn build_cli_status(
+    binary: Option<PathBuf>,
+    configured: Option<String>,
+    mut message: Option<String>,
+) -> KimiCliStatus {
+    let version = binary.as_ref().and_then(|bin| probe_cli_version(bin));
+    let available = binary.is_some();
+    if !available && message.is_none() {
+        message = Some(
+            "未检测到 Kimi Code CLI。请安装官方 CLI，或点「选择」指定可执行文件。".to_string(),
+        );
+    }
+    KimiCliStatus {
+        available,
+        binary_path: binary.map(|p| p.to_string_lossy().to_string()),
+        configured_path: configured,
+        version,
+        message,
+        checked_at: now_ms(),
+    }
+}
+
+/// Auto-detect on system paths only (ignores saved custom path). Used by UI "自动检测".
+pub fn detect_cli_on_system() -> KimiCliStatus {
+    let configured = load_runtime_config()
+        .ok()
+        .and_then(|c| c.kimi_cli_path)
+        .filter(|s| !s.trim().is_empty());
+    let binary = discover_kimi_cli_binary();
+    build_cli_status(binary, configured, None)
 }
 
 pub fn get_cli_status() -> KimiCliStatus {
@@ -313,36 +587,10 @@ pub fn get_cli_status() -> KimiCliStatus {
         }
     }
     if binary.is_none() {
-        binary = which_on_path("kimi");
+        binary = discover_kimi_cli_binary();
     }
 
-    let mut version = None;
-    if let Some(ref bin) = binary {
-        if let Ok(out) = Command::new(bin).arg("--version").output() {
-            let text = String::from_utf8_lossy(&out.stdout);
-            let err = String::from_utf8_lossy(&out.stderr);
-            let combined = format!("{}{}", text, err).trim().to_string();
-            if !combined.is_empty() {
-                version = Some(combined.lines().next().unwrap_or("").to_string());
-            }
-        }
-    }
-
-    let available = binary.is_some();
-    if !available && message.is_none() {
-        message = Some(
-            "未检测到 Kimi Code CLI。请安装官方 CLI 或在唤醒设置中填写路径。".to_string(),
-        );
-    }
-
-    KimiCliStatus {
-        available,
-        binary_path: binary.map(|p| p.to_string_lossy().to_string()),
-        configured_path: configured,
-        version,
-        message,
-        checked_at: now_ms(),
-    }
+    build_cli_status(binary, configured, message)
 }
 
 /// Core run unit: inject official slot then CLI. Serialized by SLOT_LOCK.
@@ -363,7 +611,6 @@ pub fn run_account_wakeup(
     let _slot = lock_or_recover(slot_lock(), "official-slot");
 
     let inject_result = kimi_account::inject_to_default(account_id);
-    let injected = inject_result.is_ok();
     if let Err(ref err) = inject_result {
         return KimiWakeupHistoryItem {
             id: format!("hist-{}", Uuid::new_v4()),
@@ -412,24 +659,80 @@ pub fn run_account_wakeup(
     }
 
     let cli_path = runtime.binary_path.clone().unwrap_or_default();
-    let model_id = model.unwrap_or(DEFAULT_MODEL);
-    // Official CLI: non-interactive prompt. Args follow common kimi-code CLI shape.
-    let output = Command::new(&cli_path)
-        .arg("--print")
-        .arg("--model")
-        .arg(model_id)
-        .arg(prompt)
-        .output();
+    let model_id = normalize_model_id(model.unwrap_or(DEFAULT_MODEL));
+
+    // Official non-interactive form (docs):
+    //   kimi -m kimi-code/kimi-for-coding -p "..."
+    // Do NOT use bare `--print <prompt>` — that is not the Kimi Code CLI contract.
+    let home = match kimi_account::default_kimi_home() {
+        Ok(h) => h,
+        Err(e) => {
+            return KimiWakeupHistoryItem {
+                id: format!("hist-{}", Uuid::new_v4()),
+                run_id: run_id.to_string(),
+                timestamp: now_ts(),
+                trigger_type: trigger_type.to_string(),
+                task_id: task_id.map(str::to_string),
+                task_name: task_name.map(str::to_string),
+                account_id: account_id.to_string(),
+                account_email,
+                success: false,
+                prompt: Some(prompt.to_string()),
+                model: Some(model_id),
+                reply: None,
+                error: Some(format!("无法解析 KIMI_CODE_HOME: {}", e)),
+                duration_ms: Some(started.elapsed().as_millis() as u64),
+                cli_path: Some(cli_path),
+                injected: true,
+            };
+        }
+    };
+
+    // After inject_to_default, official credentials live under this home.
+    let cli_args = [
+        "-m",
+        model_id.as_str(),
+        "-p",
+        prompt,
+        "--output-format",
+        "text",
+    ];
+    let mut command = build_kimi_cli_command(Path::new(&cli_path), &cli_args);
+    command.env("KIMI_CODE_HOME", &home).current_dir(&home);
+
+    logger::log_info(&format!(
+        "[KimiWakeup] spawn {} -m {} -p <{} chars> home={}",
+        cli_path,
+        model_id,
+        prompt.chars().count(),
+        home.display()
+    ));
+
+    let output = process_timeout::output_with_timeout(&mut command, CLI_WAKEUP_TIMEOUT);
 
     match output {
         Ok(out) => {
             let stdout = String::from_utf8_lossy(&out.stdout).trim().to_string();
             let stderr = String::from_utf8_lossy(&out.stderr).trim().to_string();
-            let success = out.status.success();
-            let error = if success {
+            let exit_ok = out.status.success();
+            let elapsed_ms = started.elapsed().as_millis() as u64;
+            // Non-interactive wake must produce stdout text; empty success is a wrong CLI/shim.
+            let looks_fake = exit_ok && stdout.is_empty();
+            let success = exit_ok && !looks_fake;
+            let error = if looks_fake {
+                Some(format!(
+                    "CLI 空输出退出（{}ms，疑似未真正唤醒）。请确认官方 Kimi Code CLI，路径={}，模型={}。stderr={}",
+                    elapsed_ms,
+                    cli_path,
+                    model_id,
+                    if stderr.is_empty() { "(empty)" } else { &stderr }
+                ))
+            } else if success {
                 None
             } else if !stderr.is_empty() {
                 Some(stderr.clone())
+            } else if !stdout.is_empty() && !exit_ok {
+                Some(stdout.chars().take(500).collect())
             } else {
                 Some(format!("CLI 退出码 {:?}", out.status.code()))
             };
@@ -438,7 +741,6 @@ pub fn run_account_wakeup(
             } else {
                 Some(stdout)
             };
-            // Best-effort quota refresh after successful wake.
             if success {
                 let account_id_owned = account_id.to_string();
                 tauri::async_runtime::spawn(async move {
@@ -456,32 +758,44 @@ pub fn run_account_wakeup(
                 account_email,
                 success,
                 prompt: Some(prompt.to_string()),
-                model: Some(model_id.to_string()),
+                model: Some(model_id),
                 reply,
                 error,
+                duration_ms: Some(elapsed_ms),
+                cli_path: Some(cli_path),
+                injected: true,
+            }
+        }
+        Err(e) => {
+            let timed_out = e.kind() == std::io::ErrorKind::TimedOut;
+            let message = if timed_out {
+                format!(
+                    "Kimi CLI 超时（{}s）: 路径 {}。已终止进程并释放槽位。",
+                    CLI_WAKEUP_TIMEOUT.as_secs(),
+                    cli_path
+                )
+            } else {
+                format!("启动 Kimi CLI 失败: {}（路径 {}）", e, cli_path)
+            };
+            KimiWakeupHistoryItem {
+                id: format!("hist-{}", Uuid::new_v4()),
+                run_id: run_id.to_string(),
+                timestamp: now_ts(),
+                trigger_type: trigger_type.to_string(),
+                task_id: task_id.map(str::to_string),
+                task_name: task_name.map(str::to_string),
+                account_id: account_id.to_string(),
+                account_email,
+                success: false,
+                prompt: Some(prompt.to_string()),
+                model: Some(model_id),
+                reply: None,
+                error: Some(message),
                 duration_ms: Some(started.elapsed().as_millis() as u64),
                 cli_path: Some(cli_path),
                 injected: true,
             }
         }
-        Err(e) => KimiWakeupHistoryItem {
-            id: format!("hist-{}", Uuid::new_v4()),
-            run_id: run_id.to_string(),
-            timestamp: now_ts(),
-            trigger_type: trigger_type.to_string(),
-            task_id: task_id.map(str::to_string),
-            task_name: task_name.map(str::to_string),
-            account_id: account_id.to_string(),
-            account_email,
-            success: false,
-            prompt: Some(prompt.to_string()),
-            model: model.map(str::to_string),
-            reply: None,
-            error: Some(format!("启动 Kimi CLI 失败: {}", e)),
-            duration_ms: Some(started.elapsed().as_millis() as u64),
-            cli_path: Some(cli_path),
-            injected: true,
-        },
     }
 }
 
@@ -725,5 +1039,142 @@ mod tests {
         std::env::remove_var("COCKPIT_TOOLS_TEST_DATA_DIR");
         std::env::remove_var("COCKPIT_TOOLS_DATA_DIR");
         let _ = std::fs::remove_dir_all(&dir);
+    }
+
+    #[test]
+    fn detect_cli_on_system_does_not_panic_and_sets_checked_at() {
+        let status = detect_cli_on_system();
+        assert!(status.checked_at > 0);
+        if status.available {
+            assert!(
+                status
+                    .binary_path
+                    .as_ref()
+                    .map(|p| !p.trim().is_empty())
+                    .unwrap_or(false),
+                "available implies binary_path"
+            );
+        } else {
+            assert!(
+                status.message.is_some(),
+                "missing CLI should include a message"
+            );
+        }
+    }
+
+    #[test]
+    fn normalize_model_id_adds_kimi_code_prefix() {
+        assert_eq!(
+            normalize_model_id("kimi-for-coding"),
+            "kimi-code/kimi-for-coding"
+        );
+        assert_eq!(
+            normalize_model_id("kimi-code/k3"),
+            "kimi-code/k3"
+        );
+        assert_eq!(normalize_model_id(""), DEFAULT_MODEL);
+    }
+
+    #[test]
+    fn runtime_config_roundtrip_kimi_cli_path() {
+        let _lock = crate::modules::test_support::env_lock()
+            .lock()
+            .unwrap_or_else(|e| e.into_inner());
+        let dir = std::env::temp_dir().join(format!(
+            "kimi-wakeup-runtime-{}-{}",
+            std::process::id(),
+            now_ms()
+        ));
+        let _ = std::fs::remove_dir_all(&dir);
+        std::fs::create_dir_all(&dir).unwrap();
+        std::env::set_var("COCKPIT_TOOLS_TEST_DATA_DIR", &dir);
+        std::env::set_var("COCKPIT_TOOLS_DATA_DIR", &dir);
+
+        let saved = save_runtime_config(&KimiWakeupRuntimeConfig {
+            kimi_cli_path: Some("C:\\fake\\kimi.exe".into()),
+        })
+        .expect("save runtime");
+        assert_eq!(
+            saved.kimi_cli_path.as_deref(),
+            Some("C:\\fake\\kimi.exe")
+        );
+        let loaded = load_runtime_config().expect("load runtime");
+        assert_eq!(
+            loaded.kimi_cli_path.as_deref(),
+            Some("C:\\fake\\kimi.exe")
+        );
+        // Invalid configured path still surfaces via get_cli_status
+        let status = get_cli_status();
+        assert_eq!(
+            status.configured_path.as_deref(),
+            Some("C:\\fake\\kimi.exe")
+        );
+
+        std::env::remove_var("COCKPIT_TOOLS_TEST_DATA_DIR");
+        std::env::remove_var("COCKPIT_TOOLS_DATA_DIR");
+        let _ = std::fs::remove_dir_all(&dir);
+    }
+
+    #[test]
+    fn pick_preferred_cli_prefers_exe_over_cmd() {
+        let exe = PathBuf::from(r"C:\tools\kimi.exe");
+        let cmd = PathBuf::from(r"C:\tools\kimi.cmd");
+        let bat = PathBuf::from(r"C:\tools\kimi.bat");
+        let picked = pick_preferred_cli(vec![cmd.clone(), bat, exe.clone()]).unwrap();
+        assert_eq!(picked, exe);
+        assert_eq!(cli_path_rank(&cmd), 2);
+        assert_eq!(cli_path_rank(&exe), 0);
+    }
+
+    #[test]
+    fn build_cli_command_uses_cmd_wrapper_for_script_shims() {
+        let path = PathBuf::from(r"C:\Users\test\AppData\Roaming\npm\kimi.cmd");
+        let command = build_kimi_cli_command(&path, &["--version"]);
+        let program = command.get_program().to_string_lossy().to_ascii_lowercase();
+        #[cfg(windows)]
+        {
+            assert!(
+                program.contains("cmd"),
+                "script shim must go through cmd.exe, got {}",
+                program
+            );
+            let args: Vec<String> = command
+                .get_args()
+                .map(|a| a.to_string_lossy().into_owned())
+                .collect();
+            assert!(args.iter().any(|a| a == "/C"));
+            assert!(
+                args.iter().any(|a| a.contains("kimi.cmd") && a.contains("--version")),
+                "expected /C command line with path+args, got {:?}",
+                args
+            );
+        }
+        #[cfg(not(windows))]
+        {
+            assert!(program.contains("kimi.cmd") || program.ends_with("kimi.cmd"));
+        }
+    }
+
+    #[test]
+    fn build_cli_command_exe_is_direct() {
+        let path = PathBuf::from(r"C:\Program Files\kimi-code\kimi.exe");
+        let command = build_kimi_cli_command(&path, &["-m", "kimi-code/k3", "-p", "hi"]);
+        let program = command.get_program().to_string_lossy();
+        assert!(
+            program.to_ascii_lowercase().ends_with("kimi.exe"),
+            "exe should be program, got {}",
+            program
+        );
+        let args: Vec<String> = command
+            .get_args()
+            .map(|a| a.to_string_lossy().into_owned())
+            .collect();
+        assert_eq!(args, vec!["-m", "kimi-code/k3", "-p", "hi"]);
+    }
+
+    #[test]
+    fn quote_cmd_arg_wraps_spaces() {
+        assert_eq!(quote_cmd_arg("plain"), "plain");
+        assert_eq!(quote_cmd_arg(r"C:\Program Files\kimi.cmd"), r#""C:\Program Files\kimi.cmd""#);
     }
 }

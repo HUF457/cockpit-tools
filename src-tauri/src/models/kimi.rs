@@ -83,7 +83,9 @@ pub struct KimiAccount {
     pub last_used: i64,
 }
 
+/// IPC-facing account DTO (camelCase wire). Credentials always empty.
 #[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct KimiAccountView {
     pub id: String,
     pub email: String,
@@ -141,6 +143,7 @@ impl From<&KimiAccount> for KimiAccountView {
     }
 }
 
+/// On-disk index row (snake_case for stable local files) — not the IPC wire format.
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct KimiAccountSummary {
     pub id: String,

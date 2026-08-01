@@ -1,4 +1,4 @@
-//! Background tick for Kimi wakeup tasks (Codex scheduler shape, thinner).
+//! Background tick for Kimi wakeup tasks (aligned with Codex scheduler semantics).
 
 use crate::modules::{kimi_account, kimi_wakeup, logger};
 use chrono::{DateTime, Datelike, Local, TimeZone};
@@ -103,7 +103,9 @@ fn collect_quota_reset_ts(task: &kimi_wakeup::KimiWakeupTask) -> Vec<i64> {
     ts
 }
 
-fn current_due_at(task: &kimi_wakeup::KimiWakeupTask, now: DateTime<Local>) -> Option<i64> {
+/// Returns the due timestamp when the task should run now, or `None` if not due.
+/// Public for unit tests and UI next-run helpers.
+pub fn current_due_at(task: &kimi_wakeup::KimiWakeupTask, now: DateTime<Local>) -> Option<i64> {
     match task.schedule.kind.as_str() {
         "daily" => {
             let minutes = parse_time_to_minutes(task.schedule.daily_time.as_deref()?)?;
@@ -128,26 +130,50 @@ fn current_due_at(task: &kimi_wakeup::KimiWakeupTask, now: DateTime<Local>) -> O
             }
         }
         "interval" => {
-            let hours = task.schedule.interval_hours.unwrap_or(0);
-            if hours <= 0 {
-                return None;
-            }
-            let last = task.last_run_at.unwrap_or(0);
-            let due = last + (hours as i64) * 3600;
-            if last == 0 || due <= now.timestamp() {
-                Some(now.timestamp())
+            // Align with Codex: first run is created_at + interval, never "immediate on next tick".
+            let interval_seconds =
+                i64::from(task.schedule.interval_hours.unwrap_or(4).max(1)) * 3600;
+            let due_at = task.last_run_at.unwrap_or(task.created_at) + interval_seconds;
+            if due_at <= now.timestamp() {
+                Some(due_at)
             } else {
                 None
             }
         }
         "quota_reset" => {
-            let last = task.last_run_at.unwrap_or(0);
+            let last = task.last_run_at.unwrap_or(task.created_at);
             collect_quota_reset_ts(task)
                 .into_iter()
-                .find(|ts| *ts <= now.timestamp() && *ts > last)
+                .filter(|ts| *ts <= now.timestamp() && *ts > last)
+                .max()
         }
         "startup" => None, // handled once via trigger_startup_tasks_if_needed
         _ => None,
+    }
+}
+
+fn mark_running(task_id: &str) -> bool {
+    lock_or_recover(running_tasks()).insert(task_id.to_string())
+}
+
+fn unmark_running(task_id: &str) {
+    lock_or_recover(running_tasks()).remove(task_id);
+}
+
+/// Run a single task off the async runtime (blocking CLI work).
+async fn run_task_now(task_id: &str, trigger_type: &str) -> Result<(), String> {
+    if !mark_running(task_id) {
+        return Err("该任务正在执行中".to_string());
+    }
+    let id = task_id.to_string();
+    let trigger = trigger_type.to_string();
+    let result = tauri::async_runtime::spawn_blocking(move || kimi_wakeup::run_task(&id, &trigger))
+        .await;
+    unmark_running(task_id);
+    match result {
+        Ok(Ok(_)) => Ok(()),
+        Ok(Err(e)) => Err(e),
+        Err(e) => Err(format!("join 失败: {}", e)),
     }
 }
 
@@ -164,7 +190,7 @@ pub fn ensure_started(app: AppHandle) {
             if let Err(e) = tick_once().await {
                 logger::log_warn(&format!("[KimiWakeupScheduler] tick 失败: {}", e));
             }
-            let _ = &app; // keep handle alive for future event emit
+            let _ = &app;
         }
     });
 }
@@ -176,34 +202,69 @@ pub fn trigger_startup_tasks_if_needed(_app: AppHandle) {
     }
     *done = true;
     drop(done);
+
     tauri::async_runtime::spawn(async move {
+        // Brief settle delay so app + account store are ready (shared base, not per-task).
         sleep(Duration::from_secs(15)).await;
+
         let state = match kimi_wakeup::load_state() {
             Ok(s) => s,
-            Err(_) => return,
+            Err(e) => {
+                logger::log_warn(&format!(
+                    "[KimiWakeupScheduler] 读取启动任务状态失败: {}",
+                    e
+                ));
+                return;
+            }
         };
         if !state.enabled {
             return;
         }
-        for task in state.tasks.iter().filter(|t| t.enabled && t.schedule.kind == "startup") {
-            let delay = task.schedule.startup_delay_minutes.unwrap_or(0).max(0) as u64;
-            if delay > 0 {
-                sleep(Duration::from_secs(delay * 60)).await;
-            }
-            let mut running = lock_or_recover(running_tasks());
-            if !running.insert(task.id.clone()) {
-                continue;
-            }
-            drop(running);
-            let id = task.id.clone();
-            let result = kimi_wakeup::run_task(&id, "startup");
-            lock_or_recover(running_tasks()).remove(&id);
-            if let Err(e) = result {
-                logger::log_warn(&format!(
-                    "[KimiWakeupScheduler] startup 任务失败: {} {}",
-                    id, e
-                ));
-            }
+
+        let startup_tasks: Vec<(String, u64)> = state
+            .tasks
+            .into_iter()
+            .filter(|t| t.enabled && t.schedule.kind == "startup")
+            .map(|t| {
+                (
+                    t.id,
+                    t.schedule.startup_delay_minutes.unwrap_or(0).max(0) as u64 * 60,
+                )
+            })
+            .collect();
+
+        // Each startup task gets its own timer — delays do not stack.
+        for (task_id, delay_seconds) in startup_tasks {
+            tauri::async_runtime::spawn(async move {
+                if delay_seconds > 0 {
+                    sleep(Duration::from_secs(delay_seconds)).await;
+                }
+
+                let current = match kimi_wakeup::load_state() {
+                    Ok(s) => s,
+                    Err(e) => {
+                        logger::log_warn(&format!(
+                            "[KimiWakeupScheduler] 启动任务重读状态失败: {} {}",
+                            task_id, e
+                        ));
+                        return;
+                    }
+                };
+                let should_run = current.enabled
+                    && current.tasks.iter().any(|t| {
+                        t.id == task_id && t.enabled && t.schedule.kind == "startup"
+                    });
+                if !should_run {
+                    return;
+                }
+
+                if let Err(e) = run_task_now(&task_id, "startup").await {
+                    logger::log_warn(&format!(
+                        "[KimiWakeupScheduler] startup 任务失败: {} {}",
+                        task_id, e
+                    ));
+                }
+            });
         }
     });
 }
@@ -214,36 +275,128 @@ async fn tick_once() -> Result<(), String> {
         return Ok(());
     }
     let now = Local::now();
-    for task in state.tasks.iter().filter(|t| t.enabled) {
+    for task in state.tasks.into_iter().filter(|t| t.enabled) {
         if task.schedule.kind == "startup" {
             continue;
         }
-        if current_due_at(task, now).is_none() {
+        if current_due_at(&task, now).is_none() {
             continue;
         }
-        {
-            let mut running = lock_or_recover(running_tasks());
-            if !running.insert(task.id.clone()) {
-                continue;
+        let task_id = task.id.clone();
+        let trigger_type = if task.schedule.kind == "quota_reset" {
+            "quota_reset"
+        } else {
+            "scheduled"
+        }
+        .to_string();
+        // Fire-and-forget: a long CLI run must not block evaluating other due tasks.
+        tauri::async_runtime::spawn(async move {
+            if let Err(e) = run_task_now(&task_id, &trigger_type).await {
+                logger::log_warn(&format!(
+                    "[KimiWakeupScheduler] 任务失败 {}: {}",
+                    task_id, e
+                ));
             }
-        }
-        let id = task.id.clone();
-        let result = tauri::async_runtime::spawn_blocking(move || {
-            kimi_wakeup::run_task(&id, "scheduled")
-        })
-        .await;
-        lock_or_recover(running_tasks()).remove(&task.id);
-        match result {
-            Ok(Ok(_)) => {}
-            Ok(Err(e)) => logger::log_warn(&format!(
-                "[KimiWakeupScheduler] 任务失败 {}: {}",
-                task.id, e
-            )),
-            Err(e) => logger::log_warn(&format!(
-                "[KimiWakeupScheduler] join 失败 {}: {}",
-                task.id, e
-            )),
-        }
+        });
     }
     Ok(())
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::modules::kimi_wakeup::{KimiWakeupSchedule, KimiWakeupTask};
+    use chrono::TimeZone;
+
+    fn sample_task(kind: &str) -> KimiWakeupTask {
+        KimiWakeupTask {
+            id: "t1".into(),
+            name: "test".into(),
+            enabled: true,
+            account_ids: vec!["a1".into()],
+            prompt: Some("hi".into()),
+            model: None,
+            schedule: KimiWakeupSchedule {
+                kind: kind.into(),
+                daily_time: Some("08:00".into()),
+                weekly_days: vec![0, 1, 2, 3, 4, 5, 6],
+                weekly_time: Some("08:00".into()),
+                interval_hours: Some(6),
+                quota_reset_window: None,
+                startup_delay_minutes: None,
+            },
+            created_at: 1_700_000_000,
+            updated_at: 1_700_000_000,
+            last_run_at: None,
+            last_status: None,
+            last_message: None,
+            last_success_count: None,
+            last_failure_count: None,
+            last_duration_ms: None,
+        }
+    }
+
+    #[test]
+    fn interval_not_due_immediately_when_last_run_missing() {
+        let task = sample_task("interval");
+        // now = created_at + 1h → still inside first 6h window
+        let now = Local
+            .timestamp_opt(task.created_at + 3600, 0)
+            .single()
+            .expect("ts");
+        assert!(current_due_at(&task, now).is_none());
+    }
+
+    #[test]
+    fn interval_due_after_created_plus_interval() {
+        let task = sample_task("interval");
+        let now = Local
+            .timestamp_opt(task.created_at + 6 * 3600 + 1, 0)
+            .single()
+            .expect("ts");
+        let due = current_due_at(&task, now).expect("due");
+        assert_eq!(due, task.created_at + 6 * 3600);
+    }
+
+    #[test]
+    fn interval_uses_last_run_when_present() {
+        let mut task = sample_task("interval");
+        task.last_run_at = Some(task.created_at + 100);
+        let now = Local
+            .timestamp_opt(task.created_at + 100 + 6 * 3600 + 5, 0)
+            .single()
+            .expect("ts");
+        let due = current_due_at(&task, now).expect("due");
+        assert_eq!(due, task.created_at + 100 + 6 * 3600);
+    }
+
+    #[test]
+    fn interval_hours_floor_at_one() {
+        let mut task = sample_task("interval");
+        task.schedule.interval_hours = Some(0);
+        let now = Local
+            .timestamp_opt(task.created_at + 3600 + 1, 0)
+            .single()
+            .expect("ts");
+        // max(1) hour → due at created+1h
+        assert!(current_due_at(&task, now).is_some());
+    }
+
+    #[test]
+    fn daily_due_once_per_slot() {
+        let mut task = sample_task("daily");
+        task.schedule.daily_time = Some("08:00".into());
+        // Pick a local morning after 08:00
+        let now = Local.with_ymd_and_hms(2024, 6, 1, 9, 0, 0).single().unwrap();
+        assert!(current_due_at(&task, now).is_some());
+        task.last_run_at = Some(now.timestamp());
+        assert!(current_due_at(&task, now).is_none());
+    }
+
+    #[test]
+    fn startup_kind_never_due_via_tick() {
+        let task = sample_task("startup");
+        let now = Local::now();
+        assert!(current_due_at(&task, now).is_none());
+    }
 }

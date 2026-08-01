@@ -94,3 +94,116 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+/* Kimi wakeup — CLI path settings modal */
+.kimi-cli-status-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.kimi-cli-status-btn.is-ready {
+  border-color: rgba(34, 197, 94, 0.35);
+}
+
+.kimi-cli-status-btn.is-missing {
+  border-color: rgba(239, 68, 68, 0.35);
+}
+
+.kimi-cli-runtime-status {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border-color, rgba(127, 127, 127, 0.25));
+  background: var(--bg-secondary, rgba(127, 127, 127, 0.08));
+}
+
+.kimi-cli-runtime-status.is-ready {
+  border-color: rgba(34, 197, 94, 0.35);
+  background: rgba(34, 197, 94, 0.08);
+  color: #16a34a;
+}
+
+.kimi-cli-runtime-status.is-missing {
+  border-color: rgba(239, 68, 68, 0.3);
+  background: rgba(239, 68, 68, 0.08);
+  color: #ef4444;
+}
+
+.kimi-cli-runtime-status-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
+  color: var(--text-primary, inherit);
+}
+
+.kimi-cli-runtime-status-copy strong {
+  font-size: 13px;
+}
+
+.kimi-cli-runtime-status-copy span {
+  font-size: 12px;
+  color: var(--text-secondary, inherit);
+  word-break: break-all;
+}
+
+.kimi-cli-runtime-version {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  opacity: 0.85;
+}
+
+.kimi-cli-path-field {
+  display: block;
+  width: 100%;
+}
+
+.kimi-cli-path-field > span {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.kimi-cli-path-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.kimi-cli-path-row .wakeup-input {
+  width: 100%;
+  min-width: 0;
+}
+
+.kimi-cli-path-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.kimi-cli-path-actions .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+@media (min-width: 640px) {
+  .kimi-cli-path-row {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .kimi-cli-path-row .wakeup-input {
+    flex: 1 1 auto;
+  }
+
+  .kimi-cli-path-actions {
+    flex: 0 0 auto;
+  }
+}

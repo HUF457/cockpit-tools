@@ -27,7 +27,10 @@ export interface KimiQuota {
   region?: string | null;
 }
 
-/** Sanitized account DTO; credentials never cross IPC. */
+/**
+ * App-layer account model (snake_case, matches other platforms / ProviderAccountBase).
+ * IPC wire is camelCase via kimiService mappers; credentials never cross IPC.
+ */
 export interface KimiAccount {
   id: string;
   email: string;
@@ -144,42 +147,97 @@ export function hasKimiQuotaData(account: KimiAccount): boolean {
   );
 }
 
+/**
+ * Human window label: never show "300 minute(s)" for a 5h window.
+ * Prefer hours when duration is an exact multiple of 60 minutes.
+ */
+export function formatKimiWindowLabel(row: {
+  name?: string | null;
+  windowUnit?: string | null;
+  windowDuration?: number | null;
+}): string {
+  const named = row.name?.trim();
+  if (named) {
+    // API sometimes still encodes duration in the name; normalize 300 min → 5 小时
+    const normalized = named
+      .replace(/\b(\d+)\s*minutes?\b/gi, (_, n) => {
+        const mins = Number(n);
+        if (Number.isFinite(mins) && mins >= 60 && mins % 60 === 0) {
+          const h = mins / 60;
+          return h === 1 ? "1 小时" : `${h} 小时`;
+        }
+        return `${n} 分钟`;
+      })
+      .replace(/(\d+)\s*分钟/g, (_, n) => {
+        const mins = Number(n);
+        if (Number.isFinite(mins) && mins >= 60 && mins % 60 === 0) {
+          const h = mins / 60;
+          return h === 1 ? "1 小时" : `${h} 小时`;
+        }
+        return `${n} 分钟`;
+      });
+    return normalized;
+  }
+
+  const duration = finite(row.windowDuration);
+  if (duration == null || duration <= 0) return "窗口额度";
+
+  const unit = (row.windowUnit || "").toLowerCase();
+  if (
+    unit.includes("minute") ||
+    unit === "time_unit_minute" ||
+    unit === "min" ||
+    unit === "m"
+  ) {
+    if (duration >= 60 && duration % 60 === 0) {
+      const hours = duration / 60;
+      return hours === 1 ? "1 小时" : `${hours} 小时`;
+    }
+    return `${Math.round(duration)} 分钟`;
+  }
+  if (unit.includes("hour") || unit === "time_unit_hour" || unit === "h") {
+    return duration === 1 ? "1 小时" : `${Math.round(duration)} 小时`;
+  }
+  if (unit.includes("day") || unit === "time_unit_day") {
+    return duration === 1 ? "1 天" : `${Math.round(duration)} 天`;
+  }
+  if (unit.includes("week") || unit === "time_unit_week") {
+    return duration === 1 ? "1 周" : `${Math.round(duration)} 周`;
+  }
+  return `${Math.round(duration)} ${row.windowUnit || ""}`.trim();
+}
+
+/** Sort key: shorter rolling windows first (5h before weekly). */
+function windowSortKey(row: {
+  windowUnit?: string | null;
+  windowDuration?: number | null;
+}): number {
+  const duration = finite(row.windowDuration) ?? 0;
+  const unit = (row.windowUnit || "").toLowerCase();
+  let minutes = duration;
+  if (unit.includes("hour")) minutes = duration * 60;
+  else if (unit.includes("day")) minutes = duration * 60 * 24;
+  else if (unit.includes("week")) minutes = duration * 60 * 24 * 7;
+  else if (!unit.includes("minute") && !unit) minutes = duration;
+  return minutes > 0 ? minutes : Number.MAX_SAFE_INTEGER;
+}
+
 export function getKimiQuotaGroups(account: KimiAccount): QuotaCategoryGroup[] {
   const q = account.quota;
   if (!q) return [];
   const groups: QuotaCategoryGroup[] = [];
-  const weeklyUsed = finite(q.weeklyUsed) ?? 0;
-  const weeklyLimit = finite(q.weeklyLimit);
-  const weeklyReset = q.weeklyResetAt
-    ? normalizeTimestamp(q.weeklyResetAt)
-    : null;
-  const weeklyResetMs = weeklyReset == null ? null : weeklyReset * 1000;
 
-  if (weeklyLimit != null && weeklyLimit > 0) {
-    groups.push(
-      group("base", "Weekly", [
-        amountResource(
-          "kimi-weekly",
-          "Weekly",
-          weeklyUsed,
-          weeklyLimit,
-          weeklyResetMs,
-        ),
-      ]),
-    );
-  }
-
+  // 1) Rolling windows first (e.g. 5 小时), shorter duration first
   const limitItems: OfficialQuotaResource[] = [];
-  for (const [index, row] of (q.limits || []).entries()) {
+  const rows = [...(q.limits || [])].sort(
+    (a, b) => windowSortKey(a) - windowSortKey(b),
+  );
+  for (const [index, row] of rows.entries()) {
     const limit = finite(row.limit);
     if (limit == null || limit <= 0) continue;
     const used = finite(row.used) ?? 0;
     const reset = row.resetAt ? normalizeTimestamp(row.resetAt) : null;
-    const label =
-      row.name?.trim() ||
-      (row.windowUnit
-        ? `${row.windowDuration ?? ""} ${row.windowUnit}`.trim()
-        : `Limit ${index + 1}`);
+    const label = formatKimiWindowLabel(row);
     limitItems.push(
       amountResource(
         `kimi-limit-${index}`,
@@ -191,8 +249,31 @@ export function getKimiQuotaGroups(account: KimiAccount): QuotaCategoryGroup[] {
     );
   }
   if (limitItems.length > 0) {
-    groups.push(group("extra", "Windows", limitItems));
+    groups.push(group("base", "Windows", limitItems));
   }
+
+  // 2) Weekly quota below
+  const weeklyUsed = finite(q.weeklyUsed) ?? 0;
+  const weeklyLimit = finite(q.weeklyLimit);
+  const weeklyReset = q.weeklyResetAt
+    ? normalizeTimestamp(q.weeklyResetAt)
+    : null;
+  const weeklyResetMs = weeklyReset == null ? null : weeklyReset * 1000;
+
+  if (weeklyLimit != null && weeklyLimit > 0) {
+    groups.push(
+      group("extra", "Weekly", [
+        amountResource(
+          "kimi-weekly",
+          "Weekly",
+          weeklyUsed,
+          weeklyLimit,
+          weeklyResetMs,
+        ),
+      ]),
+    );
+  }
+
   return groups.filter((g) => g.visible);
 }
 
@@ -208,6 +289,7 @@ export interface KimiQuotaSummaryItem {
 export function getKimiQuotaSummaryItems(
   account: KimiAccount,
 ): KimiQuotaSummaryItem[] {
+  // Preserve group order: windows (base) then weekly (extra)
   return getKimiQuotaGroups(account).flatMap((g) =>
     g.items.map((item) => ({
       key: item.packageCode || g.key,

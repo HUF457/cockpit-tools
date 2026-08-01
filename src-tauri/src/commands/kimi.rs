@@ -2,8 +2,8 @@ use crate::models::kimi::{KimiAccountView, KimiOAuthStartResponse};
 use crate::modules::{
     kimi_account, kimi_oauth, kimi_wakeup,
     kimi_wakeup::{
-        KimiCliStatus, KimiWakeupBatchResult, KimiWakeupHistoryItem, KimiWakeupOverview,
-        KimiWakeupRuntimeConfig, KimiWakeupState,
+        KimiCliStatus, KimiWakeupBatchResult, KimiWakeupHistoryItem, KimiWakeupModelInfo,
+        KimiWakeupOverview, KimiWakeupRuntimeConfig, KimiWakeupState,
     },
     logger,
 };
@@ -142,8 +142,19 @@ pub fn get_kimi_accounts_index_path() -> Result<String, String> {
 // --- Kimi wakeup (Codex-shaped) ---
 
 #[tauri::command]
+pub fn kimi_wakeup_list_models() -> Vec<KimiWakeupModelInfo> {
+    kimi_wakeup::builtin_models()
+}
+
+#[tauri::command]
 pub fn kimi_wakeup_get_cli_status() -> KimiCliStatus {
     kimi_wakeup::get_cli_status()
+}
+
+/// Auto-detect Kimi CLI on PATH / known install dirs (ignores saved custom path).
+#[tauri::command]
+pub fn kimi_wakeup_detect_cli() -> KimiCliStatus {
+    kimi_wakeup::detect_cli_on_system()
 }
 
 #[tauri::command]

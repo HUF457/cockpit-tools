@@ -146,18 +146,21 @@ export function KimiAccountsPage() {
                 Math.min(100, 100 - usedPercent),
               );
               const quotaClass = getKimiQuotaClass(usedPercent);
-              const amountText = formatKimiQuotaUsedTotal(item.used, item.total);
+              // Primary display = remaining percent with "%", matching Claude/Codex.
+              // Absolute used/total only in tooltip (not bare "54 / 100" as main number).
+              const percentText = `${remainingPercent}%`;
               const remainingLabel = t(
                 "common.shared.quota.leftPercent",
                 "{{value}}% left",
                 { value: remainingPercent },
               );
+              const amountText = formatKimiQuotaUsedTotal(item.used, item.total);
               const resetText = formatKimiQuotaResetTime(item.resetAtMs);
               const resetDisplay = resetText || "-";
               const titleParts = [
                 item.label,
-                amountText || null,
                 remainingLabel,
+                amountText || null,
                 resetText
                   ? t("kimi.quota.resetAt", "{{label}} 重置：{{time}}", {
                       label: item.label,
@@ -177,15 +180,7 @@ export function KimiAccountsPage() {
                     <div className="quota-header">
                       <CalendarDays size={14} />
                       <span className="quota-label">{item.label}</span>
-                      <span className={`quota-pct ${quotaClass}`}>
-                        {amountText ? (
-                          <>
-                            <span className="kimi-quota-amount">{amountText}</span>
-                            <span className="kimi-quota-pct-sep">·</span>
-                          </>
-                        ) : null}
-                        {remainingLabel}
-                      </span>
+                      <span className={`quota-pct ${quotaClass}`}>{percentText}</span>
                     </div>
                     <div className="quota-bar-track">
                       <div
@@ -206,15 +201,7 @@ export function KimiAccountsPage() {
                 >
                   <div className="quota-header">
                     <span className="quota-name">{item.label}</span>
-                    <span className={`quota-value ${quotaClass}`}>
-                      {amountText ? (
-                        <>
-                          <span className="kimi-quota-amount">{amountText}</span>
-                          <span className="kimi-quota-pct-sep">·</span>
-                        </>
-                      ) : null}
-                      {remainingLabel}
-                    </span>
+                    <span className={`quota-value ${quotaClass}`}>{percentText}</span>
                   </div>
                   <div className="quota-progress-track">
                     <div

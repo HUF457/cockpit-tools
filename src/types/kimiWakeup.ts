@@ -90,7 +90,34 @@ export interface KimiWakeupRuntimeConfig {
 }
 
 export const DEFAULT_KIMI_WAKEUP_PROMPT = 'hi';
-export const DEFAULT_KIMI_WAKEUP_MODEL = 'kimi-for-coding';
+/** Official alias used by `kimi -m` / config.toml default_model. */
+export const DEFAULT_KIMI_WAKEUP_MODEL = 'kimi-code/kimi-for-coding';
+
+/** Official built-in models from Kimi Code docs (config-files.md). */
+export const KIMI_BUILTIN_MODELS: Array<{
+  id: string;
+  displayName: string;
+  model: string;
+}> = [
+  { id: 'kimi-code/k3', displayName: 'K3', model: 'k3' },
+  {
+    id: 'kimi-code/kimi-for-coding',
+    displayName: 'Kimi for Coding',
+    model: 'kimi-for-coding',
+  },
+  {
+    id: 'kimi-code/kimi-for-coding-highspeed',
+    displayName: 'Kimi for Coding Highspeed',
+    model: 'kimi-for-coding-highspeed',
+  },
+];
+
+export function normalizeKimiModelId(raw?: string | null): string {
+  const trimmed = (raw || '').trim();
+  if (!trimmed) return DEFAULT_KIMI_WAKEUP_MODEL;
+  if (trimmed.includes('/')) return trimmed;
+  return `kimi-code/${trimmed}`;
+}
 
 export function createEmptyKimiWakeupTask(
   partial?: Partial<KimiWakeupTask>,
@@ -102,7 +129,7 @@ export function createEmptyKimiWakeupTask(
     enabled: partial?.enabled ?? true,
     account_ids: partial?.account_ids || [],
     prompt: partial?.prompt ?? DEFAULT_KIMI_WAKEUP_PROMPT,
-    model: partial?.model ?? DEFAULT_KIMI_WAKEUP_MODEL,
+    model: normalizeKimiModelId(partial?.model ?? DEFAULT_KIMI_WAKEUP_MODEL),
     schedule: partial?.schedule || {
       kind: 'daily',
       daily_time: '08:00',
