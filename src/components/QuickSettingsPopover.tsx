@@ -72,6 +72,7 @@ interface GeneralConfig {
   kiro_auto_refresh_minutes: number;
   cursor_auto_refresh_minutes: number;
   grok_auto_refresh_minutes: number;
+  kimi_auto_refresh_minutes: number;
   grok_sync_official_auth_on_switch: boolean;
   codebuddy_auto_refresh_minutes: number;
   codebuddy_cn_auto_refresh_minutes: number;
@@ -965,7 +966,7 @@ export function QuickSettingsPopover({ type }: QuickSettingsPopoverProps) {
       case 'kiro': return 'kiro_auto_refresh_minutes';
       case 'cursor': return 'cursor_auto_refresh_minutes';
       case 'grok': return 'grok_auto_refresh_minutes';
-      case 'kimi': return 'grok_auto_refresh_minutes';
+      case 'kimi': return 'kimi_auto_refresh_minutes';
       case 'codebuddy': return 'codebuddy_auto_refresh_minutes';
       case 'codebuddy_cn': return 'codebuddy_cn_auto_refresh_minutes';
       case 'qoder': return 'qoder_auto_refresh_minutes';
@@ -1135,7 +1136,7 @@ export function QuickSettingsPopover({ type }: QuickSettingsPopoverProps) {
         case 'grok':
           return 'Grok CLI';
         case 'kimi':
-          return 'Grok CLI';
+          return 'Kimi Code';
         case 'codebuddy':
           return 'CodeBuddy';
         case 'codebuddy_cn':
@@ -1214,7 +1215,9 @@ export function QuickSettingsPopover({ type }: QuickSettingsPopoverProps) {
       case 'grok':
         return 'grok_quota_alert_enabled';
       case 'kimi':
-        return 'grok_quota_alert_enabled';
+        // Kimi has no independent quota-alert config yet; hide via caller when type=kimi.
+        // Never bind to Grok's field.
+        return 'quota_alert_enabled';
       case 'codebuddy':
         return 'codebuddy_quota_alert_enabled';
       case 'codebuddy_cn':
@@ -1255,7 +1258,7 @@ export function QuickSettingsPopover({ type }: QuickSettingsPopoverProps) {
       case 'grok':
         return 'grok_quota_alert_threshold';
       case 'kimi':
-        return 'grok_quota_alert_threshold';
+        return 'quota_alert_threshold';
       case 'codebuddy':
         return 'codebuddy_quota_alert_threshold';
       case 'codebuddy_cn':
@@ -1387,7 +1390,7 @@ export function QuickSettingsPopover({ type }: QuickSettingsPopoverProps) {
       case 'grok':
         return t('quickSettings.grok.appPath', 'Grok CLI 路径');
       case 'kimi':
-        return t('quickSettings.grok.appPath', 'Grok CLI 路径');
+        return t('quickSettings.kimi.appPath', 'Kimi Code 路径');
       case 'codebuddy':
         return t('quickSettings.codebuddy.appPath', 'CodeBuddy 路径');
       case 'codebuddy_cn':
@@ -3464,7 +3467,7 @@ export function QuickSettingsPopover({ type }: QuickSettingsPopoverProps) {
               </div>
             )}
 
-            {type !== 'antigravity' && type !== 'zcode' && (
+            {type !== 'antigravity' && type !== 'zcode' && type !== 'kimi' && (
               <div className="qs-section qs-section--highlight">
                 <div className="qs-section-header">
                   <Zap size={15} />

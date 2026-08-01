@@ -55,6 +55,8 @@ pub mod grok_instance;
 pub mod grok_oauth;
 pub mod kimi_account;
 pub mod kimi_oauth;
+pub mod kimi_wakeup;
+pub mod kimi_wakeup_scheduler;
 pub mod group_settings;
 pub mod hermes_auth;
 pub mod i18n;

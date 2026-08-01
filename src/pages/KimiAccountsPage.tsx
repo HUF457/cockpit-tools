@@ -1,9 +1,11 @@
 import { useCallback, useEffect, useState } from "react";
+import { CalendarDays, CircleAlert, KeyRound } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import {
   CodebuddySuiteAccountsSharedView,
   type CodebuddySuiteAccountsPlatformConfig,
 } from "../components/codebuddy-suite/CodebuddySuiteAccountsSharedView";
+import { KimiWakeupContent } from "../components/kimi/KimiWakeupContent";
 import {
   PlatformOverviewTabsHeader,
   type PlatformOverviewTab,
@@ -12,9 +14,13 @@ import { useProviderAccountsPage } from "../hooks/useProviderAccountsPage";
 import * as kimiService from "../services/kimiService";
 import { useKimiAccountStore } from "../stores/useKimiAccountStore";
 import {
+  formatKimiQuotaResetTime,
+  formatKimiQuotaUsedTotal,
   getKimiAccountDisplayEmail,
   getKimiPlanBadge,
+  getKimiQuotaClass,
   getKimiQuotaGroups,
+  getKimiQuotaSummaryItems,
   getKimiUsage,
   hasKimiQuotaData,
   type KimiAccount,
@@ -103,6 +109,153 @@ export function KimiAccountsPage() {
     [page.openAddModal],
   );
 
+  // Claude / Grok flat quota bars — same structure as renderGrokQuotaSection
+  const renderKimiQuotaSection = useCallback(
+    (account: KimiAccount, variant: "card" | "table") => {
+      const items = getKimiQuotaSummaryItems(account);
+      const reauthorizationReason = getKimiReauthorizationReason(account);
+      const errorMessage = account.quota_query_last_error?.trim() || "";
+      const showError = !!errorMessage && items.length === 0;
+
+      return (
+        <div className={`kimi-quota-summary ${variant}`}>
+          {reauthorizationReason && (
+            <div
+              className={`quota-error-inline ${variant === "table" ? "table" : ""}`}
+            >
+              <CircleAlert size={14} />
+              <span title={reauthorizationReason}>{reauthorizationReason}</span>
+              <button
+                type="button"
+                className="btn btn-sm btn-outline quota-error-action"
+                onClick={() => handleReauthorize(account)}
+              >
+                <KeyRound size={12} />
+                {t("common.reauthorize", "重新授权")}
+              </button>
+            </div>
+          )}
+          <div className="kimi-quota-items">
+            {items.map((item) => {
+              const usedPercent = Math.max(
+                0,
+                Math.min(100, Math.round(item.percentage)),
+              );
+              const remainingPercent = Math.max(
+                0,
+                Math.min(100, 100 - usedPercent),
+              );
+              const quotaClass = getKimiQuotaClass(usedPercent);
+              const amountText = formatKimiQuotaUsedTotal(item.used, item.total);
+              const remainingLabel = t(
+                "common.shared.quota.leftPercent",
+                "{{value}}% left",
+                { value: remainingPercent },
+              );
+              const resetText = formatKimiQuotaResetTime(item.resetAtMs);
+              const resetDisplay = resetText || "-";
+              const titleParts = [
+                item.label,
+                amountText || null,
+                remainingLabel,
+                resetText
+                  ? t("kimi.quota.resetAt", "{{label}} 重置：{{time}}", {
+                      label: item.label,
+                      time: resetText,
+                    })
+                  : null,
+              ].filter(Boolean);
+              const title = titleParts.join(" · ");
+
+              if (variant === "card") {
+                return (
+                  <div
+                    className="quota-item"
+                    key={`${account.id}-${item.key}`}
+                    title={title}
+                  >
+                    <div className="quota-header">
+                      <CalendarDays size={14} />
+                      <span className="quota-label">{item.label}</span>
+                      <span className={`quota-pct ${quotaClass}`}>
+                        {amountText ? (
+                          <>
+                            <span className="kimi-quota-amount">{amountText}</span>
+                            <span className="kimi-quota-pct-sep">·</span>
+                          </>
+                        ) : null}
+                        {remainingLabel}
+                      </span>
+                    </div>
+                    <div className="quota-bar-track">
+                      <div
+                        className={`quota-bar ${quotaClass}`}
+                        style={{ width: `${remainingPercent}%` }}
+                      />
+                    </div>
+                    <span className="quota-reset">{resetDisplay}</span>
+                  </div>
+                );
+              }
+
+              return (
+                <div
+                  className="quota-item"
+                  key={`${account.id}-${item.key}`}
+                  title={title}
+                >
+                  <div className="quota-header">
+                    <span className="quota-name">{item.label}</span>
+                    <span className={`quota-value ${quotaClass}`}>
+                      {amountText ? (
+                        <>
+                          <span className="kimi-quota-amount">{amountText}</span>
+                          <span className="kimi-quota-pct-sep">·</span>
+                        </>
+                      ) : null}
+                      {remainingLabel}
+                    </span>
+                  </div>
+                  <div className="quota-progress-track">
+                    <div
+                      className={`quota-progress-bar ${quotaClass}`}
+                      style={{ width: `${remainingPercent}%` }}
+                    />
+                  </div>
+                  <div className="quota-footer">
+                    <span className="quota-reset">{resetDisplay}</span>
+                  </div>
+                </div>
+              );
+            })}
+            {items.length === 0 && !showError && (
+              <div
+                className={variant === "card" ? "quota-empty" : ""}
+                style={
+                  variant === "table"
+                    ? { color: "var(--text-muted)", fontSize: 13 }
+                    : undefined
+                }
+              >
+                {t("kimi.quota.empty", "暂无额度")}
+              </div>
+            )}
+            {errorMessage && (
+              <div
+                className={`quota-error-inline ${variant === "table" ? "table" : ""}`}
+                title={errorMessage}
+              >
+                <CircleAlert size={variant === "table" ? 12 : 14} />
+                <span>{errorMessage}</span>
+              </div>
+            )}
+          </div>
+        </div>
+      );
+    },
+    [handleReauthorize, t],
+  );
+
   const platformConfig: CodebuddySuiteAccountsPlatformConfig<KimiAccount> = {
     pageClassName: "kimi-accounts-page",
     searchPlaceholderKey: "kimi.search",
@@ -189,6 +342,7 @@ export function KimiAccountsPage() {
     getReauthorizationReason: getKimiReauthorizationReason,
     reauthorizingAccount: reauthTargetAccount,
     onReauthorize: handleReauthorize,
+    renderQuotaSection: renderKimiQuotaSection,
   };
 
   return (
@@ -197,14 +351,24 @@ export function KimiAccountsPage() {
         platform="kimi"
         active={activeTab}
         onTabChange={setActiveTab}
+        tabs={["overview", "wakeup"]}
       />
-      <CodebuddySuiteAccountsSharedView
-        accounts={store.accounts}
-        loading={store.loading}
-        page={page}
-        platformConfig={platformConfig}
-        onRefreshAccounts={() => void store.fetchAccounts()}
-      />
+      {activeTab === "wakeup" ? (
+        <KimiWakeupContent
+          accounts={store.accounts}
+          onRefreshAccounts={async () => {
+            await store.fetchAccounts();
+          }}
+        />
+      ) : (
+        <CodebuddySuiteAccountsSharedView
+          accounts={store.accounts}
+          loading={store.loading}
+          page={page}
+          platformConfig={platformConfig}
+          onRefreshAccounts={() => void store.fetchAccounts()}
+        />
+      )}
     </div>
   );
 }

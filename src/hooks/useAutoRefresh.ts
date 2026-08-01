@@ -68,6 +68,7 @@ interface GeneralConfig {
   kiro_auto_refresh_minutes: number;
   cursor_auto_refresh_minutes: number;
   grok_auto_refresh_minutes: number;
+  kimi_auto_refresh_minutes: number;
   codebuddy_auto_refresh_minutes: number;
   codebuddy_cn_auto_refresh_minutes: number;
   workbuddy_auto_refresh_minutes: number;
@@ -620,7 +621,7 @@ export function useAutoRefresh() {
             {
               key: 'kimi',
               label: 'Kimi Code',
-              intervalMinutes: config.grok_auto_refresh_minutes,
+              intervalMinutes: config.kimi_auto_refresh_minutes,
               currentMinutes: resolveCurrentMinutes('kimi', currentAccountEmails.kimi, currentRefreshMinutesMap),
               fullRefreshingRef: kimiRefreshingRef,
               currentRefreshingRef: kimiCurrentRefreshingRef,

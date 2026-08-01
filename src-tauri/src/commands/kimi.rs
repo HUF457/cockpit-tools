@@ -1,5 +1,12 @@
 use crate::models::kimi::{KimiAccountView, KimiOAuthStartResponse};
-use crate::modules::{kimi_account, kimi_oauth, logger};
+use crate::modules::{
+    kimi_account, kimi_oauth, kimi_wakeup,
+    kimi_wakeup::{
+        KimiCliStatus, KimiWakeupBatchResult, KimiWakeupHistoryItem, KimiWakeupOverview,
+        KimiWakeupRuntimeConfig, KimiWakeupState,
+    },
+    logger,
+};
 use tauri::AppHandle;
 
 #[tauri::command]
@@ -130,4 +137,69 @@ pub fn get_kimi_current_account_id() -> Result<Option<String>, String> {
 #[tauri::command]
 pub fn get_kimi_accounts_index_path() -> Result<String, String> {
     kimi_account::accounts_index_path_string()
+}
+
+// --- Kimi wakeup (Codex-shaped) ---
+
+#[tauri::command]
+pub fn kimi_wakeup_get_cli_status() -> KimiCliStatus {
+    kimi_wakeup::get_cli_status()
+}
+
+#[tauri::command]
+pub fn kimi_wakeup_update_runtime_config(
+    config: KimiWakeupRuntimeConfig,
+) -> Result<KimiWakeupRuntimeConfig, String> {
+    kimi_wakeup::save_runtime_config(&config)
+}
+
+#[tauri::command]
+pub fn kimi_wakeup_get_overview() -> Result<KimiWakeupOverview, String> {
+    kimi_wakeup::load_overview()
+}
+
+#[tauri::command]
+pub fn kimi_wakeup_get_state() -> Result<KimiWakeupState, String> {
+    kimi_wakeup::load_state()
+}
+
+#[tauri::command]
+pub fn kimi_wakeup_save_state(state: KimiWakeupState) -> Result<KimiWakeupState, String> {
+    kimi_wakeup::save_state(&state)
+}
+
+#[tauri::command]
+pub fn kimi_wakeup_load_history() -> Result<Vec<KimiWakeupHistoryItem>, String> {
+    kimi_wakeup::load_history()
+}
+
+#[tauri::command]
+pub fn kimi_wakeup_clear_history() -> Result<(), String> {
+    kimi_wakeup::clear_history()
+}
+
+#[tauri::command]
+pub fn kimi_wakeup_test(
+    account_ids: Vec<String>,
+    prompt: Option<String>,
+    model: Option<String>,
+) -> Result<KimiWakeupBatchResult, String> {
+    kimi_wakeup::run_batch(
+        &account_ids,
+        prompt.as_deref(),
+        model.as_deref(),
+        "test",
+        None,
+        Some("manual-test"),
+    )
+}
+
+#[tauri::command]
+pub fn kimi_wakeup_run_task(task_id: String) -> Result<KimiWakeupBatchResult, String> {
+    kimi_wakeup::run_task(&task_id, "manual")
+}
+
+#[tauri::command]
+pub fn kimi_wakeup_run_enabled_tasks() -> Result<Vec<KimiWakeupBatchResult>, String> {
+    kimi_wakeup::run_enabled_tasks("manual")
 }

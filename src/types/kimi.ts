@@ -220,8 +220,15 @@ export function getKimiQuotaSummaryItems(
   );
 }
 
-export function getKimiQuotaClass(usedPercent: number): string {
-  return quotaClass(100 - usedPercent);
+/** Color class from used% (higher used → more critical), matching Grok/Claude. */
+export function getKimiQuotaClass(
+  usedPercent: number | null | undefined,
+): "high" | "medium" | "low" | "critical" {
+  if (usedPercent == null || !Number.isFinite(usedPercent)) return "high";
+  if (usedPercent >= 90) return "critical";
+  if (usedPercent >= 70) return "low";
+  if (usedPercent >= 40) return "medium";
+  return "high";
 }
 
 export function formatKimiQuotaUsedTotal(
@@ -232,6 +239,17 @@ export function formatKimiQuotaUsedTotal(
   const t = finite(total);
   if (u == null || t == null) return null;
   return `${Math.round(u)} / ${Math.round(t)}`;
+}
+
+export function formatKimiQuotaResetTime(
+  value: number | null | undefined,
+): string {
+  if (value == null || !Number.isFinite(value) || value <= 0) return "";
+  try {
+    return new Date(value).toLocaleString();
+  } catch {
+    return "";
+  }
 }
 
 export function getKimiUsage(account: KimiAccount): CodebuddyUsage {

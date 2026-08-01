@@ -1,0 +1,96 @@
+/* Claude/Grok-style flat quota bars on Kimi Code account overview */
+
+.kimi-accounts-page .kimi-quota-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.kimi-accounts-page .kimi-quota-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.kimi-accounts-page .kimi-quota-summary.card .quota-item {
+  gap: 6px;
+}
+
+.kimi-accounts-page .kimi-quota-summary.card .quota-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.kimi-accounts-page .kimi-quota-summary.card .quota-label {
+  min-width: 0;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.kimi-accounts-page .kimi-quota-summary.card .quota-pct,
+.kimi-accounts-page .kimi-quota-summary.table .quota-value {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  flex: 0 0 auto;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.kimi-accounts-page .kimi-quota-amount {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+.kimi-accounts-page .kimi-quota-pct-sep {
+  opacity: 0.55;
+  font-weight: 500;
+}
+
+.kimi-accounts-page .kimi-quota-summary.card .quota-reset {
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1.3;
+}
+
+.kimi-accounts-page .kimi-quota-summary.table .quota-item {
+  gap: 4px;
+  margin-bottom: 6px;
+}
+
+.kimi-accounts-page .kimi-table-usage {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  width: 100%;
+}
+
+.kimi-accounts-page .quota-error-inline {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  color: var(--danger);
+  font-size: 12px;
+}
+
+.kimi-accounts-page .quota-error-inline.table {
+  font-size: 11px;
+}
+
+.kimi-accounts-page .quota-error-inline span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

@@ -47,8 +47,34 @@ fn index_path() -> Result<PathBuf, String> {
     Ok(data_dir()?.join(INDEX_FILE))
 }
 
+/// Same rules as Grok/CodeBuddy: block path traversal in account file names.
+fn normalize_account_id(account_id: &str) -> Result<String, String> {
+    let trimmed = account_id.trim();
+    if trimmed.is_empty() {
+        return Err("账号 ID 不能为空".to_string());
+    }
+    if trimmed.contains('/') || trimmed.contains('\\') || trimmed.contains("..") {
+        return Err("账号 ID 非法，包含路径字符".to_string());
+    }
+    let valid = trimmed
+        .chars()
+        .all(|ch| ch.is_ascii_alphanumeric() || matches!(ch, '_' | '-' | '.'));
+    if !valid {
+        return Err("账号 ID 非法，仅允许字母/数字/._-".to_string());
+    }
+    Ok(trimmed.to_string())
+}
+
 fn account_path(account_id: &str) -> Result<PathBuf, String> {
-    Ok(accounts_dir()?.join(format!("{}.json", account_id)))
+    let normalized = normalize_account_id(account_id)?;
+    Ok(accounts_dir()?.join(format!("{}.json", normalized)))
+}
+
+fn ensure_safe_account_id(raw: &str) -> String {
+    match normalize_account_id(raw) {
+        Ok(id) => id,
+        Err(_) => format!("kimi-{}", Uuid::new_v4()),
+    }
 }
 
 pub fn default_kimi_home() -> Result<PathBuf, String> {
@@ -91,15 +117,44 @@ fn save_index(index: &KimiAccountIndex) -> Result<(), String> {
 
 pub fn load_account(account_id: &str) -> Option<KimiAccount> {
     let path = account_path(account_id).ok()?;
-    let content = std::fs::read_to_string(path).ok()?;
-    serde_json::from_str(&content).ok()
+    if !path.exists() {
+        return None;
+    }
+    let content = std::fs::read_to_string(&path).ok()?;
+    match crate::modules::secure_account_storage::deserialize_account_file::<KimiAccount>(
+        &path, &content,
+    ) {
+        Ok((account, needs_rotation)) => {
+            if needs_rotation {
+                let account_for_rewrite = account.clone();
+                crate::modules::deferred_account_rewrite::schedule_account_rewrite_if_unchanged(
+                    "kimi",
+                    account_for_rewrite.id.clone(),
+                    path.clone(),
+                    content.as_bytes(),
+                    move || {
+                        crate::modules::secure_account_storage::serialize_account_file(
+                            "kimi",
+                            &account_for_rewrite,
+                        )
+                    },
+                );
+            }
+            Some(account)
+        }
+        Err(_) => None,
+    }
 }
 
 fn save_account(account: &KimiAccount) -> Result<(), String> {
+    let safe_id = ensure_safe_account_id(&account.id);
+    let mut account = account.clone();
+    account.id = safe_id;
     let path = account_path(&account.id)?;
-    let content = serde_json::to_string_pretty(account)
-        .map_err(|error| format!("序列化 Kimi 账号失败: {}", error))?;
-    atomic_write::write_string_atomic(&path, &content)?;
+    let content =
+        crate::modules::secure_account_storage::serialize_account_file("kimi", &account)?;
+    atomic_write::write_string_atomic(&path, &content)
+        .map_err(|error| format!("保存 Kimi 账号失败: {}", error))?;
 
     let mut index = load_index()?;
     if let Some(existing) = index
@@ -466,9 +521,11 @@ pub fn import_from_json(content: &str) -> Result<Vec<KimiAccountView>, String> {
                 if account.access_token.trim().is_empty() {
                     continue;
                 }
-                if account.id.trim().is_empty() {
-                    account.id = format!("kimi-{}", Uuid::new_v4());
-                }
+                account.id = if account.id.trim().is_empty() {
+                    format!("kimi-{}", Uuid::new_v4())
+                } else {
+                    ensure_safe_account_id(&account.id)
+                };
                 let saved = upsert_account(account)?;
                 imported.push(KimiAccountView::from(&saved));
             } else if let Ok(account) = parse_official_credentials(item) {
@@ -480,9 +537,11 @@ pub fn import_from_json(content: &str) -> Result<Vec<KimiAccountView>, String> {
         if account.access_token.trim().is_empty() {
             return Err("导入 JSON 缺少 access_token".to_string());
         }
-        if account.id.trim().is_empty() {
-            account.id = format!("kimi-{}", Uuid::new_v4());
-        }
+        account.id = if account.id.trim().is_empty() {
+            format!("kimi-{}", Uuid::new_v4())
+        } else {
+            ensure_safe_account_id(&account.id)
+        };
         let saved = upsert_account(account)?;
         imported.push(KimiAccountView::from(&saved));
     } else {
@@ -723,29 +782,54 @@ fn parse_usages(payload: &Value) -> KimiQuota {
     quota
 }
 
-async fn fetch_json(url: &str, access_token: &str) -> Result<Value, String> {
-    let client = http_client()?;
+#[derive(Debug)]
+struct FetchJsonError {
+    message: String,
+    auth_failed: bool,
+}
+
+async fn fetch_json(url: &str, access_token: &str) -> Result<Value, FetchJsonError> {
+    let client = http_client().map_err(|message| FetchJsonError {
+        message,
+        auth_failed: false,
+    })?;
     let response = client
         .get(url)
         .header(AUTHORIZATION, format!("Bearer {}", access_token))
         .header(ACCEPT, "application/json")
         .send()
         .await
-        .map_err(|error| format!("请求 {} 失败: {}", url, error))?;
+        .map_err(|error| FetchJsonError {
+            message: format!("请求 {} 失败: {}", url, error),
+            auth_failed: false,
+        })?;
     let status = response.status();
     let body = response
         .text()
         .await
-        .map_err(|error| format!("读取 {} 响应失败: {}", url, error))?;
+        .map_err(|error| FetchJsonError {
+            message: format!("读取 {} 响应失败: {}", url, error),
+            auth_failed: false,
+        })?;
     if !status.is_success() {
-        return Err(format!(
-            "{} 返回 {}: {}",
-            url,
-            status.as_u16(),
-            body.chars().take(180).collect::<String>()
-        ));
+        let auth_failed = status.as_u16() == 401
+            || status.as_u16() == 403
+            || body.to_ascii_lowercase().contains("invalid_grant")
+            || body.to_ascii_lowercase().contains("invalid_token");
+        return Err(FetchJsonError {
+            message: format!(
+                "{} 返回 {}: {}",
+                url,
+                status.as_u16(),
+                body.chars().take(180).collect::<String>()
+            ),
+            auth_failed,
+        });
     }
-    serde_json::from_str(&body).map_err(|error| format!("解析 {} 失败: {}", url, error))
+    serde_json::from_str(&body).map_err(|error| FetchJsonError {
+        message: format!("解析 {} 失败: {}", url, error),
+        auth_failed: false,
+    })
 }
 
 async fn ensure_fresh_account(mut account: KimiAccount) -> Result<KimiAccount, String> {
@@ -800,11 +884,15 @@ pub async fn refresh_account(account_id: &str) -> Result<KimiAccountView, String
             account.quota_query_last_error_at = None;
         }
         Err(error) => {
-            account.quota_query_last_error = Some(error.clone());
+            account.quota_query_last_error = Some(error.message.clone());
             account.quota_query_last_error_at = Some(now_ms());
+            if error.auth_failed {
+                account.status = Some("reauth_required".to_string());
+                account.status_reason = Some(error.message.clone());
+            }
             logger::log_warn(&format!(
                 "[Kimi Account] /me 失败: account_id={}, error={}",
-                account_id, error
+                account_id, error.message
             ));
         }
     }
@@ -831,11 +919,15 @@ pub async fn refresh_account(account_id: &str) -> Result<KimiAccountView, String
             account.quota_query_last_error_at = None;
         }
         Err(error) => {
-            account.quota_query_last_error = Some(error.clone());
+            account.quota_query_last_error = Some(error.message.clone());
             account.quota_query_last_error_at = Some(now_ms());
+            if error.auth_failed {
+                account.status = Some("reauth_required".to_string());
+                account.status_reason = Some(error.message.clone());
+            }
             logger::log_warn(&format!(
                 "[Kimi Account] /usages 失败: account_id={}, error={}",
-                account_id, error
+                account_id, error.message
             ));
         }
     }
@@ -866,14 +958,22 @@ pub async fn hydrate_profile_only(account_id: &str) -> Result<KimiAccountView, S
     let account =
         load_account(account_id).ok_or_else(|| format!("账号不存在: {}", account_id))?;
     let mut account = ensure_fresh_account(account).await?;
-    if let Ok(profile) = fetch_json(
+    match fetch_json(
         &format!("{}/me", kimi_oauth::API_BASE_URL),
         &account.access_token,
     )
     .await
     {
-        apply_profile(&mut account, &profile);
-        save_account(&account)?;
+        Ok(profile) => {
+            apply_profile(&mut account, &profile);
+            save_account(&account)?;
+        }
+        Err(error) if error.auth_failed => {
+            account.status = Some("reauth_required".to_string());
+            account.status_reason = Some(error.message);
+            save_account(&account)?;
+        }
+        Err(_) => {}
     }
     Ok(KimiAccountView::from(&account))
 }
@@ -884,4 +984,147 @@ pub fn current_account_id() -> Result<Option<String>, String> {
 
 pub fn accounts_index_path_string() -> Result<String, String> {
     Ok(index_path()?.to_string_lossy().to_string())
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use std::sync::Mutex;
+
+    static TEST_LOCK: Mutex<()> = Mutex::new(());
+
+    struct DataDirGuard {
+        dir: PathBuf,
+        previous_test: Option<String>,
+        previous_data: Option<String>,
+    }
+
+    impl DataDirGuard {
+        fn new(label: &str) -> Self {
+            let dir = std::env::temp_dir().join(format!(
+                "kimi-account-test-{}-{}-{}",
+                label,
+                std::process::id(),
+                chrono::Utc::now().timestamp_nanos_opt().unwrap_or(0)
+            ));
+            let _ = std::fs::remove_dir_all(&dir);
+            std::fs::create_dir_all(&dir).expect("temp dir");
+            let previous_test = std::env::var("COCKPIT_TOOLS_TEST_DATA_DIR").ok();
+            let previous_data = std::env::var("COCKPIT_TOOLS_DATA_DIR").ok();
+            std::env::set_var("COCKPIT_TOOLS_TEST_DATA_DIR", &dir);
+            std::env::set_var("COCKPIT_TOOLS_DATA_DIR", &dir);
+            Self {
+                dir,
+                previous_test,
+                previous_data,
+            }
+        }
+    }
+
+    impl Drop for DataDirGuard {
+        fn drop(&mut self) {
+            match self.previous_test.as_ref() {
+                Some(value) => std::env::set_var("COCKPIT_TOOLS_TEST_DATA_DIR", value),
+                None => std::env::remove_var("COCKPIT_TOOLS_TEST_DATA_DIR"),
+            }
+            match self.previous_data.as_ref() {
+                Some(value) => std::env::set_var("COCKPIT_TOOLS_DATA_DIR", value),
+                None => std::env::remove_var("COCKPIT_TOOLS_DATA_DIR"),
+            }
+            let _ = std::fs::remove_dir_all(&self.dir);
+        }
+    }
+
+    #[test]
+    fn normalize_account_id_rejects_traversal() {
+        assert!(normalize_account_id("../evil").is_err());
+        assert!(normalize_account_id("a/b").is_err());
+        assert!(normalize_account_id("ok-id_1.2").is_ok());
+    }
+
+    #[test]
+    fn export_import_roundtrip_preserves_tokens() {
+        let _guard = TEST_LOCK.lock().unwrap_or_else(|e| e.into_inner());
+        let _lock = crate::modules::test_support::env_lock()
+            .lock()
+            .unwrap_or_else(|e| e.into_inner());
+        let _dir = DataDirGuard::new("roundtrip");
+
+        let now = now_ts();
+        let account = KimiAccount {
+            id: "kimi-roundtrip-1".to_string(),
+            email: "rt@kimi.local".to_string(),
+            tags: None,
+            nickname: Some("rt".to_string()),
+            user_id: Some("u1".to_string()),
+            avatar: None,
+            access_token: "access-secret-xyz".to_string(),
+            refresh_token: Some("refresh-secret-xyz".to_string()),
+            token_type: Some("Bearer".to_string()),
+            scope: None,
+            expires_at: Some(now + 3600),
+            expires_in: Some(3600),
+            device_id: Some("dev-1".to_string()),
+            plan_type: Some("MODERATO".to_string()),
+            quota: None,
+            status: Some("active".to_string()),
+            status_reason: None,
+            quota_query_last_error: None,
+            quota_query_last_error_at: None,
+            usage_updated_at: None,
+            created_at: now,
+            last_used: now,
+        };
+        save_account(&account).expect("save");
+
+        let on_disk = std::fs::read_to_string(account_path("kimi-roundtrip-1").unwrap())
+            .expect("read detail file");
+        assert!(
+            on_disk.contains("AES-256-GCM") || !on_disk.contains("access-secret-xyz"),
+            "detail file must not store raw access token in plaintext"
+        );
+
+        let exported = export_accounts(&["kimi-roundtrip-1".to_string()]).expect("export");
+        assert!(
+            exported.contains("access-secret-xyz"),
+            "export must include full credentials"
+        );
+        assert!(exported.contains("refresh-secret-xyz"));
+
+        let views = list_accounts_checked().expect("list");
+        assert_eq!(views.len(), 1);
+        assert!(views[0].access_token.is_empty());
+
+        remove_account("kimi-roundtrip-1").expect("delete");
+        assert!(load_account("kimi-roundtrip-1").is_none());
+
+        let imported = import_from_json(&exported).expect("import");
+        assert_eq!(imported.len(), 1);
+        let restored = load_account(&imported[0].id).expect("restored");
+        assert_eq!(restored.access_token, "access-secret-xyz");
+        assert_eq!(
+            restored.refresh_token.as_deref(),
+            Some("refresh-secret-xyz")
+        );
+
+        let evil = r#"[{"id":"../escape","email":"e@kimi.local","access_token":"a","refresh_token":"r","created_at":1,"last_used":1}]"#;
+        let evil_import = import_from_json(evil).expect("evil import");
+        assert!(!evil_import[0].id.contains(".."));
+        assert!(!evil_import[0].id.contains('/'));
+    }
+
+    #[test]
+    fn provider_current_state_accepts_kimi() {
+        let _guard = TEST_LOCK.lock().unwrap_or_else(|e| e.into_inner());
+        let _lock = crate::modules::test_support::env_lock()
+            .lock()
+            .unwrap_or_else(|e| e.into_inner());
+        let _dir = DataDirGuard::new("current");
+        provider_current_state::set_current_account_id("kimi", Some("kimi-acc-1"))
+            .expect("set kimi current");
+        assert_eq!(
+            provider_current_state::get_current_account_id("kimi").expect("get kimi"),
+            Some("kimi-acc-1".to_string())
+        );
+    }
 }
