@@ -326,7 +326,8 @@
     "2faManager": "2FA 管理",
     "claude": "Claude",
     "openrouter": "OpenRouter",
-    "opencode": "OpenCode"
+    "opencode": "OpenCode",
+    "kimi": "Kimi Code"
   },
   "sponsors": {
     "pageTitle": "赞助商",
@@ -5735,5 +5736,23 @@
   "opencode": {
     "title": "OpenCode",
     "desc": "管理 OpenCode Go / Zen 档 API Key，并按档位筛选列表。密钥保存在本机应用数据目录。"
+  },
+  "kimi": {
+    "accounts": {
+      "title": "Kimi Code 账号",
+      "desc": "管理 Kimi Code CLI 多账号：OAuth 登录、本机导入、一键切号写入 ~/.kimi-code。"
+    },
+    "oauth": {
+      "tab": "OAuth",
+      "desc": "官方 device flow：浏览器授权后，切号写入 ~/.kimi-code/credentials/kimi-code.json。",
+      "success": "Kimi Code OAuth 登录成功"
+    },
+    "import": {
+      "pasteDesc": "粘贴官方 credentials/kimi-code.json，或本应用导出的完整账号 JSON。",
+      "pastePlaceholder": "粘贴 Kimi Code 账号 JSON",
+      "pasteAction": "导入 JSON",
+      "localDesc": "从默认 ~/.kimi-code/credentials/kimi-code.json 导入（尊重 KIMI_CODE_HOME）。",
+      "localClient": "从本机 Kimi Code CLI 导入"
+    }
   }
 }

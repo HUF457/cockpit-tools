@@ -9,6 +9,7 @@ import { useWindsurfAccountStore } from '../stores/useWindsurfAccountStore';
 import { useKiroAccountStore } from '../stores/useKiroAccountStore';
 import { useCursorAccountStore } from '../stores/useCursorAccountStore';
 import { useGrokAccountStore } from '../stores/useGrokAccountStore';
+import { useKimiAccountStore } from '../stores/useKimiAccountStore';
 import { useCodebuddyAccountStore } from '../stores/useCodebuddyAccountStore';
 import { useCodebuddyCnAccountStore } from '../stores/useCodebuddyCnAccountStore';
 import { useWorkbuddyAccountStore } from '../stores/useWorkbuddyAccountStore';
@@ -21,6 +22,7 @@ import { getWindsurfAccountDisplayEmail } from '../types/windsurf';
 import { getKiroAccountDisplayEmail } from '../types/kiro';
 import { getCursorAccountDisplayEmail } from '../types/cursor';
 import { getGrokAccountDisplayEmail } from '../types/grok';
+import { getKimiAccountDisplayEmail } from '../types/kimi';
 import { getClaudeAccountDisplayEmail } from '../types/claude';
 import { getCodebuddyAccountDisplayEmail } from '../types/codebuddy';
 import { getWorkbuddyAccountDisplayEmail } from '../types/workbuddy';
@@ -195,6 +197,7 @@ function getCurrentAccountEmails(): Record<CurrentAccountRefreshPlatform, string
     kiro: getProviderEmail(useKiroAccountStore, getKiroAccountDisplayEmail),
     cursor: getProviderEmail(useCursorAccountStore, getCursorAccountDisplayEmail),
     grok: getProviderEmail(useGrokAccountStore, getGrokAccountDisplayEmail),
+    kimi: getProviderEmail(useKimiAccountStore, getKimiAccountDisplayEmail),
     codebuddy: getProviderEmail(useCodebuddyAccountStore, getCodebuddyAccountDisplayEmail),
     codebuddy_cn: getProviderEmail(useCodebuddyCnAccountStore, getCodebuddyAccountDisplayEmail),
     workbuddy: getProviderEmail(useWorkbuddyAccountStore, getWorkbuddyAccountDisplayEmail),
@@ -233,6 +236,9 @@ export function useAutoRefresh() {
   const refreshAllGrokTokens = useGrokAccountStore((state) => state.refreshAllTokens);
   const fetchCurrentGrokAccountId = useGrokAccountStore((state) => state.fetchCurrentAccountId);
   const refreshGrokToken = useGrokAccountStore((state) => state.refreshToken);
+  const refreshAllKimiTokens = useKimiAccountStore((state) => state.refreshAllTokens);
+  const fetchCurrentKimiAccountId = useKimiAccountStore((state) => state.fetchCurrentAccountId);
+  const refreshKimiToken = useKimiAccountStore((state) => state.refreshToken);
   const refreshAllCodebuddyTokens = useCodebuddyAccountStore((state) => state.refreshAllTokens);
   const fetchCurrentCodebuddyAccountId = useCodebuddyAccountStore((state) => state.fetchCurrentAccountId);
   const refreshCodebuddyToken = useCodebuddyAccountStore((state) => state.refreshToken);
@@ -270,6 +276,8 @@ export function useAutoRefresh() {
   const cursorCurrentRefreshingRef = useRef(false);
   const grokRefreshingRef = useRef(false);
   const grokCurrentRefreshingRef = useRef(false);
+  const kimiRefreshingRef = useRef(false);
+  const kimiCurrentRefreshingRef = useRef(false);
   const codebuddyRefreshingRef = useRef(false);
   const codebuddyCurrentRefreshingRef = useRef(false);
   const codebuddyCnRefreshingRef = useRef(false);
@@ -607,6 +615,20 @@ export function useAutoRefresh() {
               },
               runCurrentRefresh: async () => {
                 await runProviderCurrentRefresh(fetchCurrentGrokAccountId, refreshGrokToken);
+              },
+            },
+            {
+              key: 'kimi',
+              label: 'Kimi Code',
+              intervalMinutes: config.grok_auto_refresh_minutes,
+              currentMinutes: resolveCurrentMinutes('kimi', currentAccountEmails.kimi, currentRefreshMinutesMap),
+              fullRefreshingRef: kimiRefreshingRef,
+              currentRefreshingRef: kimiCurrentRefreshingRef,
+              runFullRefresh: async () => {
+                await refreshAllKimiTokens();
+              },
+              runCurrentRefresh: async () => {
+                await runProviderCurrentRefresh(fetchCurrentKimiAccountId, refreshKimiToken);
               },
             },
             {

@@ -2622,6 +2622,7 @@ export function DashboardPage({
     kiro: stats.kiro,
     cursor: stats.cursor,
     grok: stats.grok,
+    kimi: 0,
     codebuddy: stats.codebuddy,
     codebuddy_cn: stats.codebuddy_cn,
     qoder: stats.qoder,

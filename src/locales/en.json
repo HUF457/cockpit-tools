@@ -326,7 +326,8 @@
     "2faManager": "2FA",
     "claude": "Claude",
     "openrouter": "OpenRouter",
-    "opencode": "OpenCode"
+    "opencode": "OpenCode",
+    "kimi": "Kimi Code"
   },
   "sponsors": {
     "pageTitle": "Sponsors",
@@ -5735,5 +5736,23 @@
   "opencode": {
     "title": "OpenCode",
     "desc": "Manage OpenCode Go/Zen API keys and filter by tier. Keys stay in local app data."
+  },
+  "kimi": {
+    "accounts": {
+      "title": "Kimi Code Accounts",
+      "desc": "Manage Kimi Code CLI accounts: OAuth login, local import, one-click switch into ~/.kimi-code."
+    },
+    "oauth": {
+      "tab": "OAuth",
+      "desc": "Official device flow: approve in browser, then switch writes ~/.kimi-code/credentials/kimi-code.json.",
+      "success": "Kimi Code OAuth login succeeded"
+    },
+    "import": {
+      "pasteDesc": "Paste official credentials/kimi-code.json or Cockpit export JSON.",
+      "pastePlaceholder": "Paste Kimi Code account JSON",
+      "pasteAction": "Import JSON",
+      "localDesc": "Import from ~/.kimi-code/credentials/kimi-code.json (honors KIMI_CODE_HOME).",
+      "localClient": "Import from local Kimi Code CLI"
+    }
   }
 }

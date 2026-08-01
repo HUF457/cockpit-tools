@@ -317,6 +317,7 @@ const FALLBACK_PLATFORM_SETTINGS_ORDER: Record<PlatformId, number> = {
   kiro: 7,
   cursor: 8,
   grok: 9,
+  kimi: 0,
   codebuddy: 10,
   codebuddy_cn: 11,
   qoder: 12,
@@ -500,6 +501,7 @@ export function SettingsPage() {
     { value: 'kiro', label: 'Kiro' },
     { value: 'cursor', label: 'Cursor' },
     { value: 'grok', label: 'Grok' },
+    { value: 'kimi', label: 'Kimi Code' },
     { value: 'codebuddy', label: 'CodeBuddy' },
     { value: 'codebuddy_cn', label: 'CodeBuddy CN' },
     { value: 'qoder', label: 'Qoder' },
@@ -2377,6 +2379,8 @@ export function SettingsPage() {
         return parseRefresh(cursorAutoRefresh) > 0;
       case 'grok':
         return parseRefresh(grokAutoRefresh) > 0;
+      case 'kimi':
+        return parseRefresh(grokAutoRefresh) > 0;
       case 'codebuddy':
         return parseRefresh(codebuddyAutoRefresh) > 0;
       case 'codebuddy_cn':
@@ -2532,6 +2536,8 @@ export function SettingsPage() {
       case 'cursor':
         return getProviderAccounts(useCursorAccountStore, getCursorAccountDisplayEmail);
       case 'grok':
+        return getProviderAccounts(useGrokAccountStore, getGrokAccountDisplayEmail);
+      case 'kimi':
         return getProviderAccounts(useGrokAccountStore, getGrokAccountDisplayEmail);
       case 'codebuddy':
         return getProviderAccounts(useCodebuddyAccountStore, getCodebuddyAccountDisplayEmail);
