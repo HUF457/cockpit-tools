@@ -297,7 +297,8 @@
     "apiRelay": "Trạm chuyển",
     "claude": "Claude",
     "openrouter": "OpenRouter",
-    "opencode": "OpenCode"
+    "opencode": "OpenCode",
+    "kimi": "Tài khoản Kimi Code"
   },
   "sponsors": {
     "pageTitle": "Nhà tài trợ",
@@ -1039,13 +1040,54 @@
         "retentionUnit": "ngày",
         "directoryTitle": "Thư mục sao lưu",
         "directoryDesc": "Các bản sao lưu luôn được lưu trong thư mục backups của dự án.",
-        "changeDirectory": "Đổi thư mục", "migrating": "Đang di chuyển...", "migrationConfirm": "Di chuyển bản sao hiện có từ {{oldPath}} sang {{newPath}}?\n\nHủy sẽ chỉ đổi thư mục mà không di chuyển tệp cũ.", "usageTitle": "Dung lượng sao lưu", "usageDesc": "Hiển thị dung lượng cục bộ của bản sao định kỳ và snapshot hành vi nền tảng.", "usageEmpty": "Không tìm thấy tệp sao lưu cục bộ.", "cleanupBehavior": "Dọn bản sao hành vi cũ", "behaviorCleanupConfirm": "Dọn bản sao hành vi cũ? Chỉ giữ bản mới nhất cho mỗi nền tảng và phiên bản; không xóa JSON/ZIP định kỳ.", "sources": {"scheduled": "JSON/ZIP định kỳ", "behavior": "Snapshot hành vi", "claude": "Claude", "codex": "Codex", "workbuddy": "WorkBuddy", "codebuddy": "CodeBuddy", "trae": "Trae", "other": "Khác"},
+        "changeDirectory": "Đổi thư mục",
+        "migrating": "Đang di chuyển...",
+        "migrationConfirm": "Di chuyển bản sao hiện có từ {{oldPath}} sang {{newPath}}?\n\nHủy sẽ chỉ đổi thư mục mà không di chuyển tệp cũ.",
+        "usageTitle": "Dung lượng sao lưu",
+        "usageDesc": "Hiển thị dung lượng cục bộ của bản sao định kỳ và snapshot hành vi nền tảng.",
+        "usageEmpty": "Không tìm thấy tệp sao lưu cục bộ.",
+        "cleanupBehavior": "Dọn bản sao hành vi cũ",
+        "behaviorCleanupConfirm": "Dọn bản sao hành vi cũ? Chỉ giữ bản mới nhất cho mỗi nền tảng và phiên bản; không xóa JSON/ZIP định kỳ.",
+        "sources": {
+          "scheduled": "JSON/ZIP định kỳ",
+          "behavior": "Snapshot hành vi",
+          "claude": "Claude",
+          "codex": "Codex",
+          "workbuddy": "WorkBuddy",
+          "codebuddy": "CodeBuddy",
+          "trae": "Trae",
+          "other": "Khác"
+        },
         "migrationConfirmTitle": "Đổi thư mục sao lưu",
         "migrationConfirmDesc": "Đã quét các bản sao lưu hiện có. Hãy di chuyển để giải phóng thư mục cũ hoặc chỉ đổi nơi lưu các bản sao lưu sau này.",
-        "migrationOldPath": "Thư mục cũ", "migrationNewPath": "Thư mục mới", "migrationTotalSize": "Dữ liệu cần chuyển", "migrationTotalFiles": "Tệp cần chuyển",
+        "migrationOldPath": "Thư mục cũ",
+        "migrationNewPath": "Thư mục mới",
+        "migrationTotalSize": "Dữ liệu cần chuyển",
+        "migrationTotalFiles": "Tệp cần chuyển",
         "migrationSafetyNote": "Tệp được sao chép vào vùng tạm và xác minh trước khi đổi thư mục và xóa bản sao lưu cũ.",
-        "switchOnly": "Chỉ đổi thư mục", "migrateAndSwitch": "Chuyển và đổi",
-        "migrationProgress": {"title": "Di chuyển thư mục sao lưu", "filesUnit": "tệp", "currentSource": "Nguồn hiện tại", "completedSummary": "Đã chuyển {{count}} tệp ({{size}}) và kích hoạt thư mục mới.", "switchOnlyCompleted": "Các bản sao lưu sau sẽ được lưu tại {{path}}. Bản sao lưu hiện có chưa được di chuyển.", "cleanupPartial": "Thư mục mới đã hoạt động nhưng không thể xóa các thư mục cũ sau. Hãy xóa thủ công sau:", "cancelledDesc": "Đã hủy di chuyển. Thư mục gốc không thay đổi và các tệp tạm đã được xóa.", "cancelling": "Đang hủy...", "cancelAction": "Hủy di chuyển", "finishing": "Đang hoàn tất...", "phases": {"scanning": "Đang quét bản sao lưu...", "copying": "Đang sao chép tệp...", "verifying": "Đang xác minh tệp...", "switching": "Đang đổi thư mục...", "cleaning": "Đang xóa bản sao lưu cũ...", "completed": "Di chuyển hoàn tất", "cancelled": "Đã hủy di chuyển"}},
+        "switchOnly": "Chỉ đổi thư mục",
+        "migrateAndSwitch": "Chuyển và đổi",
+        "migrationProgress": {
+          "title": "Di chuyển thư mục sao lưu",
+          "filesUnit": "tệp",
+          "currentSource": "Nguồn hiện tại",
+          "completedSummary": "Đã chuyển {{count}} tệp ({{size}}) và kích hoạt thư mục mới.",
+          "switchOnlyCompleted": "Các bản sao lưu sau sẽ được lưu tại {{path}}. Bản sao lưu hiện có chưa được di chuyển.",
+          "cleanupPartial": "Thư mục mới đã hoạt động nhưng không thể xóa các thư mục cũ sau. Hãy xóa thủ công sau:",
+          "cancelledDesc": "Đã hủy di chuyển. Thư mục gốc không thay đổi và các tệp tạm đã được xóa.",
+          "cancelling": "Đang hủy...",
+          "cancelAction": "Hủy di chuyển",
+          "finishing": "Đang hoàn tất...",
+          "phases": {
+            "scanning": "Đang quét bản sao lưu...",
+            "copying": "Đang sao chép tệp...",
+            "verifying": "Đang xác minh tệp...",
+            "switching": "Đang đổi thư mục...",
+            "cleaning": "Đang xóa bản sao lưu cũ...",
+            "completed": "Di chuyển hoàn tất",
+            "cancelled": "Đã hủy di chuyển"
+          }
+        },
         "openFolder": "Mở thư mục",
         "listTitle": "Danh sách sao lưu",
         "listDesc": "Nhập trực tiếp một bản sao lưu hoặc xóa các tệp cũ.",
@@ -1072,9 +1114,15 @@
           "cleanupFailed": "Dọn bản sao lưu hết hạn thất bại: {{error}}",
           "openFolderFailed": "Mở thư mục sao lưu thất bại: {{error}}",
           "downloadSuccess": "Đã tải bản sao lưu xuống {{path}}",
-          "downloadFailed": "Không thể tải bản sao lưu: {{error}}"
-          ,"migrating": "Đang di chuyển thư mục sao lưu...", "migrationDone": "Đã chuyển {{count}} tệp sang {{path}}", "directoryChanged": "Đã đổi thư mục sao lưu sang {{path}}", "directoryChangeFailed": "Không thể đổi thư mục sao lưu: {{error}}", "behaviorCleaning": "Đang dọn bản sao hành vi cũ...", "behaviorCleanupDone": "Đã dọn {{count}} bản sao, giải phóng {{size}}", "behaviorCleanupFailed": "Không thể dọn bản sao hành vi: {{error}}"
-          ,"scanningMigration": "Đang quét bản sao lưu cần di chuyển..."
+          "downloadFailed": "Không thể tải bản sao lưu: {{error}}",
+          "migrating": "Đang di chuyển thư mục sao lưu...",
+          "migrationDone": "Đã chuyển {{count}} tệp sang {{path}}",
+          "directoryChanged": "Đã đổi thư mục sao lưu sang {{path}}",
+          "directoryChangeFailed": "Không thể đổi thư mục sao lưu: {{error}}",
+          "behaviorCleaning": "Đang dọn bản sao hành vi cũ...",
+          "behaviorCleanupDone": "Đã dọn {{count}} bản sao, giải phóng {{size}}",
+          "behaviorCleanupFailed": "Không thể dọn bản sao hành vi: {{error}}",
+          "scanningMigration": "Đang quét bản sao lưu cần di chuyển..."
         },
         "errors": {
           "invalidRetention": "Thời gian lưu phải từ 1 đến 365 ngày"
@@ -4397,6 +4445,21 @@
       "syncOfficialAuthOnSwitch": "Đồng bộ đăng nhập chính thức",
       "syncOfficialAuthOnSwitchDesc": "Khi bật, việc chuyển tài khoản OAuth cho phiên bản mặc định sẽ ghi vào ~/.grok/auth.json chính thức. Khi tắt, một GROK_HOME riêng sẽ được dùng. API Key và các phiên bản bổ sung không ghi đè đăng nhập chính thức."
     },
+    "kimi": {
+      "title": "Cài đặt Kimi Code",
+      "cliPath": "Đường dẫn CLI",
+      "cliDetected": "Đã phát hiện: {{version}} · {{path}}",
+      "cliMissing": "Không tìm thấy Kimi CLI. Hãy nhập đường dẫn riêng.",
+      "cliPick": "Chọn Kimi CLI",
+      "cliDetect": "Tự động phát hiện Kimi CLI",
+      "homePick": "Chọn KIMI_CODE_HOME",
+      "homeDetect": "Tự động phát hiện KIMI_CODE_HOME",
+      "home": "Thư mục KIMI_CODE_HOME",
+      "homeDesc": "Ghi đè thư mục cấu hình chính thức. Biến môi trường được ưu tiên hơn trường này. Hiện tại: {{home}}",
+      "launchOnSwitch": "Mở CLI chính thức sau khi chuyển",
+      "launchOnSwitchDesc": "Khi bật, chuyển tài khoản sẽ mở terminal và chạy kimi. Khi tắt chỉ ghi cấu hình chính thức, không mở cửa sổ."
+    },
+    "kimiRefreshInterval": "Tự động làm mới hạn ngạch",
     "grokRefreshInterval": "Tự động làm mới hạn ngạch",
     "codebuddy": {
       "title": "Cài đặt CodeBuddy",
@@ -6170,5 +6233,49 @@
   "opencode": {
     "title": "OpenCode",
     "desc": "Quản lý key OpenCode Go/Zen và lọc theo tier."
+  },
+  "kimi": {
+    "search": "Tìm tài khoản Kimi Code...",
+    "flowNotice": {
+      "title": "Hướng dẫn tài khoản Kimi Code",
+      "desc": "Chỉ mục nhiều tài khoản được giữ trong Cockpit. Khi chuyển sẽ ghi thông tin đăng nhập chính thức và tạo config.toml đầy đủ, gồm bảng models, từ GET /models.",
+      "permission": "Phạm vi cục bộ: có thể nhập thông tin ~/.kimi-code mặc định; khi chuyển sẽ ghi credentials chính thức và config.toml đầy đủ. Tôn trọng KIMI_CODE_HOME.",
+      "network": "Phạm vi mạng: ủy quyền OAuth, làm mới token và /me · /models · /usages. Thông tin đăng nhập không được tải lên dịch vụ Cockpit."
+    },
+    "empty": "Chưa có tài khoản Kimi Code",
+    "addAccount": "Thêm tài khoản Kimi Code",
+    "oauth": {
+      "desc": "Mở trang ủy quyền Kimi và nhập mã thiết bị. Tài khoản sẽ được lưu tự động sau khi xong.",
+      "title": "Đăng nhập Kimi Code bằng mã thiết bị",
+      "item1": "Dùng device flow chính thức, không chiếm cổng callback cục bộ.",
+      "item2": "Khi chuyển sẽ ghi ~/.kimi-code/credentials/kimi-code.json theo định dạng wire chính thức.",
+      "item3": "Hạn ngạch lấy từ /usages. Đăng nhập chỉ tải /me.",
+      "urlPlaceholder": "URL ủy quyền OAuth Kimi",
+      "waiting": "Đang chờ ủy quyền OAuth Kimi...",
+      "openWindow": "Mở trang ủy quyền",
+      "success": "Đăng nhập OAuth Kimi Code thành công"
+    },
+    "import": {
+      "tokenDesc": "Dán credentials/kimi-code.json chính thức, hoặc JSON tài khoản đầy đủ do ứng dụng này xuất.",
+      "pasteDesc": "Dán credentials/kimi-code.json chính thức, hoặc JSON tài khoản đầy đủ do ứng dụng này xuất.",
+      "pastePlaceholder": "Dán JSON tài khoản Kimi Code",
+      "pasteAction": "Nhập JSON",
+      "localDesc": "Nhập từ ~/.kimi-code/credentials/kimi-code.json (tôn trọng KIMI_CODE_HOME).",
+      "localClient": "Nhập từ CLI Kimi Code trên máy"
+    },
+    "quota": {
+      "resetAt": "{{label}} đặt lại lúc {{time}}",
+      "empty": "Chưa có hạn ngạch",
+      "weekly": "Hạn ngạch tuần"
+    },
+    "switch": {
+      "buttonTitle": "Ghi cấu hình chính thức",
+      "wroteOfficialConfig": "Đã ghi cấu hình chính thức — hãy tự chạy kimi ({{email}})",
+      "currentOnly": "Đã chuyển tài khoản hiện tại (chưa ghi cấu hình chính thức): {{email}}"
+    },
+    "quotaAlert": {
+      "hint": "Khi một mục hạn ngạch xuống dưới ngưỡng, gửi thông báo gốc và gợi ý chuyển nhanh.",
+      "thresholdDesc": "Cảnh báo khi phần còn lại của một mục hạn ngạch thấp hơn phần trăm này"
+    }
   }
 }

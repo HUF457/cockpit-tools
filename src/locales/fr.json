@@ -297,7 +297,8 @@
     "apiRelay": "Relais",
     "claude": "Claude",
     "openrouter": "OpenRouter",
-    "opencode": "OpenCode"
+    "opencode": "OpenCode",
+    "kimi": "Comptes Kimi Code"
   },
   "sponsors": {
     "pageTitle": "Sponsors​",
@@ -1039,7 +1040,24 @@
         "retentionUnit": "jours",
         "directoryTitle": "Dossier de sauvegarde",
         "directoryDesc": "Les sauvegardes sont toujours enregistrées dans le dossier backups du projet.",
-        "changeDirectory": "Changer de dossier", "migrating": "Migration...", "migrationConfirm": "Déplacer les sauvegardes existantes de {{oldPath}} vers {{newPath}} ?\n\nAnnuler change le dossier sans déplacer les anciens fichiers.", "usageTitle": "Espace des sauvegardes", "usageDesc": "Affiche l’espace local des sauvegardes planifiées et des instantanés des plateformes.", "usageEmpty": "Aucune sauvegarde locale trouvée.", "cleanupBehavior": "Nettoyer les sauvegardes de comportement", "behaviorCleanupConfirm": "Nettoyer les anciennes sauvegardes de comportement ? La plus récente par plateforme et instance sera conservée. Les JSON/ZIP planifiés ne seront pas supprimés.", "sources": {"scheduled": "JSON/ZIP planifiés", "behavior": "Instantanés", "claude": "Claude", "codex": "Codex", "workbuddy": "WorkBuddy", "codebuddy": "CodeBuddy", "trae": "Trae", "other": "Autres"},
+        "changeDirectory": "Changer de dossier",
+        "migrating": "Migration...",
+        "migrationConfirm": "Déplacer les sauvegardes existantes de {{oldPath}} vers {{newPath}} ?\n\nAnnuler change le dossier sans déplacer les anciens fichiers.",
+        "usageTitle": "Espace des sauvegardes",
+        "usageDesc": "Affiche l’espace local des sauvegardes planifiées et des instantanés des plateformes.",
+        "usageEmpty": "Aucune sauvegarde locale trouvée.",
+        "cleanupBehavior": "Nettoyer les sauvegardes de comportement",
+        "behaviorCleanupConfirm": "Nettoyer les anciennes sauvegardes de comportement ? La plus récente par plateforme et instance sera conservée. Les JSON/ZIP planifiés ne seront pas supprimés.",
+        "sources": {
+          "scheduled": "JSON/ZIP planifiés",
+          "behavior": "Instantanés",
+          "claude": "Claude",
+          "codex": "Codex",
+          "workbuddy": "WorkBuddy",
+          "codebuddy": "CodeBuddy",
+          "trae": "Trae",
+          "other": "Autres"
+        },
         "migrationConfirmTitle": "Changer le dossier de sauvegarde",
         "migrationConfirmDesc": "Les sauvegardes existantes ont été analysées. Migrez-les pour libérer l’ancien dossier, ou changez uniquement l’emplacement des prochaines sauvegardes.",
         "migrationOldPath": "Ancien dossier",
@@ -1049,7 +1067,27 @@
         "migrationSafetyNote": "Les fichiers sont copiés dans une zone temporaire et vérifiés avant le changement de dossier et la suppression des anciennes sauvegardes.",
         "switchOnly": "Changer uniquement",
         "migrateAndSwitch": "Migrer et changer",
-        "migrationProgress": {"title": "Migrer le dossier de sauvegarde", "filesUnit": "fichiers", "currentSource": "Source actuelle", "completedSummary": "{{count}} fichiers ({{size}}) migrés et nouveau dossier activé.", "switchOnlyCompleted": "Les prochaines sauvegardes seront enregistrées dans {{path}}. Les sauvegardes existantes n’ont pas été déplacées.", "cleanupPartial": "Le nouveau dossier est actif, mais ces anciens dossiers n’ont pas pu être supprimés. Supprimez-les manuellement plus tard :", "cancelledDesc": "La migration a été annulée. Le dossier d’origine est inchangé et les fichiers temporaires ont été supprimés.", "cancelling": "Annulation...", "cancelAction": "Annuler la migration", "finishing": "Finalisation...", "phases": {"scanning": "Analyse des sauvegardes...", "copying": "Copie des sauvegardes...", "verifying": "Vérification des fichiers...", "switching": "Changement de dossier...", "cleaning": "Suppression des anciennes sauvegardes...", "completed": "Migration terminée", "cancelled": "Migration annulée"}},
+        "migrationProgress": {
+          "title": "Migrer le dossier de sauvegarde",
+          "filesUnit": "fichiers",
+          "currentSource": "Source actuelle",
+          "completedSummary": "{{count}} fichiers ({{size}}) migrés et nouveau dossier activé.",
+          "switchOnlyCompleted": "Les prochaines sauvegardes seront enregistrées dans {{path}}. Les sauvegardes existantes n’ont pas été déplacées.",
+          "cleanupPartial": "Le nouveau dossier est actif, mais ces anciens dossiers n’ont pas pu être supprimés. Supprimez-les manuellement plus tard :",
+          "cancelledDesc": "La migration a été annulée. Le dossier d’origine est inchangé et les fichiers temporaires ont été supprimés.",
+          "cancelling": "Annulation...",
+          "cancelAction": "Annuler la migration",
+          "finishing": "Finalisation...",
+          "phases": {
+            "scanning": "Analyse des sauvegardes...",
+            "copying": "Copie des sauvegardes...",
+            "verifying": "Vérification des fichiers...",
+            "switching": "Changement de dossier...",
+            "cleaning": "Suppression des anciennes sauvegardes...",
+            "completed": "Migration terminée",
+            "cancelled": "Migration annulée"
+          }
+        },
         "openFolder": "Ouvrir le dossier",
         "listTitle": "Liste des sauvegardes",
         "listDesc": "Importez directement une sauvegarde ou supprimez les anciens fichiers.",
@@ -1076,9 +1114,15 @@
           "cleanupFailed": "Échec du nettoyage des sauvegardes expirées : {{error}}",
           "openFolderFailed": "Échec de l’ouverture du dossier de sauvegarde : {{error}}",
           "downloadSuccess": "Sauvegarde téléchargée vers {{path}}",
-          "downloadFailed": "Échec du téléchargement de la sauvegarde : {{error}}"
-          ,"migrating": "Migration du dossier...", "migrationDone": "{{count}} fichiers migrés vers {{path}}", "directoryChanged": "Dossier changé vers {{path}}", "directoryChangeFailed": "Impossible de changer le dossier : {{error}}", "behaviorCleaning": "Nettoyage des anciennes sauvegardes...", "behaviorCleanupDone": "{{count}} sauvegardes nettoyées, {{size}} libérés", "behaviorCleanupFailed": "Impossible de nettoyer les sauvegardes : {{error}}"
-          ,"scanningMigration": "Analyse des sauvegardes à migrer..."
+          "downloadFailed": "Échec du téléchargement de la sauvegarde : {{error}}",
+          "migrating": "Migration du dossier...",
+          "migrationDone": "{{count}} fichiers migrés vers {{path}}",
+          "directoryChanged": "Dossier changé vers {{path}}",
+          "directoryChangeFailed": "Impossible de changer le dossier : {{error}}",
+          "behaviorCleaning": "Nettoyage des anciennes sauvegardes...",
+          "behaviorCleanupDone": "{{count}} sauvegardes nettoyées, {{size}} libérés",
+          "behaviorCleanupFailed": "Impossible de nettoyer les sauvegardes : {{error}}",
+          "scanningMigration": "Analyse des sauvegardes à migrer..."
         },
         "errors": {
           "invalidRetention": "La durée de conservation doit être comprise entre 1 et 365 jours"
@@ -4401,6 +4445,21 @@
       "syncOfficialAuthOnSwitch": "Synchroniser la connexion officielle",
       "syncOfficialAuthOnSwitchDesc": "Si cette option est activée, le changement de compte OAuth de l’instance par défaut écrit dans le fichier officiel ~/.grok/auth.json. Sinon, un GROK_HOME distinct est utilisé. Les clés API et les instances supplémentaires ne remplacent jamais la connexion officielle."
     },
+    "kimi": {
+      "title": "Paramètres de Kimi Code",
+      "cliPath": "Chemin de la CLI",
+      "cliDetected": "Détecté : {{version}} · {{path}}",
+      "cliMissing": "Kimi CLI introuvable. Indiquez un chemin.",
+      "cliPick": "Choisir Kimi CLI",
+      "cliDetect": "Détecter automatiquement Kimi CLI",
+      "homePick": "Choisir KIMI_CODE_HOME",
+      "homeDetect": "Détecter automatiquement KIMI_CODE_HOME",
+      "home": "Répertoire KIMI_CODE_HOME",
+      "homeDesc": "Remplace le répertoire de configuration officiel. La variable d’environnement prime sur ce champ. Actuel : {{home}}",
+      "launchOnSwitch": "Ouvrir la CLI officielle après bascule",
+      "launchOnSwitchDesc": "Si activé, le changement de compte ouvre un terminal et lance kimi. Sinon, seule la configuration officielle est écrite, sans fenêtre."
+    },
+    "kimiRefreshInterval": "Actualisation auto du quota",
     "grokRefreshInterval": "Actualisation auto du quota",
     "codebuddy": {
       "title": "Parametres CodeBuddy",
@@ -6174,5 +6233,49 @@
   "opencode": {
     "title": "OpenCode",
     "desc": "Gérer les clés OpenCode Go/Zen et filtrer par niveau."
+  },
+  "kimi": {
+    "search": "Rechercher des comptes Kimi Code...",
+    "flowNotice": {
+      "title": "Guide des comptes Kimi Code",
+      "desc": "L’index multi-comptes reste dans Cockpit. Le basculement écrit les identifiants officiels et produit un config.toml complet, table models incluse, via GET /models.",
+      "permission": "Portée locale : les identifiants ~/.kimi-code par défaut peuvent être importés ; le basculement écrit les credentials officiels et un config.toml complet. Respecte KIMI_CODE_HOME.",
+      "network": "Portée réseau : autorisation OAuth, rafraîchissement du jeton, /me · /models · /usages. Les identifiants ne sont pas envoyés aux services Cockpit."
+    },
+    "empty": "Aucun compte Kimi Code pour le moment",
+    "addAccount": "Ajouter un compte Kimi Code",
+    "oauth": {
+      "desc": "Ouvrez la page d’autorisation Kimi et saisissez le code appareil. Le compte est enregistré automatiquement ensuite.",
+      "title": "Connexion Kimi Code par code appareil",
+      "item1": "Utilise le device flow officiel sans occuper de port de rappel local.",
+      "item2": "Le basculement écrit ~/.kimi-code/credentials/kimi-code.json au format wire officiel.",
+      "item3": "Le quota vient de /usages. La connexion ne récupère que /me.",
+      "urlPlaceholder": "URL d’autorisation OAuth Kimi",
+      "waiting": "En attente de l’autorisation OAuth Kimi...",
+      "openWindow": "Ouvrir la page d’autorisation",
+      "success": "Connexion OAuth Kimi Code réussie"
+    },
+    "import": {
+      "tokenDesc": "Collez le fichier officiel credentials/kimi-code.json, ou un JSON de compte exporté par cette application.",
+      "pasteDesc": "Collez le fichier officiel credentials/kimi-code.json, ou un JSON de compte exporté par cette application.",
+      "pastePlaceholder": "Coller le JSON du compte Kimi Code",
+      "pasteAction": "Importer le JSON",
+      "localDesc": "Importer depuis ~/.kimi-code/credentials/kimi-code.json (respecte KIMI_CODE_HOME).",
+      "localClient": "Importer depuis la CLI Kimi Code locale"
+    },
+    "quota": {
+      "resetAt": "{{label}} se réinitialise à {{time}}",
+      "empty": "Pas encore de quota",
+      "weekly": "Quota hebdomadaire"
+    },
+    "switch": {
+      "buttonTitle": "Écrire la configuration officielle",
+      "wroteOfficialConfig": "Configuration officielle écrite — lancez kimi vous-même ({{email}})",
+      "currentOnly": "Compte actuel basculé (configuration officielle non écrite) : {{email}}"
+    },
+    "quotaAlert": {
+      "hint": "Si un quota passe sous le seuil, une notification native est envoyée et un basculement rapide est proposé.",
+      "thresholdDesc": "Alerter lorsqu’un quota descend sous ce pourcentage restant"
+    }
   }
 }

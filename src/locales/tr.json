@@ -297,7 +297,8 @@
     "apiRelay": "Aktarım",
     "claude": "Claude",
     "openrouter": "OpenRouter",
-    "opencode": "OpenCode"
+    "opencode": "OpenCode",
+    "kimi": "Kimi Code hesapları"
   },
   "sponsors": {
     "pageTitle": "Sponsorlar",
@@ -1039,13 +1040,54 @@
         "retentionUnit": "gün",
         "directoryTitle": "Yedek klasörü",
         "directoryDesc": "Yedekler her zaman projenin backups klasörüne kaydedilir.",
-        "changeDirectory": "Klasörü değiştir", "migrating": "Taşınıyor...", "migrationConfirm": "Mevcut yedekler {{oldPath}} konumundan {{newPath}} konumuna taşınsın mı?\n\nİptal, eski dosyaları taşımadan klasörü değiştirir.", "usageTitle": "Yedek disk kullanımı", "usageDesc": "Zamanlanmış yedeklerin ve platform davranış anlık görüntülerinin yerel kullanımını gösterir.", "usageEmpty": "Yerel yedek dosyası bulunamadı.", "cleanupBehavior": "Eski davranış yedeklerini temizle", "behaviorCleanupConfirm": "Eski davranış yedekleri temizlensin mi? Platform ve örnek başına yalnızca en yeni yedek tutulur; zamanlanmış JSON/ZIP silinmez.", "sources": {"scheduled": "Zamanlanmış JSON/ZIP", "behavior": "Davranış anlık görüntüleri", "claude": "Claude", "codex": "Codex", "workbuddy": "WorkBuddy", "codebuddy": "CodeBuddy", "trae": "Trae", "other": "Diğer"},
+        "changeDirectory": "Klasörü değiştir",
+        "migrating": "Taşınıyor...",
+        "migrationConfirm": "Mevcut yedekler {{oldPath}} konumundan {{newPath}} konumuna taşınsın mı?\n\nİptal, eski dosyaları taşımadan klasörü değiştirir.",
+        "usageTitle": "Yedek disk kullanımı",
+        "usageDesc": "Zamanlanmış yedeklerin ve platform davranış anlık görüntülerinin yerel kullanımını gösterir.",
+        "usageEmpty": "Yerel yedek dosyası bulunamadı.",
+        "cleanupBehavior": "Eski davranış yedeklerini temizle",
+        "behaviorCleanupConfirm": "Eski davranış yedekleri temizlensin mi? Platform ve örnek başına yalnızca en yeni yedek tutulur; zamanlanmış JSON/ZIP silinmez.",
+        "sources": {
+          "scheduled": "Zamanlanmış JSON/ZIP",
+          "behavior": "Davranış anlık görüntüleri",
+          "claude": "Claude",
+          "codex": "Codex",
+          "workbuddy": "WorkBuddy",
+          "codebuddy": "CodeBuddy",
+          "trae": "Trae",
+          "other": "Diğer"
+        },
         "migrationConfirmTitle": "Yedek klasörünü değiştir",
         "migrationConfirmDesc": "Mevcut yedekler tarandı. Eski klasörü boşaltmak için taşıyın veya yalnızca gelecekteki yedeklerin konumunu değiştirin.",
-        "migrationOldPath": "Eski klasör", "migrationNewPath": "Yeni klasör", "migrationTotalSize": "Taşınacak veri", "migrationTotalFiles": "Taşınacak dosya",
+        "migrationOldPath": "Eski klasör",
+        "migrationNewPath": "Yeni klasör",
+        "migrationTotalSize": "Taşınacak veri",
+        "migrationTotalFiles": "Taşınacak dosya",
         "migrationSafetyNote": "Dosyalar önce geçici alana kopyalanıp doğrulanır; ardından klasör değiştirilir ve eski yedekler kaldırılır.",
-        "switchOnly": "Yalnızca değiştir", "migrateAndSwitch": "Taşı ve değiştir",
-        "migrationProgress": {"title": "Yedek klasörünü taşı", "filesUnit": "dosya", "currentSource": "Geçerli kaynak", "completedSummary": "{{count}} dosya ({{size}}) taşındı ve yeni klasör etkinleştirildi.", "switchOnlyCompleted": "Yeni yedekler {{path}} konumuna kaydedilecek. Mevcut yedekler taşınmadı.", "cleanupPartial": "Yeni klasör etkin, ancak şu eski klasörler kaldırılamadı. Daha sonra elle silin:", "cancelledDesc": "Taşıma iptal edildi. Eski klasör değişmedi ve geçici dosyalar kaldırıldı.", "cancelling": "İptal ediliyor...", "cancelAction": "Taşımayı iptal et", "finishing": "Tamamlanıyor...", "phases": {"scanning": "Yedekler taranıyor...", "copying": "Yedekler kopyalanıyor...", "verifying": "Dosyalar doğrulanıyor...", "switching": "Klasör değiştiriliyor...", "cleaning": "Eski yedekler kaldırılıyor...", "completed": "Taşıma tamamlandı", "cancelled": "Taşıma iptal edildi"}},
+        "switchOnly": "Yalnızca değiştir",
+        "migrateAndSwitch": "Taşı ve değiştir",
+        "migrationProgress": {
+          "title": "Yedek klasörünü taşı",
+          "filesUnit": "dosya",
+          "currentSource": "Geçerli kaynak",
+          "completedSummary": "{{count}} dosya ({{size}}) taşındı ve yeni klasör etkinleştirildi.",
+          "switchOnlyCompleted": "Yeni yedekler {{path}} konumuna kaydedilecek. Mevcut yedekler taşınmadı.",
+          "cleanupPartial": "Yeni klasör etkin, ancak şu eski klasörler kaldırılamadı. Daha sonra elle silin:",
+          "cancelledDesc": "Taşıma iptal edildi. Eski klasör değişmedi ve geçici dosyalar kaldırıldı.",
+          "cancelling": "İptal ediliyor...",
+          "cancelAction": "Taşımayı iptal et",
+          "finishing": "Tamamlanıyor...",
+          "phases": {
+            "scanning": "Yedekler taranıyor...",
+            "copying": "Yedekler kopyalanıyor...",
+            "verifying": "Dosyalar doğrulanıyor...",
+            "switching": "Klasör değiştiriliyor...",
+            "cleaning": "Eski yedekler kaldırılıyor...",
+            "completed": "Taşıma tamamlandı",
+            "cancelled": "Taşıma iptal edildi"
+          }
+        },
         "openFolder": "Klasörü aç",
         "listTitle": "Yedek listesi",
         "listDesc": "Bir yedeği doğrudan içe aktarın veya eski dosyaları kaldırın.",
@@ -1072,9 +1114,15 @@
           "cleanupFailed": "Süresi geçmiş yedekler temizlenemedi: {{error}}",
           "openFolderFailed": "Yedek klasörü açılamadı: {{error}}",
           "downloadSuccess": "Yedek {{path}} konumuna indirildi",
-          "downloadFailed": "Yedek indirilemedi: {{error}}"
-          ,"migrating": "Yedek klasörü taşınıyor...", "migrationDone": "{{count}} dosya {{path}} konumuna taşındı", "directoryChanged": "Yedek klasörü {{path}} olarak değiştirildi", "directoryChangeFailed": "Yedek klasörü değiştirilemedi: {{error}}", "behaviorCleaning": "Eski davranış yedekleri temizleniyor...", "behaviorCleanupDone": "{{count}} yedek temizlendi, {{size}} boşaltıldı", "behaviorCleanupFailed": "Davranış yedekleri temizlenemedi: {{error}}"
-          ,"scanningMigration": "Taşınacak yedekler taranıyor..."
+          "downloadFailed": "Yedek indirilemedi: {{error}}",
+          "migrating": "Yedek klasörü taşınıyor...",
+          "migrationDone": "{{count}} dosya {{path}} konumuna taşındı",
+          "directoryChanged": "Yedek klasörü {{path}} olarak değiştirildi",
+          "directoryChangeFailed": "Yedek klasörü değiştirilemedi: {{error}}",
+          "behaviorCleaning": "Eski davranış yedekleri temizleniyor...",
+          "behaviorCleanupDone": "{{count}} yedek temizlendi, {{size}} boşaltıldı",
+          "behaviorCleanupFailed": "Davranış yedekleri temizlenemedi: {{error}}",
+          "scanningMigration": "Taşınacak yedekler taranıyor..."
         },
         "errors": {
           "invalidRetention": "Saklama süresi 1 ile 365 gün arasında olmalıdır"
@@ -4397,6 +4445,21 @@
       "syncOfficialAuthOnSwitch": "Resmî oturumu eşitle",
       "syncOfficialAuthOnSwitchDesc": "Açıldığında, varsayılan örnekte OAuth hesabı değiştirildiğinde resmî ~/.grok/auth.json dosyasına yazılır. Kapatıldığında ayrı bir GROK_HOME kullanılır. API anahtarları ve ek örnekler resmî oturumun üzerine yazmaz."
     },
+    "kimi": {
+      "title": "Kimi Code Ayarları",
+      "cliPath": "CLI yolu",
+      "cliDetected": "Algılandı: {{version}} · {{path}}",
+      "cliMissing": "Kimi CLI bulunamadı. Özel bir yol girin.",
+      "cliPick": "Kimi CLI seç",
+      "cliDetect": "Kimi CLI yolunu otomatik algıla",
+      "homePick": "KIMI_CODE_HOME seç",
+      "homeDetect": "KIMI_CODE_HOME yolunu otomatik algıla",
+      "home": "Dizin KIMI_CODE_HOME",
+      "homeDesc": "Resmî yapılandırma dizinini geçersiz kılar. Ortam değişkeni bu alandan önceliklidir. Şu an: {{home}}",
+      "launchOnSwitch": "Geçişten sonra resmî CLI’yi aç",
+      "launchOnSwitchDesc": "Açıldığında hesap değiştirmek bir terminal açar ve kimi’yi çalıştırır. Kapatıldığında yalnızca resmî yapılandırma yazılır, pencere açılmaz."
+    },
+    "kimiRefreshInterval": "Kotayı Otomatik Yenile",
     "grokRefreshInterval": "Kotayı Otomatik Yenile",
     "codebuddy": {
       "title": "CodeBuddy Ayarları",
@@ -6170,5 +6233,49 @@
   "opencode": {
     "title": "OpenCode",
     "desc": "OpenCode Go/Zen anahtarlarını yönetin ve kademeye göre süzün."
+  },
+  "kimi": {
+    "search": "Kimi Code hesaplarını ara...",
+    "flowNotice": {
+      "title": "Kimi Code hesap rehberi",
+      "desc": "Çoklu hesap dizini Cockpit’te kalır. Geçişte resmî kimlik bilgileri yazılır ve GET /models ile models tablosu dahil tam bir config.toml üretilir.",
+      "permission": "Yerel kapsam: varsayılan ~/.kimi-code kimlik bilgileri içe aktarılabilir; geçişte resmî credentials ve tam config.toml yazılır. KIMI_CODE_HOME dikkate alınır.",
+      "network": "Ağ kapsamı: OAuth yetkisi, jeton yenileme ve /me · /models · /usages. Kimlik bilgileri Cockpit hizmetlerine yüklenmez."
+    },
+    "empty": "Henüz Kimi Code hesabı yok",
+    "addAccount": "Kimi Code hesabı ekle",
+    "oauth": {
+      "desc": "Kimi yetkilendirme sayfasını açın ve cihaz kodunu girin. İşlem bitince hesap kendiliğinden kaydedilir.",
+      "title": "Kimi Code cihaz koduyla giriş",
+      "item1": "Yerel bir geri çağırma bağlantı noktası kullanmadan resmî device flow’u kullanır.",
+      "item2": "Geçişte ~/.kimi-code/credentials/kimi-code.json resmî wire biçiminde yazılır.",
+      "item3": "Kota /usages kaynağından gelir. Giriş yalnızca /me alır.",
+      "urlPlaceholder": "Kimi OAuth yetkilendirme URL’si",
+      "waiting": "Kimi OAuth yetkisi bekleniyor...",
+      "openWindow": "Yetkilendirme sayfasını aç",
+      "success": "Kimi Code OAuth girişi başarılı"
+    },
+    "import": {
+      "tokenDesc": "Resmî credentials/kimi-code.json dosyasını veya bu uygulamanın dışa aktardığı hesap JSON’unu yapıştırın.",
+      "pasteDesc": "Resmî credentials/kimi-code.json dosyasını veya bu uygulamanın dışa aktardığı hesap JSON’unu yapıştırın.",
+      "pastePlaceholder": "Kimi Code hesap JSON’unu yapıştır",
+      "pasteAction": "JSON içe aktar",
+      "localDesc": "~/.kimi-code/credentials/kimi-code.json dosyasından içe aktar (KIMI_CODE_HOME’a uyar).",
+      "localClient": "Yerel Kimi Code CLI’den içe aktar"
+    },
+    "quota": {
+      "resetAt": "{{label}} sıfırlanma: {{time}}",
+      "empty": "Henüz kota yok",
+      "weekly": "Haftalık kota"
+    },
+    "switch": {
+      "buttonTitle": "Resmî yapılandırmayı yaz",
+      "wroteOfficialConfig": "Resmî yapılandırma yazıldı — kimi’yi kendiniz çalıştırın ({{email}})",
+      "currentOnly": "Geçerli hesap değiştirildi (resmî yapılandırma yazılmadı): {{email}}"
+    },
+    "quotaAlert": {
+      "hint": "Bir kota kalemi eşiğin altına düşünce yerel bildirim gider ve hızlı geçiş önerilir.",
+      "thresholdDesc": "Bir kota kaleminin kalanı bu yüzdenin altına düşünce uyar"
+    }
   }
 }

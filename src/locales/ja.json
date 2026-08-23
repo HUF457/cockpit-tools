@@ -297,7 +297,8 @@
     "apiRelay": "リレー",
     "claude": "Claude",
     "openrouter": "OpenRouter",
-    "opencode": "OpenCode"
+    "opencode": "OpenCode",
+    "kimi": "Kimi Code アカウント"
   },
   "sponsors": {
     "pageTitle": "スポンサー",
@@ -1039,13 +1040,54 @@
         "retentionUnit": "日",
         "directoryTitle": "バックアップフォルダー",
         "directoryDesc": "バックアップは常にプロジェクトの backups フォルダーに保存されます。",
-        "changeDirectory": "フォルダーを変更", "migrating": "移行中...", "migrationConfirm": "既存のバックアップを {{oldPath}} から {{newPath}} に移行しますか？\n\nキャンセルすると古いファイルを移行せずにフォルダーだけ変更します。", "usageTitle": "バックアップ使用量", "usageDesc": "定期バックアップとプラットフォーム動作スナップショットの使用量を表示します。", "usageEmpty": "ローカルバックアップはありません。", "cleanupBehavior": "動作バックアップを整理", "behaviorCleanupConfirm": "古い動作バックアップを整理しますか？プラットフォームとインスタンスごとに最新のみ残し、定期 JSON/ZIP は削除しません。", "sources": {"scheduled": "定期 JSON/ZIP", "behavior": "動作スナップショット", "claude": "Claude", "codex": "Codex", "workbuddy": "WorkBuddy", "codebuddy": "CodeBuddy", "trae": "Trae", "other": "その他"},
+        "changeDirectory": "フォルダーを変更",
+        "migrating": "移行中...",
+        "migrationConfirm": "既存のバックアップを {{oldPath}} から {{newPath}} に移行しますか？\n\nキャンセルすると古いファイルを移行せずにフォルダーだけ変更します。",
+        "usageTitle": "バックアップ使用量",
+        "usageDesc": "定期バックアップとプラットフォーム動作スナップショットの使用量を表示します。",
+        "usageEmpty": "ローカルバックアップはありません。",
+        "cleanupBehavior": "動作バックアップを整理",
+        "behaviorCleanupConfirm": "古い動作バックアップを整理しますか？プラットフォームとインスタンスごとに最新のみ残し、定期 JSON/ZIP は削除しません。",
+        "sources": {
+          "scheduled": "定期 JSON/ZIP",
+          "behavior": "動作スナップショット",
+          "claude": "Claude",
+          "codex": "Codex",
+          "workbuddy": "WorkBuddy",
+          "codebuddy": "CodeBuddy",
+          "trae": "Trae",
+          "other": "その他"
+        },
         "migrationConfirmTitle": "バックアップ先を変更",
         "migrationConfirmDesc": "既存のバックアップを確認しました。移行して旧フォルダーの容量を解放するか、今後の保存先だけを変更できます。",
-        "migrationOldPath": "旧フォルダー", "migrationNewPath": "新フォルダー", "migrationTotalSize": "移行する容量", "migrationTotalFiles": "移行するファイル",
+        "migrationOldPath": "旧フォルダー",
+        "migrationNewPath": "新フォルダー",
+        "migrationTotalSize": "移行する容量",
+        "migrationTotalFiles": "移行するファイル",
         "migrationSafetyNote": "一時領域へコピーして検証した後に保存先を切り替え、旧バックアップを削除します。",
-        "switchOnly": "保存先のみ変更", "migrateAndSwitch": "移行して変更",
-        "migrationProgress": {"title": "バックアップ先を移行", "filesUnit": "ファイル", "currentSource": "現在の対象", "completedSummary": "{{count}} ファイル（{{size}}）を移行し、新しい保存先へ切り替えました。", "switchOnlyCompleted": "今後のバックアップは {{path}} に保存されます。既存のバックアップは移動していません。", "cleanupPartial": "新しい保存先は有効ですが、次の旧フォルダーを削除できませんでした。後で手動で削除してください：", "cancelledDesc": "移行をキャンセルしました。元の保存先は変更されず、一時ファイルは削除されました。", "cancelling": "キャンセル中...", "cancelAction": "移行をキャンセル", "finishing": "完了処理中...", "phases": {"scanning": "バックアップを確認中...", "copying": "バックアップをコピー中...", "verifying": "コピー結果を検証中...", "switching": "保存先を切り替え中...", "cleaning": "旧バックアップを削除中...", "completed": "移行が完了しました", "cancelled": "移行をキャンセルしました"}},
+        "switchOnly": "保存先のみ変更",
+        "migrateAndSwitch": "移行して変更",
+        "migrationProgress": {
+          "title": "バックアップ先を移行",
+          "filesUnit": "ファイル",
+          "currentSource": "現在の対象",
+          "completedSummary": "{{count}} ファイル（{{size}}）を移行し、新しい保存先へ切り替えました。",
+          "switchOnlyCompleted": "今後のバックアップは {{path}} に保存されます。既存のバックアップは移動していません。",
+          "cleanupPartial": "新しい保存先は有効ですが、次の旧フォルダーを削除できませんでした。後で手動で削除してください：",
+          "cancelledDesc": "移行をキャンセルしました。元の保存先は変更されず、一時ファイルは削除されました。",
+          "cancelling": "キャンセル中...",
+          "cancelAction": "移行をキャンセル",
+          "finishing": "完了処理中...",
+          "phases": {
+            "scanning": "バックアップを確認中...",
+            "copying": "バックアップをコピー中...",
+            "verifying": "コピー結果を検証中...",
+            "switching": "保存先を切り替え中...",
+            "cleaning": "旧バックアップを削除中...",
+            "completed": "移行が完了しました",
+            "cancelled": "移行をキャンセルしました"
+          }
+        },
         "openFolder": "フォルダーを開く",
         "listTitle": "バックアップ一覧",
         "listDesc": "バックアップを直接インポートするか、古いファイルを削除できます。",
@@ -1072,9 +1114,15 @@
           "cleanupFailed": "期限切れバックアップの整理に失敗しました: {{error}}",
           "openFolderFailed": "バックアップフォルダーを開けませんでした: {{error}}",
           "downloadSuccess": "バックアップを {{path}} にダウンロードしました",
-          "downloadFailed": "バックアップのダウンロードに失敗しました: {{error}}"
-          ,"migrating": "バックアップフォルダーを移行中...", "migrationDone": "{{count}} 個のファイルを {{path}} に移行しました", "directoryChanged": "バックアップフォルダーを {{path}} に変更しました", "directoryChangeFailed": "バックアップフォルダーを変更できません: {{error}}", "behaviorCleaning": "古い動作バックアップを整理中...", "behaviorCleanupDone": "{{count}} 個を整理し {{size}} 解放しました", "behaviorCleanupFailed": "動作バックアップを整理できません: {{error}}"
-          ,"scanningMigration": "移行するバックアップを確認中..."
+          "downloadFailed": "バックアップのダウンロードに失敗しました: {{error}}",
+          "migrating": "バックアップフォルダーを移行中...",
+          "migrationDone": "{{count}} 個のファイルを {{path}} に移行しました",
+          "directoryChanged": "バックアップフォルダーを {{path}} に変更しました",
+          "directoryChangeFailed": "バックアップフォルダーを変更できません: {{error}}",
+          "behaviorCleaning": "古い動作バックアップを整理中...",
+          "behaviorCleanupDone": "{{count}} 個を整理し {{size}} 解放しました",
+          "behaviorCleanupFailed": "動作バックアップを整理できません: {{error}}",
+          "scanningMigration": "移行するバックアップを確認中..."
         },
         "errors": {
           "invalidRetention": "保持日数は 1 日から 365 日の間で指定してください"
@@ -4397,6 +4445,21 @@
       "syncOfficialAuthOnSwitch": "切替時に公式ログインへ同期",
       "syncOfficialAuthOnSwitchDesc": "有効にすると、デフォルトインスタンスで OAuth アカウントを切り替えた際に公式の ~/.grok/auth.json へ書き込みます。無効時は個別の GROK_HOME を使用します。API Key と追加インスタンスは公式ログインを上書きしません。"
     },
+    "kimi": {
+      "title": "Kimi Code 設定",
+      "cliPath": "CLI のパス",
+      "cliDetected": "検出済み: {{version}} · {{path}}",
+      "cliMissing": "Kimi CLI が見つかりません。任意のパスを入力してください。",
+      "cliPick": "Kimi CLI を選ぶ",
+      "cliDetect": "Kimi CLI を自動検出",
+      "homePick": "KIMI_CODE_HOME を選ぶ",
+      "homeDetect": "KIMI_CODE_HOME を自動検出",
+      "home": "ホーム KIMI_CODE_HOME",
+      "homeDesc": "公式設定ディレクトリを上書きします。環境変数がこの項目より優先されます。現在: {{home}}",
+      "launchOnSwitch": "切替後に公式 CLI を開く",
+      "launchOnSwitchDesc": "有効にすると、アカウント切替時に端末を開いて kimi を起動します。無効時は公式設定のみ書き込み、ウィンドウは開きません。"
+    },
+    "kimiRefreshInterval": "クォータ自動更新",
     "grokRefreshInterval": "クォータ自動更新",
     "codebuddy": {
       "title": "CodeBuddy 設定",
@@ -6170,5 +6233,49 @@
   "opencode": {
     "title": "OpenCode",
     "desc": "OpenCode の Go/Zen API キーを管理し、ティアで絞り込みます。"
+  },
+  "kimi": {
+    "search": "Kimi Code アカウントを検索...",
+    "flowNotice": {
+      "title": "Kimi Code アカウント案内",
+      "desc": "複数アカウントの索引は Cockpit に保存します。切り替え時は公式の認証情報を書き込み、GET /models で完全な config.toml（models 表を含む）を出力します。",
+      "permission": "ローカル範囲：既定の ~/.kimi-code 認証情報を取り込み可能。切り替え時は公式 credentials と完全な config.toml を書き込みます。KIMI_CODE_HOME を尊重します。",
+      "network": "ネットワーク範囲：OAuth 認可、token 更新、/me · /models · /usages。認証情報は Cockpit サービスへ送信しません。"
+    },
+    "empty": "Kimi Code アカウントはまだありません",
+    "addAccount": "Kimi Code アカウントを追加",
+    "oauth": {
+      "desc": "Kimi の認可ページを開き、デバイスコードでログインします。完了後にアカウントは自動保存されます。",
+      "title": "Kimi Code デバイスコード認可",
+      "item1": "公式の device flow を使い、ローカルのコールバックポートは使いません。",
+      "item2": "切り替え時に ~/.kimi-code/credentials/kimi-code.json を公式 wire 形式で書き込みます。",
+      "item3": "枠は公式 /usages から取得します。ログイン時は /me のみ取得します。",
+      "urlPlaceholder": "Kimi OAuth 認可 URL",
+      "waiting": "Kimi OAuth 認可を待っています...",
+      "openWindow": "認可ページを開く",
+      "success": "Kimi Code OAuth ログインに成功しました"
+    },
+    "import": {
+      "tokenDesc": "公式の credentials/kimi-code.json、またはこのアプリが書き出したアカウント JSON を貼り付けます。",
+      "pasteDesc": "公式の credentials/kimi-code.json、またはこのアプリが書き出したアカウント JSON を貼り付けます。",
+      "pastePlaceholder": "Kimi Code アカウント JSON を貼り付け",
+      "pasteAction": "JSON を取り込む",
+      "localDesc": "既定の ~/.kimi-code/credentials/kimi-code.json から取り込みます（KIMI_CODE_HOME を尊重）。",
+      "localClient": "ローカルの Kimi Code CLI から取り込む"
+    },
+    "quota": {
+      "resetAt": "{{label}} のリセット: {{time}}",
+      "empty": "枠はまだありません",
+      "weekly": "週間枠"
+    },
+    "switch": {
+      "buttonTitle": "公式設定を書き込む",
+      "wroteOfficialConfig": "公式設定を書き込みました。kimi は自分で起動してください（{{email}}）",
+      "currentOnly": "現在のアカウントを切り替えました（公式設定は未書き込み）: {{email}}"
+    },
+    "quotaAlert": {
+      "hint": "いずれかの枠がしきい値を下回ったら、ネイティブ通知を送り、画面で素早く切り替えられるようにします。",
+      "thresholdDesc": "いずれかの枠の残量がこの割合を下回ったら警告します"
+    }
   }
 }

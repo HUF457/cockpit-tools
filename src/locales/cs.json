@@ -297,7 +297,8 @@
     "apiRelay": "API relay",
     "claude": "Claude",
     "openrouter": "OpenRouter",
-    "opencode": "OpenCode"
+    "opencode": "OpenCode",
+    "kimi": "Účty Kimi Code"
   },
   "sponsors": {
     "pageTitle": "Sponzoři",
@@ -1039,13 +1040,54 @@
         "retentionUnit": "dní",
         "directoryTitle": "Složka záloh",
         "directoryDesc": "Zálohy se vždy ukládají do složky backups projektu.",
-        "changeDirectory": "Změnit složku", "migrating": "Přesouvání...", "migrationConfirm": "Přesunout existující zálohy z {{oldPath}} do {{newPath}}?\n\nZrušení přepne složku bez přesunu starých souborů.", "usageTitle": "Využití místa záloh", "usageDesc": "Zobrazuje místní využití plánovaných záloh a snímků platforem.", "usageEmpty": "Nebyly nalezeny místní zálohy.", "cleanupBehavior": "Vyčistit staré zálohy chování", "behaviorCleanupConfirm": "Vyčistit staré zálohy chování? Zachová se nejnovější záloha pro každou platformu a instanci. Plánované JSON/ZIP soubory se nesmažou.", "sources": {"scheduled": "Plánované JSON/ZIP", "behavior": "Snímky chování", "claude": "Claude", "codex": "Codex", "workbuddy": "WorkBuddy", "codebuddy": "CodeBuddy", "trae": "Trae", "other": "Ostatní"},
+        "changeDirectory": "Změnit složku",
+        "migrating": "Přesouvání...",
+        "migrationConfirm": "Přesunout existující zálohy z {{oldPath}} do {{newPath}}?\n\nZrušení přepne složku bez přesunu starých souborů.",
+        "usageTitle": "Využití místa záloh",
+        "usageDesc": "Zobrazuje místní využití plánovaných záloh a snímků platforem.",
+        "usageEmpty": "Nebyly nalezeny místní zálohy.",
+        "cleanupBehavior": "Vyčistit staré zálohy chování",
+        "behaviorCleanupConfirm": "Vyčistit staré zálohy chování? Zachová se nejnovější záloha pro každou platformu a instanci. Plánované JSON/ZIP soubory se nesmažou.",
+        "sources": {
+          "scheduled": "Plánované JSON/ZIP",
+          "behavior": "Snímky chování",
+          "claude": "Claude",
+          "codex": "Codex",
+          "workbuddy": "WorkBuddy",
+          "codebuddy": "CodeBuddy",
+          "trae": "Trae",
+          "other": "Ostatní"
+        },
         "migrationConfirmTitle": "Změnit složku záloh",
         "migrationConfirmDesc": "Existující zálohy byly zkontrolovány. Přesuňte je a uvolněte starou složku, nebo změňte jen umístění budoucích záloh.",
-        "migrationOldPath": "Stará složka", "migrationNewPath": "Nová složka", "migrationTotalSize": "Data k přesunu", "migrationTotalFiles": "Soubory k přesunu",
+        "migrationOldPath": "Stará složka",
+        "migrationNewPath": "Nová složka",
+        "migrationTotalSize": "Data k přesunu",
+        "migrationTotalFiles": "Soubory k přesunu",
         "migrationSafetyNote": "Soubory se nejprve zkopírují do dočasné oblasti a ověří. Teprve potom se složka přepne a staré zálohy odstraní.",
-        "switchOnly": "Jen změnit", "migrateAndSwitch": "Přesunout a změnit",
-        "migrationProgress": {"title": "Přesun složky záloh", "filesUnit": "souborů", "currentSource": "Aktuální zdroj", "completedSummary": "Přesunuto {{count}} souborů ({{size}}) a aktivována nová složka.", "switchOnlyCompleted": "Budoucí zálohy se uloží do {{path}}. Existující zálohy nebyly přesunuty.", "cleanupPartial": "Nová složka je aktivní, ale tyto staré složky se nepodařilo odstranit. Odstraňte je později ručně:", "cancelledDesc": "Přesun byl zrušen. Původní složka zůstala beze změny a dočasné soubory byly odstraněny.", "cancelling": "Rušení...", "cancelAction": "Zrušit přesun", "finishing": "Dokončování...", "phases": {"scanning": "Kontrola záloh...", "copying": "Kopírování záloh...", "verifying": "Ověřování souborů...", "switching": "Změna složky...", "cleaning": "Odstraňování starých záloh...", "completed": "Přesun dokončen", "cancelled": "Přesun zrušen"}},
+        "switchOnly": "Jen změnit",
+        "migrateAndSwitch": "Přesunout a změnit",
+        "migrationProgress": {
+          "title": "Přesun složky záloh",
+          "filesUnit": "souborů",
+          "currentSource": "Aktuální zdroj",
+          "completedSummary": "Přesunuto {{count}} souborů ({{size}}) a aktivována nová složka.",
+          "switchOnlyCompleted": "Budoucí zálohy se uloží do {{path}}. Existující zálohy nebyly přesunuty.",
+          "cleanupPartial": "Nová složka je aktivní, ale tyto staré složky se nepodařilo odstranit. Odstraňte je později ručně:",
+          "cancelledDesc": "Přesun byl zrušen. Původní složka zůstala beze změny a dočasné soubory byly odstraněny.",
+          "cancelling": "Rušení...",
+          "cancelAction": "Zrušit přesun",
+          "finishing": "Dokončování...",
+          "phases": {
+            "scanning": "Kontrola záloh...",
+            "copying": "Kopírování záloh...",
+            "verifying": "Ověřování souborů...",
+            "switching": "Změna složky...",
+            "cleaning": "Odstraňování starých záloh...",
+            "completed": "Přesun dokončen",
+            "cancelled": "Přesun zrušen"
+          }
+        },
         "openFolder": "Otevřít složku",
         "listTitle": "Seznam záloh",
         "listDesc": "Zálohu můžete přímo importovat nebo odstranit staré soubory.",
@@ -1072,9 +1114,15 @@
           "cleanupFailed": "Vyčištění starých záloh selhalo: {{error}}",
           "openFolderFailed": "Otevření složky se zálohami selhalo: {{error}}",
           "downloadSuccess": "Záloha stažena do {{path}}",
-          "downloadFailed": "Stažení zálohy selhalo: {{error}}"
-          ,"migrating": "Přesouvání složky záloh...", "migrationDone": "Přesunuto {{count}} souborů do {{path}}", "directoryChanged": "Složka změněna na {{path}}", "directoryChangeFailed": "Složku záloh se nepodařilo změnit: {{error}}", "behaviorCleaning": "Čištění starých záloh chování...", "behaviorCleanupDone": "Vyčištěno {{count}} záloh, uvolněno {{size}}", "behaviorCleanupFailed": "Zálohy chování se nepodařilo vyčistit: {{error}}"
-          ,"scanningMigration": "Kontrola záloh k přesunu..."
+          "downloadFailed": "Stažení zálohy selhalo: {{error}}",
+          "migrating": "Přesouvání složky záloh...",
+          "migrationDone": "Přesunuto {{count}} souborů do {{path}}",
+          "directoryChanged": "Složka změněna na {{path}}",
+          "directoryChangeFailed": "Složku záloh se nepodařilo změnit: {{error}}",
+          "behaviorCleaning": "Čištění starých záloh chování...",
+          "behaviorCleanupDone": "Vyčištěno {{count}} záloh, uvolněno {{size}}",
+          "behaviorCleanupFailed": "Zálohy chování se nepodařilo vyčistit: {{error}}",
+          "scanningMigration": "Kontrola záloh k přesunu..."
         },
         "errors": {
           "invalidRetention": "Doba uchování musí být mezi 1 a 365 dny"
@@ -4397,6 +4445,21 @@
       "syncOfficialAuthOnSwitch": "Synchronizovat oficiální přihlášení",
       "syncOfficialAuthOnSwitchDesc": "Po zapnutí změna účtu OAuth ve výchozí instanci zapíše oficiální soubor ~/.grok/auth.json. Po vypnutí se použije samostatný GROK_HOME. Klíče API ani další instance oficiální přihlášení nepřepisují."
     },
+    "kimi": {
+      "title": "Nastavení Kimi Code",
+      "cliPath": "Cesta CLI",
+      "cliDetected": "Zjištěno: {{version}} · {{path}}",
+      "cliMissing": "Kimi CLI nebylo nalezeno. Zadejte vlastní cestu.",
+      "cliPick": "Vybrat Kimi CLI",
+      "cliDetect": "Automaticky zjistit Kimi CLI",
+      "homePick": "Vybrat KIMI_CODE_HOME",
+      "homeDetect": "Automaticky zjistit KIMI_CODE_HOME",
+      "home": "Složka KIMI_CODE_HOME",
+      "homeDesc": "Přepíše oficiální konfigurační adresář. Proměnná prostředí má přednost. Aktuálně: {{home}}",
+      "launchOnSwitch": "Po přepnutí otevřít oficiální CLI",
+      "launchOnSwitchDesc": "Po zapnutí otevře přepnutí účtu terminál a spustí kimi. Po vypnutí se zapíše jen oficiální konfigurace, bez okna."
+    },
+    "kimiRefreshInterval": "Automatická obnova kvóty",
     "grokRefreshInterval": "Automatická obnova kvóty",
     "codebuddy": {
       "title": "Nastavení CodeBuddy",
@@ -6170,5 +6233,49 @@
   "opencode": {
     "title": "OpenCode",
     "desc": "Správa klíčů OpenCode Go/Zen a filtr podle tier."
+  },
+  "kimi": {
+    "search": "Hledat účty Kimi Code...",
+    "flowNotice": {
+      "title": "Průvodce účty Kimi Code",
+      "desc": "Index více účtů zůstává v Cockpitu. Při přepnutí se zapíší oficiální přihlašovací údaje a přes GET /models vznikne kompletní config.toml včetně tabulky models.",
+      "permission": "Místní rozsah: výchozí údaje ~/.kimi-code lze importovat; při přepnutí se zapíší oficiální credentials a kompletní config.toml. Respektuje KIMI_CODE_HOME.",
+      "network": "Síťový rozsah: oprávnění OAuth, obnovení tokenu a /me · /models · /usages. Údaje se na služby Cockpitu neodesílají."
+    },
+    "empty": "Zatím žádné účty Kimi Code",
+    "addAccount": "Přidat účet Kimi Code",
+    "oauth": {
+      "desc": "Otevřete autorizační stránku Kimi a zadejte kód zařízení. Účet se po dokončení uloží sám.",
+      "title": "Přihlášení Kimi Code kódem zařízení",
+      "item1": "Používá oficiální device flow a nezabírá místní callback port.",
+      "item2": "Při přepnutí se zapíše ~/.kimi-code/credentials/kimi-code.json v oficiálním wire formátu.",
+      "item3": "Kvóta pochází z /usages. Přihlášení stahuje jen /me.",
+      "urlPlaceholder": "URL autorizace OAuth Kimi",
+      "waiting": "Čeká se na autorizaci OAuth Kimi...",
+      "openWindow": "Otevřít autorizační stránku",
+      "success": "Přihlášení OAuth Kimi Code bylo úspěšné"
+    },
+    "import": {
+      "tokenDesc": "Vložte oficiální credentials/kimi-code.json nebo úplný JSON účtu exportovaný touto aplikací.",
+      "pasteDesc": "Vložte oficiální credentials/kimi-code.json nebo úplný JSON účtu exportovaný touto aplikací.",
+      "pastePlaceholder": "Vložte JSON účtu Kimi Code",
+      "pasteAction": "Importovat JSON",
+      "localDesc": "Import z ~/.kimi-code/credentials/kimi-code.json (respektuje KIMI_CODE_HOME).",
+      "localClient": "Import z místního Kimi Code CLI"
+    },
+    "quota": {
+      "resetAt": "{{label}} se resetuje v {{time}}",
+      "empty": "Zatím žádná kvóta",
+      "weekly": "Týdenní kvóta"
+    },
+    "switch": {
+      "buttonTitle": "Zapsat oficiální konfiguraci",
+      "wroteOfficialConfig": "Oficiální konfigurace zapsána — kimi spusťte sami ({{email}})",
+      "currentOnly": "Aktuální účet přepnut (oficiální konfigurace nezapsána): {{email}}"
+    },
+    "quotaAlert": {
+      "hint": "Když některá položka kvóty klesne pod práh, odešle se nativní oznámení a nabídne se rychlé přepnutí.",
+      "thresholdDesc": "Upozornit, když zbývající kvóta klesne pod toto procento"
+    }
   }
 }

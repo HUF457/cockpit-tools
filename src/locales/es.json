@@ -297,7 +297,8 @@
     "apiRelay": "Relé",
     "claude": "Claude",
     "openrouter": "OpenRouter",
-    "opencode": "OpenCode"
+    "opencode": "OpenCode",
+    "kimi": "Cuentas Kimi Code"
   },
   "sponsors": {
     "pageTitle": "Patrocinadores",
@@ -1039,7 +1040,24 @@
         "retentionUnit": "días",
         "directoryTitle": "Carpeta de copias",
         "directoryDesc": "Las copias siempre se guardan en la carpeta backups del proyecto.",
-        "changeDirectory": "Cambiar carpeta", "migrating": "Migrando...", "migrationConfirm": "¿Mover las copias existentes de {{oldPath}} a {{newPath}}?\n\nCancelar cambiará la carpeta sin mover los archivos antiguos.", "usageTitle": "Espacio de copias", "usageDesc": "Uso local de copias programadas e instantáneas de plataformas.", "usageEmpty": "No se encontraron copias locales.", "cleanupBehavior": "Limpiar copias de comportamiento", "behaviorCleanupConfirm": "¿Limpiar copias antiguas? Se conservará la más reciente por plataforma e instancia y no se borrarán los JSON/ZIP programados.", "sources": {"scheduled": "JSON/ZIP programados", "behavior": "Instantáneas", "claude": "Claude", "codex": "Codex", "workbuddy": "WorkBuddy", "codebuddy": "CodeBuddy", "trae": "Trae", "other": "Otros"},
+        "changeDirectory": "Cambiar carpeta",
+        "migrating": "Migrando...",
+        "migrationConfirm": "¿Mover las copias existentes de {{oldPath}} a {{newPath}}?\n\nCancelar cambiará la carpeta sin mover los archivos antiguos.",
+        "usageTitle": "Espacio de copias",
+        "usageDesc": "Uso local de copias programadas e instantáneas de plataformas.",
+        "usageEmpty": "No se encontraron copias locales.",
+        "cleanupBehavior": "Limpiar copias de comportamiento",
+        "behaviorCleanupConfirm": "¿Limpiar copias antiguas? Se conservará la más reciente por plataforma e instancia y no se borrarán los JSON/ZIP programados.",
+        "sources": {
+          "scheduled": "JSON/ZIP programados",
+          "behavior": "Instantáneas",
+          "claude": "Claude",
+          "codex": "Codex",
+          "workbuddy": "WorkBuddy",
+          "codebuddy": "CodeBuddy",
+          "trae": "Trae",
+          "other": "Otros"
+        },
         "migrationConfirmTitle": "Cambiar carpeta de copias",
         "migrationConfirmDesc": "Se analizaron las copias existentes. Migra y libera la carpeta anterior, o cambia solo la ubicación de las próximas copias.",
         "migrationOldPath": "Carpeta anterior",
@@ -1049,7 +1067,27 @@
         "migrationSafetyNote": "Los archivos se copian a una zona temporal y se verifican antes de cambiar la carpeta y eliminar las copias anteriores.",
         "switchOnly": "Solo cambiar",
         "migrateAndSwitch": "Migrar y cambiar",
-        "migrationProgress": {"title": "Migrar carpeta de copias", "filesUnit": "archivos", "currentSource": "Origen actual", "completedSummary": "Se migraron {{count}} archivos ({{size}}) y se activó la carpeta nueva.", "switchOnlyCompleted": "Las próximas copias se guardarán en {{path}}. Las copias existentes no se movieron.", "cleanupPartial": "La carpeta nueva está activa, pero no se pudieron borrar estas carpetas anteriores. Elimínalas manualmente más tarde:", "cancelledDesc": "La migración se canceló. La carpeta original no cambió y se eliminaron los archivos temporales.", "cancelling": "Cancelando...", "cancelAction": "Cancelar migración", "finishing": "Finalizando...", "phases": {"scanning": "Analizando copias...", "copying": "Copiando archivos...", "verifying": "Verificando archivos...", "switching": "Cambiando carpeta...", "cleaning": "Eliminando copias anteriores...", "completed": "Migración completada", "cancelled": "Migración cancelada"}},
+        "migrationProgress": {
+          "title": "Migrar carpeta de copias",
+          "filesUnit": "archivos",
+          "currentSource": "Origen actual",
+          "completedSummary": "Se migraron {{count}} archivos ({{size}}) y se activó la carpeta nueva.",
+          "switchOnlyCompleted": "Las próximas copias se guardarán en {{path}}. Las copias existentes no se movieron.",
+          "cleanupPartial": "La carpeta nueva está activa, pero no se pudieron borrar estas carpetas anteriores. Elimínalas manualmente más tarde:",
+          "cancelledDesc": "La migración se canceló. La carpeta original no cambió y se eliminaron los archivos temporales.",
+          "cancelling": "Cancelando...",
+          "cancelAction": "Cancelar migración",
+          "finishing": "Finalizando...",
+          "phases": {
+            "scanning": "Analizando copias...",
+            "copying": "Copiando archivos...",
+            "verifying": "Verificando archivos...",
+            "switching": "Cambiando carpeta...",
+            "cleaning": "Eliminando copias anteriores...",
+            "completed": "Migración completada",
+            "cancelled": "Migración cancelada"
+          }
+        },
         "openFolder": "Abrir carpeta",
         "listTitle": "Lista de copias",
         "listDesc": "Importa una copia directamente o elimina archivos antiguos.",
@@ -1076,9 +1114,15 @@
           "cleanupFailed": "No se pudieron limpiar las copias caducadas: {{error}}",
           "openFolderFailed": "No se pudo abrir la carpeta de copias: {{error}}",
           "downloadSuccess": "Copia descargada en {{path}}",
-          "downloadFailed": "Error al descargar la copia: {{error}}"
-          ,"migrating": "Migrando la carpeta...", "migrationDone": "Se migraron {{count}} archivos a {{path}}", "directoryChanged": "Carpeta cambiada a {{path}}", "directoryChangeFailed": "No se pudo cambiar la carpeta: {{error}}", "behaviorCleaning": "Limpiando copias antiguas...", "behaviorCleanupDone": "Se limpiaron {{count}} copias y se liberaron {{size}}", "behaviorCleanupFailed": "No se pudieron limpiar las copias: {{error}}"
-          ,"scanningMigration": "Analizando copias para migrar..."
+          "downloadFailed": "Error al descargar la copia: {{error}}",
+          "migrating": "Migrando la carpeta...",
+          "migrationDone": "Se migraron {{count}} archivos a {{path}}",
+          "directoryChanged": "Carpeta cambiada a {{path}}",
+          "directoryChangeFailed": "No se pudo cambiar la carpeta: {{error}}",
+          "behaviorCleaning": "Limpiando copias antiguas...",
+          "behaviorCleanupDone": "Se limpiaron {{count}} copias y se liberaron {{size}}",
+          "behaviorCleanupFailed": "No se pudieron limpiar las copias: {{error}}",
+          "scanningMigration": "Analizando copias para migrar..."
         },
         "errors": {
           "invalidRetention": "La retención debe estar entre 1 y 365 días"
@@ -4401,6 +4445,21 @@
       "syncOfficialAuthOnSwitch": "Sincronizar el inicio oficial",
       "syncOfficialAuthOnSwitchDesc": "Al activarlo, cambiar la instancia predeterminada a una cuenta OAuth escribe el archivo oficial ~/.grok/auth.json. Al desactivarlo, se usa un GROK_HOME independiente. Las claves API y las instancias adicionales no sobrescriben el inicio oficial."
     },
+    "kimi": {
+      "title": "Ajustes de Kimi Code",
+      "cliPath": "Ruta de CLI",
+      "cliDetected": "Detectado: {{version}} · {{path}}",
+      "cliMissing": "No se encontró Kimi CLI. Indica una ruta.",
+      "cliPick": "Elegir Kimi CLI",
+      "cliDetect": "Detectar Kimi CLI automáticamente",
+      "homePick": "Elegir KIMI_CODE_HOME",
+      "homeDetect": "Detectar KIMI_CODE_HOME automáticamente",
+      "home": "Directorio KIMI_CODE_HOME",
+      "homeDesc": "Sobrescribe el directorio oficial de configuración. La variable de entorno tiene prioridad. Actual: {{home}}",
+      "launchOnSwitch": "Abrir la CLI oficial al cambiar",
+      "launchOnSwitchDesc": "Si está activo, al cambiar de cuenta se abre una terminal y se ejecuta kimi. Si está inactivo, solo se escribe la configuración oficial, sin ventana."
+    },
+    "kimiRefreshInterval": "Actualización automática de cuota",
     "grokRefreshInterval": "Actualización automática de cuota",
     "codebuddy": {
       "title": "Configuración de CodeBuddy",
@@ -6174,5 +6233,49 @@
   "opencode": {
     "title": "OpenCode",
     "desc": "Gestiona claves OpenCode Go/Zen y filtra por nivel."
+  },
+  "kimi": {
+    "search": "Buscar cuentas de Kimi Code...",
+    "flowNotice": {
+      "title": "Guía de cuentas de Kimi Code",
+      "desc": "El índice de varias cuentas se guarda en Cockpit. Al cambiar se escriben las credenciales oficiales y un config.toml completo, incluida la tabla models, con GET /models.",
+      "permission": "Ámbito local: se pueden importar las credenciales predeterminadas de ~/.kimi-code; al cambiar se escriben las credentials oficiales y un config.toml completo. Respeta KIMI_CODE_HOME.",
+      "network": "Ámbito de red: autorización OAuth, renovación del token y /me · /models · /usages. Las credenciales no se suben a los servicios de Cockpit."
+    },
+    "empty": "Aún no hay cuentas de Kimi Code",
+    "addAccount": "Añadir cuenta de Kimi Code",
+    "oauth": {
+      "desc": "Abre la página de autorización de Kimi e introduce el código de dispositivo. La cuenta se guarda sola al terminar.",
+      "title": "Inicio de Kimi Code con código de dispositivo",
+      "item1": "Usa el device flow oficial y no ocupa un puerto de devolución local.",
+      "item2": "Al cambiar se escribe ~/.kimi-code/credentials/kimi-code.json en el formato wire oficial.",
+      "item3": "La cuota sale de /usages. El inicio de sesión solo pide /me.",
+      "urlPlaceholder": "URL de autorización OAuth de Kimi",
+      "waiting": "Esperando la autorización OAuth de Kimi...",
+      "openWindow": "Abrir página de autorización",
+      "success": "Inicio OAuth de Kimi Code correcto"
+    },
+    "import": {
+      "tokenDesc": "Pega el credentials/kimi-code.json oficial o un JSON de cuenta exportado por esta aplicación.",
+      "pasteDesc": "Pega el credentials/kimi-code.json oficial o un JSON de cuenta exportado por esta aplicación.",
+      "pastePlaceholder": "Pegar JSON de la cuenta de Kimi Code",
+      "pasteAction": "Importar JSON",
+      "localDesc": "Importar desde ~/.kimi-code/credentials/kimi-code.json (respeta KIMI_CODE_HOME).",
+      "localClient": "Importar desde la CLI local de Kimi Code"
+    },
+    "quota": {
+      "resetAt": "{{label}} se restablece a las {{time}}",
+      "empty": "Aún no hay cuota",
+      "weekly": "Cuota semanal"
+    },
+    "switch": {
+      "buttonTitle": "Escribir la configuración oficial",
+      "wroteOfficialConfig": "Configuración oficial escrita; ejecuta kimi tú ({{email}})",
+      "currentOnly": "Cuenta actual cambiada (sin escribir la configuración oficial): {{email}}"
+    },
+    "quotaAlert": {
+      "hint": "Si algún cupo baja del umbral, se envía una notificación nativa y se ofrece un cambio rápido.",
+      "thresholdDesc": "Avisar cuando algún cupo quede por debajo de este porcentaje restante"
+    }
   }
 }

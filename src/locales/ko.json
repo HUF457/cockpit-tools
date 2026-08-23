@@ -297,7 +297,8 @@
     "apiRelay": "중계소",
     "claude": "Claude",
     "openrouter": "OpenRouter",
-    "opencode": "OpenCode"
+    "opencode": "OpenCode",
+    "kimi": "Kimi Code 계정"
   },
   "sponsors": {
     "pageTitle": "스폰서",
@@ -1039,13 +1040,54 @@
         "retentionUnit": "일",
         "directoryTitle": "백업 폴더",
         "directoryDesc": "백업은 항상 프로젝트의 backups 폴더에 저장됩니다.",
-        "changeDirectory": "폴더 변경", "migrating": "이동 중...", "migrationConfirm": "기존 백업을 {{oldPath}}에서 {{newPath}}로 이동할까요?\n\n취소하면 이전 파일을 이동하지 않고 폴더만 변경합니다.", "usageTitle": "백업 디스크 사용량", "usageDesc": "예약 백업과 플랫폼 동작 스냅샷의 로컬 사용량을 표시합니다.", "usageEmpty": "로컬 백업 파일이 없습니다.", "cleanupBehavior": "오래된 동작 백업 정리", "behaviorCleanupConfirm": "오래된 동작 백업을 정리할까요? 플랫폼과 인스턴스별 최신 백업만 유지하며 예약 JSON/ZIP은 삭제하지 않습니다.", "sources": {"scheduled": "예약 JSON/ZIP", "behavior": "동작 스냅샷", "claude": "Claude", "codex": "Codex", "workbuddy": "WorkBuddy", "codebuddy": "CodeBuddy", "trae": "Trae", "other": "기타"},
+        "changeDirectory": "폴더 변경",
+        "migrating": "이동 중...",
+        "migrationConfirm": "기존 백업을 {{oldPath}}에서 {{newPath}}로 이동할까요?\n\n취소하면 이전 파일을 이동하지 않고 폴더만 변경합니다.",
+        "usageTitle": "백업 디스크 사용량",
+        "usageDesc": "예약 백업과 플랫폼 동작 스냅샷의 로컬 사용량을 표시합니다.",
+        "usageEmpty": "로컬 백업 파일이 없습니다.",
+        "cleanupBehavior": "오래된 동작 백업 정리",
+        "behaviorCleanupConfirm": "오래된 동작 백업을 정리할까요? 플랫폼과 인스턴스별 최신 백업만 유지하며 예약 JSON/ZIP은 삭제하지 않습니다.",
+        "sources": {
+          "scheduled": "예약 JSON/ZIP",
+          "behavior": "동작 스냅샷",
+          "claude": "Claude",
+          "codex": "Codex",
+          "workbuddy": "WorkBuddy",
+          "codebuddy": "CodeBuddy",
+          "trae": "Trae",
+          "other": "기타"
+        },
         "migrationConfirmTitle": "백업 폴더 변경",
         "migrationConfirmDesc": "기존 백업을 확인했습니다. 이전 폴더의 공간을 확보하도록 이전하거나 앞으로의 백업 위치만 변경할 수 있습니다.",
-        "migrationOldPath": "이전 폴더", "migrationNewPath": "새 폴더", "migrationTotalSize": "이전할 용량", "migrationTotalFiles": "이전할 파일",
+        "migrationOldPath": "이전 폴더",
+        "migrationNewPath": "새 폴더",
+        "migrationTotalSize": "이전할 용량",
+        "migrationTotalFiles": "이전할 파일",
         "migrationSafetyNote": "임시 영역에 복사하고 검증한 뒤 폴더를 전환하고 이전 백업을 삭제합니다.",
-        "switchOnly": "위치만 변경", "migrateAndSwitch": "이전 후 변경",
-        "migrationProgress": {"title": "백업 폴더 이전", "filesUnit": "개 파일", "currentSource": "현재 원본", "completedSummary": "{{count}}개 파일({{size}})을 이전하고 새 폴더로 전환했습니다.", "switchOnlyCompleted": "앞으로 백업은 {{path}}에 저장됩니다. 기존 백업은 이동하지 않았습니다.", "cleanupPartial": "새 폴더는 적용되었지만 다음 이전 폴더를 삭제하지 못했습니다. 나중에 직접 삭제하세요:", "cancelledDesc": "이전을 취소했습니다. 원래 백업 폴더는 변경되지 않았고 임시 파일은 삭제되었습니다.", "cancelling": "취소 중...", "cancelAction": "이전 취소", "finishing": "마무리 중...", "phases": {"scanning": "백업 파일 확인 중...", "copying": "백업 파일 복사 중...", "verifying": "복사 결과 검증 중...", "switching": "백업 폴더 전환 중...", "cleaning": "이전 백업 삭제 중...", "completed": "이전 완료", "cancelled": "이전 취소됨"}},
+        "switchOnly": "위치만 변경",
+        "migrateAndSwitch": "이전 후 변경",
+        "migrationProgress": {
+          "title": "백업 폴더 이전",
+          "filesUnit": "개 파일",
+          "currentSource": "현재 원본",
+          "completedSummary": "{{count}}개 파일({{size}})을 이전하고 새 폴더로 전환했습니다.",
+          "switchOnlyCompleted": "앞으로 백업은 {{path}}에 저장됩니다. 기존 백업은 이동하지 않았습니다.",
+          "cleanupPartial": "새 폴더는 적용되었지만 다음 이전 폴더를 삭제하지 못했습니다. 나중에 직접 삭제하세요:",
+          "cancelledDesc": "이전을 취소했습니다. 원래 백업 폴더는 변경되지 않았고 임시 파일은 삭제되었습니다.",
+          "cancelling": "취소 중...",
+          "cancelAction": "이전 취소",
+          "finishing": "마무리 중...",
+          "phases": {
+            "scanning": "백업 파일 확인 중...",
+            "copying": "백업 파일 복사 중...",
+            "verifying": "복사 결과 검증 중...",
+            "switching": "백업 폴더 전환 중...",
+            "cleaning": "이전 백업 삭제 중...",
+            "completed": "이전 완료",
+            "cancelled": "이전 취소됨"
+          }
+        },
         "openFolder": "폴더 열기",
         "listTitle": "백업 목록",
         "listDesc": "백업을 바로 가져오거나 오래된 파일을 삭제할 수 있습니다.",
@@ -1072,9 +1114,15 @@
           "cleanupFailed": "만료된 백업 정리에 실패했습니다: {{error}}",
           "openFolderFailed": "백업 폴더를 열지 못했습니다: {{error}}",
           "downloadSuccess": "백업을 {{path}}에 다운로드했습니다",
-          "downloadFailed": "백업 다운로드 실패: {{error}}"
-          ,"migrating": "백업 폴더 이동 중...", "migrationDone": "{{count}}개 파일을 {{path}}로 이동했습니다", "directoryChanged": "백업 폴더를 {{path}}로 변경했습니다", "directoryChangeFailed": "백업 폴더 변경 실패: {{error}}", "behaviorCleaning": "오래된 동작 백업 정리 중...", "behaviorCleanupDone": "{{count}}개를 정리하고 {{size}}를 확보했습니다", "behaviorCleanupFailed": "동작 백업 정리 실패: {{error}}"
-          ,"scanningMigration": "이전할 백업 확인 중..."
+          "downloadFailed": "백업 다운로드 실패: {{error}}",
+          "migrating": "백업 폴더 이동 중...",
+          "migrationDone": "{{count}}개 파일을 {{path}}로 이동했습니다",
+          "directoryChanged": "백업 폴더를 {{path}}로 변경했습니다",
+          "directoryChangeFailed": "백업 폴더 변경 실패: {{error}}",
+          "behaviorCleaning": "오래된 동작 백업 정리 중...",
+          "behaviorCleanupDone": "{{count}}개를 정리하고 {{size}}를 확보했습니다",
+          "behaviorCleanupFailed": "동작 백업 정리 실패: {{error}}",
+          "scanningMigration": "이전할 백업 확인 중..."
         },
         "errors": {
           "invalidRetention": "보관 기간은 1일에서 365일 사이여야 합니다"
@@ -4397,6 +4445,21 @@
       "syncOfficialAuthOnSwitch": "전환 시 공식 로그인 동기화",
       "syncOfficialAuthOnSwitchDesc": "켜면 기본 인스턴스에서 OAuth 계정을 전환할 때 공식 ~/.grok/auth.json에 기록합니다. 끄면 별도 GROK_HOME을 사용합니다. API Key와 추가 인스턴스는 공식 로그인을 덮어쓰지 않습니다."
     },
+    "kimi": {
+      "title": "Kimi Code 설정",
+      "cliPath": "CLI 경로",
+      "cliDetected": "감지됨: {{version}} · {{path}}",
+      "cliMissing": "Kimi CLI를 찾지 못했습니다. 사용자 경로를 입력하세요.",
+      "cliPick": "Kimi CLI 선택",
+      "cliDetect": "Kimi CLI 자동 감지",
+      "homePick": "KIMI_CODE_HOME 선택",
+      "homeDetect": "KIMI_CODE_HOME 자동 감지",
+      "home": "홈 디렉터리 KIMI_CODE_HOME",
+      "homeDesc": "공식 설정 디렉터리를 덮어씁니다. 환경 변수가 이 항목보다 우선합니다. 현재: {{home}}",
+      "launchOnSwitch": "전환 후 공식 CLI 열기",
+      "launchOnSwitchDesc": "켜면 계정 전환 시 터미널을 열고 kimi를 실행합니다. 끄면 공식 설정만 기록하고 창을 열지 않습니다."
+    },
+    "kimiRefreshInterval": "할당량 자동 새로고침",
     "grokRefreshInterval": "할당량 자동 새로고침",
     "codebuddy": {
       "title": "CodeBuddy 설정",
@@ -6170,5 +6233,49 @@
   "opencode": {
     "title": "OpenCode",
     "desc": "OpenCode Go/Zen API 키를 관리하고 티어로 필터합니다."
+  },
+  "kimi": {
+    "search": "Kimi Code 계정 검색...",
+    "flowNotice": {
+      "title": "Kimi Code 계정 안내",
+      "desc": "다중 계정 색인은 Cockpit에 보관됩니다. 전환 시 공식 자격 증명을 쓰고, GET /models로 models 표가 포함된 완전한 config.toml을 출력합니다.",
+      "permission": "로컬 범위: 기본 ~/.kimi-code 자격 증명을 가져와 가져올 수 있습니다. 전환 시 공식 credentials와 완전한 config.toml을 기록합니다. KIMI_CODE_HOME을 따릅니다.",
+      "network": "네트워크 범위: OAuth 승인, 토큰 갱신, /me · /models · /usages. 자격 증명은 Cockpit 서비스로 업로드되지 않습니다."
+    },
+    "empty": "아직 Kimi Code 계정이 없습니다",
+    "addAccount": "Kimi Code 계정 추가",
+    "oauth": {
+      "desc": "Kimi 승인 페이지를 열고 장치 코드로 로그인합니다. 완료되면 계정이 자동 저장됩니다.",
+      "title": "Kimi Code 장치 코드 로그인",
+      "item1": "공식 device flow를 사용하며 로컬 콜백 포트를 쓰지 않습니다.",
+      "item2": "전환 시 ~/.kimi-code/credentials/kimi-code.json을 공식 wire 형식으로 기록합니다.",
+      "item3": "할당량은 공식 /usages에서 가져옵니다. 로그인은 /me만 조회합니다.",
+      "urlPlaceholder": "Kimi OAuth 승인 URL",
+      "waiting": "Kimi OAuth 승인을 기다리는 중...",
+      "openWindow": "승인 페이지 열기",
+      "success": "Kimi Code OAuth 로그인 성공"
+    },
+    "import": {
+      "tokenDesc": "공식 credentials/kimi-code.json 또는 이 앱이 내보낸 전체 계정 JSON을 붙여넣습니다.",
+      "pasteDesc": "공식 credentials/kimi-code.json 또는 이 앱이 내보낸 전체 계정 JSON을 붙여넣습니다.",
+      "pastePlaceholder": "Kimi Code 계정 JSON 붙여넣기",
+      "pasteAction": "JSON 가져오기",
+      "localDesc": "기본 ~/.kimi-code/credentials/kimi-code.json에서 가져옵니다(KIMI_CODE_HOME 준수).",
+      "localClient": "로컬 Kimi Code CLI에서 가져오기"
+    },
+    "quota": {
+      "resetAt": "{{label}} 재설정: {{time}}",
+      "empty": "아직 할당량 없음",
+      "weekly": "주간 할당량"
+    },
+    "switch": {
+      "buttonTitle": "공식 설정 쓰기",
+      "wroteOfficialConfig": "공식 설정을 썼습니다. kimi는 직접 실행하세요 ({{email}})",
+      "currentOnly": "현재 계정을 전환했습니다(공식 설정 미기록): {{email}}"
+    },
+    "quotaAlert": {
+      "hint": "할당량 항목이 임계값보다 낮아지면 네이티브 알림을 보내고 빠른 전환을 안내합니다.",
+      "thresholdDesc": "남은 할당량이 이 비율보다 낮으면 경고합니다"
+    }
   }
 }

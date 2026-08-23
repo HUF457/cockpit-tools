@@ -297,7 +297,8 @@
     "apiRelay": "API-Relay",
     "claude": "Claude",
     "openrouter": "OpenRouter",
-    "opencode": "OpenCode"
+    "opencode": "OpenCode",
+    "kimi": "Kimi-Code"
   },
   "sponsors": {
     "pageTitle": "Sponsoren",
@@ -1039,7 +1040,24 @@
         "retentionUnit": "Tage",
         "directoryTitle": "Backup-Ordner",
         "directoryDesc": "Backups werden immer im backups-Ordner des Projekts gespeichert.",
-        "changeDirectory": "Ordner ändern", "migrating": "Wird verschoben...", "migrationConfirm": "Vorhandene Backups von {{oldPath}} nach {{newPath}} verschieben?\n\nAbbrechen wechselt den Ordner ohne alte Dateien zu verschieben.", "usageTitle": "Backup-Speicherplatz", "usageDesc": "Lokaler Speicher für geplante Backups und Plattform-Snapshots.", "usageEmpty": "Keine lokalen Backups gefunden.", "cleanupBehavior": "Alte Verhaltens-Backups löschen", "behaviorCleanupConfirm": "Alte Verhaltens-Backups löschen? Pro Plattform und Instanz bleibt nur das neueste erhalten. Geplante JSON/ZIP-Dateien bleiben erhalten.", "sources": {"scheduled": "Geplante JSON/ZIP", "behavior": "Verhaltens-Snapshots", "claude": "Claude", "codex": "Codex", "workbuddy": "WorkBuddy", "codebuddy": "CodeBuddy", "trae": "Trae", "other": "Andere"},
+        "changeDirectory": "Ordner ändern",
+        "migrating": "Wird verschoben...",
+        "migrationConfirm": "Vorhandene Backups von {{oldPath}} nach {{newPath}} verschieben?\n\nAbbrechen wechselt den Ordner ohne alte Dateien zu verschieben.",
+        "usageTitle": "Backup-Speicherplatz",
+        "usageDesc": "Lokaler Speicher für geplante Backups und Plattform-Snapshots.",
+        "usageEmpty": "Keine lokalen Backups gefunden.",
+        "cleanupBehavior": "Alte Verhaltens-Backups löschen",
+        "behaviorCleanupConfirm": "Alte Verhaltens-Backups löschen? Pro Plattform und Instanz bleibt nur das neueste erhalten. Geplante JSON/ZIP-Dateien bleiben erhalten.",
+        "sources": {
+          "scheduled": "Geplante JSON/ZIP",
+          "behavior": "Verhaltens-Snapshots",
+          "claude": "Claude",
+          "codex": "Codex",
+          "workbuddy": "WorkBuddy",
+          "codebuddy": "CodeBuddy",
+          "trae": "Trae",
+          "other": "Andere"
+        },
         "migrationConfirmTitle": "Backup-Ordner ändern",
         "migrationConfirmDesc": "Vorhandene Backups wurden geprüft. Verschieben Sie sie und geben Sie den alten Speicher frei, oder ändern Sie nur den Speicherort für neue Backups.",
         "migrationOldPath": "Alter Ordner",
@@ -1049,7 +1067,27 @@
         "migrationSafetyNote": "Dateien werden zuerst in einen temporären Bereich kopiert und geprüft. Erst danach wird der Ordner gewechselt und das alte Backup entfernt.",
         "switchOnly": "Nur wechseln",
         "migrateAndSwitch": "Verschieben & wechseln",
-        "migrationProgress": {"title": "Backup-Ordner verschieben", "filesUnit": "Dateien", "currentSource": "Aktuelle Quelle", "completedSummary": "{{count}} Dateien ({{size}}) verschoben und neuen Ordner aktiviert.", "switchOnlyCompleted": "Neue Backups werden unter {{path}} gespeichert. Vorhandene Backups wurden nicht verschoben.", "cleanupPartial": "Der neue Ordner ist aktiv, aber diese alten Ordner konnten nicht entfernt werden. Bitte später manuell löschen:", "cancelledDesc": "Vorgang abgebrochen. Der ursprüngliche Backup-Ordner bleibt unverändert und temporäre Dateien wurden entfernt.", "cancelling": "Wird abgebrochen...", "cancelAction": "Verschieben abbrechen", "finishing": "Wird abgeschlossen...", "phases": {"scanning": "Backup-Dateien werden geprüft...", "copying": "Backup-Dateien werden kopiert...", "verifying": "Kopierte Dateien werden geprüft...", "switching": "Backup-Ordner wird gewechselt...", "cleaning": "Alte Backups werden entfernt...", "completed": "Verschieben abgeschlossen", "cancelled": "Verschieben abgebrochen"}},
+        "migrationProgress": {
+          "title": "Backup-Ordner verschieben",
+          "filesUnit": "Dateien",
+          "currentSource": "Aktuelle Quelle",
+          "completedSummary": "{{count}} Dateien ({{size}}) verschoben und neuen Ordner aktiviert.",
+          "switchOnlyCompleted": "Neue Backups werden unter {{path}} gespeichert. Vorhandene Backups wurden nicht verschoben.",
+          "cleanupPartial": "Der neue Ordner ist aktiv, aber diese alten Ordner konnten nicht entfernt werden. Bitte später manuell löschen:",
+          "cancelledDesc": "Vorgang abgebrochen. Der ursprüngliche Backup-Ordner bleibt unverändert und temporäre Dateien wurden entfernt.",
+          "cancelling": "Wird abgebrochen...",
+          "cancelAction": "Verschieben abbrechen",
+          "finishing": "Wird abgeschlossen...",
+          "phases": {
+            "scanning": "Backup-Dateien werden geprüft...",
+            "copying": "Backup-Dateien werden kopiert...",
+            "verifying": "Kopierte Dateien werden geprüft...",
+            "switching": "Backup-Ordner wird gewechselt...",
+            "cleaning": "Alte Backups werden entfernt...",
+            "completed": "Verschieben abgeschlossen",
+            "cancelled": "Verschieben abgebrochen"
+          }
+        },
         "openFolder": "Ordner öffnen",
         "listTitle": "Backup-Liste",
         "listDesc": "Importieren Sie ein Backup direkt oder entfernen Sie alte Dateien.",
@@ -1076,9 +1114,15 @@
           "cleanupFailed": "Bereinigung abgelaufener Backups fehlgeschlagen: {{error}}",
           "openFolderFailed": "Öffnen des Backup-Ordners fehlgeschlagen: {{error}}",
           "downloadSuccess": "Backup nach {{path}} heruntergeladen",
-          "downloadFailed": "Backup-Download fehlgeschlagen: {{error}}"
-          ,"migrating": "Backup-Ordner wird verschoben...", "migrationDone": "{{count}} Dateien nach {{path}} verschoben", "directoryChanged": "Backup-Ordner auf {{path}} geändert", "directoryChangeFailed": "Backup-Ordner konnte nicht geändert werden: {{error}}", "behaviorCleaning": "Alte Verhaltens-Backups werden gelöscht...", "behaviorCleanupDone": "{{count}} Backups gelöscht, {{size}} freigegeben", "behaviorCleanupFailed": "Verhaltens-Backups konnten nicht gelöscht werden: {{error}}"
-          ,"scanningMigration": "Zu verschiebende Backups werden geprüft..."
+          "downloadFailed": "Backup-Download fehlgeschlagen: {{error}}",
+          "migrating": "Backup-Ordner wird verschoben...",
+          "migrationDone": "{{count}} Dateien nach {{path}} verschoben",
+          "directoryChanged": "Backup-Ordner auf {{path}} geändert",
+          "directoryChangeFailed": "Backup-Ordner konnte nicht geändert werden: {{error}}",
+          "behaviorCleaning": "Alte Verhaltens-Backups werden gelöscht...",
+          "behaviorCleanupDone": "{{count}} Backups gelöscht, {{size}} freigegeben",
+          "behaviorCleanupFailed": "Verhaltens-Backups konnten nicht gelöscht werden: {{error}}",
+          "scanningMigration": "Zu verschiebende Backups werden geprüft..."
         },
         "errors": {
           "invalidRetention": "Die Aufbewahrung muss zwischen 1 und 365 Tagen liegen"
@@ -4401,6 +4445,21 @@
       "syncOfficialAuthOnSwitch": "Offizielle Anmeldung mitsynchronisieren",
       "syncOfficialAuthOnSwitchDesc": "Wenn aktiviert, schreibt ein OAuth-Kontowechsel der Standardinstanz in die offizielle ~/.grok/auth.json. Wenn deaktiviert, wird ein separates GROK_HOME verwendet. API Keys und weitere Instanzen überschreiben die offizielle Anmeldung nicht."
     },
+    "kimi": {
+      "title": "Kimi-Code-Einstellungen",
+      "cliPath": "CLI-Pfad",
+      "cliDetected": "Erkannt: {{version}} · {{path}}",
+      "cliMissing": "Kimi CLI nicht gefunden. Eigenen Pfad eingeben.",
+      "cliPick": "Kimi CLI auswählen",
+      "cliDetect": "Kimi CLI automatisch erkennen",
+      "homePick": "KIMI_CODE_HOME auswählen",
+      "homeDetect": "KIMI_CODE_HOME automatisch erkennen",
+      "home": "Verzeichnis KIMI_CODE_HOME",
+      "homeDesc": "Überschreibt das offizielle Konfigurationsverzeichnis. Die Umgebungsvariable hat Vorrang. Aktuell: {{home}}",
+      "launchOnSwitch": "Offizielle CLI nach dem Wechsel öffnen",
+      "launchOnSwitchDesc": "Wenn aktiviert, öffnet ein Kontowechsel ein Terminal und startet kimi. Wenn deaktiviert, wird nur die offizielle Konfiguration geschrieben, ohne Fenster."
+    },
+    "kimiRefreshInterval": "Kontingent automatisch aktualisieren",
     "grokRefreshInterval": "Kontingent automatisch aktualisieren",
     "codebuddy": {
       "title": "CodeBuddy-Einstellungen",
@@ -6174,5 +6233,49 @@
   "opencode": {
     "title": "OpenCode",
     "desc": "OpenCode Go/Zen API-Keys verwalten und nach Stufe filtern."
+  },
+  "kimi": {
+    "search": "Kimi-Code-Konten suchen...",
+    "flowNotice": {
+      "title": "Hinweise zu Kimi-Code-Konten",
+      "desc": "Der Mehrkonten-Index bleibt in Cockpit. Beim Wechsel werden offizielle Anmeldedaten geschrieben und per GET /models eine vollständige config.toml inklusive models-Tabelle erzeugt.",
+      "permission": "Lokal: Standard-~/.kimi-code-Anmeldedaten können importiert werden. Beim Wechsel werden offizielle credentials und eine vollständige config.toml geschrieben. KIMI_CODE_HOME wird beachtet.",
+      "network": "Netzwerk: OAuth-Freigabe, Token-Aktualisierung sowie /me · /models · /usages. Anmeldedaten werden nicht an Cockpit-Dienste hochgeladen."
+    },
+    "empty": "Noch keine Kimi-Code-Konten",
+    "addAccount": "Kimi-Code-Konto hinzufügen",
+    "oauth": {
+      "desc": "Öffnen Sie die Kimi-Freigabeseite und geben Sie den Gerätecode ein. Das Konto wird nach der Freigabe automatisch gespeichert.",
+      "title": "Kimi-Code-Gerätecode-Anmeldung",
+      "item1": "Nutzt den offiziellen Device Flow und belegt keinen lokalen Callback-Port.",
+      "item2": "Beim Wechsel wird ~/.kimi-code/credentials/kimi-code.json im offiziellen Wire-Format geschrieben.",
+      "item3": "Das Kontingent kommt von /usages. Beim Anmelden wird nur /me geladen.",
+      "urlPlaceholder": "Kimi-OAuth-Freigabe-URL",
+      "waiting": "Warte auf Kimi-OAuth-Freigabe...",
+      "openWindow": "Freigabeseite öffnen",
+      "success": "Kimi-Code-OAuth-Anmeldung erfolgreich"
+    },
+    "import": {
+      "tokenDesc": "Offizielle credentials/kimi-code.json oder das von dieser App exportierte Konto-JSON einfügen.",
+      "pasteDesc": "Offizielle credentials/kimi-code.json oder das von dieser App exportierte Konto-JSON einfügen.",
+      "pastePlaceholder": "Kimi-Code-Konto-JSON einfügen",
+      "pasteAction": "JSON importieren",
+      "localDesc": "Aus der Standarddatei ~/.kimi-code/credentials/kimi-code.json importieren (beachtet KIMI_CODE_HOME).",
+      "localClient": "Vom lokalen Kimi-Code-CLI importieren"
+    },
+    "quota": {
+      "resetAt": "{{label}} wird zurückgesetzt: {{time}}",
+      "empty": "Noch kein Kontingent",
+      "weekly": "Wochenkontingent"
+    },
+    "switch": {
+      "buttonTitle": "Offizielle Konfiguration schreiben",
+      "wroteOfficialConfig": "Offizielle Konfiguration geschrieben — kimi selbst starten ({{email}})",
+      "currentOnly": "Aktuelles Konto gewechselt (ohne offizielle Konfiguration): {{email}}"
+    },
+    "quotaAlert": {
+      "hint": "Wenn ein Kontingentposten unter den Schwellenwert fällt, kommt eine Systembenachrichtigung und ein Schnellwechsel-Hinweis.",
+      "thresholdDesc": "Warnen, wenn ein Kontingentposten unter diesen Restprozentsatz fällt"
+    }
   }
 }
