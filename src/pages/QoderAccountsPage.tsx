@@ -139,7 +139,7 @@ function writeBooleanStorage(key: string, value: boolean) {
 }
 
 function normalizeQoderViewMode(value: unknown): ViewMode {
-  return value === 'list' ? 'list' : 'grid';
+  return value === 'grid' ? 'grid' : 'list';
 }
 
 function normalizeQoderSortBy(value: unknown): SortBy {
@@ -261,10 +261,10 @@ export function QoderAccountsPage() {
           readAccountsOverviewFilterField<unknown>(
             QODER_FILTER_PERSISTENCE_SCOPE,
             QODER_FILTER_FIELD_VIEW_MODE,
-            'grid',
+            'list',
           ),
         )
-      : 'grid',
+      : 'list',
   );
   const [searchQuery, setSearchQuery] = useState('');
   const [filterTypes, setFilterTypes] = useState<string[]>(() =>

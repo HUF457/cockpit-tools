@@ -338,7 +338,7 @@ function readInitialViewMode(): ViewMode {
   } catch {
     // ignore storage failures
   }
-  return 'grid';
+  return 'list';
 }
 
 function readClaudeApiKeyUsageCache(): Record<string, ClaudeApiKeyUsageState> {
