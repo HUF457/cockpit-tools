@@ -2,10 +2,26 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
 // @ts-expect-error process is a nodejs global
-const host = process.env.TAURI_DEV_HOST;
+const processEnv: Record<string, string | undefined> = process.env;
+const host = processEnv.TAURI_DEV_HOST;
 
 // https://vite.dev/config/
-export default defineConfig(async () => ({
+export default defineConfig(async ({ command }) => {
+  // Dev branding (VITE_COCKPIT_TOOLS_PROFILE=dev) is opted into by
+  // scripts/tauri-dev.cjs for `tauri dev` runs. Production bundles must not
+  // inherit that profile from ambient shell state, otherwise a release build
+  // silently ships "Cockpit Tools Dev" branding. Building a dev-flavored
+  // bundle on purpose requires the explicit COCKPIT_TOOLS_BUILD_PROFILE.
+  if (command === "build") {
+    const explicitProfile = processEnv.COCKPIT_TOOLS_BUILD_PROFILE;
+    if (explicitProfile) {
+      processEnv.VITE_COCKPIT_TOOLS_PROFILE = explicitProfile;
+    } else {
+      delete processEnv.VITE_COCKPIT_TOOLS_PROFILE;
+    }
+  }
+
+  return {
   plugins: [react()],
   base: "./",
   build: {
@@ -73,4 +89,5 @@ export default defineConfig(async () => ({
       ignored: ["**/src-tauri/**", "**/target/**"],
     },
   },
-}));
+  };
+});
