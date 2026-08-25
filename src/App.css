@@ -806,18 +806,18 @@
 
 .update-quick-action {
   position: fixed;
-  top: 56px;
-  left: 120px;
+  top: 52px;
+  left: 80px;
   z-index: 1200;
 }
 
 .log-entry-fab {
   position: fixed;
-  left: 36px;
-  bottom: 24px;
-  width: 44px;
-  height: 44px;
-  border-radius: 14px;
+  left: 68px;
+  bottom: 16px;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
   border: 1px solid var(--border);
   background: var(--bg-card);
   color: var(--text-secondary);
@@ -827,15 +827,13 @@
   justify-content: center;
   cursor: pointer;
   z-index: 1100;
-  transition: all 0.2s ease;
+  transition: background 0.15s ease, color 0.15s ease;
   -webkit-app-region: no-drag;
 }
 
 .log-entry-fab:hover {
   color: var(--text-primary);
   background: var(--bg-hover);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-md);
 }
 
 .log-entry-fab-icon {
