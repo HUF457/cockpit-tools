@@ -750,8 +750,6 @@
 
 .checkin-stat.auto-checkin-badge:hover {
   filter: brightness(1.08);
-  transform: translateY(-1px);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
 .checkin-stat.auto-checkin-badge.enabled {

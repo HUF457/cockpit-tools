@@ -134,7 +134,6 @@
 .accounts-page .view-btn.active {
   background: var(--gradient-primary);
   color: white;
-  box-shadow: 0 6px 14px rgba(29, 78, 216, 0.3);
 }
 
 .accounts-page .filter-tabs:not(.page-tabs) {
@@ -444,11 +443,6 @@
   background: var(--bg-hover);
   color: var(--text-primary);
   border-color: var(--border-hover);
-  transform: scale(1.05);
-}
-
-.accounts-page .sort-direction-btn:active {
-  transform: scale(0.95);
 }
 
 
@@ -456,7 +450,6 @@
   background: var(--gradient-primary);
   color: white;
   border-color: transparent;
-  box-shadow: 0 8px 16px rgba(29, 78, 216, 0.24);
 }
 
 .accounts-page .filter-tabs:not(.page-tabs) .filter-tab.active .count {

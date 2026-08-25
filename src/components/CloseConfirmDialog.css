@@ -77,7 +77,6 @@
 .close-option-btn:hover {
   background: var(--bg-secondary);
   border-color: var(--accent);
-  transform: translateY(-1px);
 }
 
 .close-option-btn:disabled {

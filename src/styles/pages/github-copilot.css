@@ -2002,7 +2002,6 @@
 .ghcp-accounts-page .view-btn.active {
   background: var(--gradient-primary);
   color: white;
-  box-shadow: 0 6px 14px rgba(29, 78, 216, 0.3);
 }
 
 .ghcp-accounts-page .search-box {
@@ -2234,11 +2233,6 @@
   background: var(--bg-hover);
   color: var(--text-primary);
   border-color: var(--border-hover);
-  transform: scale(1.05);
-}
-
-.ghcp-accounts-page .sort-direction-btn:active {
-  transform: scale(0.95);
 }
 
 /* 通用 modal-content 样式 */

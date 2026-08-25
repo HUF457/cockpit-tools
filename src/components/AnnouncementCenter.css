@@ -174,8 +174,6 @@
 
 .announcement-list-item:hover {
   border-color: rgba(29, 78, 216, 0.22);
-  box-shadow: 0 8px 16px rgba(15, 23, 42, 0.08);
-  transform: translateY(-1px);
 }
 
 .announcement-list-item.is-unread {

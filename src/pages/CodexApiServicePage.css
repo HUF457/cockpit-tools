@@ -367,9 +367,7 @@
 }
 
 .codex-api-service-summary-card:hover {
-  transform: translateY(-1px);
   border-color: color-mix(in srgb, var(--primary) 24%, var(--codex-api-border));
-  box-shadow: var(--codex-api-shadow-hover);
 }
 
 .codex-api-service-summary-card span {

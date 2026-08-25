@@ -51,48 +51,20 @@ html[data-theme="dark"] .apikey-fun-page {
   --ak-glass-inset-glow: 0 0 0 0 transparent;
 }
 
-/* 顶部品牌大卡片 */
+/* 顶部品牌卡片 */
 .apikey-fun-header-brand {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 28px;
-  padding: 32px;
+  gap: 20px;
+  padding: 18px 20px;
   border-radius: var(--ak-radius-lg);
   border: 1px solid rgba(255, 255, 255, 0.1);
   background: rgba(8, 14, 28, 0.98);
-  box-shadow: 
-    0 24px 50px -12px rgba(8, 14, 28, 0.35),
-    inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
   color: #ffffff;
   position: relative;
   overflow: hidden;
   flex-shrink: 0;
-}
-
-.apikey-fun-header-brand::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-  background-size: 32px 32px;
-  opacity: 0.5;
-  pointer-events: none;
-}
-
-.apikey-fun-header-brand::after {
-  content: "";
-  position: absolute;
-  top: -50%;
-  right: -20%;
-  width: 350px;
-  height: 350px;
-  border-radius: 50%;
-  background: rgba(37, 99, 235, 0.15);
-  filter: blur(40px);
-  pointer-events: none;
 }
 
 .apikey-fun-brand-main {
@@ -104,17 +76,11 @@ html[data-theme="dark"] .apikey-fun-page {
 }
 
 .apikey-fun-brand-logo {
-  width: 56px;
-  height: 56px;
-  padding: 8px;
+  width: 40px;
+  height: 40px;
+  padding: 6px;
   border-radius: var(--ak-radius-md);
   background: #ffffff;
-  box-shadow: 0 12px 32px rgba(37, 99, 235, 0.35);
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.apikey-fun-header-brand:hover .apikey-fun-brand-logo {
-  transform: scale(1.08) rotate(4deg);
 }
 
 .apikey-fun-brand-text {
@@ -140,14 +106,12 @@ html[data-theme="dark"] .apikey-fun-page {
 }
 
 .apikey-fun-brand-text h1 {
-  margin: 0 0 10px;
-  font-size: 26px;
-  font-weight: 800;
-  line-height: 1.15;
-  letter-spacing: -0.5px;
-  background: #ffffff;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  margin: 0 0 6px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #ffffff;
 }
 
 .apikey-fun-brand-text p {
@@ -164,32 +128,22 @@ html[data-theme="dark"] .apikey-fun-page {
 
 .apikey-fun-page .apikey-fun-register-btn {
   border: 0;
-  min-height: 40px;
-  padding: 0 18px;
-  border-radius: 11px;
-  font-weight: 700;
+  min-height: 32px;
+  padding: 0 14px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
   font-size: 13px;
   display: inline-flex;
   align-items: center;
   gap: 8px;
   color: #ffffff;
   background: #2563eb;
-  box-shadow: 
-    0 8px 20px -6px rgba(6, 182, 212, 0.6),
-    inset 0 1px 0 0 rgba(255, 255, 255, 0.25);
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: background-color 0.15s ease;
 }
 
 .apikey-fun-page .apikey-fun-register-btn:hover {
-  transform: translateY(-1.5px);
-  box-shadow: 
-    0 12px 24px -6px rgba(6, 182, 212, 0.8),
-    inset 0 1px 0 0 rgba(255, 255, 255, 0.35);
-}
-
-.apikey-fun-page .apikey-fun-register-btn:active {
-  transform: translateY(0);
+  background: #1d4ed8;
 }
 
 /* 仪表盘双栏布局 */
@@ -411,14 +365,11 @@ html[data-theme="dark"] .apikey-fun-page {
   background: var(--ak-primary);
   color: #ffffff;
   border: 0;
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
 }
 
 .apikey-fun-page .apikey-fun-save-btn:hover:not(:disabled) {
   background: #1d4ed8;
   color: #ffffff;
-  transform: translateY(-0.5px);
-  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.3);
 }
 
 .apikey-fun-page .apikey-fun-target-btn {
@@ -920,14 +871,12 @@ html[data-theme="dark"] .apikey-fun-page .apikey-fun-save-btn {
   border: 0;
   color: #ffffff;
   background: #2563eb;
-  box-shadow: 0 10px 22px rgba(37, 99, 235, 0.28);
 }
 
 [data-theme="dark"] .apikey-fun-page .apikey-fun-save-btn:hover:not(:disabled),
 html[data-theme="dark"] .apikey-fun-page .apikey-fun-save-btn:hover:not(:disabled) {
   color: #ffffff;
   background: #1d4ed8;
-  box-shadow: 0 14px 26px rgba(37, 99, 235, 0.34);
 }
 
 [data-theme="dark"] .apikey-fun-save-flash,

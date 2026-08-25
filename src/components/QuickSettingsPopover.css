@@ -557,7 +557,6 @@
 .qs-codex-quick-preset-btn:hover:not(:disabled) {
   border-color: color-mix(in srgb, var(--primary) 38%, var(--border));
   background: color-mix(in srgb, var(--bg-card) 78%, var(--primary) 7%);
-  transform: translateY(-1px);
 }
 
 .qs-codex-quick-preset-btn:disabled {

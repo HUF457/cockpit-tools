@@ -69,7 +69,6 @@
 .account-card.current {
   background: #ffffff;
   border: 1px solid var(--primary); /* 简化选中样式，用细边框 */
-  box-shadow: 0 4px 12px rgba(29, 78, 216, 0.08);
 }
 
 .account-card.current::before {
