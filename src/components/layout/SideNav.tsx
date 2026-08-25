@@ -566,7 +566,7 @@ export function SideNav({
   }, [isClassicLayout, recalculateClassicAdaptiveScale]);
 
   const classicMainIconSize = Math.max(14, Math.round(20 * classicAdaptiveScale));
-  const classicBrandLogoIconSize = Math.max(14, Math.round(20 * classicAdaptiveScale));
+  const classicBrandLogoIconSize = Math.max(13, Math.round(17 * classicAdaptiveScale));
   const classicHandleIconSize = Math.max(12, Math.round(16 * classicAdaptiveScale));
 
   const classicScaleStyle = isClassicLayout

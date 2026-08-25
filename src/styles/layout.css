@@ -316,9 +316,9 @@
   --side-nav-classic-brand-padding-inline-scaled: calc(12px * var(--side-nav-classic-adaptive-scale));
   --side-nav-classic-brand-padding-bottom-scaled: calc(14px * var(--side-nav-classic-adaptive-scale));
   --side-nav-classic-brand-margin-inline-scaled: calc(6px * var(--side-nav-classic-adaptive-scale));
-  --side-nav-classic-logo-size-scaled: calc(40px * var(--side-nav-classic-adaptive-scale));
-  --side-nav-classic-logo-radius-scaled: calc(12px * var(--side-nav-classic-adaptive-scale));
-  --side-nav-classic-brand-title-font-size-scaled: calc(14px * var(--side-nav-classic-adaptive-scale));
+  --side-nav-classic-logo-size-scaled: calc(32px * var(--side-nav-classic-adaptive-scale));
+  --side-nav-classic-logo-radius-scaled: calc(10px * var(--side-nav-classic-adaptive-scale));
+  --side-nav-classic-brand-title-font-size-scaled: calc(13px * var(--side-nav-classic-adaptive-scale));
   --side-nav-classic-nav-items-gap-scaled: calc(4px * var(--side-nav-classic-adaptive-scale));
   --side-nav-classic-nav-items-padding-inline-scaled: calc(6px * var(--side-nav-classic-adaptive-scale));
   --side-nav-classic-nav-items-padding-top-scaled: calc(4px * var(--side-nav-classic-adaptive-scale));
