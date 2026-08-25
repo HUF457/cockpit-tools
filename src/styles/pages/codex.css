@@ -2930,12 +2930,9 @@
 .codex-accounts-page .folder-preview-item .tier-badge.codex-plus,
 .codex-wakeup-account-chip .tier-badge.codex-plus,
 .group-account-tier-badge.codex-plus {
-  background: linear-gradient(135deg, #ecfdf5 0%, #a7f3d0 52%, #5eead4 100%);
-  color: #064e3b;
-  border: 1px solid rgba(16, 185, 129, 0.38);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.62),
-    0 1px 3px rgba(5, 150, 105, 0.14);
+  background: rgba(16, 185, 129, 0.12);
+  color: #047857;
+  border: 1px solid rgba(16, 185, 129, 0.3);
 }
 
 .codex-account-card .tier-badge.team,
@@ -2968,12 +2965,9 @@
 .codex-oauth-binding-row .tier-badge.codex-pro-lite,
 .codex-accounts-page .folder-preview-item .tier-badge.codex-pro-lite,
 .codex-wakeup-account-chip .tier-badge.codex-pro-lite {
-  background: linear-gradient(135deg, #f8fafc 0%, #dbeafe 45%, #a8b7ca 100%);
-  color: #243247;
-  border: 1px solid rgba(100, 116, 139, 0.36);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.72),
-    0 1px 3px rgba(71, 85, 105, 0.16);
+  background: rgba(100, 116, 139, 0.12);
+  color: #334155;
+  border: 1px solid rgba(100, 116, 139, 0.3);
 }
 
 .tier-badge.codex-pro-max,
@@ -2982,12 +2976,9 @@
 .codex-oauth-binding-row .tier-badge.codex-pro-max,
 .codex-accounts-page .folder-preview-item .tier-badge.codex-pro-max,
 .codex-wakeup-account-chip .tier-badge.codex-pro-max {
-  background: linear-gradient(135deg, #fff7cc 0%, #f6d365 42%, #d99b16 100%);
-  color: #5a3700;
-  border: 1px solid rgba(180, 116, 11, 0.42);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.6),
-    0 1px 3px rgba(180, 116, 11, 0.2);
+  background: rgba(180, 116, 11, 0.12);
+  color: #92600a;
+  border: 1px solid rgba(180, 116, 11, 0.32);
 }
 
 .tier-badge.new-api-exclusive,
@@ -2996,12 +2987,9 @@
 .codex-oauth-binding-row .tier-badge.new-api-exclusive,
 .codex-accounts-page .folder-preview-item .tier-badge.new-api-exclusive,
 .codex-wakeup-account-chip .tier-badge.new-api-exclusive {
-  background: linear-gradient(135deg, #ecfeff 0%, #99f6e4 52%, #2dd4bf 100%);
-  color: #134e4a;
-  border: 1px solid rgba(20, 184, 166, 0.42);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.66),
-    0 1px 4px rgba(15, 118, 110, 0.16);
+  background: rgba(20, 184, 166, 0.12);
+  color: #0f766e;
+  border: 1px solid rgba(20, 184, 166, 0.32);
 }
 
 .tier-badge.sponsor-api,
@@ -3010,12 +2998,9 @@
 .codex-oauth-binding-row .tier-badge.sponsor-api,
 .codex-accounts-page .folder-preview-item .tier-badge.sponsor-api,
 .codex-wakeup-account-chip .tier-badge.sponsor-api {
-  background: linear-gradient(135deg, #fff7cc 0%, #fcd34d 52%, #f59e0b 100%);
-  color: #6b3f00;
-  border: 1px solid rgba(180, 116, 11, 0.42);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.68),
-    0 1px 4px rgba(180, 116, 11, 0.16);
+  background: rgba(245, 158, 11, 0.14);
+  color: #92600a;
+  border: 1px solid rgba(180, 116, 11, 0.32);
 }
 
 .codex-accounts-page .codex-status-pill {
@@ -8707,16 +8692,16 @@
   justify-content: center;
   padding: 6px 12px;
   border-radius: 999px;
-  background: linear-gradient(135deg, #ecfeff 0%, #99f6e4 52%, #facc15 100%);
-  color: #134e4a;
+  background: rgba(20, 184, 166, 0.12);
+  color: #0f766e;
   border: 1px solid rgba(20, 184, 166, 0.32);
   font-size: 12px;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .codex-provider-detail-title-chip.sponsor {
-  background: linear-gradient(135deg, #fff7cc 0%, #fcd34d 52%, #f59e0b 100%);
-  color: #6b3f00;
+  background: rgba(245, 158, 11, 0.14);
+  color: #92600a;
   border-color: rgba(180, 116, 11, 0.4);
 }
 
