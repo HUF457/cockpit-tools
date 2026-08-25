@@ -139,16 +139,26 @@ mod tests {
 
     #[test]
     fn drains_large_output_without_false_timeout() {
+        // ~200KB total, several times the 64KB pipe buffer, so the drain path is
+        // still exercised. cmd's `for /L` echoes lines slowly (per-iteration
+        // interpreter overhead), so keep the iteration count low and the line
+        // long, and leave generous headroom in the timeout: this test asserts
+        // the drain logic does not false-timeout, not that cmd is fast under
+        // machine load.
         let mut command = if cfg!(windows) {
+            let line = "1234567890".repeat(10);
             let mut c = Command::new("cmd");
-            c.args(["/C", "for /L %i in (1,1,20000) do @echo 1234567890"]);
+            c.args([
+                "/C",
+                &format!("for /L %i in (1,1,2000) do @echo {line}"),
+            ]);
             c
         } else {
             let mut c = Command::new("sh");
             c.args(["-c", "yes 1234567890 | head -c 200000"]);
             c
         };
-        let output = output_with_timeout(&mut command, Duration::from_secs(5))
+        let output = output_with_timeout(&mut command, Duration::from_secs(10))
             .expect("large output command");
         assert!(output.status.success());
         assert!(output.stdout.len() >= 100_000);
