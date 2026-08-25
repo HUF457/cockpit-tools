@@ -1538,7 +1538,10 @@ mod tests {
         )
         .expect("write source rollout");
         let source_modified_at = UNIX_EPOCH + Duration::from_secs(1_710_000_000);
-        fs::File::open(&rollout_path)
+        // Windows requires write access on the handle for set_modified.
+        fs::OpenOptions::new()
+            .write(true)
+            .open(&rollout_path)
             .expect("open source rollout")
             .set_modified(source_modified_at)
             .expect("set source mtime");
@@ -1582,7 +1585,10 @@ mod tests {
         )
         .expect("write rollout");
         let original_modified_at = UNIX_EPOCH + Duration::from_secs(1_720_000_000);
-        fs::File::open(&rollout_path)
+        // Windows requires write access on the handle for set_modified.
+        fs::OpenOptions::new()
+            .write(true)
+            .open(&rollout_path)
             .expect("open rollout")
             .set_modified(original_modified_at)
             .expect("set rollout mtime");

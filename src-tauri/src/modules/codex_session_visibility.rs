@@ -5290,6 +5290,20 @@ mod tests {
         base_dir
     }
 
+    /// Best-effort temp dir cleanup (mirrors `tempfile::TempDir` drop semantics).
+    /// On Windows open handles (sqlite connections still held by the test,
+    /// antivirus/indexer probes) make `remove_dir_all` fail transiently, which
+    /// must not fail an otherwise-passing test.
+    fn cleanup_temp_dir(path: &Path) {
+        for _ in 0..10 {
+            if fs::remove_dir_all(path).is_ok() {
+                return;
+            }
+            std::thread::sleep(std::time::Duration::from_millis(50));
+        }
+        let _ = fs::remove_dir_all(path);
+    }
+
     fn repair_options(
         mode: CodexSessionVisibilityRepairMode,
     ) -> CodexSessionVisibilityRepairOptions {
@@ -5348,7 +5362,7 @@ mod tests {
         assert!(ids.contains("alt"));
         assert!(ids.contains("legacy"));
         assert!(!ids.contains("rollout-only"));
-        fs::remove_dir_all(&data_dir).expect("cleanup temp dir");
+        cleanup_temp_dir(&data_dir);
     }
 
     fn write_quick_repair_rollout_reference(
@@ -5433,7 +5447,7 @@ mod tests {
             fs::read(&rollout_path).expect("read rollout"),
             rollout_bytes
         );
-        fs::remove_dir_all(&data_dir).expect("cleanup temp dir");
+        cleanup_temp_dir(&data_dir);
     }
 
     #[test]
@@ -5460,7 +5474,7 @@ mod tests {
             fs::read(&rollout_path).expect("read rollout"),
             rollout_bytes
         );
-        fs::remove_dir_all(&data_dir).expect("cleanup temp dir");
+        cleanup_temp_dir(&data_dir);
     }
 
     #[test]
@@ -5560,7 +5574,7 @@ mod tests {
         assert_eq!(rebuilt_drive, r"D:\Andrew\Code\pxread");
         drop(connection);
 
-        fs::remove_dir_all(&data_dir).expect("cleanup temp dir");
+        cleanup_temp_dir(&data_dir);
     }
 
     #[test]
@@ -5578,7 +5592,7 @@ mod tests {
             DEFAULT_PROVIDER_ID
         );
 
-        fs::remove_dir_all(&data_dir).expect("cleanup temp dir");
+        cleanup_temp_dir(&data_dir);
     }
 
     #[test]
@@ -5666,7 +5680,7 @@ mod tests {
             .expect("read provider-only row");
         assert_eq!(provider_only, ("relay".to_string(), 0));
 
-        fs::remove_dir_all(&data_dir).expect("cleanup temp dir");
+        cleanup_temp_dir(&data_dir);
     }
 
     #[test]
@@ -5745,7 +5759,7 @@ mod tests {
             assert_eq!(provider, "old");
         }
 
-        fs::remove_dir_all(&data_dir).expect("cleanup temp dir");
+        cleanup_temp_dir(&data_dir);
     }
 
     #[test]
@@ -5787,7 +5801,7 @@ mod tests {
             .expect("read old provider");
         assert_eq!(old_provider, "relay");
 
-        fs::remove_dir_all(&data_dir).expect("cleanup temp dir");
+        cleanup_temp_dir(&data_dir);
     }
 
     #[test]
@@ -5882,7 +5896,7 @@ mod tests {
             .expect("read unrelated provider");
         assert_eq!(unrelated_provider, "old");
 
-        fs::remove_dir_all(&data_dir).expect("cleanup temp dir");
+        cleanup_temp_dir(&data_dir);
     }
 
     #[test]
@@ -5963,7 +5977,7 @@ mod tests {
             unreferenced_line
         );
 
-        fs::remove_dir_all(&data_dir).expect("cleanup temp dir");
+        cleanup_temp_dir(&data_dir);
     }
 
     #[test]
@@ -6074,7 +6088,7 @@ mod tests {
         assert!(referenced_content.contains("\"model_provider\":\"relay\""));
         assert!(!referenced_content.contains("old-later"));
 
-        fs::remove_dir_all(&data_dir).expect("cleanup temp dir");
+        cleanup_temp_dir(&data_dir);
     }
 
     #[test]
@@ -6153,7 +6167,7 @@ mod tests {
             .expect("read restored provider");
         assert_eq!(provider, "old");
 
-        fs::remove_dir_all(&data_dir).expect("cleanup temp dir");
+        cleanup_temp_dir(&data_dir);
     }
 
     #[test]
@@ -6321,7 +6335,7 @@ mod tests {
         .expect("collect rollout changes");
         assert_eq!(changes.len(), 1);
 
-        fs::remove_dir_all(&data_dir).expect("cleanup temp dir");
+        cleanup_temp_dir(&data_dir);
     }
 
     #[test]
@@ -6424,7 +6438,7 @@ mod tests {
             .count();
         assert_eq!(backup_count, 0);
 
-        fs::remove_dir_all(&data_dir).expect("cleanup temp dir");
+        cleanup_temp_dir(&data_dir);
     }
 
     #[test]
@@ -6557,7 +6571,7 @@ mod tests {
             .expect("read switched-back rollout")
             .contains("\"model_provider\":\"openai\""));
 
-        fs::remove_dir_all(&target_dir).expect("cleanup target dir");
-        fs::remove_dir_all(&other_dir).expect("cleanup other dir");
+        cleanup_temp_dir(&target_dir);
+        cleanup_temp_dir(&other_dir);
     }
 }

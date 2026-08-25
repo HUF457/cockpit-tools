@@ -15090,7 +15090,11 @@ mod codex_linux_layout_tests {
     #[test]
     fn discovery_includes_official_linux_package_and_path_launchers() {
         let home = Path::new("/home/demo");
-        let path = OsString::from("/custom/bin:/usr/bin");
+        // Build PATH with the platform separator so split_paths sees two
+        // entries on every OS (":" would be a single entry on Windows).
+        let path: OsString =
+            std::env::join_paths([PathBuf::from("/custom/bin"), PathBuf::from("/usr/bin")])
+                .expect("join test PATH");
         let candidates = linux_codex_discovery_paths(Some(home), Some(path.as_os_str()));
         assert!(candidates.contains(&PathBuf::from("/usr/bin/chatgpt")));
         assert!(candidates.contains(&PathBuf::from("/usr/lib/chatgpt/ChatGPT")));

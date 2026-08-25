@@ -14295,6 +14295,7 @@ mod tests {
     struct TestEnvGuard {
         home_dir: std::path::PathBuf,
         previous_home: Option<String>,
+        previous_userprofile: Option<String>,
         previous_codex_home: Option<String>,
         previous_data_dir: Option<String>,
     }
@@ -14308,11 +14309,15 @@ mod tests {
             fs::create_dir_all(&test_data_dir).expect("create test data dir");
 
             let previous_home = std::env::var("HOME").ok();
+            let previous_userprofile = std::env::var("USERPROFILE").ok();
             let previous_codex_home = std::env::var("CODEX_HOME").ok();
             let previous_data_dir = std::env::var("COCKPIT_TOOLS_TEST_DATA_DIR")
                 .ok()
                 .or_else(|| std::env::var("COCKPIT_TOOLS_DATA_DIR").ok());
             std::env::set_var("HOME", &home_dir);
+            // dirs::home_dir() reads USERPROFILE on Windows; redirect it too so
+            // paths derived from the home directory stay inside the sandbox.
+            std::env::set_var("USERPROFILE", &home_dir);
             std::env::set_var("CODEX_HOME", &codex_home);
             std::env::set_var("COCKPIT_TOOLS_TEST_DATA_DIR", &test_data_dir);
             std::env::set_var("COCKPIT_TOOLS_DATA_DIR", &test_data_dir);
@@ -14320,6 +14325,7 @@ mod tests {
             Self {
                 home_dir,
                 previous_home,
+                previous_userprofile,
                 previous_codex_home,
                 previous_data_dir,
             }
@@ -14335,6 +14341,10 @@ mod tests {
             match self.previous_home.as_ref() {
                 Some(value) => std::env::set_var("HOME", value),
                 None => std::env::remove_var("HOME"),
+            }
+            match self.previous_userprofile.as_ref() {
+                Some(value) => std::env::set_var("USERPROFILE", value),
+                None => std::env::remove_var("USERPROFILE"),
             }
             match self.previous_codex_home.as_ref() {
                 Some(value) => std::env::set_var("CODEX_HOME", value),

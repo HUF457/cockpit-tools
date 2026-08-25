@@ -163,7 +163,7 @@ mod tests {
     fn provider_current_state_normalizes_platform_aliases() {
         let _lock = crate::modules::test_support::env_lock()
             .lock()
-            .expect("lock env");
+            .unwrap_or_else(|err| err.into_inner());
         let _guard = DataDirGuard::new("aliases");
 
         set_current_account_id("github-copilot", Some("gh-account")).expect("set github alias");
@@ -206,7 +206,7 @@ mod tests {
     fn provider_current_state_clears_stale_current_account_id() {
         let _lock = crate::modules::test_support::env_lock()
             .lock()
-            .expect("lock env");
+            .unwrap_or_else(|err| err.into_inner());
         let _guard = DataDirGuard::new("stale");
 
         set_current_account_id("cursor", Some("stale-account")).expect("set cursor current");

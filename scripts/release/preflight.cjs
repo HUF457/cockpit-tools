@@ -87,9 +87,8 @@ if (!hasFlag('--skip-cargo')) {
 if (!hasFlag('--skip-cargo-test')) {
   steps.push({
     name: 'Rust cargo test (lib)',
-    command: 'cargo',
-    args: ['test', '--lib'],
-    cwd: path.join(process.cwd(), 'src-tauri'),
+    command: 'node',
+    args: ['scripts/release/run-cargo-lib-tests.cjs'],
     env: {
       RUST_TEST_THREADS: '1',
     },
