@@ -1111,7 +1111,7 @@
 
 .codex-local-access-hide-confirm-overlay {
   background: rgba(15, 23, 42, 0.64);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(4px);
 }
 
 .codex-local-access-risk-notice-overlay {
@@ -1967,8 +1967,8 @@
   z-index: 13000;
   padding: 24px;
   background: rgba(8, 12, 24, 0.58);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   /* 确保相对 viewport 铺满，不被父级容器裁剪 */
   position: fixed !important;
   inset: 0 !important;
@@ -2756,7 +2756,6 @@
   border-radius: var(--radius-lg);
   padding: 16px 14px;
   box-shadow: var(--shadow-sm);
-  backdrop-filter: blur(10px);
   transition: all 0.25s ease;
   display: flex;
   flex-direction: column;
@@ -2765,8 +2764,7 @@
 }
 
 .codex-account-card:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
+  border-color: var(--border);
 }
 
 .codex-account-card.current {
@@ -3700,7 +3698,7 @@
 
 .codex-reset-credit-confirm-overlay {
   background: rgba(15, 23, 42, 0.48);
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(4px);
 }
 
 .codex-reset-credit-confirm-modal {
@@ -5056,14 +5054,12 @@
   background: var(--bg-card);
   border: 1px solid var(--border);
   box-shadow: var(--shadow-sm);
-  backdrop-filter: blur(10px);
 }
 
 [data-theme="dark"] .codex-accounts-page .account-table-container {
-  background: rgba(8, 11, 19, 0.98);
-  border-color: rgba(148, 163, 184, 0.18);
-  box-shadow: 0 18px 36px rgba(2, 6, 23, 0.6);
-  backdrop-filter: blur(4px);
+  background: var(--bg-card);
+  border-color: var(--border);
+  box-shadow: var(--shadow-sm);
 }
 
 [data-theme="dark"] .codex-accounts-page .account-table th {
@@ -7026,22 +7022,14 @@
 .codex-provider-modal .api-provider-chip:hover {
   border-color: color-mix(in srgb, var(--primary) 50%, var(--border));
   color: var(--primary);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px -2px rgba(14, 165, 233, 0.15);
-  background: linear-gradient(
-    to bottom,
-    color-mix(in srgb, var(--primary) 4%, var(--bg-card)),
-    color-mix(in srgb, var(--primary) 8%, var(--bg-tertiary))
-  );
+  background: color-mix(in srgb, var(--primary) 6%, var(--bg-card));
 }
 
 .codex-add-modal .api-provider-chip.active,
 .codex-provider-modal .api-provider-chip.active {
-  background: linear-gradient(135deg, var(--primary) 0%, #0284c7 100%);
+  background: var(--primary);
   color: #fff;
   border-color: transparent;
-  box-shadow: 0 8px 16px -4px rgba(14, 165, 233, 0.4);
-  transform: translateY(-2px);
 }
 
 .codex-add-modal .api-provider-chip-badge,
@@ -10275,13 +10263,10 @@
   flex-direction: column;
   gap: 14px;
   padding: 18px;
-  border-radius: 22px;
-  background: rgba(255, 255, 255, 0.82);
-  border: 1px solid rgba(226, 232, 240, 0.92);
-  box-shadow:
-    0 14px 28px rgba(15, 23, 42, 0.06),
-    inset 0 1px 0 rgba(255, 255, 255, 0.86);
-  backdrop-filter: blur(8px);
+  border-radius: var(--radius-lg);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
 }
 
 .codex-wakeup-install-command-head {
@@ -11068,8 +11053,7 @@
 .codex-wakeup-history-modal .modal-header,
 .codex-wakeup-results-modal .modal-header {
   padding: 22px 26px;
-  background: rgba(255, 255, 255, 0.78);
-  backdrop-filter: blur(16px);
+  background: var(--bg-surface);
 }
 
 .codex-wakeup-history-modal .modal-header h2,

@@ -97,15 +97,7 @@
   padding: 24px 28px 18px;
   border-bottom: 1px solid
     color-mix(in srgb, var(--primary) 8%, var(--border-light));
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.68),
-      rgba(255, 255, 255, 0.34)
-    ),
-    color-mix(in srgb, var(--bg-surface) 94%, white 6%);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  background: var(--bg-surface);
 }
 
 .codex-local-access-header-main {

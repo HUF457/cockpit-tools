@@ -121,16 +121,12 @@
   content: '';
   position: absolute;
   inset: 0 0 auto 0;
-  height: 3px;
-  background: linear-gradient(90deg, #60a5fa, #22c55e 68%, #14b8a6);
-  opacity: 0.9;
+  height: 2px;
+  background: var(--primary);
+  opacity: 0.85;
 }
 
 .wakeup-task-card:hover {
-  transform: translateY(-3px);
-  box-shadow:
-    0 18px 34px rgba(15, 23, 42, 0.11),
-    0 4px 12px rgba(59, 130, 246, 0.08);
   border-color: rgba(147, 197, 253, 0.98);
 }
 

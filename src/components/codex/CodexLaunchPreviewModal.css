@@ -2,7 +2,7 @@
   z-index: 9999;
   padding: 24px;
   background: rgb(15 23 42 / 48%);
-  backdrop-filter: blur(12px) saturate(110%);
+  backdrop-filter: blur(4px);
 }
 
 .codex-launch-preview-overlay + .codex-local-access-hide-confirm-overlay {
@@ -756,7 +756,7 @@
   z-index: 10060;
   padding: 20px;
   background: rgb(15 23 42 / 58%);
-  backdrop-filter: blur(14px) saturate(110%);
+  backdrop-filter: blur(4px);
 }
 
 .codex-launch-preview-model-config-modal {

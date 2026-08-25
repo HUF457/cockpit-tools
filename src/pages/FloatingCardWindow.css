@@ -627,7 +627,7 @@ body.floating-card-overlay-root,
   justify-content: center;
   padding: 10px;
   background: rgba(4, 7, 11, 0.72);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(4px);
   -webkit-app-region: no-drag;
 }
 

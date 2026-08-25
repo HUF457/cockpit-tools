@@ -33,12 +33,8 @@
   padding: 8px 10px;
   border: 1px solid var(--codex-api-border);
   border-radius: 12px;
-  background:
-    linear-gradient(135deg, color-mix(in srgb, var(--primary) 7%, transparent), transparent 42%),
-    var(--codex-api-surface);
+  background: var(--codex-api-surface);
   box-shadow: var(--codex-api-shadow);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
 }
 
 .codex-api-service-hero-main {
@@ -433,8 +429,6 @@
   border-radius: var(--radius-md);
   background: var(--codex-api-surface-strong);
   box-shadow: var(--codex-api-shadow);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
 }
 
 .codex-api-service-panel-head {

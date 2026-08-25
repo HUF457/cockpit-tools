@@ -62,11 +62,7 @@
 
 /* Hover Effect */
 .account-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 
-    0 4px 12px rgba(0, 0, 0, 0.06), 
-    0 12px 24px rgba(0, 0, 0, 0.04);
-  border-color: rgba(0, 0, 0, 0.08);
+  border-color: rgba(0, 0, 0, 0.12);
 }
 
 /* Current Account */
@@ -464,8 +460,6 @@
 .folder-inline-card:hover {
   border-color: var(--primary);
   background: #e8f0fe;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(29, 78, 216, 0.12);
 }
 
 .folder-inline-header {

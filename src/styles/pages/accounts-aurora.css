@@ -541,8 +541,6 @@
 }
 
 .accounts-page .accounts-grid .account-card:hover:not(.current) {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
   border-color: var(--border);
 }
 
@@ -1049,8 +1047,6 @@
 }
 
 .account-folder-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(29,78,216,0.12);
   border-color: var(--primary, #3b82f6);
 }
 

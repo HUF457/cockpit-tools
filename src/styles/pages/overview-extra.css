@@ -22,8 +22,6 @@
 }
 
 .account-overview-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
   border-color: rgba(29, 78, 216, 0.3);
 }
 
