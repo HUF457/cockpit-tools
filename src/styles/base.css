@@ -1,6 +1,7 @@
 /* ============================================
    Cockpit Tools - Design System
-   Brand Direction: floating dashboard with soft gradients
+   Brand Direction: neutral, high-density professional tool UI
+   (flat surfaces, 4-6px radii, single accent, shadows only on overlays)
    ============================================ */
 
 :root {
@@ -9,51 +10,51 @@
   --font-mono: 'JetBrains Mono', 'SFMono-Regular', monospace;
 
   /* Brand Colors */
-  --primary: #1d4ed8;
-  --primary-hover: #1e40af;
-  --primary-light: rgba(29, 78, 216, 0.12);
-  --accent: #0ea5a5;
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --primary-light: rgba(37, 99, 235, 0.1);
+  --accent: #2563eb;
 
   /* Status Colors */
-  --success: #22c55e;
-  --warning: #f59e0b;
-  --warning-strong: #f97316;
-  --danger: #ef4444;
+  --success: #16a34a;
+  --warning: #d97706;
+  --warning-strong: #ea580c;
+  --danger: #dc2626;
 
   /* Background Colors */
-  --bg-primary: #f6f5f2;
-  /* Solid surfaces: dialogs / dropdowns / menus (no transparency) */
+  --bg-primary: #f4f4f5;
+  /* Solid surfaces: dialogs / dropdowns / menus */
   --bg-secondary: #ffffff;
   --bg-surface: var(--bg-secondary);
-  /* Soft panels: cards / list rows (slight transparency to show gradient) */
-  --bg-tertiary: #eef2f7;
-  --bg-card: rgba(255, 255, 255, 0.75);
-  --bg-hover: rgba(15, 23, 42, 0.06);
+  /* Panels: cards / list rows (solid, follow theme packs) */
+  --bg-tertiary: #e9e9eb;
+  --bg-card: var(--bg-secondary);
+  --bg-hover: rgba(0, 0, 0, 0.045);
 
   /* Text Colors */
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --text-muted: #94a3b8;
+  --text-primary: #18181b;
+  --text-secondary: #51525c;
+  --text-muted: #83839b;
 
   /* Border Colors */
-  --border: rgba(15, 23, 42, 0.12);
-  --border-light: rgba(15, 23, 42, 0.08);
+  --border: rgba(0, 0, 0, 0.12);
+  --border-light: rgba(0, 0, 0, 0.07);
 
-  /* Shadows */
-  --shadow-sm: 0 2px 6px rgba(15, 23, 42, 0.08);
-  --shadow-md: 0 12px 24px rgba(15, 23, 42, 0.12);
-  --shadow-lg: 0 20px 40px rgba(15, 23, 42, 0.18);
+  /* Shadows (sm: none-like for flat cards, md: dropdowns, lg: modals) */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.18);
 
-  /* Gradients */
-  --gradient-primary: linear-gradient(135deg, #1d4ed8 0%, #0ea5a5 100%);
-  --gradient-success: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
-  --gradient-danger: linear-gradient(135deg, #f97316 0%, #ef4444 100%);
+  /* Gradients (flattened to solid brand colors; keep var names for consumers) */
+  --gradient-primary: var(--primary);
+  --gradient-success: var(--success);
+  --gradient-danger: var(--danger);
 
   /* Radius */
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 18px;
-  --radius-xl: 24px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 6px;
+  --radius-xl: 8px;
   --radius-full: 9999px;
 
   /* Component sizing */
@@ -65,8 +66,8 @@
   /* Brand Colors - slightly brighter for dark mode */
   --primary: #3b82f6;
   --primary-hover: #2563eb;
-  --primary-light: rgba(59, 130, 246, 0.15);
-  --accent: #14b8a6;
+  --primary-light: rgba(59, 130, 246, 0.14);
+  --accent: #3b82f6;
 
   /* Status Colors */
   --success: #22c55e;
@@ -75,28 +76,28 @@
   --danger: #ef4444;
 
   /* Background Colors - dark palette */
-  --bg-primary: #0f172a;
-  /* Solid surfaces: dialogs / dropdowns / menus (no transparency) */
-  --bg-secondary: #1e293b;
+  --bg-primary: #131316;
+  /* Solid surfaces: dialogs / dropdowns / menus */
+  --bg-secondary: #1c1c21;
   --bg-surface: var(--bg-secondary);
-  /* Soft panels: cards / list rows (slight transparency to show gradient) */
-  --bg-tertiary: #334155;
-  --bg-card: rgba(30, 41, 59, 0.85);
-  --bg-hover: rgba(255, 255, 255, 0.08);
+  /* Panels: cards / list rows (solid, follow theme packs) */
+  --bg-tertiary: #27272d;
+  --bg-card: var(--bg-secondary);
+  --bg-hover: rgba(255, 255, 255, 0.07);
 
   /* Text Colors - inverted */
-  --text-primary: #f1f5f9;
-  --text-secondary: #94a3b8;
-  --text-muted: #64748b;
+  --text-primary: #e7e7ea;
+  --text-secondary: #a3a3ad;
+  --text-muted: #71717c;
 
   /* Border Colors */
   --border: rgba(255, 255, 255, 0.12);
   --border-light: rgba(255, 255, 255, 0.06);
 
   /* Shadows - darker */
-  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.25);
-  --shadow-md: 0 12px 24px rgba(0, 0, 0, 0.35);
-  --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.45);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.55);
 
   color-scheme: dark;
 }
@@ -162,11 +163,9 @@
 
 body {
   font-family: var(--font-sans);
-  background: radial-gradient(circle at 12% 10%, rgba(29, 78, 216, 0.12), transparent 45%),
-    radial-gradient(circle at 90% 5%, rgba(14, 165, 165, 0.12), transparent 40%),
-    linear-gradient(180deg, #f8f7f4 0%, #eef1f6 100%);
+  background: var(--bg-primary);
   color: var(--text-primary);
-  line-height: 1.6;
+  line-height: 1.5;
   color-scheme: light;
   -webkit-font-smoothing: antialiased;
 }
@@ -174,9 +173,7 @@ body {
 /* Dark mode body background */
 [data-theme="dark"] body,
 html[data-theme="dark"] body {
-  background: radial-gradient(circle at 12% 10%, rgba(59, 130, 246, 0.15), transparent 45%),
-    radial-gradient(circle at 90% 5%, rgba(20, 184, 166, 0.12), transparent 40%),
-    linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+  background: var(--bg-primary);
   color-scheme: dark;
 }
 
