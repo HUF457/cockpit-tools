@@ -424,7 +424,7 @@
 
 .verification-checkbox-input:checked+.verification-checkbox-ui {
   border-color: rgba(37, 99, 235, 0.92);
-  background: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%);
+  background: #2563eb;
   box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
 }
 
@@ -435,7 +435,7 @@
 
 .verification-checkbox-input:indeterminate+.verification-checkbox-ui {
   border-color: rgba(37, 99, 235, 0.9);
-  background: linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%);
+  background: #2563eb;
 }
 
 .verification-checkbox-input:indeterminate+.verification-checkbox-ui::after {

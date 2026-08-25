@@ -6,7 +6,6 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  animation: fadeUp 0.5s ease;
 }
 
 .ghcp-accounts-page .flow-notice {

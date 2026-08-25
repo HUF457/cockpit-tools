@@ -134,7 +134,7 @@
   padding: 10px;
   box-sizing: content-box;
   border-radius: 14px;
-  background: linear-gradient(135deg, #2563eb 0%, #0ea5a5 100%);
+  background: #2563eb;
   color: #fff;
   box-shadow:
     0 14px 28px -18px rgba(29, 78, 216, 0.72),
@@ -246,7 +246,7 @@
 .codex-local-access-modal .codex-local-access-debug-toggle.is-active {
   color: #fff;
   border-color: color-mix(in srgb, #0284c7 58%, rgba(148, 163, 184, 0.2));
-  background: linear-gradient(135deg, #0284c7 0%, #0ea5e9 100%);
+  background: #0284c7;
   box-shadow:
     0 10px 22px -16px rgba(2, 132, 199, 0.86),
     inset 0 1px 0 rgba(255, 255, 255, 0.24);
@@ -261,7 +261,7 @@
   .codex-local-access-debug-toggle.is-active:hover:not(:disabled) {
   color: #fff;
   border-color: color-mix(in srgb, #0284c7 68%, rgba(148, 163, 184, 0.2));
-  background: linear-gradient(135deg, #0369a1 0%, #0284c7 100%);
+  background: #0369a1;
 }
 
 .codex-local-access-debug-toggle:disabled {
@@ -2964,7 +2964,7 @@
   .codex-local-access-debug-toggle.is-active {
   color: #fff;
   border-color: rgba(125, 211, 252, 0.58);
-  background: linear-gradient(135deg, #0369a1 0%, #0284c7 100%);
+  background: #0369a1;
   box-shadow:
     0 12px 24px -18px rgba(14, 165, 233, 0.78),
     inset 0 1px 0 rgba(255, 255, 255, 0.14);

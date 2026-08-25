@@ -511,19 +511,19 @@ body.floating-card-overlay-root,
 }
 
 .floating-card-progress-bar--high {
-  background: linear-gradient(90deg, #3ad28d 0%, #7ff0b5 100%);
+  background: #3ad28d;
 }
 
 .floating-card-progress-bar--medium {
-  background: linear-gradient(90deg, #f0a120 0%, #ffcb65 100%);
+  background: #f0a120;
 }
 
 .floating-card-progress-bar--low {
-  background: linear-gradient(90deg, #f97316 0%, #ffb067 100%);
+  background: #f97316;
 }
 
 .floating-card-progress-bar--critical {
-  background: linear-gradient(90deg, #ff5f67 0%, #ff9696 100%);
+  background: #ff5f67;
 }
 
 .floating-card-quota-reset,

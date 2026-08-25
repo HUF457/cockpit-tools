@@ -42,7 +42,6 @@
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* 缩小宽度以支持一排3-4个 */
   gap: 16px;
   padding-bottom: 40px;
-  animation: fadeUp 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
 .account-card {
@@ -457,14 +456,14 @@
 /* Inline Folder Cards (inside accounts-grid) */
 .folder-inline-card {
   cursor: pointer;
-  background: linear-gradient(135deg, #f0f7ff 0%, #e8f4f8 100%);
+  background: #f0f7ff;
   border: 1.5px dashed rgba(29, 78, 216, 0.25);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .folder-inline-card:hover {
   border-color: var(--primary);
-  background: linear-gradient(135deg, #e8f0fe 0%, #dbeafe 100%);
+  background: #e8f0fe;
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(29, 78, 216, 0.12);
 }
@@ -666,12 +665,12 @@
 
 /* Dark Mode Overrides */
 [data-theme="dark"] .folder-inline-card {
-  background: linear-gradient(135deg, #1a2744 0%, #1e293b 100%);
+  background: #1a2744;
   border-color: rgba(96, 165, 250, 0.2);
 }
 
 [data-theme="dark"] .folder-inline-card:hover {
-  background: linear-gradient(135deg, #1e3a5f 0%, #1e3050 100%);
+  background: #1e3a5f;
   border-color: rgba(96, 165, 250, 0.4);
 }
 
