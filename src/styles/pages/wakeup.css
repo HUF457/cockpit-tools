@@ -102,9 +102,7 @@
 .wakeup-task-card {
   position: relative;
   overflow: hidden;
-  background:
-    radial-gradient(circle at top right, rgba(59, 130, 246, 0.08), transparent 26%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 251, 255, 0.96));
+  background: rgba(255, 255, 255, 0.98);
   border: 1px solid rgba(191, 219, 254, 0.9);
   border-radius: 14px;
   padding: 15px;
@@ -138,11 +136,11 @@
   opacity: 0.72;
   filter: saturate(0.85);
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(247, 249, 252, 0.94));
+    rgba(255, 255, 255, 0.96);
 }
 
 .wakeup-task-card.is-disabled::before {
-  background: linear-gradient(90deg, rgba(148, 163, 184, 0.75), rgba(203, 213, 225, 0.75));
+  background: rgba(148, 163, 184, 0.75);
 }
 
 .wakeup-task-header {
@@ -189,11 +187,11 @@
 
 .wakeup-task-section-primary {
   border-color: rgba(191, 219, 254, 0.98);
-  background: linear-gradient(180deg, rgba(245, 249, 255, 0.98), rgba(255, 255, 255, 0.82));
+  background: rgba(245, 249, 255, 0.98);
 }
 
 .wakeup-task-section-muted {
-  background: linear-gradient(180deg, rgba(248, 250, 252, 0.92), rgba(255, 255, 255, 0.86));
+  background: rgba(248, 250, 252, 0.92);
 }
 
 .wakeup-task-meta {
@@ -762,9 +760,7 @@ select.wakeup-input::-ms-expand,
 }
 
 [data-theme="dark"] .wakeup-task-card {
-  background:
-    radial-gradient(circle at top right, rgba(59, 130, 246, 0.16), transparent 28%),
-    linear-gradient(170deg, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.9));
+  background: rgba(15, 23, 42, 0.96);
   border-color: rgba(148, 163, 184, 0.24);
   box-shadow:
     0 18px 34px rgba(2, 6, 23, 0.42),
@@ -785,7 +781,7 @@ select.wakeup-input::-ms-expand,
 
 [data-theme="dark"] .wakeup-task-card.is-disabled {
   background:
-    linear-gradient(180deg, rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.82));
+    rgba(15, 23, 42, 0.92);
 }
 
 [data-theme="dark"] .wakeup-task-title > span:first-child,
@@ -807,11 +803,11 @@ select.wakeup-input::-ms-expand,
 
 [data-theme="dark"] .wakeup-task-section-primary {
   border-color: rgba(96, 165, 250, 0.24);
-  background: linear-gradient(180deg, rgba(17, 24, 39, 0.74), rgba(15, 23, 42, 0.5));
+  background: rgba(17, 24, 39, 0.74);
 }
 
 [data-theme="dark"] .wakeup-task-section-muted {
-  background: linear-gradient(180deg, rgba(15, 23, 42, 0.58), rgba(15, 23, 42, 0.42));
+  background: rgba(15, 23, 42, 0.58);
 }
 
 [data-theme="dark"] .wakeup-task-meta-schedule span {
@@ -906,7 +902,7 @@ select.wakeup-input::-ms-expand,
 } */
 
 [data-theme="dark"] .accounts-page .account-card {
-  background: linear-gradient(170deg, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.8));
+  background: rgba(15, 23, 42, 0.95);
 }
 
 [data-theme="dark"] .accounts-page .card-actions {

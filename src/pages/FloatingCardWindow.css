@@ -28,10 +28,7 @@ body.floating-card-overlay-root,
   flex-direction: column;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 15px;
-  background:
-    radial-gradient(circle at top left, rgba(255, 184, 76, 0.13), transparent 26%),
-    radial-gradient(circle at top right, rgba(84, 199, 255, 0.08), transparent 22%),
-    linear-gradient(180deg, rgba(10, 14, 20, 0.76), rgba(5, 7, 11, 0.68));
+  background: rgba(10, 14, 20, 0.76);
   box-shadow:
     0 22px 50px rgba(0, 0, 0, 0.46),
     0 0 0 1px rgba(255, 255, 255, 0.03),
@@ -43,15 +40,7 @@ body.floating-card-overlay-root,
   content: '';
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 16%),
-    repeating-linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.01) 0,
-      rgba(255, 255, 255, 0.01) 1px,
-      transparent 1px,
-      transparent 4px
-    );
+  background: none;
   pointer-events: none;
 }
 
@@ -274,9 +263,7 @@ body.floating-card-overlay-root,
   padding: 6px;
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 11px;
-  background:
-    linear-gradient(180deg, rgba(17, 24, 33, 0.56), rgba(9, 13, 18, 0.5)),
-    linear-gradient(180deg, rgba(255, 184, 76, 0.03), transparent 40%);
+  background: rgba(17, 24, 33, 0.56);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.03),
     inset 0 -1px 0 rgba(255, 255, 255, 0.02);
@@ -400,21 +387,21 @@ body.floating-card-overlay-root,
 
 .floating-card-plan.codex-plus {
   border-color: rgba(45, 212, 191, 0.34);
-  background: linear-gradient(135deg, rgba(236, 253, 245, 0.92) 0%, rgba(167, 243, 208, 0.9) 52%, rgba(94, 234, 212, 0.88) 100%);
+  background: rgba(236, 253, 245, 0.92);
   color: #064e3b;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.54), 0 1px 4px rgba(5, 150, 105, 0.16);
 }
 
 .floating-card-plan.codex-pro-lite {
   border-color: rgba(180, 200, 224, 0.36);
-  background: linear-gradient(135deg, rgba(248, 250, 252, 0.95) 0%, rgba(219, 234, 254, 0.9) 45%, rgba(168, 183, 202, 0.9) 100%);
+  background: rgba(248, 250, 252, 0.95);
   color: #203047;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.62), 0 1px 4px rgba(148, 163, 184, 0.18);
 }
 
 .floating-card-plan.codex-pro-max {
   border-color: rgba(255, 184, 76, 0.34);
-  background: linear-gradient(135deg, rgba(255, 247, 204, 0.95) 0%, rgba(246, 211, 101, 0.94) 42%, rgba(217, 155, 22, 0.94) 100%);
+  background: rgba(255, 247, 204, 0.95);
   color: #5a3700;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55), 0 1px 4px rgba(217, 155, 22, 0.24);
 }
@@ -598,7 +585,7 @@ body.floating-card-overlay-root,
 
 .floating-card-button--primary {
   border-color: rgba(255, 184, 76, 0.34);
-  background: linear-gradient(180deg, rgba(255, 184, 76, 0.96), rgba(232, 145, 17, 0.96));
+  background: rgba(255, 184, 76, 0.96);
   color: #11151b;
 }
 
@@ -640,9 +627,7 @@ body.floating-card-overlay-root,
   padding: 10px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
-  background:
-    linear-gradient(180deg, rgba(17, 24, 33, 0.96), rgba(8, 12, 18, 0.94)),
-    linear-gradient(180deg, rgba(255, 184, 76, 0.06), transparent 46%);
+  background: rgba(17, 24, 33, 0.96);
   box-shadow:
     0 16px 34px rgba(0, 0, 0, 0.38),
     inset 0 1px 0 rgba(255, 255, 255, 0.05);

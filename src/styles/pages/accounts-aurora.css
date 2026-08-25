@@ -218,7 +218,7 @@
 
 .accounts-page .tag-filter-btn.active {
   border-color: rgba(59, 130, 246, 0.4);
-  background: linear-gradient(135deg, rgba(191, 219, 254, 0.45), rgba(153, 246, 228, 0.4));
+  background: rgba(191, 219, 254, 0.45);
   color: #0f172a;
 }
 
@@ -945,13 +945,7 @@
 }
 
 [data-theme="dark"] .accounts-page .pagination-container::before {
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(148, 163, 184, 0.14) 10%,
-    rgba(148, 163, 184, 0.14) 90%,
-    transparent 100%
-  );
+  background: transparent;
 }
 
 [data-theme="dark"] .accounts-page .pagination-container .tag-filter-btn.single-filter-btn {
@@ -962,11 +956,7 @@
 
 [data-theme="dark"] .accounts-page .pagination-container .tag-filter-btn.single-filter-btn:hover:not(:disabled),
 [data-theme="dark"] .accounts-page .pagination-container .tag-filter-btn.single-filter-btn.active {
-  background: linear-gradient(
-    135deg,
-    rgba(37, 99, 235, 0.24),
-    rgba(20, 184, 166, 0.12)
-  );
+  background: rgba(37, 99, 235, 0.24);
   border-color: rgba(96, 165, 250, 0.44);
   color: rgba(248, 250, 252, 0.96);
 }

@@ -60,7 +60,7 @@ html[data-theme="dark"] .apikey-fun-page {
   padding: 32px;
   border-radius: var(--ak-radius-lg);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  background: linear-gradient(135deg, rgba(8, 14, 28, 0.98), rgba(20, 30, 55, 0.92));
+  background: rgba(8, 14, 28, 0.98);
   box-shadow: 
     0 24px 50px -12px rgba(8, 14, 28, 0.35),
     inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
@@ -90,7 +90,7 @@ html[data-theme="dark"] .apikey-fun-page {
   width: 350px;
   height: 350px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, transparent 70%);
+  background: rgba(37, 99, 235, 0.15);
   filter: blur(40px);
   pointer-events: none;
 }
@@ -145,7 +145,7 @@ html[data-theme="dark"] .apikey-fun-page {
   font-weight: 800;
   line-height: 1.15;
   letter-spacing: -0.5px;
-  background: linear-gradient(to right, #ffffff, #93c5fd);
+  background: #ffffff;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -229,7 +229,7 @@ html[data-theme="dark"] .apikey-fun-page {
 
 /* 查询配置面板特定背景 */
 .apikey-fun-config-panel {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.55), rgba(248, 250, 252, 0.42));
+  background: rgba(255, 255, 255, 0.55);
 }
 
 .apikey-fun-panel-head {
@@ -493,7 +493,7 @@ html[data-theme="dark"] .apikey-fun-page {
 
 .apikey-fun-usage-card.primary {
   border-color: rgba(20, 184, 166, 0.25);
-  background: linear-gradient(135deg, rgba(204, 251, 241, 0.4), rgba(255, 255, 255, 0.65));
+  background: rgba(204, 251, 241, 0.4);
 }
 
 .apikey-fun-usage-card span {
@@ -571,7 +571,7 @@ html[data-theme="dark"] .apikey-fun-page {
   height: 22px;
   width: 75%;
   border-radius: 4px;
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0.05) 25%, rgba(0, 0, 0, 0.1) 37%, rgba(0, 0, 0, 0.05) 63%);
+  background: rgba(0, 0, 0, 0.05);
   background-size: 400% 100%;
   animation: skeletonShine 1.4s ease infinite;
 }
@@ -647,7 +647,7 @@ html[data-theme="dark"] .apikey-fun-page {
 
 .apikey-fun-key-item.active {
   border-color: var(--ak-primary);
-  background: linear-gradient(135deg, rgba(239, 246, 255, 0.85), #ffffff);
+  background: rgba(239, 246, 255, 0.85);
   box-shadow: 
     0 4px 16px rgba(37, 99, 235, 0.05),
     inset 0 0 0 1px rgba(37, 99, 235, 0.05);
@@ -790,7 +790,7 @@ html[data-theme="dark"] .apikey-fun-page {
 [data-theme="dark"] .apikey-fun-header-brand,
 html[data-theme="dark"] .apikey-fun-header-brand {
   border-color: rgba(148, 163, 184, 0.16);
-  background: linear-gradient(135deg, rgba(4, 10, 24, 0.98), rgba(14, 25, 49, 0.94));
+  background: rgba(4, 10, 24, 0.98);
   box-shadow:
     0 24px 54px rgba(0, 0, 0, 0.34),
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
@@ -816,7 +816,7 @@ html[data-theme="dark"] .apikey-fun-dashboard-panel:hover {
 
 [data-theme="dark"] .apikey-fun-config-panel,
 html[data-theme="dark"] .apikey-fun-config-panel {
-  background: linear-gradient(180deg, rgba(15, 23, 42, 0.82), rgba(15, 23, 42, 0.68));
+  background: rgba(15, 23, 42, 0.82);
 }
 
 [data-theme="dark"] .apikey-fun-manager-panel,
@@ -964,7 +964,7 @@ html[data-theme="dark"] .apikey-fun-usage-card:hover {
 [data-theme="dark"] .apikey-fun-usage-card.primary,
 html[data-theme="dark"] .apikey-fun-usage-card.primary {
   border-color: rgba(45, 212, 191, 0.24);
-  background: linear-gradient(135deg, rgba(20, 184, 166, 0.18), rgba(15, 23, 42, 0.72));
+  background: rgba(20, 184, 166, 0.18);
 }
 
 [data-theme="dark"] .apikey-fun-usage-card span,
@@ -974,7 +974,7 @@ html[data-theme="dark"] .apikey-fun-usage-card span {
 
 [data-theme="dark"] .apikey-fun-skeleton-text,
 html[data-theme="dark"] .apikey-fun-skeleton-text {
-  background: linear-gradient(90deg, rgba(148, 163, 184, 0.1) 25%, rgba(148, 163, 184, 0.18) 37%, rgba(148, 163, 184, 0.1) 63%);
+  background: rgba(148, 163, 184, 0.1);
   background-size: 400% 100%;
 }
 
@@ -1011,7 +1011,7 @@ html[data-theme="dark"] .apikey-fun-key-item:hover {
 [data-theme="dark"] .apikey-fun-key-item.active,
 html[data-theme="dark"] .apikey-fun-key-item.active {
   border-color: rgba(96, 165, 250, 0.62);
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.22), rgba(15, 23, 42, 0.82));
+  background: rgba(37, 99, 235, 0.22);
   box-shadow:
     0 12px 28px rgba(37, 99, 235, 0.16),
     inset 0 0 0 1px rgba(96, 165, 250, 0.08);

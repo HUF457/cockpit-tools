@@ -181,7 +181,6 @@
 .announcement-list-item.is-unread {
   border-color: rgba(29, 78, 216, 0.28);
   background:
-    linear-gradient(0deg, rgba(29, 78, 216, 0.04), rgba(29, 78, 216, 0.04)),
     var(--bg-surface);
 }
 

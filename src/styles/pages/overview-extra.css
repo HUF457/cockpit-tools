@@ -27,12 +27,12 @@
 
 .account-overview-card.current {
   border-color: var(--primary);
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.8), rgba(29, 78, 216, 0.08));
+  background: rgba(255, 255, 255, 0.8);
   box-shadow: 0 12px 32px rgba(29, 78, 216, 0.12);
 }
 
 [data-theme="dark"] .account-overview-card.current {
-  background: linear-gradient(145deg, rgba(59, 130, 246, 0.2), var(--bg-secondary));
+  background: rgba(59, 130, 246, 0.2);
   box-shadow: 0 12px 32px rgba(59, 130, 246, 0.15);
   border-color: var(--primary);
 }

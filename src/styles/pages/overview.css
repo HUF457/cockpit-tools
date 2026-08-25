@@ -29,7 +29,7 @@
 
 .account-card.current {
   border-color: var(--primary);
-  background: linear-gradient(to bottom, rgba(29, 78, 216, 0.03), var(--bg-secondary));
+  background: rgba(29, 78, 216, 0.03);
   box-shadow: 0 0 0 1px var(--primary);
 }
 

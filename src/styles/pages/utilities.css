@@ -1170,13 +1170,7 @@
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(15, 23, 42, 0.08) 10%,
-    rgba(15, 23, 42, 0.08) 90%,
-    transparent 100%
-  );
+  background: transparent;
 }
 
 .pagination-info {
@@ -1287,11 +1281,7 @@
 
 [data-theme="dark"] .pagination-container .tag-filter-btn.single-filter-btn:hover:not(:disabled),
 [data-theme="dark"] .pagination-container .tag-filter-btn.single-filter-btn.active {
-  background: linear-gradient(
-    135deg,
-    rgba(37, 99, 235, 0.24),
-    rgba(20, 184, 166, 0.12)
-  );
+  background: rgba(37, 99, 235, 0.24);
   border-color: rgba(96, 165, 250, 0.44);
   color: rgba(248, 250, 252, 0.96);
 }

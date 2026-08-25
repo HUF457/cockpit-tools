@@ -11,7 +11,7 @@
   padding: 14px;
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  background: linear-gradient(135deg, rgba(29, 78, 216, 0.08), rgba(14, 165, 165, 0.08));
+  background: rgba(29, 78, 216, 0.08);
   box-shadow: var(--shadow-sm);
 }
 
@@ -208,7 +208,7 @@
 }
 
 [data-theme="dark"] .manual-toolbar {
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.14), rgba(20, 184, 166, 0.14));
+  background: rgba(59, 130, 246, 0.14);
 }
 
 [data-theme="dark"] .manual-card-header:hover {
