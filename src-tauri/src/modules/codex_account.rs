@@ -14824,7 +14824,14 @@ mod tests {
 
         let path = super::codex_token_refresh_file_lock_path("codex-account-id");
 
-        assert!(path.starts_with(env.home_dir.join(".codex/.cockpit-token-locks")));
+        // dirs::home_dir() honours the HOME redirect on Unix (so this equals the
+        // sandbox home there) but resolves via the known-folder API on Windows,
+        // ignoring HOME/USERPROFILE. Anchor the expectation to whatever home the
+        // production code observes; the point is that the lock lives under the
+        // shared ~/.codex/.cockpit-token-locks root, not the install data dir.
+        let shared_home = dirs::home_dir().unwrap_or_else(|| env.home_dir.clone());
+        assert!(path.starts_with(shared_home.join(".codex").join(".cockpit-token-locks")));
+        assert!(!path.starts_with(env.home_dir.join(".antigravity_cockpit")));
         assert!(!path.to_string_lossy().contains("codex-account-id"));
         assert_eq!(
             path.extension().and_then(|value| value.to_str()),
