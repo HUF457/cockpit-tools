@@ -3558,7 +3558,7 @@ export function DashboardPage({
       {/* Top Stats */}
       <div className="stats-row">
         <div className="stat-card">
-          <div className="stat-icon-bg primary"><Users size={24} /></div>
+          <div className="stat-icon-bg primary"><Users size={16} /></div>
           <div className="stat-info">
             <span className="stat-label">{t('dashboard.totalAccounts', '账号总数')}</span>
             <span className="stat-value">{stats.total}</span>
@@ -3654,10 +3654,10 @@ export function DashboardPage({
                     src={group.iconCustomDataUrl}
                     alt={label}
                     className="dashboard-group-icon"
-                    style={{ width: 24, height: 24 }}
+                    style={{ width: 16, height: 16 }}
                   />
                 ) : (
-                  renderPlatformIcon(group?.iconPlatformId ?? platformId, 24)
+                  renderPlatformIcon(group?.iconPlatformId ?? platformId, 16)
                 )}
               </div>
               <div className="stat-info">
