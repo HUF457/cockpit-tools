@@ -32,7 +32,9 @@
 /* Stats Row — compact clickable platform chips */
 .stats-row {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
+  /* 172px keeps long platform labels (e.g. "Antigravity" plus a group badge)
+     from truncating while still packing 7 columns on a 1600px window. */
+  grid-template-columns: repeat(auto-fill, minmax(172px, 1fr));
   gap: 8px;
 }
 
