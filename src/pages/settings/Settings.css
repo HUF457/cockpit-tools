@@ -5,8 +5,7 @@
 .settings-container {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  animation: fadeUp 0.5s ease both;
+  gap: 14px;
   width: 100%;
   align-items: stretch;
 }
@@ -15,7 +14,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 14px;
   margin: 0;
   padding: 0;
 }
@@ -47,36 +46,34 @@
   margin-left: auto;
 }
 
-/* Tab Navigation - Left Aligned Pill */
+/* Tab Navigation - Segmented Control */
 .settings-tabs-wrapper {
   display: flex;
   justify-content: center;
-  margin: 8px 0 28px;
+  margin: 2px 0 12px;
 }
 
 .settings-tabs {
   display: flex;
-  background: var(--bg-card);
-  padding: 6px;
-  border-radius: var(--radius-full);
-  gap: 4px;
+  background: var(--bg-tertiary);
+  padding: 2px;
+  border-radius: var(--radius-md);
+  gap: 2px;
   width: fit-content;
   border: 1px solid var(--border-light);
-  box-shadow: var(--shadow-sm);
-  backdrop-filter: blur(10px);
 }
 
 .settings-tab {
-  padding: 8px 28px;
-  border-radius: var(--radius-full);
+  padding: 5px 18px;
+  border-radius: var(--radius-sm);
   border: none;
   background: transparent;
   color: var(--text-secondary);
   font-size: 13px;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s;
-  min-width: 80px;
+  transition: background 0.15s ease, color 0.15s ease;
+  min-width: 72px;
 }
 
 .settings-tab:hover {
@@ -95,9 +92,8 @@
   background: var(--bg-secondary);
   border-radius: var(--radius-lg);
   border: 1px solid var(--border-light);
-  box-shadow: var(--shadow-sm);
   overflow: hidden;
-  margin-bottom: 24px;
+  margin-bottom: 12px;
   width: 100%;
 }
 
@@ -130,10 +126,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 18px 24px;
+  padding: 9px 14px;
   border-bottom: 1px solid var(--border-light);
   background: var(--bg-secondary);
-  transition: background 0.2s;
+  transition: background 0.15s;
 }
 
 .settings-row:last-child {
@@ -166,7 +162,7 @@
 }
 
 .row-title {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
   color: var(--text-primary);
 }

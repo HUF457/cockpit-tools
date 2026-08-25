@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
+import { X } from 'lucide-react';
 import { openUrl } from '@tauri-apps/plugin-opener';
 import { useTranslation } from 'react-i18next';
 import { useTopRightAdStore } from '../stores/useTopRightAdStore';
@@ -11,6 +12,7 @@ interface TopCenterPromoBannerProps {
 }
 
 const PROMO_ROTATION_INTERVAL_MS = 6000;
+const PROMO_DISMISS_SESSION_KEY = 'agtools.promo_banner.dismissed';
 
 export function TopCenterPromoBanner({ reserveWhenEmpty = true, ads: adsOverride }: TopCenterPromoBannerProps) {
   const { t } = useTranslation();
@@ -18,6 +20,22 @@ export function TopCenterPromoBanner({ reserveWhenEmpty = true, ads: adsOverride
   const ads = adsOverride ?? storeAds;
   const [activeIndex, setActiveIndex] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [dismissed, setDismissed] = useState(() => {
+    try {
+      return sessionStorage.getItem(PROMO_DISMISS_SESSION_KEY) === '1';
+    } catch {
+      return false;
+    }
+  });
+
+  const handleDismiss = useCallback(() => {
+    setDismissed(true);
+    try {
+      sessionStorage.setItem(PROMO_DISMISS_SESSION_KEY, '1');
+    } catch {
+      // ignore persistence failures
+    }
+  }, []);
 
   const ad = ads[activeIndex] ?? ads[0] ?? null;
   const hasCarousel = ads.length > 1;
@@ -50,6 +68,10 @@ export function TopCenterPromoBanner({ reserveWhenEmpty = true, ads: adsOverride
     }
   }, [ad?.ctaUrl]);
 
+  if (dismissed) {
+    return null;
+  }
+
   if (!ad) {
     return reserveWhenEmpty ? <div className="global-promo-center global-promo-center-placeholder" aria-hidden="true" /> : null;
   }
@@ -74,6 +96,14 @@ export function TopCenterPromoBanner({ reserveWhenEmpty = true, ads: adsOverride
             {ad.ctaLabel || t('common.topRightAd.action', '查看详情')}
           </button>
         ) : null}
+        <button
+          className="global-ad-slot-dismiss"
+          onClick={handleDismiss}
+          title={t('common.close', '关闭')}
+          aria-label={t('common.close', '关闭')}
+        >
+          <X size={12} />
+        </button>
       </div>
     </div>
   );
