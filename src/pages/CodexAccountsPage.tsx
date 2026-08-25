@@ -1341,7 +1341,7 @@ export function CodexAccountsPage() {
       } catch {
         // ignore persistence failures
       }
-      return "grid";
+      return "list";
     });
   const [hideRelayQuota, setHideRelayQuota] = useState(false);
   const store = useCodexAccountStore();

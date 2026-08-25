@@ -199,13 +199,13 @@ export interface ProviderAccountBase {
 
 const DEFAULT_SORT_BY = 'created_at';
 const DEFAULT_SORT_DIRECTION: SortDirection = 'desc';
-const DEFAULT_VIEW_MODE: ViewMode = 'grid';
+const DEFAULT_VIEW_MODE: ViewMode = 'list';
 
 const normalizeSortDirection = (value: string | null): SortDirection =>
   value === 'asc' ? 'asc' : DEFAULT_SORT_DIRECTION;
 
 const normalizeViewMode = (value: string | null): ViewMode =>
-  value === 'list' ? 'list' : DEFAULT_VIEW_MODE;
+  value === 'grid' || value === 'list' ? value : DEFAULT_VIEW_MODE;
 
 const FILTER_FIELD_VIEW_MODE = 'view_mode';
 const FILTER_FIELD_FILTER_TYPE = 'filter_type';

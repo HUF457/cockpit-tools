@@ -237,8 +237,8 @@
 /* GitHub Copilot 账号网格 */
 .ghcp-accounts-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
 }
 
 /* GitHub Copilot 账号卡片 */
@@ -1187,19 +1187,19 @@
 }
 
 .ghcp-quota-section .quota-bar.high {
-  background: linear-gradient(90deg, #22c55e, #16a34a);
+  background: #22c55e;
 }
 
 .ghcp-quota-section .quota-bar.medium {
-  background: linear-gradient(90deg, #f59e0b, #d97706);
+  background: #f59e0b;
 }
 
 .ghcp-quota-section .quota-bar.low {
-  background: linear-gradient(90deg, #f97316, #ea580c);
+  background: #f97316;
 }
 
 .ghcp-quota-section .quota-bar.critical {
-  background: linear-gradient(90deg, #ef4444, #dc2626);
+  background: #ef4444;
 }
 
 .ghcp-quota-section .quota-reset {
@@ -2116,19 +2116,19 @@
 }
 
 .ghcp-accounts-page .account-table .quota-progress-bar.high {
-  background: linear-gradient(90deg, #22c55e, #16a34a);
+  background: #22c55e;
 }
 
 .ghcp-accounts-page .account-table .quota-progress-bar.medium {
-  background: linear-gradient(90deg, #f59e0b, #d97706);
+  background: #f59e0b;
 }
 
 .ghcp-accounts-page .account-table .quota-progress-bar.low {
-  background: linear-gradient(90deg, #f97316, #ea580c);
+  background: #f97316;
 }
 
 .ghcp-accounts-page .account-table .quota-progress-bar.critical {
-  background: linear-gradient(90deg, #ef4444, #dc2626);
+  background: #ef4444;
 }
 
 .ghcp-accounts-page .account-table .quota-value.high {

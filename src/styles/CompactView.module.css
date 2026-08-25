@@ -203,12 +203,12 @@
 }
 
 .tierPro {
-  background: linear-gradient(135deg, #1d4ed8, #0ea5a5);
+  background: #1d4ed8;
   color: white;
 }
 
 .tierUltra {
-  background: linear-gradient(135deg, #f97316, #f59e0b);
+  background: #f97316;
   color: white;
 }
 

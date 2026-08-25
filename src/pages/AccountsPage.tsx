@@ -448,11 +448,11 @@ export function AccountsPage({ onNavigate }: AccountsPageProps) {
     const saved = readAccountsOverviewFilterField<unknown>(
       ANTIGRAVITY_FILTER_PERSISTENCE_SCOPE,
       ANTIGRAVITY_FILTER_FIELD_VIEW_MODE,
-      'grid',
+      'list',
     )
     return saved === 'grid' || saved === 'list' || saved === 'compact'
       ? saved
-      : 'grid'
+      : 'list'
   })
   const [privacyModeEnabled, setPrivacyModeEnabled] = useState<boolean>(() =>
     isPrivacyModeEnabledByDefault()

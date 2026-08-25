@@ -87,13 +87,13 @@
 }
 
 .zed-accounts-page .zed-usage-metric-bar.high {
-  background: linear-gradient(90deg, #22c55e, #16a34a);
+  background: #22c55e;
 }
 
 .zed-accounts-page .zed-usage-metric-bar.medium {
-  background: linear-gradient(90deg, #fbbf24, #f59e0b);
+  background: #fbbf24;
 }
 
 .zed-accounts-page .zed-usage-metric-bar.low {
-  background: linear-gradient(90deg, #fb923c, #f97316);
+  background: #fb923c;
 }

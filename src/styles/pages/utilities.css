@@ -29,12 +29,12 @@
   --plan-enterprise-border: rgba(245, 158, 11, 0.35);
 
   /* Align with Antigravity account management style */
-  --plan-pro-bg: linear-gradient(135deg, #1d4ed8, #0ea5a5);
+  --plan-pro-bg: #1d4ed8;
   --plan-pro-color: #ffffff;
   --plan-pro-border: rgba(255, 255, 255, 0.25);
 
   /* Align with Antigravity account management style */
-  --plan-ultra-bg: linear-gradient(135deg, #f97316, #f59e0b);
+  --plan-ultra-bg: #f97316;
   --plan-ultra-color: #3f1d00;
   --plan-ultra-border: rgba(249, 115, 22, 0.4);
 

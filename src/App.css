@@ -164,16 +164,16 @@
 .codex-batch-import-progress-fill {
   height: 100%;
   border-radius: inherit;
-  background: linear-gradient(90deg, #2563eb, #0ea5e9);
+  background: #2563eb;
   transition: width 180ms ease;
 }
 
 .codex-batch-import-progress-fill.tone-success {
-  background: linear-gradient(90deg, #16a34a, #22c55e);
+  background: #16a34a;
 }
 
 .codex-batch-import-progress-fill.tone-error {
-  background: linear-gradient(90deg, #dc2626, #f97316);
+  background: #dc2626;
 }
 
 .codex-batch-import-queue-list {

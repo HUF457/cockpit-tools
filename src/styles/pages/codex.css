@@ -14,14 +14,14 @@
 /* Codex 账号网格 */
 .codex-accounts-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
 }
 
 .codex-group-entry-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
 }
 
 .codex-overview-selection-bar {
@@ -3469,19 +3469,19 @@
 }
 
 .codex-quota-section .quota-bar.high {
-  background: linear-gradient(90deg, #22c55e, #16a34a);
+  background: #22c55e;
 }
 
 .codex-quota-section .quota-bar.medium {
-  background: linear-gradient(90deg, #f59e0b, #d97706);
+  background: #f59e0b;
 }
 
 .codex-quota-section .quota-bar.low {
-  background: linear-gradient(90deg, #f97316, #ea580c);
+  background: #f97316;
 }
 
 .codex-quota-section .quota-bar.critical {
-  background: linear-gradient(90deg, #ef4444, #dc2626);
+  background: #ef4444;
 }
 
 .codex-quota-section .codex-api-key-quota-item.new-api .quota-header svg,
@@ -3490,7 +3490,7 @@
 }
 
 .codex-quota-section .codex-api-key-quota-item.new-api .quota-bar.high {
-  background: linear-gradient(90deg, #14b8a6, #0f766e);
+  background: #14b8a6;
 }
 
 .codex-quota-section .codex-api-key-quota-item.new-api .quota-bar-track {
@@ -9413,7 +9413,7 @@
   height: 100%;
   min-width: 9px;
   border-radius: inherit;
-  background: linear-gradient(90deg, #2563eb, #12a8a8);
+  background: #2563eb;
   transition: width 0.24s ease;
 }
 
@@ -14265,7 +14265,7 @@
   height: 100%;
   min-width: 8px;
   border-radius: inherit;
-  background: linear-gradient(90deg, #6f8ff0, #4fd1c5);
+  background: #6f8ff0;
   transition: width 0.2s ease;
 }
 
