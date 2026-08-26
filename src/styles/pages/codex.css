@@ -7235,8 +7235,8 @@
 
 .codex-oauth-binding-toolbar .tag-filter-btn.active {
   border-color: color-mix(in srgb, var(--primary) 28%, transparent);
-  background: color-mix(in srgb, var(--primary-softer) 92%, transparent);
-  color: #18181b;
+  background: var(--primary-light);
+  color: var(--text-primary);
 }
 
 .codex-oauth-binding-toolbar .account-filter-surface {
