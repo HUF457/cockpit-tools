@@ -1967,7 +1967,7 @@
     "restarting": "Memulai ulang...",
     "installSuccess": "Pembaruan terpasang! Memulai ulang...",
     "autoUpdateFailed": "Pembaruan otomatis gagal. Anda dapat mengunduh secara manual.",
-    "versionJumpTitle": "🎉 Berhasil Diperbarui!",
+    "versionJumpTitle": "Berhasil Diperbarui!",
     "versionJumpMessage": "Diperbarui dari v{{previous}} ke v{{current}}",
     "gotIt": "Mengerti!",
     "silentReady": "v{{version}} siap. Mulai ulang untuk menerapkan.",

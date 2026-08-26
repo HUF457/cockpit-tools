@@ -1846,16 +1846,16 @@
       "historyTitle": "Auslöseverlauf",
       "taskTitleEdit": "Weckaufgabe bearbeiten",
       "taskTitleNew": "Neue Weckaufgabe",
-      "riskWarning": "⚠️ Risikowarnung\nAufgrund der jüngsten Verschärfung der Google-Risikokontrollen kann die Nutzung der Wakeup-Funktion die Wahrscheinlichkeit erhöhen, dass Risikomaßnahmen für das Konto ausgelöst werden (z. B. zusätzliche Verifizierung oder temporäre Einschränkungen).\nBitte nutzen Sie die Funktion abhängig von Ihrer Kontosituation mit Vorsicht und bewerten Sie das Risiko selbst.\n\nFortfahren?"
+      "riskWarning": "Risikowarnung\nAufgrund der jüngsten Verschärfung der Google-Risikokontrollen kann die Nutzung der Wakeup-Funktion die Wahrscheinlichkeit erhöhen, dass Risikomaßnahmen für das Konto ausgelöst werden (z. B. zusätzliche Verifizierung oder temporäre Einschränkungen).\nBitte nutzen Sie die Funktion abhängig von Ihrer Kontosituation mit Vorsicht und bewerten Sie das Risiko selbst.\n\nFortfahren?"
     },
     "form": {
       "taskName": "Aufgabenname",
       "taskStatus": "Aufgabenstatus",
       "triggerMode": "Auslösemodus",
       "triggerModeHint": "1. Geplant: Auslösung zu festgelegten Zeiten.\n2. Crontab: per Ausdruck definieren.\n3. Quoten-Reset: einmal auslösen, wenn Quote voll ist.",
-      "modeScheduled": "📅 Geplant",
-      "modeCrontab": "🧩 Crontab​",
-      "modeQuotaReset": "🔄 Quoten-Reset",
+      "modeScheduled": "Geplant",
+      "modeCrontab": "Crontab​",
+      "modeQuotaReset": "Quoten-Reset",
       "antigravityVersion": "Antigravity IDE-Version",
       "modelSelect": "Modellauswahl",
       "modelHint": "Im selben Quotengruppe nur ein Modell wählen. Mehrere Modelle werden nacheinander ausgelöst.",
@@ -1920,7 +1920,7 @@
     "restarting": "Wird neu gestartet...",
     "installSuccess": "Aktualisierung installiert! Neustart...",
     "autoUpdateFailed": "Automatisches Update fehlgeschlagen. Sie können manuell herunterladen.",
-    "versionJumpTitle": "🎉 Erfolgreich aktualisiert!",
+    "versionJumpTitle": "Erfolgreich aktualisiert!",
     "versionJumpMessage": "Von v{{previous}} auf v{{current}} aktualisiert",
     "gotIt": "Verstanden",
     "silentReady": "v{{version}} ist bereit. Zum Anwenden neu starten.",
@@ -4849,10 +4849,10 @@
       "daysAgo": "Vor {count}d"
     },
     "type": {
-      "feature": "✨ Neue Funktion",
-      "warning": "⚠️ Warnung",
-      "info": "ℹ️ Information",
-      "urgent": "🚨 Dringend"
+      "feature": "Neue Funktion",
+      "warning": "Warnung",
+      "info": "Information",
+      "urgent": "Dringend"
     },
     "refreshed": "Benachrichtigungen aktualisiert ({count} insgesamt)",
     "clickToClose": "Zum Schließen klicken",
@@ -5177,8 +5177,8 @@
     "oauthSuccessCloseTitle": "Konto hinzugefügt",
     "oauthSuccessCloseNowLabel": "WebView schließen",
     "oauthSuccessCloseLaterLabel": "Später",
-    "oauthSuccessCloseNowStatus": "✅ Konto hinzugefügt. Fenster wird geschlossen...",
-    "oauthSuccessCloseLaterStatus": "✅ Konto hinzugefügt. Dieses WebView bleibt geöffnet.",
+    "oauthSuccessCloseNowStatus": "Konto hinzugefügt. Fenster wird geschlossen...",
+    "oauthSuccessCloseLaterStatus": "Konto hinzugefügt. Dieses WebView bleibt geöffnet.",
     "oauthWebviewOverlay": {
       "steps": {
         "prepare": "1 Autorisierungslink vorbereiten",
@@ -5416,8 +5416,8 @@
     "oauthSuccessCloseTitle": "Konto hinzugefügt",
     "oauthSuccessCloseNowLabel": "WebView schließen",
     "oauthSuccessCloseLaterLabel": "Später",
-    "oauthSuccessCloseNowStatus": "✅ Konto hinzugefügt. Fenster wird geschlossen...",
-    "oauthSuccessCloseLaterStatus": "✅ Konto hinzugefügt. Dieses WebView bleibt geöffnet.",
+    "oauthSuccessCloseNowStatus": "Konto hinzugefügt. Fenster wird geschlossen...",
+    "oauthSuccessCloseLaterStatus": "Konto hinzugefügt. Dieses WebView bleibt geöffnet.",
     "oauthWebviewOverlay": {
       "steps": {
         "prepare": "1 Autorisierungslink vorbereiten",
@@ -5665,7 +5665,7 @@
     "refreshInSeconds": "Refresh in {{time}}s [de]",
     "emptyQueryData": "No query data yet [de]",
     "invalidSecretFormat": "Invalid secret format detected [de]",
-    "tabSaved": "★ Saved [de]",
+    "tabSaved": "Saved [de]",
     "tabHistory": "Recent Queries [de]",
     "btnImport": "Import [de]",
     "btnExport": "Export [de]",

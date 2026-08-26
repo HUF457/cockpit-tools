@@ -1846,16 +1846,16 @@
       "historyTitle": "История запусков",
       "taskTitleEdit": "Редактировать задачу пробуждения",
       "taskTitleNew": "Новая задача пробуждения",
-      "riskWarning": "⚠️ Предупреждение о риске\nИз-за недавнего ужесточения механизмов контроля риска Google использование функции пробуждения может повысить вероятность срабатывания риск-контроля аккаунта (включая, помимо прочего, дополнительную проверку или временные ограничения).\nИспользуйте функцию осторожно с учётом состояния аккаунта и самостоятельно оценивайте риски.\n\nПродолжить?"
+      "riskWarning": "Предупреждение о риске\nИз-за недавнего ужесточения механизмов контроля риска Google использование функции пробуждения может повысить вероятность срабатывания риск-контроля аккаунта (включая, помимо прочего, дополнительную проверку или временные ограничения).\nИспользуйте функцию осторожно с учётом состояния аккаунта и самостоятельно оценивайте риски.\n\nПродолжить?"
     },
     "form": {
       "taskName": "Название задачи",
       "taskStatus": "Статус задачи",
       "triggerMode": "Режим запуска",
       "triggerModeHint": "1. По расписанию: запуск в заданные времена.\n2. Crontab: определяется выражением.\n3. Сброс квоты: запуск один раз при полной квоте.",
-      "modeScheduled": "📅 По расписанию",
-      "modeCrontab": "🧩 Кронтаб",
-      "modeQuotaReset": "🔄 Сброс квоты",
+      "modeScheduled": "По расписанию",
+      "modeCrontab": "Кронтаб",
+      "modeQuotaReset": "Сброс квоты",
       "antigravityVersion": "Версия Antigravity IDE",
       "modelSelect": "Выбор модели",
       "modelHint": "В одной группе квоты рекомендуется выбрать один модель. Несколько моделей запускаются по очереди.",
@@ -1920,7 +1920,7 @@
     "restarting": "Перезапуск...",
     "installSuccess": "Обновление установлено! Перезапуск...",
     "autoUpdateFailed": "Автообновление не удалось. Вы можете скачать обновление вручную.",
-    "versionJumpTitle": "🎉 Обновление успешно установлено!",
+    "versionJumpTitle": "Обновление успешно установлено!",
     "versionJumpMessage": "Обновлено с v{{previous}} до v{{current}}",
     "gotIt": "Понятно",
     "silentReady": "Версия v{{version}} готова. Перезапустите, чтобы применить.",
@@ -4849,10 +4849,10 @@
       "daysAgo": "{count}д назад"
     },
     "type": {
-      "feature": "✨ Новая функция",
-      "warning": "⚠️ Предупреждение",
-      "info": "ℹ️ Инфо",
-      "urgent": "🚨 Срочно"
+      "feature": "Новая функция",
+      "warning": "Предупреждение",
+      "info": "Инфо",
+      "urgent": "Срочно"
     },
     "refreshed": "Уведомления обновлены (всего {count})",
     "clickToClose": "Нажмите, чтобы закрыть",
@@ -5177,8 +5177,8 @@
     "oauthSuccessCloseTitle": "Аккаунт добавлен",
     "oauthSuccessCloseNowLabel": "Закрыть WebView",
     "oauthSuccessCloseLaterLabel": "Позже",
-    "oauthSuccessCloseNowStatus": "✅ Аккаунт добавлен. Закрываем окно...",
-    "oauthSuccessCloseLaterStatus": "✅ Аккаунт добавлен. Этот WebView останется открытым.",
+    "oauthSuccessCloseNowStatus": "Аккаунт добавлен. Закрываем окно...",
+    "oauthSuccessCloseLaterStatus": "Аккаунт добавлен. Этот WebView останется открытым.",
     "oauthWebviewOverlay": {
       "steps": {
         "prepare": "1 Подготовить ссылку OAuth",
@@ -5416,8 +5416,8 @@
     "oauthSuccessCloseTitle": "Аккаунт добавлен",
     "oauthSuccessCloseNowLabel": "Закрыть WebView",
     "oauthSuccessCloseLaterLabel": "Позже",
-    "oauthSuccessCloseNowStatus": "✅ Аккаунт добавлен. Закрываем окно...",
-    "oauthSuccessCloseLaterStatus": "✅ Аккаунт добавлен. Этот WebView останется открытым.",
+    "oauthSuccessCloseNowStatus": "Аккаунт добавлен. Закрываем окно...",
+    "oauthSuccessCloseLaterStatus": "Аккаунт добавлен. Этот WebView останется открытым.",
     "oauthWebviewOverlay": {
       "steps": {
         "prepare": "1 Подготовить ссылку OAuth",
@@ -5665,7 +5665,7 @@
     "refreshInSeconds": "Refresh in {{time}}s [ru]",
     "emptyQueryData": "No query data yet [ru]",
     "invalidSecretFormat": "Invalid secret format detected [ru]",
-    "tabSaved": "★ Saved [ru]",
+    "tabSaved": "Saved [ru]",
     "tabHistory": "Recent Queries [ru]",
     "btnImport": "Import [ru]",
     "btnExport": "Export [ru]",

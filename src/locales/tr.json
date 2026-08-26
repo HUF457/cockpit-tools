@@ -1846,16 +1846,16 @@
       "historyTitle": "Tetikleme Geçmişi",
       "taskTitleEdit": "Uyandırma Görevini Düzenle",
       "taskTitleNew": "Yeni Uyandırma Görevi",
-      "riskWarning": "⚠️ Risk uyarısı\nGoogle’ın son dönemde sıkılaştırdığı risk kontrolleri nedeniyle uyandırma özelliğini kullanmak, hesapta risk kontrollerinin tetiklenme olasılığını artırabilir (ek doğrulama veya geçici kısıtlamalar dahil ancak bunlarla sınırlı olmamak üzere).\nLütfen hesabınızın durumuna göre dikkatli kullanın ve riski kendiniz değerlendirin.\n\nDevam edilsin mi?"
+      "riskWarning": "Risk uyarısı\nGoogle’ın son dönemde sıkılaştırdığı risk kontrolleri nedeniyle uyandırma özelliğini kullanmak, hesapta risk kontrollerinin tetiklenme olasılığını artırabilir (ek doğrulama veya geçici kısıtlamalar dahil ancak bunlarla sınırlı olmamak üzere).\nLütfen hesabınızın durumuna göre dikkatli kullanın ve riski kendiniz değerlendirin.\n\nDevam edilsin mi?"
     },
     "form": {
       "taskName": "Görev adı",
       "taskStatus": "Görev durumu",
       "triggerMode": "Tetikleme modu",
       "triggerModeHint": "1. Planlı: ayarlanan zamanlarda tetiklenir.\n2. Crontab: bir ifadeyle tanımlanır.\n3. Kota sıfırlama: kota dolu olduğunda bir kez tetiklenir.",
-      "modeScheduled": "📅 Planlı",
-      "modeCrontab": "🧩 Crontab​",
-      "modeQuotaReset": "🔄 Kota sıfırlama",
+      "modeScheduled": "Planlı",
+      "modeCrontab": "Crontab​",
+      "modeQuotaReset": "Kota sıfırlama",
       "antigravityVersion": "Antigravity IDE sürümü",
       "modelSelect": "Model seçimi",
       "modelHint": "Aynı kota grubu için tek bir model seçin. Birden fazla model sırayla tetiklenir.",
@@ -1920,7 +1920,7 @@
     "restarting": "Yeniden başlatılıyor...",
     "installSuccess": "Güncelleme yüklendi! Yeniden başlatılıyor...",
     "autoUpdateFailed": "Otomatik güncelleme başarısız oldu. Elle indirebilirsiniz.",
-    "versionJumpTitle": "🎉 Güncelleme başarıyla tamamlandı!",
+    "versionJumpTitle": "Güncelleme başarıyla tamamlandı!",
     "versionJumpMessage": "v{{previous}} sürümünden v{{current}} sürümüne güncellendi",
     "gotIt": "Anladım",
     "silentReady": "v{{version}} hazır. Uygulamak için yeniden başlatın.",
@@ -4849,10 +4849,10 @@
       "daysAgo": "{count}gün önce"
     },
     "type": {
-      "feature": "✨ Yeni Özellik",
-      "warning": "⚠️ Uyarı",
-      "info": "ℹ️ Bilgi",
-      "urgent": "🚨 Acil"
+      "feature": "Yeni Özellik",
+      "warning": "Uyarı",
+      "info": "Bilgi",
+      "urgent": "Acil"
     },
     "refreshed": "Bildirimler güncellendi (toplam {count})",
     "clickToClose": "Kapatmak için tıklayın",
@@ -5177,8 +5177,8 @@
     "oauthSuccessCloseTitle": "Hesap Eklendi",
     "oauthSuccessCloseNowLabel": "WebView'ı Kapat",
     "oauthSuccessCloseLaterLabel": "Daha Sonra",
-    "oauthSuccessCloseNowStatus": "✅ Hesap eklendi. Pencere kapatılıyor...",
-    "oauthSuccessCloseLaterStatus": "✅ Hesap eklendi. Bu WebView açık kalacak.",
+    "oauthSuccessCloseNowStatus": "Hesap eklendi. Pencere kapatılıyor...",
+    "oauthSuccessCloseLaterStatus": "Hesap eklendi. Bu WebView açık kalacak.",
     "oauthWebviewOverlay": {
       "steps": {
         "prepare": "1 OAuth bağlantısını hazırla",
@@ -5416,8 +5416,8 @@
     "oauthSuccessCloseTitle": "Hesap Eklendi",
     "oauthSuccessCloseNowLabel": "WebView'ı Kapat",
     "oauthSuccessCloseLaterLabel": "Daha Sonra",
-    "oauthSuccessCloseNowStatus": "✅ Hesap eklendi. Pencere kapatılıyor...",
-    "oauthSuccessCloseLaterStatus": "✅ Hesap eklendi. Bu WebView açık kalacak.",
+    "oauthSuccessCloseNowStatus": "Hesap eklendi. Pencere kapatılıyor...",
+    "oauthSuccessCloseLaterStatus": "Hesap eklendi. Bu WebView açık kalacak.",
     "oauthWebviewOverlay": {
       "steps": {
         "prepare": "1 OAuth bağlantısını hazırla",
@@ -5665,7 +5665,7 @@
     "refreshInSeconds": "Refresh in {{time}}s [tr]",
     "emptyQueryData": "No query data yet [tr]",
     "invalidSecretFormat": "Invalid secret format detected [tr]",
-    "tabSaved": "★ Saved [tr]",
+    "tabSaved": "Saved [tr]",
     "tabHistory": "Recent Queries [tr]",
     "btnImport": "Import [tr]",
     "btnExport": "Export [tr]",

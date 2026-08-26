@@ -1846,16 +1846,16 @@
       "historyTitle": "Historia wywołań",
       "taskTitleEdit": "Edytuj zadanie wybudzania",
       "taskTitleNew": "Nowe zadanie wybudzania",
-      "riskWarning": "⚠️ Ostrzeżenie o ryzyku\nZe względu na ostatnie zaostrzenie mechanizmów kontroli ryzyka Google korzystanie z funkcji wybudzania może zwiększyć prawdopodobieństwo uruchomienia kontroli ryzyka konta (w tym m.in. dodatkowej weryfikacji lub tymczasowych ograniczeń).\nKorzystaj ostrożnie, biorąc pod uwagę stan konta, i samodzielnie oceń ryzyko.\n\nKontynuować?"
+      "riskWarning": "Ostrzeżenie o ryzyku\nZe względu na ostatnie zaostrzenie mechanizmów kontroli ryzyka Google korzystanie z funkcji wybudzania może zwiększyć prawdopodobieństwo uruchomienia kontroli ryzyka konta (w tym m.in. dodatkowej weryfikacji lub tymczasowych ograniczeń).\nKorzystaj ostrożnie, biorąc pod uwagę stan konta, i samodzielnie oceń ryzyko.\n\nKontynuować?"
     },
     "form": {
       "taskName": "Nazwa zadania",
       "taskStatus": "Status zadania",
       "triggerMode": "Tryb wyzwalania",
       "triggerModeHint": "1. Harmonogram: uruchamiane o ustawionych godzinach.\n2. Crontab: definiowane wyrażeniem.\n3. Reset limitu: uruchamiane raz po zapełnieniu limitu.",
-      "modeScheduled": "📅 Harmonogram",
-      "modeCrontab": "🧩 Crontab​",
-      "modeQuotaReset": "🔄 Reset limitu",
+      "modeScheduled": "Harmonogram",
+      "modeCrontab": "Crontab​",
+      "modeQuotaReset": "Reset limitu",
       "antigravityVersion": "Wersja Antigravity IDE",
       "modelSelect": "Wybór modelu",
       "modelHint": "W tej samej grupie limitu wybierz jeden model. Wiele modeli uruchamia się kolejno.",
@@ -1920,7 +1920,7 @@
     "restarting": "Ponowne uruchamianie...",
     "installSuccess": "Zainstalowano aktualizację! Ponowne uruchamianie...",
     "autoUpdateFailed": "Automatyczna aktualizacja nie powiodła się. Możesz pobrać ręcznie.",
-    "versionJumpTitle": "🎉 Aktualizacja zakończona!",
+    "versionJumpTitle": "Aktualizacja zakończona!",
     "versionJumpMessage": "Zaktualizowano z v{{previous}} do v{{current}}",
     "gotIt": "Rozumiem",
     "silentReady": "Wersja v{{version}} jest gotowa. Uruchom ponownie, aby zastosować.",
@@ -4849,10 +4849,10 @@
       "daysAgo": "{count}d temu"
     },
     "type": {
-      "feature": "✨ Nowa funkcja",
-      "warning": "⚠️ Ostrzeżenie",
-      "info": "ℹ️ Informacja",
-      "urgent": "🚨 Pilne"
+      "feature": "Nowa funkcja",
+      "warning": "Ostrzeżenie",
+      "info": "Informacja",
+      "urgent": "Pilne"
     },
     "refreshed": "Powiadomienia odświeżone (łącznie {count})",
     "clickToClose": "Kliknij, aby zamknąć",
@@ -5177,8 +5177,8 @@
     "oauthSuccessCloseTitle": "Konto dodane",
     "oauthSuccessCloseNowLabel": "Zamknij WebView",
     "oauthSuccessCloseLaterLabel": "Później",
-    "oauthSuccessCloseNowStatus": "✅ Konto dodane. Zamykanie okna...",
-    "oauthSuccessCloseLaterStatus": "✅ Konto dodane. To WebView pozostanie otwarte.",
+    "oauthSuccessCloseNowStatus": "Konto dodane. Zamykanie okna...",
+    "oauthSuccessCloseLaterStatus": "Konto dodane. To WebView pozostanie otwarte.",
     "oauthWebviewOverlay": {
       "steps": {
         "prepare": "1 Przygotuj link OAuth",
@@ -5416,8 +5416,8 @@
     "oauthSuccessCloseTitle": "Konto dodane",
     "oauthSuccessCloseNowLabel": "Zamknij WebView",
     "oauthSuccessCloseLaterLabel": "Później",
-    "oauthSuccessCloseNowStatus": "✅ Konto dodane. Zamykanie okna...",
-    "oauthSuccessCloseLaterStatus": "✅ Konto dodane. To WebView pozostanie otwarte.",
+    "oauthSuccessCloseNowStatus": "Konto dodane. Zamykanie okna...",
+    "oauthSuccessCloseLaterStatus": "Konto dodane. To WebView pozostanie otwarte.",
     "oauthWebviewOverlay": {
       "steps": {
         "prepare": "1 Przygotuj link OAuth",
@@ -5665,7 +5665,7 @@
     "refreshInSeconds": "Refresh in {{time}}s [pl]",
     "emptyQueryData": "No query data yet [pl]",
     "invalidSecretFormat": "Invalid secret format detected [pl]",
-    "tabSaved": "★ Saved [pl]",
+    "tabSaved": "Saved [pl]",
     "tabHistory": "Recent Queries [pl]",
     "btnImport": "Import [pl]",
     "btnExport": "Export [pl]",

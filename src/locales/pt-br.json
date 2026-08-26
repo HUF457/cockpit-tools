@@ -1846,16 +1846,16 @@
       "historyTitle": "Histórico de disparos",
       "taskTitleEdit": "Editar tarefa de despertar",
       "taskTitleNew": "Nova tarefa de despertar",
-      "riskWarning": "⚠️ Aviso de risco\nDevido ao recente endurecimento do controle de risco do Google, usar o recurso de wakeup pode aumentar a chance de acionar controles de risco na conta (incluindo, mas não se limitando a, verificação adicional ou limitações temporárias).\nUse com cautela de acordo com a situação da sua conta e avalie o risco por conta própria.\n\nContinuar?"
+      "riskWarning": "Aviso de risco\nDevido ao recente endurecimento do controle de risco do Google, usar o recurso de wakeup pode aumentar a chance de acionar controles de risco na conta (incluindo, mas não se limitando a, verificação adicional ou limitações temporárias).\nUse com cautela de acordo com a situação da sua conta e avalie o risco por conta própria.\n\nContinuar?"
     },
     "form": {
       "taskName": "Nome da tarefa",
       "taskStatus": "Status da tarefa",
       "triggerMode": "Modo de disparo",
       "triggerModeHint": "1. Agendado: dispara nos horários definidos.\n2. Crontab: defina por expressão.\n3. Reset de cota: dispara uma vez quando a cota estiver cheia.",
-      "modeScheduled": "📅 Agendado",
-      "modeCrontab": "🧩Crontab",
-      "modeQuotaReset": "🔄 Reset de cota",
+      "modeScheduled": "Agendado",
+      "modeCrontab": "Crontab",
+      "modeQuotaReset": "Reset de cota",
       "antigravityVersion": "Versão do Antigravity IDE",
       "modelSelect": "Seleção de modelos",
       "modelHint": "No mesmo grupo de cota, escolha um modelo. Vários modelos disparam em sequência.",
@@ -1920,7 +1920,7 @@
     "restarting": "Reiniciando...",
     "installSuccess": "Atualização instalada! Reiniciando...",
     "autoUpdateFailed": "A atualização automática falhou. Você pode baixar manualmente.",
-    "versionJumpTitle": "🎉 Atualização concluída!",
+    "versionJumpTitle": "Atualização concluída!",
     "versionJumpMessage": "Atualizado de v{{previous}} para v{{current}}",
     "gotIt": "Entendi",
     "silentReady": "A versão v{{version}} está pronta. Reinicie para aplicar.",
@@ -4849,10 +4849,10 @@
       "daysAgo": "Há {count}d"
     },
     "type": {
-      "feature": "✨ Nova função",
-      "warning": "⚠️ Aviso",
-      "info": "ℹ️ Informação",
-      "urgent": "🚨 Urgente"
+      "feature": "Nova função",
+      "warning": "Aviso",
+      "info": "Informação",
+      "urgent": "Urgente"
     },
     "refreshed": "Notificações atualizadas ({count} no total)",
     "clickToClose": "Clique para fechar",
@@ -5177,8 +5177,8 @@
     "oauthSuccessCloseTitle": "Conta adicionada",
     "oauthSuccessCloseNowLabel": "Fechar WebView",
     "oauthSuccessCloseLaterLabel": "Depois",
-    "oauthSuccessCloseNowStatus": "✅ Conta adicionada. Fechando janela...",
-    "oauthSuccessCloseLaterStatus": "✅ Conta adicionada. Esta WebView permanecera aberta.",
+    "oauthSuccessCloseNowStatus": "Conta adicionada. Fechando janela...",
+    "oauthSuccessCloseLaterStatus": "Conta adicionada. Esta WebView permanecera aberta.",
     "oauthWebviewOverlay": {
       "steps": {
         "prepare": "1 Preparar link OAuth",
@@ -5416,8 +5416,8 @@
     "oauthSuccessCloseTitle": "Conta adicionada",
     "oauthSuccessCloseNowLabel": "Fechar WebView",
     "oauthSuccessCloseLaterLabel": "Depois",
-    "oauthSuccessCloseNowStatus": "✅ Conta adicionada. Fechando janela...",
-    "oauthSuccessCloseLaterStatus": "✅ Conta adicionada. Esta WebView permanecera aberta.",
+    "oauthSuccessCloseNowStatus": "Conta adicionada. Fechando janela...",
+    "oauthSuccessCloseLaterStatus": "Conta adicionada. Esta WebView permanecera aberta.",
     "oauthWebviewOverlay": {
       "steps": {
         "prepare": "1 Preparar link OAuth",
@@ -5665,7 +5665,7 @@
     "refreshInSeconds": "Refresh in {{time}}s [pt-br]",
     "emptyQueryData": "No query data yet [pt-br]",
     "invalidSecretFormat": "Invalid secret format detected [pt-br]",
-    "tabSaved": "★ Saved [pt-br]",
+    "tabSaved": "Saved [pt-br]",
     "tabHistory": "Recent Queries [pt-br]",
     "btnImport": "Import [pt-br]",
     "btnExport": "Export [pt-br]",

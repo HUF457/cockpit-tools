@@ -2045,16 +2045,16 @@
       "historyTitle": "触发历史",
       "taskTitleEdit": "编辑唤醒任务",
       "taskTitleNew": "新建唤醒任务",
-      "riskWarning": "⚠️ 风险提示\n近期 Google 风控策略收紧，使用唤醒功能可能提高账号触发风控的概率（包括但不限于额外验证、临时限制等）。\n请根据账号实际情况谨慎使用，并自行评估风险。\n\n确认继续？"
+      "riskWarning": "风险提示\n近期 Google 风控策略收紧，使用唤醒功能可能提高账号触发风控的概率（包括但不限于额外验证、临时限制等）。\n请根据账号实际情况谨慎使用，并自行评估风险。\n\n确认继续？"
     },
     "form": {
       "taskName": "任务名称",
       "taskStatus": "任务状态",
       "triggerMode": "唤醒方式",
       "triggerModeHint": "1. 定时：按照设定时间触发。\n2. Crontab：使用表达式定义。\n3. 配额重置：额度满后触发一次。\n4. 启动后：应用启动后触发一次，可设置延时。",
-      "modeScheduled": "📅 定时触发",
-      "modeCrontab": "🧩 定时任务",
-      "modeQuotaReset": "🔄 配额重置",
+      "modeScheduled": "定时触发",
+      "modeCrontab": "定时任务",
+      "modeQuotaReset": "配额重置",
       "antigravityVersion": "Antigravity IDE 版本",
       "modelSelect": "模型选择",
       "modelHint": "同一配额组建议只选一个模型，多模型会依次触发。",
@@ -2119,7 +2119,7 @@
     "restarting": "重启中...",
     "installSuccess": "更新已安装！正在重启...",
     "autoUpdateFailed": "自动更新失败，您可以手动下载安装。",
-    "versionJumpTitle": "🎉 更新成功！",
+    "versionJumpTitle": "更新成功！",
     "versionJumpMessage": "已从 v{{previous}} 更新到 v{{current}}",
     "gotIt": "我知道了",
     "silentReady": "v{{version}} 已就绪，重启后生效。",
@@ -4560,8 +4560,8 @@
     "oauthSuccessCloseTitle": "账号添加完成",
     "oauthSuccessCloseNowLabel": "关闭 WebView",
     "oauthSuccessCloseLaterLabel": "稍后再说",
-    "oauthSuccessCloseNowStatus": "✅ 账号添加完成，窗口即将关闭…",
-    "oauthSuccessCloseLaterStatus": "✅ 账号添加完成，已保持当前页面打开。",
+    "oauthSuccessCloseNowStatus": "账号添加完成，窗口即将关闭…",
+    "oauthSuccessCloseLaterStatus": "账号添加完成，已保持当前页面打开。",
     "sessions": {
       "title": "本机会话文件",
       "desc": "扫描本机 CodeBuddy 数据目录中的会话相关 JSON/JSONL 文件，可打开所在位置。",
@@ -5154,10 +5154,10 @@
       "daysAgo": "{count}天前"
     },
     "type": {
-      "feature": "✨ 新功能",
-      "warning": "⚠️ 警告",
-      "info": "ℹ️ 信息",
-      "urgent": "🚨 紧急"
+      "feature": "新功能",
+      "warning": "警告",
+      "info": "信息",
+      "urgent": "紧急"
     },
     "refreshed": "公告已刷新（共 {count} 条）",
     "clickToClose": "点击关闭",
@@ -5798,8 +5798,8 @@
     "oauthSuccessCloseTitle": "账号添加完成",
     "oauthSuccessCloseNowLabel": "关闭 WebView",
     "oauthSuccessCloseLaterLabel": "稍后再说",
-    "oauthSuccessCloseNowStatus": "✅ 账号添加完成，窗口即将关闭…",
-    "oauthSuccessCloseLaterStatus": "✅ 账号添加完成，已保持当前页面打开。",
+    "oauthSuccessCloseNowStatus": "账号添加完成，窗口即将关闭…",
+    "oauthSuccessCloseLaterStatus": "账号添加完成，已保持当前页面打开。",
     "instances": {
       "unsupported": {
         "descPlatform": "WorkBuddy 应用多开仅支持 macOS、Windows 和 Linux。"
@@ -5880,7 +5880,7 @@
     "refreshInSeconds": "{{time}} 秒后刷新",
     "emptyQueryData": "暂未查询数据",
     "invalidSecretFormat": "检测到无效秘钥格式",
-    "tabSaved": "★ 已保存",
+    "tabSaved": "已保存",
     "tabHistory": "近期查询",
     "btnImport": "导入",
     "btnExport": "导出",

@@ -450,7 +450,7 @@ export function ManualPage({ onNavigate, onOpenPlatformLayout }: ManualPageProps
                   <div className="manual-card-body">
                     <div className="manual-info-grid">
                       <section className="manual-info-block">
-                        <h4>💡 {t('manual.blocks.outcomes', '这个功能能帮你什么')}</h4>
+                        <h4>{t('manual.blocks.outcomes', '这个功能能帮你什么')}</h4>
                         <ul>
                           {section.outcomes.map((item, idx) => (
                             <li key={`${section.id}-outcome-${idx}`}>{item}</li>
@@ -458,7 +458,7 @@ export function ManualPage({ onNavigate, onOpenPlatformLayout }: ManualPageProps
                         </ul>
                       </section>
                       <section className="manual-info-block">
-                        <h4>🎯 {t('manual.blocks.steps', '推荐操作步骤')}</h4>
+                        <h4>{t('manual.blocks.steps', '推荐操作步骤')}</h4>
                         <ol>
                           {section.steps.map((item, idx) => (
                             <li key={`${section.id}-step-${idx}`}>{item}</li>
@@ -466,7 +466,7 @@ export function ManualPage({ onNavigate, onOpenPlatformLayout }: ManualPageProps
                         </ol>
                       </section>
                       <section className="manual-info-block caution">
-                        <h4>⚠️ {t('manual.blocks.cautions', '常见坑位 / 注意事项')}</h4>
+                        <h4>{t('manual.blocks.cautions', '常见坑位 / 注意事项')}</h4>
                         <ul>
                           {section.cautions.map((item, idx) => (
                             <li key={`${section.id}-caution-${idx}`}>{item}</li>

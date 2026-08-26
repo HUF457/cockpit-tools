@@ -1846,16 +1846,16 @@
       "historyTitle": "Cronologia attivazioni",
       "taskTitleEdit": "Modifica attività di risveglio",
       "taskTitleNew": "Nuova attività di risveglio",
-      "riskWarning": "⚠️ Avviso di rischio\nA causa del recente rafforzamento dei controlli di rischio di Google, l’uso della funzione wakeup può aumentare la probabilità di attivare controlli di rischio sull’account (inclusi, ma non limitati a, verifiche aggiuntive o limitazioni temporanee).\nUsala con cautela in base allo stato del tuo account e valuta autonomamente il rischio.\n\nContinuare?"
+      "riskWarning": "Avviso di rischio\nA causa del recente rafforzamento dei controlli di rischio di Google, l’uso della funzione wakeup può aumentare la probabilità di attivare controlli di rischio sull’account (inclusi, ma non limitati a, verifiche aggiuntive o limitazioni temporanee).\nUsala con cautela in base allo stato del tuo account e valuta autonomamente il rischio.\n\nContinuare?"
     },
     "form": {
       "taskName": "Nome attività",
       "taskStatus": "Stato attività",
       "triggerMode": "Modalità di attivazione",
       "triggerModeHint": "1. Programmato: attiva a orari definiti.\n2. Crontab: definisci con un'espressione.\n3. Reset quota: attiva una volta quando la quota è piena.",
-      "modeScheduled": "📅 Programmato",
-      "modeCrontab": "🧩 Crontab​",
-      "modeQuotaReset": "🔄 Reset quota",
+      "modeScheduled": "Programmato",
+      "modeCrontab": "Crontab​",
+      "modeQuotaReset": "Reset quota",
       "antigravityVersion": "Versione Antigravity IDE",
       "modelSelect": "Selezione modelli",
       "modelHint": "Nello stesso gruppo di quota, scegli un solo modello. Più modelli si attivano in sequenza.",
@@ -1920,7 +1920,7 @@
     "restarting": "Riavvio in corso...",
     "installSuccess": "Aggiornamento installato! Riavvio...",
     "autoUpdateFailed": "L'aggiornamento automatico non è riuscito. Puoi scaricare manualmente.",
-    "versionJumpTitle": "🎉 Aggiornamento completato!",
+    "versionJumpTitle": "Aggiornamento completato!",
     "versionJumpMessage": "Aggiornato da v{{previous}} a v{{current}}",
     "gotIt": "Ho capito",
     "silentReady": "La versione v{{version}} è pronta. Riavvia per applicarla.",
@@ -4849,10 +4849,10 @@
       "daysAgo": "{count}g fa"
     },
     "type": {
-      "feature": "✨ Nuova funzione",
-      "warning": "⚠️ Avviso",
-      "info": "ℹ️ Informazioni",
-      "urgent": "🚨 Urgente"
+      "feature": "Nuova funzione",
+      "warning": "Avviso",
+      "info": "Informazioni",
+      "urgent": "Urgente"
     },
     "refreshed": "Notifiche aggiornate ({count} in totale)",
     "clickToClose": "Clicca per chiudere",
@@ -5177,8 +5177,8 @@
     "oauthSuccessCloseTitle": "Account aggiunto",
     "oauthSuccessCloseNowLabel": "Chiudi WebView",
     "oauthSuccessCloseLaterLabel": "Dopo",
-    "oauthSuccessCloseNowStatus": "✅ Account aggiunto. Chiusura finestra...",
-    "oauthSuccessCloseLaterStatus": "✅ Account aggiunto. Questa WebView restera aperta.",
+    "oauthSuccessCloseNowStatus": "Account aggiunto. Chiusura finestra...",
+    "oauthSuccessCloseLaterStatus": "Account aggiunto. Questa WebView restera aperta.",
     "oauthWebviewOverlay": {
       "steps": {
         "prepare": "1 Prepara il link OAuth",
@@ -5416,8 +5416,8 @@
     "oauthSuccessCloseTitle": "Account aggiunto",
     "oauthSuccessCloseNowLabel": "Chiudi WebView",
     "oauthSuccessCloseLaterLabel": "Dopo",
-    "oauthSuccessCloseNowStatus": "✅ Account aggiunto. Chiusura finestra...",
-    "oauthSuccessCloseLaterStatus": "✅ Account aggiunto. Questa WebView restera aperta.",
+    "oauthSuccessCloseNowStatus": "Account aggiunto. Chiusura finestra...",
+    "oauthSuccessCloseLaterStatus": "Account aggiunto. Questa WebView restera aperta.",
     "oauthWebviewOverlay": {
       "steps": {
         "prepare": "1 Prepara il link OAuth",
@@ -5665,7 +5665,7 @@
     "refreshInSeconds": "Refresh in {{time}}s [it]",
     "emptyQueryData": "No query data yet [it]",
     "invalidSecretFormat": "Invalid secret format detected [it]",
-    "tabSaved": "★ Saved [it]",
+    "tabSaved": "Saved [it]",
     "tabHistory": "Recent Queries [it]",
     "btnImport": "Import [it]",
     "btnExport": "Export [it]",

@@ -1846,16 +1846,16 @@
       "historyTitle": "트리거 기록",
       "taskTitleEdit": "깨우기 작업 편집",
       "taskTitleNew": "새 깨우기 작업",
-      "riskWarning": "⚠️ 위험 경고\n최근 Google 리스크 제어 강화로 인해 깨우기 기능을 사용하면 계정 리스크 제어(추가 인증, 임시 제한 등)가 발생할 가능성이 높아질 수 있습니다.\n계정 상태를 고려해 신중히 사용하고, 위험은 직접 판단해 주세요.\n\n계속하시겠습니까?"
+      "riskWarning": "위험 경고\n최근 Google 리스크 제어 강화로 인해 깨우기 기능을 사용하면 계정 리스크 제어(추가 인증, 임시 제한 등)가 발생할 가능성이 높아질 수 있습니다.\n계정 상태를 고려해 신중히 사용하고, 위험은 직접 판단해 주세요.\n\n계속하시겠습니까?"
     },
     "form": {
       "taskName": "작업 이름",
       "taskStatus": "작업 상태",
       "triggerMode": "트리거 방식",
       "triggerModeHint": "1. 예약: 설정된 시간에 트리거됩니다.\n2. Crontab: 표현식으로 정의합니다.\n3. 할당량 재설정: 할당량이 가득 찼을 때 한 번 실행됩니다.",
-      "modeScheduled": "📅 예약",
-      "modeCrontab": "🧩 크론탭",
-      "modeQuotaReset": "🔄 할당량 재설정",
+      "modeScheduled": "예약",
+      "modeCrontab": "크론탭",
+      "modeQuotaReset": "할당량 재설정",
       "antigravityVersion": "Antigravity IDE 버전",
       "modelSelect": "모델 선택",
       "modelHint": "같은 할당량 그룹에서는 하나의 모델을 추천합니다. 여러 모델은 순차 실행됩니다.",
@@ -1920,7 +1920,7 @@
     "restarting": "재시작 중...",
     "installSuccess": "업데이트가 설치되었습니다. 재시작 중...",
     "autoUpdateFailed": "자동 업데이트에 실패했습니다. 수동으로 다운로드할 수 있습니다.",
-    "versionJumpTitle": "🎉 업데이트 완료!",
+    "versionJumpTitle": "업데이트 완료!",
     "versionJumpMessage": "v{{previous}}에서 v{{current}}로 업데이트되었습니다",
     "gotIt": "확인",
     "silentReady": "v{{version}} 준비가 완료되었습니다. 적용하려면 재시작하세요.",
@@ -4849,10 +4849,10 @@
       "daysAgo": "{count}일 전"
     },
     "type": {
-      "feature": "✨ 새로운 기능",
-      "warning": "⚠️ 경고",
-      "info": "ℹ️ 정보",
-      "urgent": "🚨 긴급"
+      "feature": "새로운 기능",
+      "warning": "경고",
+      "info": "정보",
+      "urgent": "긴급"
     },
     "refreshed": "알림이 업데이트되었습니다 (총 {count}개)",
     "clickToClose": "클릭하여 닫기",
@@ -5177,8 +5177,8 @@
     "oauthSuccessCloseTitle": "계정 추가 완료",
     "oauthSuccessCloseNowLabel": "WebView 닫기",
     "oauthSuccessCloseLaterLabel": "나중에",
-    "oauthSuccessCloseNowStatus": "✅ 계정 추가가 완료되었습니다. 창을 닫는 중...",
-    "oauthSuccessCloseLaterStatus": "✅ 계정 추가가 완료되었습니다. 이 WebView는 계속 열려 있습니다.",
+    "oauthSuccessCloseNowStatus": "계정 추가가 완료되었습니다. 창을 닫는 중...",
+    "oauthSuccessCloseLaterStatus": "계정 추가가 완료되었습니다. 이 WebView는 계속 열려 있습니다.",
     "oauthWebviewOverlay": {
       "steps": {
         "prepare": "1 인증 링크 준비",
@@ -5416,8 +5416,8 @@
     "oauthSuccessCloseTitle": "계정 추가 완료",
     "oauthSuccessCloseNowLabel": "WebView 닫기",
     "oauthSuccessCloseLaterLabel": "나중에",
-    "oauthSuccessCloseNowStatus": "✅ 계정 추가가 완료되었습니다. 창을 닫는 중...",
-    "oauthSuccessCloseLaterStatus": "✅ 계정 추가가 완료되었습니다. 이 WebView는 계속 열려 있습니다.",
+    "oauthSuccessCloseNowStatus": "계정 추가가 완료되었습니다. 창을 닫는 중...",
+    "oauthSuccessCloseLaterStatus": "계정 추가가 완료되었습니다. 이 WebView는 계속 열려 있습니다.",
     "oauthWebviewOverlay": {
       "steps": {
         "prepare": "1 인증 링크 준비",
@@ -5665,7 +5665,7 @@
     "refreshInSeconds": "Refresh in {{time}}s [ko]",
     "emptyQueryData": "No query data yet [ko]",
     "invalidSecretFormat": "Invalid secret format detected [ko]",
-    "tabSaved": "★ Saved [ko]",
+    "tabSaved": "Saved [ko]",
     "tabHistory": "Recent Queries [ko]",
     "btnImport": "Import [ko]",
     "btnExport": "Export [ko]",

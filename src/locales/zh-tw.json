@@ -1846,16 +1846,16 @@
       "historyTitle": "觸發歷史",
       "taskTitleEdit": "編輯喚醒任務",
       "taskTitleNew": "新建喚醒任務",
-      "riskWarning": "⚠️ 風險提示\n近期 Google 風控策略收緊，使用喚醒功能可能提高帳號觸發風控的機率（包括但不限於額外驗證、暫時限制等）。\n請依帳號實際情況謹慎使用，並自行評估風險。\n\n確認繼續？"
+      "riskWarning": "風險提示\n近期 Google 風控策略收緊，使用喚醒功能可能提高帳號觸發風控的機率（包括但不限於額外驗證、暫時限制等）。\n請依帳號實際情況謹慎使用，並自行評估風險。\n\n確認繼續？"
     },
     "form": {
       "taskName": "任務名稱",
       "taskStatus": "任務狀態",
       "triggerMode": "喚醒方式",
       "triggerModeHint": "1. 定時：依照設定時間觸發。\n2. Crontab：使用表達式定義。\n3. 配額重置：額度滿後觸發一次。",
-      "modeScheduled": "📅 定時觸發",
-      "modeCrontab": "🧩 定時任務",
-      "modeQuotaReset": "🔄 配額重置",
+      "modeScheduled": "定時觸發",
+      "modeCrontab": "定時任務",
+      "modeQuotaReset": "配額重置",
       "antigravityVersion": "Antigravity IDE 版本",
       "modelSelect": "模型選擇",
       "modelHint": "同一配額組建議只選一個模型，多模型會依序觸發。",
@@ -1920,7 +1920,7 @@
     "restarting": "重新啟動中...",
     "installSuccess": "更新已安裝！正在重新啟動...",
     "autoUpdateFailed": "自動更新失敗，您可以手動下載安裝。",
-    "versionJumpTitle": "🎉 更新成功！",
+    "versionJumpTitle": "更新成功！",
     "versionJumpMessage": "已從 v{{previous}} 更新到 v{{current}}",
     "gotIt": "我知道了",
     "silentReady": "v{{version}} 已就緒，重新啟動後生效。",
@@ -4849,10 +4849,10 @@
       "daysAgo": "{count}天前"
     },
     "type": {
-      "feature": "✨ 新功能",
-      "warning": "⚠️ 警告",
-      "info": "ℹ️ 信息",
-      "urgent": "🚨 緊急"
+      "feature": "新功能",
+      "warning": "警告",
+      "info": "信息",
+      "urgent": "緊急"
     },
     "refreshed": "公告已重新整理 (共 {count} 條)",
     "clickToClose": "點擊關閉",
@@ -5177,8 +5177,8 @@
     "oauthSuccessCloseTitle": "帳號新增完成",
     "oauthSuccessCloseNowLabel": "關閉 WebView",
     "oauthSuccessCloseLaterLabel": "稍後再說",
-    "oauthSuccessCloseNowStatus": "✅ 帳號新增完成，視窗即將關閉…",
-    "oauthSuccessCloseLaterStatus": "✅ 帳號新增完成，已保持目前頁面開啟。",
+    "oauthSuccessCloseNowStatus": "帳號新增完成，視窗即將關閉…",
+    "oauthSuccessCloseLaterStatus": "帳號新增完成，已保持目前頁面開啟。",
     "oauthWebviewOverlay": {
       "steps": {
         "prepare": "1 準備授權連結",
@@ -5416,8 +5416,8 @@
     "oauthSuccessCloseTitle": "帳號新增完成",
     "oauthSuccessCloseNowLabel": "關閉 WebView",
     "oauthSuccessCloseLaterLabel": "稍後再說",
-    "oauthSuccessCloseNowStatus": "✅ 帳號新增完成，視窗即將關閉…",
-    "oauthSuccessCloseLaterStatus": "✅ 帳號新增完成，已保持目前頁面開啟。",
+    "oauthSuccessCloseNowStatus": "帳號新增完成，視窗即將關閉…",
+    "oauthSuccessCloseLaterStatus": "帳號新增完成，已保持目前頁面開啟。",
     "oauthWebviewOverlay": {
       "steps": {
         "prepare": "1 準備授權連結",
@@ -5665,7 +5665,7 @@
     "refreshInSeconds": "{{time}} 秒后刷新",
     "emptyQueryData": "暂未查询数据",
     "invalidSecretFormat": "检测到无效秘钥格式",
-    "tabSaved": "★ 已保存",
+    "tabSaved": "已保存",
     "tabHistory": "近期查询",
     "btnImport": "导入",
     "btnExport": "导出",

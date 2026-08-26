@@ -1893,16 +1893,16 @@
       "historyTitle": "سجل التشغيل",
       "taskTitleEdit": "تعديل مهمة الاستيقاظ",
       "taskTitleNew": "مهمة استيقاظ جديدة",
-      "riskWarning": "⚠️ تحذير من المخاطر\nبسبب تشديد Google الأخير لإجراءات التحكم في المخاطر، قد يؤدي استخدام ميزة الاستيقاظ إلى زيادة احتمال تفعيل إجراءات التحكم على الحساب (بما في ذلك على سبيل المثال لا الحصر التحقق الإضافي أو القيود المؤقتة).\nيرجى الاستخدام بحذر وفق حالة الحساب وتقييم المخاطر بنفسك.\n\nهل تريد المتابعة؟"
+      "riskWarning": "تحذير من المخاطر\nبسبب تشديد Google الأخير لإجراءات التحكم في المخاطر، قد يؤدي استخدام ميزة الاستيقاظ إلى زيادة احتمال تفعيل إجراءات التحكم على الحساب (بما في ذلك على سبيل المثال لا الحصر التحقق الإضافي أو القيود المؤقتة).\nيرجى الاستخدام بحذر وفق حالة الحساب وتقييم المخاطر بنفسك.\n\nهل تريد المتابعة؟"
     },
     "form": {
       "taskName": "اسم المهمة",
       "taskStatus": "حالة المهمة",
       "triggerMode": "وضع التشغيل",
       "triggerModeHint": "1. مجدول: يتم التشغيل في الأوقات المحددة.\n2. Crontab: تحديد بواسطة تعبير.\n3. إعادة تعيين الحصة: تشغيل مرة واحدة عند امتلاء الحصة.",
-      "modeScheduled": "📅 مجدول",
-      "modeCrontab": "🧩 كرونتاب",
-      "modeQuotaReset": "🔄 إعادة تعيين الحصة",
+      "modeScheduled": "مجدول",
+      "modeCrontab": "كرونتاب",
+      "modeQuotaReset": "إعادة تعيين الحصة",
       "antigravityVersion": "إصدار Antigravity IDE",
       "modelSelect": "اختيار النموذج",
       "modelHint": "ضمن نفس مجموعة الحصة يُنصح باختيار نموذج واحد. تعدد النماذج سيُشغَّل بالتتابع.",
@@ -1967,7 +1967,7 @@
     "restarting": "جارٍ إعادة التشغيل...",
     "installSuccess": "تم تثبيت التحديث! جارٍ إعادة التشغيل...",
     "autoUpdateFailed": "فشل التحديث التلقائي. يمكنك التنزيل يدويًا.",
-    "versionJumpTitle": "🎉 تم التحديث بنجاح!",
+    "versionJumpTitle": "تم التحديث بنجاح!",
     "versionJumpMessage": "تم التحديث من v{{previous}} إلى v{{current}}",
     "gotIt": "حسنًا",
     "silentReady": "الإصدار v{{version}} جاهز. أعد التشغيل لتطبيقه.",
@@ -4896,10 +4896,10 @@
       "daysAgo": "منذ {count} يوم"
     },
     "type": {
-      "feature": "✨ ميزة جديدة",
-      "warning": "⚠️ تحذير",
-      "info": "ℹ️ معلومات",
-      "urgent": "🚨 عاجل"
+      "feature": "ميزة جديدة",
+      "warning": "تحذير",
+      "info": "معلومات",
+      "urgent": "عاجل"
     },
     "refreshed": "تم تحديث الإعلانات ({count} إجمالي)",
     "clickToClose": "انقر للإغلاق",
@@ -5224,8 +5224,8 @@
     "oauthSuccessCloseTitle": "تمت إضافة الحساب",
     "oauthSuccessCloseNowLabel": "إغلاق WebView",
     "oauthSuccessCloseLaterLabel": "لاحقًا",
-    "oauthSuccessCloseNowStatus": "✅ تمت إضافة الحساب. جارٍ إغلاق النافذة...",
-    "oauthSuccessCloseLaterStatus": "✅ تمت إضافة الحساب. سيبقى WebView مفتوحًا.",
+    "oauthSuccessCloseNowStatus": "تمت إضافة الحساب. جارٍ إغلاق النافذة...",
+    "oauthSuccessCloseLaterStatus": "تمت إضافة الحساب. سيبقى WebView مفتوحًا.",
     "oauthWebviewOverlay": {
       "steps": {
         "prepare": "1 تحضير رابط OAuth",
@@ -5463,8 +5463,8 @@
     "oauthSuccessCloseTitle": "تمت إضافة الحساب",
     "oauthSuccessCloseNowLabel": "إغلاق WebView",
     "oauthSuccessCloseLaterLabel": "لاحقًا",
-    "oauthSuccessCloseNowStatus": "✅ تمت إضافة الحساب. جارٍ إغلاق النافذة...",
-    "oauthSuccessCloseLaterStatus": "✅ تمت إضافة الحساب. سيبقى WebView مفتوحًا.",
+    "oauthSuccessCloseNowStatus": "تمت إضافة الحساب. جارٍ إغلاق النافذة...",
+    "oauthSuccessCloseLaterStatus": "تمت إضافة الحساب. سيبقى WebView مفتوحًا.",
     "oauthWebviewOverlay": {
       "steps": {
         "prepare": "1 تحضير رابط OAuth",
@@ -5665,7 +5665,7 @@
     "refreshInSeconds": "Refresh in {{time}}s [ar]",
     "emptyQueryData": "No query data yet [ar]",
     "invalidSecretFormat": "Invalid secret format detected [ar]",
-    "tabSaved": "★ Saved [ar]",
+    "tabSaved": "Saved [ar]",
     "tabHistory": "Recent Queries [ar]",
     "btnImport": "Import [ar]",
     "btnExport": "Export [ar]",

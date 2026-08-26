@@ -351,19 +351,19 @@ export function SettingsAccountTransferSection({
     (detail: AccountTransferImportProgressDetail) => {
       const platformLabel = getPlatformLabel(detail.platform, t);
       if (detail.status === 'running') {
-        return `⏳ ${platformLabel} ${t('common.shared.import.progress.statusRunning')}`;
+        return `${platformLabel} ${t('common.shared.import.progress.statusRunning')}`;
       }
       if (detail.status === 'failed') {
         const suffix = detail.error ? `（${detail.error}）` : '';
-        return `❌ ${platformLabel} ${detail.imported_count}/${detail.expected_count}${suffix}`;
+        return `${platformLabel} ${detail.imported_count}/${detail.expected_count}${suffix}`;
       }
       if (detail.status === 'success') {
-        return `✅ ${platformLabel} ${detail.imported_count}/${detail.expected_count}`;
+        return `${platformLabel} ${detail.imported_count}/${detail.expected_count}`;
       }
       if (detail.status === 'pending') {
-        return `🕒 ${platformLabel} ${t('common.shared.import.progress.statusPending')}`;
+        return `${platformLabel} ${t('common.shared.import.progress.statusPending')}`;
       }
-      return `➖ ${platformLabel} ${t('common.shared.import.progress.statusSkipped')}`;
+      return `${platformLabel} ${t('common.shared.import.progress.statusSkipped')}`;
     },
     [t],
   );

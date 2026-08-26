@@ -1846,16 +1846,16 @@
       "historyTitle": "Historique des déclenchements",
       "taskTitleEdit": "Modifier la tâche de réveil",
       "taskTitleNew": "Nouvelle tâche de réveil",
-      "riskWarning": "⚠️ Avertissement de risque\nEn raison du récent renforcement des contrôles de risque de Google, l’utilisation de la fonction de réveil peut augmenter la probabilité de déclencher des mesures de contrôle du compte (y compris, sans s’y limiter, une vérification supplémentaire ou des limitations temporaires).\nVeuillez l’utiliser avec prudence selon l’état de votre compte et évaluer vous-même le risque.\n\nContinuer ?"
+      "riskWarning": "Avertissement de risque\nEn raison du récent renforcement des contrôles de risque de Google, l’utilisation de la fonction de réveil peut augmenter la probabilité de déclencher des mesures de contrôle du compte (y compris, sans s’y limiter, une vérification supplémentaire ou des limitations temporaires).\nVeuillez l’utiliser avec prudence selon l’état de votre compte et évaluer vous-même le risque.\n\nContinuer ?"
     },
     "form": {
       "taskName": "Nom de la tâche",
       "taskStatus": "Statut de la tâche",
       "triggerMode": "Mode de déclenchement",
       "triggerModeHint": "1. Planifié : déclenche à des heures définies.\n2. Crontab : définir via une expression.\n3. Reset quota : déclenche une fois quand le quota est plein.",
-      "modeScheduled": "📅 Planifié",
-      "modeCrontab": "🧩Crontab",
-      "modeQuotaReset": "🔄 Reset de quota",
+      "modeScheduled": "Planifié",
+      "modeCrontab": "Crontab",
+      "modeQuotaReset": "Reset de quota",
       "antigravityVersion": "Version d’Antigravity IDE",
       "modelSelect": "Sélection de modèles",
       "modelHint": "Dans le même groupe de quota, choisissez un modèle. Plusieurs modèles se déclenchent en séquence.",
@@ -1920,7 +1920,7 @@
     "restarting": "Redémarrage...",
     "installSuccess": "Mise à jour installée ! Redémarrage...",
     "autoUpdateFailed": "La mise à jour automatique a échoué. Vous pouvez télécharger manuellement.",
-    "versionJumpTitle": "🎉 Mise à jour réussie !",
+    "versionJumpTitle": "Mise à jour réussie !",
     "versionJumpMessage": "Mis à jour de v{{previous}} vers v{{current}}",
     "gotIt": "J'ai compris",
     "silentReady": "La version v{{version}} est prête. Redémarrez pour l'appliquer.",
@@ -4849,10 +4849,10 @@
       "daysAgo": "Il y a {count}j"
     },
     "type": {
-      "feature": "✨ Nouvelle fonction",
-      "warning": "⚠️ Avertissement",
-      "info": "ℹ️ Informations",
-      "urgent": "🚨 Urgent​"
+      "feature": "Nouvelle fonction",
+      "warning": "Avertissement",
+      "info": "Informations",
+      "urgent": "Urgent​"
     },
     "refreshed": "Notifications actualisées ({count} au total)",
     "clickToClose": "Cliquer pour fermer",
@@ -5177,8 +5177,8 @@
     "oauthSuccessCloseTitle": "Compte ajoute",
     "oauthSuccessCloseNowLabel": "Fermer la WebView",
     "oauthSuccessCloseLaterLabel": "Plus tard",
-    "oauthSuccessCloseNowStatus": "✅ Compte ajoute. Fermeture de la fenetre...",
-    "oauthSuccessCloseLaterStatus": "✅ Compte ajoute. Cette WebView reste ouverte.",
+    "oauthSuccessCloseNowStatus": "Compte ajoute. Fermeture de la fenetre...",
+    "oauthSuccessCloseLaterStatus": "Compte ajoute. Cette WebView reste ouverte.",
     "oauthWebviewOverlay": {
       "steps": {
         "prepare": "1 Preparer le lien OAuth",
@@ -5416,8 +5416,8 @@
     "oauthSuccessCloseTitle": "Compte ajoute",
     "oauthSuccessCloseNowLabel": "Fermer la WebView",
     "oauthSuccessCloseLaterLabel": "Plus tard",
-    "oauthSuccessCloseNowStatus": "✅ Compte ajoute. Fermeture de la fenetre...",
-    "oauthSuccessCloseLaterStatus": "✅ Compte ajoute. Cette WebView reste ouverte.",
+    "oauthSuccessCloseNowStatus": "Compte ajoute. Fermeture de la fenetre...",
+    "oauthSuccessCloseLaterStatus": "Compte ajoute. Cette WebView reste ouverte.",
     "oauthWebviewOverlay": {
       "steps": {
         "prepare": "1 Preparer le lien OAuth",
@@ -5665,7 +5665,7 @@
     "refreshInSeconds": "Refresh in {{time}}s [fr]",
     "emptyQueryData": "No query data yet [fr]",
     "invalidSecretFormat": "Invalid secret format detected [fr]",
-    "tabSaved": "★ Saved [fr]",
+    "tabSaved": "Saved [fr]",
     "tabHistory": "Recent Queries [fr]",
     "btnImport": "Import [fr]",
     "btnExport": "Export [fr]",

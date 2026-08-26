@@ -71,12 +71,18 @@
   height: 16px;
   border-radius: var(--radius-full);
   padding: 0 4px;
-  background: var(--danger);
+  /* Brand accent, not the framework alarm red: this is "you have news",
+     not "something is broken". */
+  background: var(--primary);
   color: #fff;
   font-size: 10px;
   font-weight: 600;
   line-height: 16px;
   text-align: center;
+}
+
+[data-theme="dark"] .announcement-bell-badge {
+  color: var(--bg-primary);
 }
 
 .announcement-trigger-btn .announcement-bell-badge {
@@ -206,38 +212,18 @@
   word-break: break-word;
 }
 
+/* One neutral chip for every announcement type: the type is metadata,
+   not a status light, so it gets no hue of its own. */
 .announcement-type-chip {
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   font-size: clamp(11px, 0.85vw, 12px);
   font-weight: 600;
   line-height: 1;
   padding: 5px 10px;
-  border: 1px solid transparent;
+  border: 1px solid var(--border-light);
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
   flex-shrink: 0;
-}
-
-.announcement-type-chip.feature {
-  color: #1b7f3c;
-  background: color-mix(in srgb, var(--success) 14%, transparent);
-  border-color: color-mix(in srgb, var(--success) 25%, transparent);
-}
-
-.announcement-type-chip.warning {
-  color: #9a6700;
-  background: color-mix(in srgb, var(--warning) 16%, transparent);
-  border-color: color-mix(in srgb, var(--warning) 24%, transparent);
-}
-
-.announcement-type-chip.info {
-  color: var(--primary-hover);
-  background: color-mix(in srgb, var(--primary) 15%, transparent);
-  border-color: color-mix(in srgb, var(--primary) 20%, transparent);
-}
-
-.announcement-type-chip.urgent {
-  color: #b42318;
-  background: color-mix(in srgb, var(--danger) 14%, transparent);
-  border-color: color-mix(in srgb, var(--danger) 22%, transparent);
 }
 
 .announcement-summary {

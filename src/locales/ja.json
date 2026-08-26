@@ -1846,16 +1846,16 @@
       "historyTitle": "トリガー履歴",
       "taskTitleEdit": "ウェイクアップタスクを編集",
       "taskTitleNew": "ウェイクアップタスクを新規作成",
-      "riskWarning": "⚠️ リスク警告\n最近の Google のリスク制御強化により、ウェイクアップ機能の利用はアカウントのリスク判定（追加認証・一時制限など）にかかる可能性を高める場合があります。\nアカウントの状況に応じて慎重に利用し、リスクはご自身で判断してください。\n\n続行しますか？"
+      "riskWarning": "リスク警告\n最近の Google のリスク制御強化により、ウェイクアップ機能の利用はアカウントのリスク判定（追加認証・一時制限など）にかかる可能性を高める場合があります。\nアカウントの状況に応じて慎重に利用し、リスクはご自身で判断してください。\n\n続行しますか？"
     },
     "form": {
       "taskName": "タスク名",
       "taskStatus": "タスク状態",
       "triggerMode": "トリガー方式",
       "triggerModeHint": "1. 定時：設定した時間に実行。\n2. Crontab：式で定義。\n3. クォータリセット：満了時に一度実行。",
-      "modeScheduled": "📅 定時",
-      "modeCrontab": "🧩 クロンタブ",
-      "modeQuotaReset": "🔄 クォータリセット",
+      "modeScheduled": "定時",
+      "modeCrontab": "クロンタブ",
+      "modeQuotaReset": "クォータリセット",
       "antigravityVersion": "Antigravity IDE バージョン",
       "modelSelect": "モデル選択",
       "modelHint": "同じクォータグループでは 1 つのモデルを推奨。複数選択すると順に実行されます。",
@@ -1920,7 +1920,7 @@
     "restarting": "再起動中...",
     "installSuccess": "更新をインストールしました。再起動中...",
     "autoUpdateFailed": "自動更新に失敗しました。手動でダウンロードできます。",
-    "versionJumpTitle": "🎉 更新が完了しました！",
+    "versionJumpTitle": "更新が完了しました！",
     "versionJumpMessage": "v{{previous}} から v{{current}} に更新されました",
     "gotIt": "了解",
     "silentReady": "v{{version}} の準備ができました。適用するには再起動してください。",
@@ -4849,10 +4849,10 @@
       "daysAgo": "{count}日前"
     },
     "type": {
-      "feature": "✨ 新機能",
-      "warning": "⚠️ 警告",
-      "info": "ℹ️ 情報",
-      "urgent": "🚨 緊急"
+      "feature": "新機能",
+      "warning": "警告",
+      "info": "情報",
+      "urgent": "緊急"
     },
     "refreshed": "公告を更新しました（{count}件）",
     "clickToClose": "クリックして閉じる",
@@ -5177,8 +5177,8 @@
     "oauthSuccessCloseTitle": "アカウント追加完了",
     "oauthSuccessCloseNowLabel": "WebView を閉じる",
     "oauthSuccessCloseLaterLabel": "後で",
-    "oauthSuccessCloseNowStatus": "✅ アカウント追加が完了しました。ウィンドウを閉じます...",
-    "oauthSuccessCloseLaterStatus": "✅ アカウント追加が完了しました。この WebView は開いたままです。",
+    "oauthSuccessCloseNowStatus": "アカウント追加が完了しました。ウィンドウを閉じます...",
+    "oauthSuccessCloseLaterStatus": "アカウント追加が完了しました。この WebView は開いたままです。",
     "oauthWebviewOverlay": {
       "steps": {
         "prepare": "1 認証リンクを準備",
@@ -5416,8 +5416,8 @@
     "oauthSuccessCloseTitle": "アカウント追加完了",
     "oauthSuccessCloseNowLabel": "WebView を閉じる",
     "oauthSuccessCloseLaterLabel": "後で",
-    "oauthSuccessCloseNowStatus": "✅ アカウント追加が完了しました。ウィンドウを閉じます...",
-    "oauthSuccessCloseLaterStatus": "✅ アカウント追加が完了しました。この WebView は開いたままです。",
+    "oauthSuccessCloseNowStatus": "アカウント追加が完了しました。ウィンドウを閉じます...",
+    "oauthSuccessCloseLaterStatus": "アカウント追加が完了しました。この WebView は開いたままです。",
     "oauthWebviewOverlay": {
       "steps": {
         "prepare": "1 認証リンクを準備",
@@ -5665,7 +5665,7 @@
     "refreshInSeconds": "Refresh in {{time}}s [ja]",
     "emptyQueryData": "No query data yet [ja]",
     "invalidSecretFormat": "Invalid secret format detected [ja]",
-    "tabSaved": "★ Saved [ja]",
+    "tabSaved": "Saved [ja]",
     "tabHistory": "Recent Queries [ja]",
     "btnImport": "Import [ja]",
     "btnExport": "Export [ja]",

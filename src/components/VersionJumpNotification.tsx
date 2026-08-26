@@ -102,7 +102,7 @@ export const VersionJumpNotification: React.FC<VersionJumpNotificationProps> = (
             <span className="update-icon version-jump-icon">
               <PartyPopper size={18} />
             </span>
-            {t('update_notification.versionJumpTitle', '🎉 Successfully Updated!')}
+            {t('update_notification.versionJumpTitle', 'Successfully Updated!')}
           </h2>
           <button className="modal-close" onClick={onClose} aria-label={t('common.cancel')}>
             <X size={18} />

@@ -1846,16 +1846,16 @@
       "historyTitle": "Lịch sử kích hoạt",
       "taskTitleEdit": "Chỉnh sửa nhiệm vụ đánh thức",
       "taskTitleNew": "Nhiệm vụ đánh thức mới",
-      "riskWarning": "⚠️ Cảnh báo rủi ro\nDo Google gần đây siết chặt kiểm soát rủi ro, việc sử dụng tính năng wakeup có thể làm tăng khả năng kích hoạt cơ chế kiểm soát rủi ro của tài khoản (bao gồm nhưng không giới hạn ở xác minh bổ sung hoặc giới hạn tạm thời).\nVui lòng sử dụng thận trọng theo tình trạng tài khoản và tự đánh giá rủi ro.\n\nTiếp tục?"
+      "riskWarning": "Cảnh báo rủi ro\nDo Google gần đây siết chặt kiểm soát rủi ro, việc sử dụng tính năng wakeup có thể làm tăng khả năng kích hoạt cơ chế kiểm soát rủi ro của tài khoản (bao gồm nhưng không giới hạn ở xác minh bổ sung hoặc giới hạn tạm thời).\nVui lòng sử dụng thận trọng theo tình trạng tài khoản và tự đánh giá rủi ro.\n\nTiếp tục?"
     },
     "form": {
       "taskName": "Tên nhiệm vụ",
       "taskStatus": "Trạng thái",
       "triggerMode": "Chế độ kích hoạt",
       "triggerModeHint": "1. Lịch trình: kích hoạt vào các thời điểm đã thiết lập.\n2. Crontab: định nghĩa bằng biểu thức.\n3. Đặt lại hạn mức: kích hoạt một lần khi hạn mức đầy.",
-      "modeScheduled": "📅 Lịch trình",
-      "modeCrontab": "🧩 Crontab​",
-      "modeQuotaReset": "🔄 Đặt lại hạn mức",
+      "modeScheduled": "Lịch trình",
+      "modeCrontab": "Crontab​",
+      "modeQuotaReset": "Đặt lại hạn mức",
       "antigravityVersion": "Phiên bản Antigravity IDE",
       "modelSelect": "Chọn mô hình",
       "modelHint": "Đối với cùng một nhóm hạn mức, chỉ nên chọn một mô hình. Nhiều mô hình sẽ kích hoạt theo trình tự.",
@@ -1920,7 +1920,7 @@
     "restarting": "Đang khởi động lại...",
     "installSuccess": "Đã cài đặt bản cập nhật! Đang khởi động lại...",
     "autoUpdateFailed": "Cập nhật tự động thất bại. Bạn có thể tải xuống thủ công.",
-    "versionJumpTitle": "🎉 Cập nhật thành công!",
+    "versionJumpTitle": "Cập nhật thành công!",
     "versionJumpMessage": "Đã cập nhật từ v{{previous}} lên v{{current}}",
     "gotIt": "Đã hiểu",
     "silentReady": "Phiên bản v{{version}} đã sẵn sàng. Hãy khởi động lại để áp dụng.",
@@ -4849,10 +4849,10 @@
       "daysAgo": "{count} ngày trước"
     },
     "type": {
-      "feature": "✨ Tính năng mới",
-      "warning": "⚠️ Cảnh báo",
-      "info": "ℹ️ Thông tin",
-      "urgent": "🚨 Khẩn cấp"
+      "feature": "Tính năng mới",
+      "warning": "Cảnh báo",
+      "info": "Thông tin",
+      "urgent": "Khẩn cấp"
     },
     "refreshed": "Đã làm mới thông báo ({count} tổng cộng)",
     "clickToClose": "Nhấn để đóng",
@@ -5177,8 +5177,8 @@
     "oauthSuccessCloseTitle": "Đã thêm tài khoản",
     "oauthSuccessCloseNowLabel": "Đóng WebView",
     "oauthSuccessCloseLaterLabel": "Để sau",
-    "oauthSuccessCloseNowStatus": "✅ Đã thêm tài khoản. Đang đóng cửa sổ...",
-    "oauthSuccessCloseLaterStatus": "✅ Đã thêm tài khoản. WebView này sẽ vẫn mở.",
+    "oauthSuccessCloseNowStatus": "Đã thêm tài khoản. Đang đóng cửa sổ...",
+    "oauthSuccessCloseLaterStatus": "Đã thêm tài khoản. WebView này sẽ vẫn mở.",
     "oauthWebviewOverlay": {
       "steps": {
         "prepare": "1 Chuẩn bị liên kết ủy quyền",
@@ -5416,8 +5416,8 @@
     "oauthSuccessCloseTitle": "Đã thêm tài khoản",
     "oauthSuccessCloseNowLabel": "Đóng WebView",
     "oauthSuccessCloseLaterLabel": "Để sau",
-    "oauthSuccessCloseNowStatus": "✅ Đã thêm tài khoản. Đang đóng cửa sổ...",
-    "oauthSuccessCloseLaterStatus": "✅ Đã thêm tài khoản. WebView này sẽ vẫn mở.",
+    "oauthSuccessCloseNowStatus": "Đã thêm tài khoản. Đang đóng cửa sổ...",
+    "oauthSuccessCloseLaterStatus": "Đã thêm tài khoản. WebView này sẽ vẫn mở.",
     "oauthWebviewOverlay": {
       "steps": {
         "prepare": "1 Chuẩn bị liên kết ủy quyền",
@@ -5665,7 +5665,7 @@
     "refreshInSeconds": "Refresh in {{time}}s [vi]",
     "emptyQueryData": "No query data yet [vi]",
     "invalidSecretFormat": "Invalid secret format detected [vi]",
-    "tabSaved": "★ Saved [vi]",
+    "tabSaved": "Saved [vi]",
     "tabHistory": "Recent Queries [vi]",
     "btnImport": "Import [vi]",
     "btnExport": "Export [vi]",

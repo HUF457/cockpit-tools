@@ -1846,16 +1846,16 @@
       "historyTitle": "Historial de activación",
       "taskTitleEdit": "Editar tarea de activación",
       "taskTitleNew": "Nueva tarea de activación",
-      "riskWarning": "⚠️ Advertencia de riesgo\nDebido al reciente endurecimiento del control de riesgo de Google, usar la función de wakeup puede aumentar la probabilidad de activar controles de riesgo de la cuenta (incluidos, entre otros, verificación adicional o restricciones temporales).\nÚsala con cautela según el estado de tu cuenta y evalúa el riesgo por tu cuenta.\n\n¿Continuar?"
+      "riskWarning": "Advertencia de riesgo\nDebido al reciente endurecimiento del control de riesgo de Google, usar la función de wakeup puede aumentar la probabilidad de activar controles de riesgo de la cuenta (incluidos, entre otros, verificación adicional o restricciones temporales).\nÚsala con cautela según el estado de tu cuenta y evalúa el riesgo por tu cuenta.\n\n¿Continuar?"
     },
     "form": {
       "taskName": "Nombre de la tarea",
       "taskStatus": "Estado de la tarea",
       "triggerMode": "Modo de activación",
       "triggerModeHint": "1. Programado: se activa en horas definidas.\n2. Crontab: definir con expresión.\n3. Reinicio de cuota: se activa una vez cuando la cuota está llena.",
-      "modeScheduled": "📅 Programado",
-      "modeCrontab": "🧩 Tabulación cronológica",
-      "modeQuotaReset": "🔄 Reinicio de cuota",
+      "modeScheduled": "Programado",
+      "modeCrontab": "Tabulación cronológica",
+      "modeQuotaReset": "Reinicio de cuota",
       "antigravityVersion": "Versión de Antigravity IDE",
       "modelSelect": "Selección de modelos",
       "modelHint": "En el mismo grupo de cuota, elige un modelo. Varios modelos se activan en secuencia.",
@@ -1920,7 +1920,7 @@
     "restarting": "Reiniciando...",
     "installSuccess": "Actualización instalada. Reiniciando...",
     "autoUpdateFailed": "La actualización automática falló. Puedes descargar manualmente.",
-    "versionJumpTitle": "🎉 ¡Actualización completada!",
+    "versionJumpTitle": "¡Actualización completada!",
     "versionJumpMessage": "Actualizado de v{{previous}} a v{{current}}",
     "gotIt": "Entendido",
     "silentReady": "La versión v{{version}} está lista. Reinicia para aplicarla.",
@@ -4849,10 +4849,10 @@
       "daysAgo": "Hace {count}d"
     },
     "type": {
-      "feature": "✨ Nueva función",
-      "warning": "⚠️ Advertencia",
-      "info": "ℹ️ Información",
-      "urgent": "🚨 Urgente"
+      "feature": "Nueva función",
+      "warning": "Advertencia",
+      "info": "Información",
+      "urgent": "Urgente"
     },
     "refreshed": "Notificaciones actualizadas ({count} en total)",
     "clickToClose": "Haz clic para cerrar",
@@ -5177,8 +5177,8 @@
     "oauthSuccessCloseTitle": "Cuenta agregada",
     "oauthSuccessCloseNowLabel": "Cerrar WebView",
     "oauthSuccessCloseLaterLabel": "Más tarde",
-    "oauthSuccessCloseNowStatus": "✅ Cuenta agregada. Cerrando ventana...",
-    "oauthSuccessCloseLaterStatus": "✅ Cuenta agregada. Este WebView permanecerá abierto.",
+    "oauthSuccessCloseNowStatus": "Cuenta agregada. Cerrando ventana...",
+    "oauthSuccessCloseLaterStatus": "Cuenta agregada. Este WebView permanecerá abierto.",
     "oauthWebviewOverlay": {
       "steps": {
         "prepare": "1 Preparar enlace de autorización",
@@ -5416,8 +5416,8 @@
     "oauthSuccessCloseTitle": "Cuenta agregada",
     "oauthSuccessCloseNowLabel": "Cerrar WebView",
     "oauthSuccessCloseLaterLabel": "Más tarde",
-    "oauthSuccessCloseNowStatus": "✅ Cuenta agregada. Cerrando ventana...",
-    "oauthSuccessCloseLaterStatus": "✅ Cuenta agregada. Este WebView permanecerá abierto.",
+    "oauthSuccessCloseNowStatus": "Cuenta agregada. Cerrando ventana...",
+    "oauthSuccessCloseLaterStatus": "Cuenta agregada. Este WebView permanecerá abierto.",
     "oauthWebviewOverlay": {
       "steps": {
         "prepare": "1 Preparar enlace de autorización",
@@ -5665,7 +5665,7 @@
     "refreshInSeconds": "Refresh in {{time}}s [es]",
     "emptyQueryData": "No query data yet [es]",
     "invalidSecretFormat": "Invalid secret format detected [es]",
-    "tabSaved": "★ Saved [es]",
+    "tabSaved": "Saved [es]",
     "tabHistory": "Recent Queries [es]",
     "btnImport": "Import [es]",
     "btnExport": "Export [es]",

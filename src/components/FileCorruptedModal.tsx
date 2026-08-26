@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { invoke } from '@tauri-apps/api/core';
-import { FolderOpen, X } from 'lucide-react';
+import { AlertTriangle, FolderOpen, X } from 'lucide-react';
 import { useEscClose } from '../hooks/useEscClose';
 
 export interface FileCorruptedError {
@@ -76,7 +76,7 @@ export function FileCorruptedModal({ error, onClose }: FileCorruptedModalProps) 
       <div className="modal" onClick={(e) => e.stopPropagation()} style={{ maxWidth: 520 }}>
         <div className="modal-header">
           <h2 style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-            <span>⚠️</span>
+            <AlertTriangle size={18} aria-hidden="true" />
             {t('error.fileCorrupted.title', '文件读取失败')}
           </h2>
           <button className="modal-close" onClick={onClose}><X size={20} /></button>

@@ -740,7 +740,7 @@ export function MfaVaultManager() {
                 className={`list-tab ${activeListTab === 'saved' ? 'active' : ''}`}
                 onClick={() => setActiveListTab('saved')}
               >
-                {t('twoFactorAuth.tabSaved', '★ 已保存')}
+                {t('twoFactorAuth.tabSaved', '已保存')}
               </button>
               <button
                 className={`list-tab ${activeListTab === 'history' ? 'active' : ''}`}

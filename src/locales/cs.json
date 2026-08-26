@@ -1846,16 +1846,16 @@
       "historyTitle": "Historie spuštění",
       "taskTitleEdit": "Upravit úlohu probuzení",
       "taskTitleNew": "Nová úloha probuzení",
-      "riskWarning": "⚠️ Upozornění na riziko\nKvůli nedávnému zpřísnění kontrol rizik ze strany Google může používání funkce probuzení zvýšit pravděpodobnost spuštění rizikových kontrol účtu (včetně, ale nejen, dodatečného ověření nebo dočasných omezení).\nPoužívejte ji prosím opatrně podle stavu účtu a riziko posuďte sami.\n\nPokračovat?"
+      "riskWarning": "Upozornění na riziko\nKvůli nedávnému zpřísnění kontrol rizik ze strany Google může používání funkce probuzení zvýšit pravděpodobnost spuštění rizikových kontrol účtu (včetně, ale nejen, dodatečného ověření nebo dočasných omezení).\nPoužívejte ji prosím opatrně podle stavu účtu a riziko posuďte sami.\n\nPokračovat?"
     },
     "form": {
       "taskName": "Název úlohy",
       "taskStatus": "Stav úlohy",
       "triggerMode": "Režim spouštění",
       "triggerModeHint": "1. Plánováno: spouští se v nastavených časech.\n2. Crontab: definujte výrazem.\n3. Reset kvóty: spustí se jednou při plné kvótě.",
-      "modeScheduled": "📅 Plánováno",
-      "modeCrontab": "🧩 Crontab​",
-      "modeQuotaReset": "🔄 Reset kvóty",
+      "modeScheduled": "Plánováno",
+      "modeCrontab": "Crontab​",
+      "modeQuotaReset": "Reset kvóty",
       "antigravityVersion": "Verze Antigravity IDE",
       "modelSelect": "Výběr modelu",
       "modelHint": "V rámci stejné skupiny kvót vyberte jeden model. Více modelů se spouští postupně.",
@@ -1920,7 +1920,7 @@
     "restarting": "Restartování...",
     "installSuccess": "Aktualizace nainstalována! Restartuji...",
     "autoUpdateFailed": "Automatická aktualizace selhala. Můžete stáhnout ručně.",
-    "versionJumpTitle": "🎉 Úspěšně aktualizováno!",
+    "versionJumpTitle": "Úspěšně aktualizováno!",
     "versionJumpMessage": "Aktualizováno z v{{previous}} na v{{current}}",
     "gotIt": "Rozumím",
     "silentReady": "Verze v{{version}} je připravena. Pro použití restartujte.",
@@ -4849,10 +4849,10 @@
       "daysAgo": "Před {count}d"
     },
     "type": {
-      "feature": "✨ Nová funkce",
-      "warning": "⚠️ Varování",
-      "info": "ℹ️ Informace",
-      "urgent": "🚨 Urgentní"
+      "feature": "Nová funkce",
+      "warning": "Varování",
+      "info": "Informace",
+      "urgent": "Urgentní"
     },
     "refreshed": "Oznámení aktualizována (celkem {count})",
     "clickToClose": "Kliknutím zavřete",
@@ -5177,8 +5177,8 @@
     "oauthSuccessCloseTitle": "Účet přidán",
     "oauthSuccessCloseNowLabel": "Zavřít WebView",
     "oauthSuccessCloseLaterLabel": "Později",
-    "oauthSuccessCloseNowStatus": "✅ Účet přidán. Zavírám okno...",
-    "oauthSuccessCloseLaterStatus": "✅ Účet přidán. Toto WebView zůstane otevřené.",
+    "oauthSuccessCloseNowStatus": "Účet přidán. Zavírám okno...",
+    "oauthSuccessCloseLaterStatus": "Účet přidán. Toto WebView zůstane otevřené.",
     "oauthWebviewOverlay": {
       "steps": {
         "prepare": "1 Připravit OAuth odkaz",
@@ -5416,8 +5416,8 @@
     "oauthSuccessCloseTitle": "Účet přidán",
     "oauthSuccessCloseNowLabel": "Zavřít WebView",
     "oauthSuccessCloseLaterLabel": "Později",
-    "oauthSuccessCloseNowStatus": "✅ Účet přidán. Zavírám okno...",
-    "oauthSuccessCloseLaterStatus": "✅ Účet přidán. Toto WebView zůstane otevřené.",
+    "oauthSuccessCloseNowStatus": "Účet přidán. Zavírám okno...",
+    "oauthSuccessCloseLaterStatus": "Účet přidán. Toto WebView zůstane otevřené.",
     "oauthWebviewOverlay": {
       "steps": {
         "prepare": "1 Připravit OAuth odkaz",
@@ -5665,7 +5665,7 @@
     "refreshInSeconds": "Refresh in {{time}}s [cs]",
     "emptyQueryData": "No query data yet [cs]",
     "invalidSecretFormat": "Invalid secret format detected [cs]",
-    "tabSaved": "★ Saved [cs]",
+    "tabSaved": "Saved [cs]",
     "tabHistory": "Recent Queries [cs]",
     "btnImport": "Import [cs]",
     "btnExport": "Export [cs]",

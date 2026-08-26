@@ -55,6 +55,15 @@ function sanitizeTypeClass(type: string): string {
   return type.replace(/[^a-zA-Z0-9_-]/g, '');
 }
 
+/* Server-sent announcements arrive decorated with emoji; the UI renders
+   them as plain text regardless of what the feed contains. */
+function stripEmoji(text: string): string {
+  return text
+    .replace(/[\p{Extended_Pictographic}\u{FE0F}\u{200D}]/gu, '')
+    .replace(/ {2,}/g, ' ')
+    .trim();
+}
+
 function formatTimeAgo(
   value: string,
   translate: (key: string, fallback: string, options?: Record<string, unknown>) => string,
@@ -302,10 +311,10 @@ function AnnouncementSurface({
   };
 
   const currentTypeLabel = (type: string) => {
-    if (type === 'feature') return t('announcement.type.feature', '✨ 新功能');
-    if (type === 'warning') return t('announcement.type.warning', '⚠️ 警告');
-    if (type === 'urgent') return t('announcement.type.urgent', '🚨 紧急');
-    return t('announcement.type.info', 'ℹ️ 信息');
+    if (type === 'feature') return t('announcement.type.feature', '新功能');
+    if (type === 'warning') return t('announcement.type.warning', '警告');
+    if (type === 'urgent') return t('announcement.type.urgent', '紧急');
+    return t('announcement.type.info', '信息');
   };
 
   const renderInBody = (node: ReactNode) => {
@@ -390,12 +399,12 @@ function AnnouncementSurface({
                           <span className={`announcement-type-chip ${sanitizeTypeClass(String(announcement.type))}`}>
                             {currentTypeLabel(String(announcement.type))}
                           </span>
-                          <strong className="announcement-item-title">{announcement.title}</strong>
+                          <strong className="announcement-item-title">{stripEmoji(announcement.title)}</strong>
                           {unread && <span className="announcement-unread-dot" />}
                         </div>
                         <span className="announcement-time">{formatTimeAgo(announcement.createdAt, translateText)}</span>
                       </div>
-                      <p className="announcement-summary">{announcement.summary}</p>
+                      <p className="announcement-summary">{stripEmoji(announcement.summary)}</p>
                     </button>
                   );
                 })}
@@ -418,7 +427,7 @@ function AnnouncementSurface({
                   <span className={`announcement-type-chip ${sanitizeTypeClass(String(detailAnnouncement.type))}`}>
                     {currentTypeLabel(String(detailAnnouncement.type))}
                   </span>
-                  <h2 className="announcement-detail-header-title">{detailAnnouncement.title}</h2>
+                  <h2 className="announcement-detail-header-title">{stripEmoji(detailAnnouncement.title)}</h2>
                 </div>
                 <button className="modal-close" onClick={() => void closeDetail(false)} aria-label={t('common.close', '关闭')}>
                   <X size={16} />
@@ -427,7 +436,7 @@ function AnnouncementSurface({
 
               <div className="modal-body announcement-detail-body">
                 <div className="announcement-detail-time">{formatTimeAgo(detailAnnouncement.createdAt, translateText)}</div>
-                <div className="announcement-detail-content">{detailAnnouncement.content}</div>
+                <div className="announcement-detail-content">{stripEmoji(detailAnnouncement.content)}</div>
 
                 {detailAnnouncement.images && detailAnnouncement.images.length > 0 && (
                   <div className="announcement-images-grid">

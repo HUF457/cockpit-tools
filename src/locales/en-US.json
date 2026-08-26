@@ -2045,16 +2045,16 @@
       "historyTitle": "Trigger History",
       "taskTitleEdit": "Edit Wakeup Task",
       "taskTitleNew": "New Wakeup Task",
-      "riskWarning": "⚠️ Risk warning\nDue to recent Google risk-control tightening, using the wakeup feature may increase the chance of triggering account risk controls (including but not limited to additional verification or temporary limits).\nPlease use it with caution based on your account status and evaluate the risk yourself.\n\nContinue?"
+      "riskWarning": "Risk warning\nDue to recent Google risk-control tightening, using the wakeup feature may increase the chance of triggering account risk controls (including but not limited to additional verification or temporary limits).\nPlease use it with caution based on your account status and evaluate the risk yourself.\n\nContinue?"
     },
     "form": {
       "taskName": "Task name",
       "taskStatus": "Task status",
       "triggerMode": "Trigger mode",
       "triggerModeHint": "1. Scheduled: trigger at set times.\n2. Crontab: define with an expression.\n3. Quota reset: trigger once when quota is full.\n4. After startup: trigger once after app start, with optional delay.",
-      "modeScheduled": "📅 Scheduled",
-      "modeCrontab": "🧩 Crontab",
-      "modeQuotaReset": "🔄 Quota reset",
+      "modeScheduled": "Scheduled",
+      "modeCrontab": "Crontab",
+      "modeQuotaReset": "Quota reset",
       "antigravityVersion": "Antigravity IDE Version",
       "modelSelect": "Model selection",
       "modelHint": "For the same quota group, choose one model. Multiple models trigger in sequence.",
@@ -2119,7 +2119,7 @@
     "restarting": "Restarting...",
     "installSuccess": "Update installed! Restarting...",
     "autoUpdateFailed": "Auto-update failed. You can download manually.",
-    "versionJumpTitle": "🎉 Successfully Updated!",
+    "versionJumpTitle": "Successfully Updated!",
     "versionJumpMessage": "Updated from v{{previous}} to v{{current}}",
     "gotIt": "Got it!",
     "silentReady": "v{{version}} is ready. Restart to apply.",
@@ -4560,8 +4560,8 @@
     "oauthSuccessCloseTitle": "Account Added",
     "oauthSuccessCloseNowLabel": "Close WebView",
     "oauthSuccessCloseLaterLabel": "Later",
-    "oauthSuccessCloseNowStatus": "✅ Account added. Closing window...",
-    "oauthSuccessCloseLaterStatus": "✅ Account added. This WebView stays open.",
+    "oauthSuccessCloseNowStatus": "Account added. Closing window...",
+    "oauthSuccessCloseLaterStatus": "Account added. This WebView stays open.",
     "sessions": {
       "title": "Local session files",
       "desc": "Scan local CodeBuddy data paths for session JSON/JSONL files and open their location.",
@@ -5154,10 +5154,10 @@
       "daysAgo": "{count}d ago"
     },
     "type": {
-      "feature": "✨ New Feature",
-      "warning": "⚠️ Warning",
-      "info": "ℹ️ Info",
-      "urgent": "🚨 Urgent"
+      "feature": "New Feature",
+      "warning": "Warning",
+      "info": "Info",
+      "urgent": "Urgent"
     },
     "refreshed": "Announcements refreshed ({count} total)",
     "clickToClose": "Click to close",
@@ -5798,8 +5798,8 @@
     "oauthSuccessCloseTitle": "Account Added",
     "oauthSuccessCloseNowLabel": "Close WebView",
     "oauthSuccessCloseLaterLabel": "Later",
-    "oauthSuccessCloseNowStatus": "✅ Account added. Closing window...",
-    "oauthSuccessCloseLaterStatus": "✅ Account added. This WebView stays open.",
+    "oauthSuccessCloseNowStatus": "Account added. Closing window...",
+    "oauthSuccessCloseLaterStatus": "Account added. This WebView stays open.",
     "instances": {
       "unsupported": {
         "descPlatform": "WorkBuddy multi-instance is supported on macOS, Windows, and Linux only."
@@ -5880,7 +5880,7 @@
     "refreshInSeconds": "Refresh in {{time}}s",
     "emptyQueryData": "No query data yet",
     "invalidSecretFormat": "Invalid secret format detected",
-    "tabSaved": "★ Saved",
+    "tabSaved": "Saved",
     "tabHistory": "Recent Queries",
     "btnImport": "Import",
     "btnExport": "Export",
