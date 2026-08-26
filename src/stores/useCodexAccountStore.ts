@@ -395,13 +395,10 @@ export const useCodexAccountStore = create<CodexAccountState>((set, get) => ({
           CODEX_PROFILE_SYNC_RETRY_INTERVAL_MS,
     );
 
-    // Committing each profile on its own used to cost one store write, one full
-    // re-render of the (very large) Codex page, and one JSON.stringify of the
-    // entire account list into localStorage - per account. That is O(N^2) bytes
-    // of synchronous serialisation on the main thread and N re-renders, so a
-    // library of a few hundred accounts stalled the UI for seconds right after
-    // the page opened. Batch the commits instead, flushing on an interval so
-    // progress still shows up while the sync runs.
+    // Committing each profile on its own cost one store write - and therefore
+    // one full re-render of the very large Codex page - per account. Batch the
+    // commits instead, flushing on an interval so progress still shows up while
+    // the sync runs.
     const pending = new Map<string, CodexAccount>();
     let lastFlushAt = Date.now();
 
