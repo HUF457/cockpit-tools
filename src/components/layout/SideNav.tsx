@@ -389,7 +389,24 @@ export function SideNav({
       || updateActionState === 'installing'
       || updateActionState === 'ready'
     );
+  // The measurement below reads getComputedStyle and getBoundingClientRect, so
+  // every call forces a full style + layout pass on the whole document. Keeping
+  // its inputs in refs gives it one identity for the life of the component;
+  // it used to be keyed on the very scale it sets, so each scale change minted a
+  // new function, re-ran the layout effect and rebuilt the observers below - and
+  // a freshly attached ResizeObserver fires straight away, which measured again.
+  const isClassicLayoutRef = useRef(isClassicLayout);
+  const classicAdaptiveScaleRef = useRef(classicAdaptiveScale);
+  const classicRecalcFrameRef = useRef<number | null>(null);
+
+  useLayoutEffect(() => {
+    isClassicLayoutRef.current = isClassicLayout;
+    classicAdaptiveScaleRef.current = classicAdaptiveScale;
+  }, [classicAdaptiveScale, isClassicLayout]);
+
   const recalculateClassicAdaptiveScale = useCallback(() => {
+    const isClassicLayout = isClassicLayoutRef.current;
+    const classicAdaptiveScale = classicAdaptiveScaleRef.current;
     if (!isClassicLayout || typeof window === 'undefined') {
       setClassicAdaptiveScale((prev) => (prev === 1 ? prev : 1));
       setClassicNavNeedsScroll((prev) => (prev ? false : prev));
@@ -474,18 +491,19 @@ export function SideNav({
       if (!target) {
         return;
       }
+      const scale = classicAdaptiveScaleRef.current;
       const overflow = target.scrollHeight - target.clientHeight;
       const shouldScroll = overflow > CLASSIC_NAV_SCROLL_EPSILON;
 
       if (
         shouldScroll
         && target.scrollHeight > 0
-        && classicAdaptiveScale > CLASSIC_NAV_MIN_SCALE + CLASSIC_NAV_SCALE_EPSILON
+        && scale > CLASSIC_NAV_MIN_SCALE + CLASSIC_NAV_SCALE_EPSILON
       ) {
-        const overflowFitScale = classicAdaptiveScale * (target.clientHeight / target.scrollHeight);
+        const overflowFitScale = scale * (target.clientHeight / target.scrollHeight);
         if (Number.isFinite(overflowFitScale) && overflowFitScale > 0) {
           const correctedScale = Math.max(CLASSIC_NAV_MIN_SCALE, overflowFitScale);
-          if (classicAdaptiveScale - correctedScale > CLASSIC_NAV_SCALE_EPSILON) {
+          if (scale - correctedScale > CLASSIC_NAV_SCALE_EPSILON) {
             setClassicAdaptiveScale(Number(correctedScale.toFixed(5)));
             return;
           }
@@ -502,22 +520,42 @@ export function SideNav({
     }
 
     updateScrollNeed();
-  }, [classicAdaptiveScale, isClassicLayout]);
+  }, []);
+
+  // Resize, mutation and the post-commit follow-up all want the same
+  // measurement; funnel them through one frame so a burst costs a single
+  // forced layout instead of one per event.
+  const scheduleClassicAdaptiveScaleRecalc = useCallback(() => {
+    if (typeof window === 'undefined' || classicRecalcFrameRef.current !== null) {
+      return;
+    }
+    classicRecalcFrameRef.current = window.requestAnimationFrame(() => {
+      classicRecalcFrameRef.current = null;
+      recalculateClassicAdaptiveScale();
+    });
+  }, [recalculateClassicAdaptiveScale]);
+
+  useEffect(() => () => {
+    if (classicRecalcFrameRef.current !== null && typeof window !== 'undefined') {
+      window.cancelAnimationFrame(classicRecalcFrameRef.current);
+      classicRecalcFrameRef.current = null;
+    }
+  }, []);
 
   useLayoutEffect(() => {
     if (!isClassicLayout || typeof window === 'undefined') {
       return;
     }
+    // One synchronous pass so the sidebar never paints at the wrong scale, then
+    // a coalesced follow-up once the browser has settled the new layout.
     recalculateClassicAdaptiveScale();
-    const raf = window.requestAnimationFrame(recalculateClassicAdaptiveScale);
-    return () => {
-      window.cancelAnimationFrame(raf);
-    };
+    scheduleClassicAdaptiveScaleRecalc();
   }, [
     classicCollapsed,
     classicScaleContentKey,
     isClassicLayout,
     recalculateClassicAdaptiveScale,
+    scheduleClassicAdaptiveScaleRecalc,
     shouldShowUpdateActionEntry,
   ]);
 
@@ -526,13 +564,13 @@ export function SideNav({
       return;
     }
     const onResize = () => {
-      recalculateClassicAdaptiveScale();
+      scheduleClassicAdaptiveScaleRecalc();
     };
     window.addEventListener('resize', onResize);
 
     const resizeObserver = typeof ResizeObserver !== 'undefined'
       ? new ResizeObserver(() => {
-        recalculateClassicAdaptiveScale();
+        scheduleClassicAdaptiveScaleRecalc();
       })
       : null;
 
@@ -547,7 +585,7 @@ export function SideNav({
 
     const mutationObserver = typeof MutationObserver !== 'undefined' && navItemsRef.current
       ? new MutationObserver(() => {
-        recalculateClassicAdaptiveScale();
+        scheduleClassicAdaptiveScaleRecalc();
       })
       : null;
 
@@ -563,7 +601,7 @@ export function SideNav({
       resizeObserver?.disconnect();
       mutationObserver?.disconnect();
     };
-  }, [isClassicLayout, recalculateClassicAdaptiveScale]);
+  }, [isClassicLayout, scheduleClassicAdaptiveScaleRecalc]);
 
   const classicMainIconSize = Math.max(14, Math.round(20 * classicAdaptiveScale));
   const classicBrandLogoIconSize = Math.max(13, Math.round(17 * classicAdaptiveScale));
