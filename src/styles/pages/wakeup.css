@@ -63,7 +63,7 @@
   inset: 0;
   background-color: var(--bg-secondary);
   border: 1px solid var(--border);
-  transition: 0.3s;
+  transition: all var(--motion-micro) var(--ease-standard);
   border-radius: var(--radius-full);
 }
 
@@ -75,7 +75,7 @@
   left: 2px;
   bottom: 2px;
   background-color: var(--text-secondary);
-  transition: 0.3s;
+  transition: all var(--motion-micro) var(--ease-standard);
   border-radius: 50%;
 }
 
@@ -112,7 +112,10 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  transition: transform 0.25s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+  transition:
+    transform var(--motion-micro) var(--ease-standard),
+    box-shadow var(--motion-micro) var(--ease-standard),
+    border-color var(--motion-micro) var(--ease-standard);
 }
 
 .wakeup-task-card::before {
@@ -422,7 +425,7 @@ select.wakeup-input::-ms-expand,
   align-items: center;
   justify-content: center;
   gap: 6px;
-  transition: all 0.2s ease;
+  transition: all var(--motion-micro) var(--ease-standard);
 }
 
 .wakeup-segment-btn:hover {
@@ -450,7 +453,7 @@ select.wakeup-input::-ms-expand,
   font-size: 12px;
   cursor: pointer;
   color: var(--text-secondary);
-  transition: all 0.2s ease;
+  transition: all var(--motion-micro) var(--ease-standard);
 }
 
 .wakeup-chip:hover {

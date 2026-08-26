@@ -398,10 +398,10 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.48);
   cursor: pointer;
   transition:
-    transform 0.16s ease,
-    border-color 0.16s ease,
-    background 0.16s ease,
-    box-shadow 0.16s ease;
+    transform var(--motion-micro) var(--ease-standard),
+    border-color var(--motion-micro) var(--ease-standard),
+    background var(--motion-micro) var(--ease-standard),
+    box-shadow var(--motion-micro) var(--ease-standard);
 }
 
 .codex-local-access-test-pill:hover:not(:disabled) {
@@ -1042,9 +1042,9 @@
   font-weight: 700;
   outline: none;
   transition:
-    border-color 0.16s ease,
-    box-shadow 0.16s ease,
-    background 0.16s ease;
+    border-color var(--motion-micro) var(--ease-standard),
+    box-shadow var(--motion-micro) var(--ease-standard),
+    background var(--motion-micro) var(--ease-standard);
 }
 
 .codex-local-access-custom-routing-bulk input:focus,
@@ -1090,8 +1090,8 @@
   padding: 12px 14px;
   border-bottom: 1px solid rgba(161, 161, 170, 0.12);
   transition:
-    background 0.16s ease,
-    border-color 0.16s ease;
+    background var(--motion-micro) var(--ease-standard),
+    border-color var(--motion-micro) var(--ease-standard);
 }
 
 .codex-local-access-custom-routing-list
@@ -1238,8 +1238,8 @@
   border-radius: var(--radius-full);
   background: color-mix(in srgb, var(--text-muted) 24%, var(--bg-card));
   transition:
-    background 0.16s ease,
-    box-shadow 0.16s ease;
+    background var(--motion-micro) var(--ease-standard),
+    box-shadow var(--motion-micro) var(--ease-standard);
 }
 
 .codex-local-access-custom-routing-switch-track::before {
@@ -1252,7 +1252,7 @@
   border-radius: 50%;
   background: var(--bg-card);
   box-shadow: 0 1px 3px rgba(24, 24, 27, 0.2);
-  transition: transform 0.16s ease;
+  transition: transform var(--motion-micro) var(--ease-standard);
 }
 
 .codex-local-access-custom-routing-switch
@@ -1427,9 +1427,9 @@
   background: var(--bg-surface);
   cursor: pointer;
   transition:
-    border-color 140ms ease,
-    background-color 140ms ease,
-    box-shadow 140ms ease;
+    border-color var(--motion-micro) var(--ease-standard),
+    background-color var(--motion-micro) var(--ease-standard),
+    box-shadow var(--motion-micro) var(--ease-standard);
 }
 
 .codex-local-access-session-affinity-toggle
@@ -2117,10 +2117,10 @@
     color-mix(in srgb, var(--bg-card) 95%, white 5%);
   box-shadow: 0 14px 28px -24px rgba(24, 24, 27, 0.38);
   transition:
-    transform 0.18s ease,
-    border-color 0.18s ease,
-    box-shadow 0.18s ease,
-    background 0.18s ease;
+    transform var(--motion-micro) var(--ease-standard),
+    border-color var(--motion-micro) var(--ease-standard),
+    box-shadow var(--motion-micro) var(--ease-standard),
+    background var(--motion-micro) var(--ease-standard);
 }
 
 .codex-local-access-member-section .group-account-item:hover {

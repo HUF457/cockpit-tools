@@ -88,7 +88,7 @@
   justify-content: center;
   cursor: pointer;
   padding: 0 4px;
-  transition: background 0.15s ease;
+  transition: background var(--motion-micro) var(--ease-standard);
 }
 
 .side-nav-update-btn:disabled,
@@ -140,7 +140,7 @@
   height: 3px;
   background: var(--primary);
   overflow: hidden;
-  transition: width 0.4s ease;
+  transition: width var(--motion-data) var(--ease-standard);
 }
 
 .side-nav-update-progress-ripple,
@@ -210,7 +210,9 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background 0.15s ease, color 0.15s ease;
+  transition:
+    background var(--motion-micro) var(--ease-standard),
+    color var(--motion-micro) var(--ease-standard);
   position: relative;
 }
 
@@ -230,7 +232,9 @@
 .nav-item img {
   filter: grayscale(1);
   opacity: 0.82;
-  transition: filter 0.15s ease, opacity 0.15s ease;
+  transition:
+    filter var(--motion-micro) var(--ease-standard),
+    opacity var(--motion-micro) var(--ease-standard);
 }
 
 .nav-item:hover svg,
@@ -247,7 +251,9 @@
 .side-nav-more-sub-item-icon img {
   filter: grayscale(1);
   opacity: 0.82;
-  transition: filter 0.15s ease, opacity 0.15s ease;
+  transition:
+    filter var(--motion-micro) var(--ease-standard),
+    opacity var(--motion-micro) var(--ease-standard);
 }
 
 .side-nav-more-item:hover svg,
@@ -285,7 +291,9 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition:
+    background var(--motion-micro) var(--ease-standard),
+    color var(--motion-micro) var(--ease-standard);
   z-index: 3;
   overflow: visible;
 }
@@ -308,7 +316,9 @@
   font-weight: 500;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition:
+    opacity var(--motion-micro) var(--ease-standard),
+    transform var(--motion-micro) var(--ease-standard);
   white-space: nowrap;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
@@ -556,7 +566,9 @@
   gap: var(--side-nav-classic-sub-item-gap-scaled);
   padding: 0 var(--side-nav-classic-sub-item-padding-inline-scaled);
   cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition:
+    background var(--motion-micro) var(--ease-standard),
+    color var(--motion-micro) var(--ease-standard);
 }
 
 .nav-sub-item:hover {
@@ -686,7 +698,11 @@
   cursor: pointer;
   z-index: 1001;
   /* 使用 transform 替代 left 的过度动画，开启 GPU 硬件加速避免 Reflow */
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), top 0.25s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease, color 0.2s ease;
+  transition:
+    transform var(--motion-micro) var(--ease-standard),
+    top var(--motion-micro) var(--ease-standard),
+    background var(--motion-micro) var(--ease-standard),
+    color var(--motion-micro) var(--ease-standard);
   padding: 0 0 0 calc(1px * var(--side-nav-classic-adaptive-scale, 1));
 }
 
@@ -874,7 +890,7 @@ html[data-theme="dark"] .side-nav.side-nav-classic {
   opacity: 0;
   pointer-events: none;
   transform: translateX(-10px);
-  transition: all 0.2s;
+  transition: all var(--motion-micro) var(--ease-standard);
   white-space: nowrap;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }

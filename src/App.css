@@ -168,7 +168,7 @@
   height: 100%;
   border-radius: inherit;
   background: var(--primary);
-  transition: width 180ms ease;
+  transition: width var(--motion-data) var(--ease-standard);
 }
 
 .codex-batch-import-progress-fill.tone-success {
@@ -292,7 +292,7 @@
   height: 18px;
   border-radius: var(--radius-full);
   background: rgba(161, 161, 170, 0.35);
-  transition: background 160ms ease;
+  transition: background var(--motion-micro) var(--ease-standard);
 }
 
 .codex-batch-import-check-switch::after {
@@ -305,7 +305,7 @@
   border-radius: 50%;
   background: #fff;
   box-shadow: 0 1px 3px rgba(24, 24, 27, 0.24);
-  transition: transform 160ms ease;
+  transition: transform var(--motion-micro) var(--ease-standard);
 }
 
 .codex-batch-import-check-toggle input:checked + .codex-batch-import-check-switch {
@@ -375,7 +375,7 @@
   flex: 0 0 36px;
   border-radius: var(--radius-full);
   background: rgba(161, 161, 170, 0.4);
-  transition: background 160ms ease;
+  transition: background var(--motion-micro) var(--ease-standard);
 }
 
 .codex-import-api-service-switch::after {
@@ -388,7 +388,7 @@
   border-radius: 50%;
   background: #fff;
   box-shadow: 0 1px 3px rgba(24, 24, 27, 0.24);
-  transition: transform 160ms ease;
+  transition: transform var(--motion-micro) var(--ease-standard);
 }
 
 .codex-import-api-service-toggle input:checked + .codex-import-api-service-switch {
@@ -660,7 +660,9 @@
   color: var(--text-primary);
   text-align: left;
   cursor: pointer;
-  transition: border-color 0.15s, background 0.15s;
+  transition:
+    border-color var(--motion-micro) var(--ease-standard),
+    background var(--motion-micro) var(--ease-standard);
 }
 
 .app-path-candidate-item:hover:not(:disabled),
@@ -750,7 +752,9 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background 0.15s ease, color 0.15s ease;
+  transition:
+    background var(--motion-micro) var(--ease-standard),
+    color var(--motion-micro) var(--ease-standard);
 }
 
 .global-ad-slot-dismiss:hover {
@@ -804,7 +808,9 @@
   font-size: 11px;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s ease, border-color 0.2s ease;
+  transition:
+    background var(--motion-micro) var(--ease-standard),
+    border-color var(--motion-micro) var(--ease-standard);
 }
 
 .global-ad-slot-action:hover {
@@ -847,7 +853,9 @@
   justify-content: center;
   cursor: pointer;
   z-index: 1100;
-  transition: background 0.15s ease, color 0.15s ease;
+  transition:
+    background var(--motion-micro) var(--ease-standard),
+    color var(--motion-micro) var(--ease-standard);
   -webkit-app-region: no-drag;
 }
 
@@ -875,7 +883,10 @@
   font-weight: 600;
   cursor: pointer;
   box-shadow: var(--shadow-sm);
-  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  transition:
+    transform var(--motion-micro) var(--ease-standard),
+    box-shadow var(--motion-micro) var(--ease-standard),
+    background var(--motion-micro) var(--ease-standard);
 }
 
 .update-quick-action-btn strong {
