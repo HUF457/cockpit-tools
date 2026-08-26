@@ -101,7 +101,7 @@
 .account-filter-surface .tag-filter-group-toggle input {
   width: 14px;
   height: 14px;
-  accent-color: var(--accounts-primary, var(--primary));
+  accent-color: var(--primary);
 }
 
 .account-filter-surface .tag-filter-options {
@@ -155,7 +155,7 @@
 .account-filter-surface .tag-filter-option input {
   width: 14px;
   height: 14px;
-  accent-color: var(--accounts-primary, var(--primary));
+  accent-color: var(--primary);
 }
 
 .account-filter-surface .tag-filter-option.selected {

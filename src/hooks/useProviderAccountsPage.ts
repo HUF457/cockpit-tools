@@ -199,13 +199,19 @@ export interface ProviderAccountBase {
 
 const DEFAULT_SORT_BY = 'created_at';
 const DEFAULT_SORT_DIRECTION: SortDirection = 'desc';
-const DEFAULT_VIEW_MODE: ViewMode = 'list';
+
+/**
+ * Single source of truth for the account pages' default view.
+ * Claude / Qoder consume these too, so the "list by default" policy and the
+ * legacy-value normalization live in exactly one place.
+ */
+export const DEFAULT_VIEW_MODE: ViewMode = 'list';
+
+export const normalizeViewMode = (value: unknown): ViewMode =>
+  value === 'grid' || value === 'list' ? value : DEFAULT_VIEW_MODE;
 
 const normalizeSortDirection = (value: string | null): SortDirection =>
   value === 'asc' ? 'asc' : DEFAULT_SORT_DIRECTION;
-
-const normalizeViewMode = (value: string | null): ViewMode =>
-  value === 'grid' || value === 'list' ? value : DEFAULT_VIEW_MODE;
 
 const FILTER_FIELD_VIEW_MODE = 'view_mode';
 const FILTER_FIELD_FILTER_TYPE = 'filter_type';
