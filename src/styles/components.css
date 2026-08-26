@@ -1593,7 +1593,7 @@ html[data-reduced-motion="true"] .platform-group-switcher-trigger.is-open .platf
 .modal {
   background: var(--bg-surface);
   border-radius: var(--radius-xl);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border);
   width: 100%;
   max-width: 560px;
   max-height: 85vh;

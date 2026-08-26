@@ -125,6 +125,7 @@ const FLOATING_CARD_NO_DRAG_SELECTOR =
 type FloatingCardGeneralConfig = {
   language: string;
   theme: string;
+  theme_color?: string;
   reduced_motion_enabled: boolean;
   ui_scale?: number;
   floating_card_always_on_top?: boolean;
@@ -647,6 +648,13 @@ export function FloatingCardWindow() {
       document.body.setAttribute('data-theme', appliedTheme);
     };
 
+    const applyThemeColor = (themeColor: string | undefined) => {
+      document.documentElement.setAttribute(
+        'data-theme-color',
+        (themeColor || 'default').trim() || 'default',
+      );
+    };
+
     const watchSystemTheme = () => {
       const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
       const handleChange = () => applyTheme('system');
@@ -675,6 +683,7 @@ export function FloatingCardWindow() {
         cleanupThemeWatcher?.();
         cleanupThemeWatcher = null;
         applyTheme(config.theme);
+        applyThemeColor(config.theme_color);
         applyReducedMotion(config.reduced_motion_enabled);
         if (config.theme === 'system') {
           cleanupThemeWatcher = watchSystemTheme();

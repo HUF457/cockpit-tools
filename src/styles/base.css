@@ -118,8 +118,11 @@
   --shadow-xl: var(--shadow-lg);
 }
 
-/* === Dark Theme === */
-[data-theme="dark"] {
+/* === Dark Theme ===
+   Scoped to html on purpose. Windows that mirror data-theme onto <body> (the
+   floating card does) would otherwise re-declare the default palette there and
+   shadow whatever colour pack the root element resolved. */
+html[data-theme="dark"] {
   /* Brand Colors - slightly brighter for dark mode, still desaturated */
   --primary: #6c92b4;
   --primary-hover: #7fa3c4;
@@ -437,10 +440,16 @@
   padding: 0;
 }
 
+/* html carries it too: it is what shows through overscroll, and index.html
+   paints a static first-frame colour there that must not outlive the tokens. */
+html,
 body {
-  font-family: var(--font-sans);
   background: var(--bg-primary);
   color: var(--text-primary);
+}
+
+body {
+  font-family: var(--font-sans);
   line-height: 1.5;
   color-scheme: light;
   -webkit-font-smoothing: antialiased;
@@ -449,7 +458,6 @@ body {
 /* Dark mode body background */
 [data-theme="dark"] body,
 html[data-theme="dark"] body {
-  background: var(--bg-primary);
   color-scheme: dark;
 }
 

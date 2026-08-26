@@ -14,20 +14,23 @@
       onload="this.media='all'"
     />
     <style>
+      /* First-paint frame, before the bundle's tokens exist. Kept on the
+         neutral base so the boot splash does not flash a different palette
+         than the one base.css resolves a moment later. */
       html,
       body {
         margin: 0;
         width: 100%;
         height: 100%;
-        background: #0b1220;
-        color: #e2e8f0;
+        background: #131316;
+        color: #e7e7ea;
       }
 
       @media (prefers-color-scheme: light) {
         html,
         body {
-          background: #f4f7fb;
-          color: #0f172a;
+          background: #f4f4f5;
+          color: #18181b;
         }
       }
 
@@ -69,7 +72,7 @@
         height: 100%;
         width: 28%;
         border-radius: inherit;
-        background: #38bdf8;
+        background: #6c92b4;
       }
 
       .app-boot-progress[data-mode="indeterminate"] .app-boot-bar {
