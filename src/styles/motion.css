@@ -69,8 +69,7 @@
   --ease-entrance: cubic-bezier(0.16, 1, 0.3, 1);
   /* Symmetric — a state toggling in place, both directions. */
   --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
-  /* Accelerating — anything leaving. */
-  --ease-exit: cubic-bezier(0.4, 0, 1, 1);
+  /* There is deliberately no exit easing; see ENTRANCES ONLY above. */
 }
 
 /* ============================================
@@ -145,9 +144,9 @@
 /* --- Dialog surfaces --- */
 /* `> *` covers the dialog card whatever it is called locally; every
    scrim in this app wraps exactly one card. Fill mode is left at
-   `none` on purpose: a lingering `transform: scale(1)` would turn
-   the card into a containing block and break any `position: fixed`
-   descendant it holds. */
+   `none` on purpose: a lingering `scale: 1` would keep the card a
+   containing block and break any `position: fixed` descendant it
+   holds. */
 .modal-overlay > *,
 .qs-overlay > *,
 .close-dialog-overlay > *,
@@ -177,9 +176,11 @@
   animation: ct-menu-in var(--motion-meso) var(--ease-entrance);
 }
 
-/* --- Corner toasts --- */
+/* --- Corner toasts and the floating task cards that behave like them --- */
 .toast,
-.silent-update-toast {
+.silent-update-toast,
+.codex-batch-import-global-task,
+.codex-batch-import-floating-panel {
   animation: ct-toast-in var(--motion-meso) var(--ease-entrance);
 }
 
