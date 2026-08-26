@@ -1,13 +1,9 @@
 .apikey-fun-page {
-  --ak-primary-hsl: 220, 95%, 60%;
-  --ak-primary: hsl(var(--ak-primary-hsl));
-  --ak-cyan-hsl: 185, 95%, 48%;
-  --ak-cyan: hsl(var(--ak-cyan-hsl));
-  --ak-teal-hsl: 170, 85%, 46%;
-  --ak-teal: hsl(var(--ak-teal-hsl));
-  --ak-coral-hsl: 15, 95%, 60%;
-  --ak-coral: hsl(var(--ak-coral-hsl));
-  
+  --ak-primary: var(--primary);
+  --ak-cyan: var(--accent-api);
+  --ak-teal: var(--accent-api);
+  --ak-coral: var(--warning-strong);
+
   --ak-ink: var(--text-primary);
   --ak-muted: var(--text-muted);
   --ak-line: var(--border-light);
@@ -37,9 +33,6 @@
 
 [data-theme="dark"] .apikey-fun-page,
 html[data-theme="dark"] .apikey-fun-page {
-  --ak-primary-hsl: 217, 91%, 64%;
-  --ak-cyan-hsl: 188, 86%, 53%;
-  --ak-teal-hsl: 172, 76%, 46%;
   --ak-glass-bg: var(--bg-card);
   --ak-glass-bg-hover: var(--bg-card);
   --ak-glass-border: var(--border);
@@ -57,7 +50,9 @@ html[data-theme="dark"] .apikey-fun-page {
   padding: 18px 20px;
   border-radius: var(--ak-radius-lg);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(8, 14, 28, 0.98);
+  /* Stays a dark banner in every pack so the white brand text keeps its
+     contrast; the pack only tints it. */
+  background: color-mix(in srgb, var(--primary) 16%, #080e1c);
   color: #ffffff;
   position: relative;
   overflow: hidden;
@@ -92,9 +87,9 @@ html[data-theme="dark"] .apikey-fun-page {
   display: inline-flex;
   padding: 4px 10px;
   border-radius: var(--radius-full);
-  border: 1px solid rgba(6, 182, 212, 0.3);
-  color: #22d3ee;
-  background: rgba(6, 182, 212, 0.12);
+  border: 1px solid color-mix(in srgb, var(--accent-api) 42%, transparent);
+  color: var(--accent-api-soft);
+  background: color-mix(in srgb, var(--accent-api) 18%, transparent);
   font-size: 10.5px;
   font-weight: 700;
   letter-spacing: 0.5px;
@@ -183,7 +178,7 @@ html[data-theme="dark"] .apikey-fun-page {
 
 /* 查询配置面板特定背景 */
 .apikey-fun-config-panel {
-  background: rgba(255, 255, 255, 0.55);
+  background: var(--bg-card);
 }
 
 .apikey-fun-panel-head {
@@ -254,7 +249,7 @@ html[data-theme="dark"] .apikey-fun-page {
   align-items: center;
   border: 1.5px solid var(--ak-glass-border);
   border-radius: var(--ak-radius-md);
-  background: rgba(255, 255, 255, 0.88);
+  background: var(--bg-card);
   padding: 2px 6px 2px 14px;
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
   transition: all var(--motion-micro) var(--ease-standard);
@@ -265,7 +260,7 @@ html[data-theme="dark"] .apikey-fun-page {
   box-shadow: 
     0 0 0 4px color-mix(in srgb, var(--primary) 12%, transparent),
     0 8px 24px color-mix(in srgb, var(--primary) 4%, transparent);
-  background: #ffffff;
+  background: var(--bg-card);
 }
 
 .apikey-fun-secret-input input {
@@ -281,7 +276,7 @@ html[data-theme="dark"] .apikey-fun-page {
 }
 
 .apikey-fun-secret-input input::placeholder {
-  color: #a1a1aa;
+  color: var(--text-muted);
 }
 
 .apikey-fun-icon-button {
@@ -293,7 +288,7 @@ html[data-theme="dark"] .apikey-fun-page {
   height: 32px;
   border-radius: var(--radius-xl);
   border: 0;
-  color: #71717a;
+  color: var(--text-muted);
   background: transparent;
   cursor: pointer;
   transition: all var(--motion-micro) var(--ease-standard);
@@ -306,12 +301,12 @@ html[data-theme="dark"] .apikey-fun-page {
 
 .apikey-fun-icon-button.copy-btn:hover {
   color: var(--ak-teal);
-  background: rgba(20, 184, 166, 0.08);
+  background: color-mix(in srgb, var(--accent-api) 12%, transparent);
 }
 
 .apikey-fun-icon-button.clear-btn:hover {
   color: var(--ak-coral);
-  background: rgba(249, 115, 22, 0.08);
+  background: color-mix(in srgb, var(--warning-strong) 12%, transparent);
 }
 
 /* 按钮与状态行 */
@@ -340,9 +335,9 @@ html[data-theme="dark"] .apikey-fun-page {
   min-height: 36px;
   padding: 0 16px;
   border-radius: var(--radius-xl);
-  border: 1px solid rgba(24, 24, 27, 0.1);
-  background: #ffffff;
-  color: #3f3f46;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-secondary);
   font-size: 12px;
   font-weight: 700;
   cursor: pointer;
@@ -363,7 +358,7 @@ html[data-theme="dark"] .apikey-fun-page {
 
 .apikey-fun-page .apikey-fun-save-btn {
   background: var(--ak-primary);
-  color: #ffffff;
+  color: var(--on-primary);
   border: 0;
 }
 
@@ -375,7 +370,7 @@ html[data-theme="dark"] .apikey-fun-page {
 .apikey-fun-page .apikey-fun-target-btn {
   border-color: color-mix(in srgb, var(--primary) 18%, transparent);
   color: var(--primary-deep);
-  background: rgba(255, 255, 255, 0.82);
+  background: var(--bg-card);
 }
 
 .apikey-fun-page .apikey-fun-target-btn:hover:not(:disabled) {
@@ -388,7 +383,7 @@ html[data-theme="dark"] .apikey-fun-page {
   display: inline-flex;
   align-items: center;
   min-height: 24px;
-  color: #0f766e;
+  color: var(--success);
   font-size: 11px;
   font-weight: 700;
   animation: ct-rise-in var(--motion-meso) var(--ease-entrance) both;
@@ -406,15 +401,15 @@ html[data-theme="dark"] .apikey-fun-page {
 }
 
 .apikey-fun-message.success {
-  border: 1px solid rgba(20, 184, 166, 0.18);
-  background: rgba(240, 253, 250, 0.6);
-  color: #0d9488;
+  border: 1px solid color-mix(in srgb, var(--success) 24%, transparent);
+  background: color-mix(in srgb, var(--success) 10%, var(--bg-card));
+  color: var(--success);
 }
 
 .apikey-fun-message.error {
-  border: 1px solid rgba(239, 68, 68, 0.18);
-  background: rgba(254, 242, 242, 0.6);
-  color: #dc2626;
+  border: 1px solid color-mix(in srgb, var(--danger) 24%, transparent);
+  background: color-mix(in srgb, var(--danger) 10%, var(--bg-card));
+  color: var(--danger);
 }
 
 /* 额度网格卡片 */
@@ -433,18 +428,18 @@ html[data-theme="dark"] .apikey-fun-page {
   padding: 16px;
   border-radius: var(--ak-radius-md);
   border: 1px solid var(--ak-glass-border);
-  background: rgba(255, 255, 255, 0.6);
+  background: var(--bg-card);
   box-shadow: var(--ak-glass-shadow);
   transition: all var(--motion-micro) var(--ease-standard);
 }
 
 .apikey-fun-usage-card:hover {
-  background: rgba(255, 255, 255, 0.9);
+  background: var(--bg-tertiary);
 }
 
 .apikey-fun-usage-card.primary {
-  border-color: rgba(20, 184, 166, 0.25);
-  background: rgba(204, 251, 241, 0.4);
+  border-color: color-mix(in srgb, var(--accent-api) 32%, transparent);
+  background: color-mix(in srgb, var(--accent-api) 12%, var(--bg-card));
 }
 
 .apikey-fun-usage-card span {
@@ -466,7 +461,7 @@ html[data-theme="dark"] .apikey-fun-page {
 }
 
 .apikey-fun-models-panel {
-  background: rgba(255, 255, 255, 0.46);
+  background: var(--bg-card);
 }
 
 .apikey-fun-model-count {
@@ -475,9 +470,9 @@ html[data-theme="dark"] .apikey-fun-page {
   min-height: 28px;
   padding: 0 10px;
   border-radius: var(--radius-full);
-  border: 1px solid rgba(20, 184, 166, 0.18);
-  color: #0f766e;
-  background: rgba(240, 253, 250, 0.68);
+  border: 1px solid color-mix(in srgb, var(--accent-api) 24%, transparent);
+  color: var(--accent-api);
+  background: color-mix(in srgb, var(--accent-api) 10%, var(--bg-card));
   font-size: 11px;
   font-weight: 800;
   white-space: nowrap;
@@ -496,9 +491,9 @@ html[data-theme="dark"] .apikey-fun-page {
   min-height: 28px;
   padding: 0 10px;
   border-radius: var(--radius-full);
-  border: 1px solid rgba(24, 24, 27, 0.08);
-  color: #3f3f46;
-  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid var(--border-light);
+  color: var(--text-secondary);
+  background: var(--bg-card);
   font-size: 11px;
   font-weight: 750;
   line-height: 1;
@@ -512,7 +507,7 @@ html[data-theme="dark"] .apikey-fun-page {
   border-radius: var(--ak-radius-md);
   border: 1px dashed var(--ak-line);
   color: var(--ak-muted);
-  background: rgba(255, 255, 255, 0.42);
+  background: var(--bg-card);
   font-size: 12px;
   font-weight: 650;
 }
@@ -522,14 +517,14 @@ html[data-theme="dark"] .apikey-fun-page {
   height: 22px;
   width: 75%;
   border-radius: var(--radius-sm);
-  background: rgba(0, 0, 0, 0.05);
+  background: var(--bg-hover);
   background-size: 400% 100%;
   animation: skeletonShine 1.4s ease infinite;
 }
 
 /* 密钥管理器侧栏 */
 .apikey-fun-manager-panel {
-  background: rgba(255, 255, 255, 0.45);
+  background: var(--bg-card);
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -542,15 +537,15 @@ html[data-theme="dark"] .apikey-fun-page {
   justify-content: center;
   gap: 10px;
   padding: 40px 20px;
-  border: 1.5px dashed rgba(24, 24, 27, 0.1);
+  border: 1.5px dashed var(--border);
   border-radius: var(--ak-radius-md);
   color: var(--ak-muted);
-  background: rgba(255, 255, 255, 0.25);
+  background: var(--bg-card);
   text-align: center;
 }
 
 .apikey-fun-empty-keys svg {
-  color: #d4d4d8;
+  color: var(--text-muted);
 }
 
 .apikey-fun-empty-keys span {
@@ -572,7 +567,7 @@ html[data-theme="dark"] .apikey-fun-page {
 }
 
 .apikey-fun-key-list::-webkit-scrollbar-thumb {
-  background: rgba(24, 24, 27, 0.08);
+  background: var(--border);
   border-radius: var(--radius-full);
 }
 
@@ -584,14 +579,14 @@ html[data-theme="dark"] .apikey-fun-page {
   padding: 10px 14px;
   border-radius: var(--ak-radius-md);
   border: 1px solid var(--ak-glass-border);
-  background: rgba(255, 255, 255, 0.65);
+  background: var(--bg-card);
   box-shadow: 0 2px 8px rgba(24, 24, 27, 0.02);
   transition: all var(--motion-micro) var(--ease-standard);
 }
 
 .apikey-fun-key-item:hover {
   border-color: color-mix(in srgb, var(--primary) 18%, transparent);
-  background: #ffffff;
+  background: var(--bg-tertiary);
   transform: translateX(2px);
   box-shadow: 0 4px 12px rgba(24, 24, 27, 0.04);
 }
@@ -639,7 +634,7 @@ html[data-theme="dark"] .apikey-fun-page {
   justify-content: center;
   padding: 4px;
   border-radius: var(--radius-md);
-  color: #a1a1aa;
+  color: var(--text-muted);
   opacity: 0;
   transition: all var(--motion-micro) var(--ease-standard);
 }
@@ -686,7 +681,8 @@ html[data-theme="dark"] .apikey-fun-page {
   padding: 0 10px;
   border-radius: var(--ak-radius-sm);
   border: 1.5px solid var(--ak-primary);
-  background: #ffffff;
+  background: var(--bg-card);
+  color: var(--text-primary);
   font-size: 12px;
   font-weight: 600;
   outline: none;
@@ -709,7 +705,7 @@ html[data-theme="dark"] .apikey-fun-page {
   width: 30px;
   border-radius: var(--radius-xl);
   border: 0;
-  color: #71717a;
+  color: var(--text-muted);
   background: transparent;
   cursor: pointer;
   transition: all var(--motion-micro) var(--ease-standard);
@@ -717,12 +713,12 @@ html[data-theme="dark"] .apikey-fun-page {
 
 .apikey-fun-key-copy:hover {
   color: var(--ak-teal);
-  background: rgba(20, 184, 166, 0.08);
+  background: color-mix(in srgb, var(--accent-api) 12%, transparent);
 }
 
 .apikey-fun-key-delete:hover {
-  color: #ef4444;
-  background: rgba(239, 68, 68, 0.08);
+  color: var(--danger);
+  background: color-mix(in srgb, var(--danger) 12%, transparent);
 }
 
 .success-icon {
@@ -735,51 +731,17 @@ html[data-theme="dark"] .apikey-fun-page {
 }
 
 .apikey-fun-key-action-state.error {
-  color: #ef4444;
+  color: var(--danger);
 }
 
+/* Dark mode only needs the treatments that do not fall out of the palette
+   tokens: deeper shadows, and the accents that lighten instead of darken.
+   Everything else above already resolves through the active colour pack. */
 [data-theme="dark"] .apikey-fun-header-brand,
 html[data-theme="dark"] .apikey-fun-header-brand {
-  border-color: rgba(161, 161, 170, 0.16);
-  background: rgba(4, 10, 24, 0.98);
   box-shadow:
     0 24px 54px rgba(0, 0, 0, 0.34),
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
-}
-
-[data-theme="dark"] .apikey-fun-brand-text p,
-html[data-theme="dark"] .apikey-fun-brand-text p {
-  color: rgba(228, 228, 231, 0.76);
-}
-
-[data-theme="dark"] .apikey-fun-dashboard-panel,
-html[data-theme="dark"] .apikey-fun-dashboard-panel {
-  border-color: var(--ak-glass-border);
-  background: var(--ak-glass-bg);
-  box-shadow: var(--ak-glass-shadow), var(--ak-glass-inset-glow);
-}
-
-[data-theme="dark"] .apikey-fun-dashboard-panel:hover,
-html[data-theme="dark"] .apikey-fun-dashboard-panel:hover {
-  background: var(--ak-glass-bg-hover);
-  box-shadow: var(--ak-glass-shadow-hover), var(--ak-glass-inset-glow);
-}
-
-[data-theme="dark"] .apikey-fun-config-panel,
-html[data-theme="dark"] .apikey-fun-config-panel {
-  background: rgba(24, 24, 27, 0.82);
-}
-
-[data-theme="dark"] .apikey-fun-manager-panel,
-html[data-theme="dark"] .apikey-fun-manager-panel {
-  background: rgba(24, 24, 27, 0.7);
-}
-
-[data-theme="dark"] .apikey-fun-panel-head p,
-html[data-theme="dark"] .apikey-fun-panel-head p,
-[data-theme="dark"] .apikey-fun-key-select small,
-html[data-theme="dark"] .apikey-fun-key-select small {
-  color: var(--ak-muted);
 }
 
 [data-theme="dark"] .apikey-fun-key-preview,
@@ -791,170 +753,47 @@ html[data-theme="dark"] .apikey-fun-key-preview {
 
 [data-theme="dark"] .apikey-fun-secret-input,
 html[data-theme="dark"] .apikey-fun-secret-input {
-  border-color: rgba(161, 161, 170, 0.22);
-  background: rgba(24, 24, 27, 0.78);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 [data-theme="dark"] .apikey-fun-secret-input:focus-within,
 html[data-theme="dark"] .apikey-fun-secret-input:focus-within {
   border-color: color-mix(in srgb, var(--primary) 72%, transparent);
-  background: rgba(24, 24, 27, 0.94);
   box-shadow:
     0 0 0 4px color-mix(in srgb, var(--primary) 16%, transparent),
     0 14px 28px rgba(0, 0, 0, 0.18);
 }
 
-[data-theme="dark"] .apikey-fun-secret-input input,
-html[data-theme="dark"] .apikey-fun-secret-input input,
-[data-theme="dark"] .apikey-fun-rename-input,
-html[data-theme="dark"] .apikey-fun-rename-input {
-  color: #fafafa;
-}
-
-[data-theme="dark"] .apikey-fun-secret-input input::placeholder,
-html[data-theme="dark"] .apikey-fun-secret-input input::placeholder {
-  color: #71717a;
-}
-
-[data-theme="dark"] .apikey-fun-icon-button,
-html[data-theme="dark"] .apikey-fun-icon-button,
-[data-theme="dark"] .apikey-fun-key-copy,
-html[data-theme="dark"] .apikey-fun-key-copy,
-[data-theme="dark"] .apikey-fun-key-delete,
-html[data-theme="dark"] .apikey-fun-key-delete {
-  color: #a1a1aa;
-}
-
 [data-theme="dark"] .apikey-fun-icon-button:hover,
-html[data-theme="dark"] .apikey-fun-icon-button:hover {
+html[data-theme="dark"] .apikey-fun-icon-button:hover,
+[data-theme="dark"] .apikey-fun-key-name-row .edit-icon-btn:hover,
+html[data-theme="dark"] .apikey-fun-key-name-row .edit-icon-btn:hover {
   color: var(--primary-soft);
   background: color-mix(in srgb, var(--primary) 14%, transparent);
 }
 
 [data-theme="dark"] .apikey-fun-page .btn,
 html[data-theme="dark"] .apikey-fun-page .btn {
-  border-color: rgba(161, 161, 170, 0.2);
-  background: rgba(24, 24, 27, 0.72);
-  color: #e4e4e7;
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.16);
 }
 
 [data-theme="dark"] .apikey-fun-page .btn:hover:not(:disabled),
 html[data-theme="dark"] .apikey-fun-page .btn:hover:not(:disabled) {
   border-color: color-mix(in srgb, var(--primary) 38%, transparent);
-  background: rgba(39, 39, 42, 0.92);
+  background: var(--bg-tertiary);
   color: var(--primary-soft);
 }
 
 [data-theme="dark"] .apikey-fun-page .btn.apikey-fun-register-btn,
 html[data-theme="dark"] .apikey-fun-page .btn.apikey-fun-register-btn {
-  border: 0;
-  color: var(--on-primary);
-  background: var(--primary);
   box-shadow:
-    0 10px 24px rgba(8, 145, 178, 0.28),
+    0 10px 24px color-mix(in srgb, var(--primary) 32%, transparent),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
-}
-
-[data-theme="dark"] .apikey-fun-page .btn.apikey-fun-register-btn:hover:not(:disabled),
-html[data-theme="dark"] .apikey-fun-page .btn.apikey-fun-register-btn:hover:not(:disabled) {
-  color: var(--on-primary);
-  background: var(--primary-hover);
-  box-shadow:
-    0 14px 28px rgba(8, 145, 178, 0.34),
-    inset 0 1px 0 rgba(255, 255, 255, 0.24);
-}
-
-[data-theme="dark"] .apikey-fun-page .apikey-fun-save-btn,
-html[data-theme="dark"] .apikey-fun-page .apikey-fun-save-btn {
-  border: 0;
-  color: var(--on-primary);
-  background: var(--primary);
-}
-
-[data-theme="dark"] .apikey-fun-page .apikey-fun-save-btn:hover:not(:disabled),
-html[data-theme="dark"] .apikey-fun-page .apikey-fun-save-btn:hover:not(:disabled) {
-  color: var(--on-primary);
-  background: var(--primary-hover);
-}
-
-[data-theme="dark"] .apikey-fun-save-flash,
-html[data-theme="dark"] .apikey-fun-save-flash {
-  color: #5eead4;
-}
-
-[data-theme="dark"] .apikey-fun-message.success,
-html[data-theme="dark"] .apikey-fun-message.success {
-  border-color: rgba(45, 212, 191, 0.22);
-  background: rgba(20, 184, 166, 0.12);
-  color: #5eead4;
-}
-
-[data-theme="dark"] .apikey-fun-message.error,
-html[data-theme="dark"] .apikey-fun-message.error {
-  border-color: rgba(248, 113, 113, 0.26);
-  background: rgba(239, 68, 68, 0.12);
-  color: #fca5a5;
-}
-
-[data-theme="dark"] .apikey-fun-usage-card,
-html[data-theme="dark"] .apikey-fun-usage-card {
-  border-color: rgba(161, 161, 170, 0.16);
-  background: rgba(24, 24, 27, 0.66);
-  box-shadow: var(--ak-glass-shadow);
-}
-
-[data-theme="dark"] .apikey-fun-usage-card:hover,
-html[data-theme="dark"] .apikey-fun-usage-card:hover {
-  background: rgba(39, 39, 42, 0.84);
-}
-
-[data-theme="dark"] .apikey-fun-usage-card.primary,
-html[data-theme="dark"] .apikey-fun-usage-card.primary {
-  border-color: rgba(45, 212, 191, 0.24);
-  background: rgba(20, 184, 166, 0.18);
-}
-
-[data-theme="dark"] .apikey-fun-usage-card span,
-html[data-theme="dark"] .apikey-fun-usage-card span {
-  color: #8ea1b8;
-}
-
-[data-theme="dark"] .apikey-fun-skeleton-text,
-html[data-theme="dark"] .apikey-fun-skeleton-text {
-  background: rgba(161, 161, 170, 0.1);
-  background-size: 400% 100%;
-}
-
-[data-theme="dark"] .apikey-fun-empty-keys,
-html[data-theme="dark"] .apikey-fun-empty-keys {
-  border-color: rgba(161, 161, 170, 0.2);
-  background: rgba(24, 24, 27, 0.42);
-  color: var(--ak-muted);
-}
-
-[data-theme="dark"] .apikey-fun-empty-keys svg,
-html[data-theme="dark"] .apikey-fun-empty-keys svg {
-  color: #71717a;
-}
-
-[data-theme="dark"] .apikey-fun-key-list::-webkit-scrollbar-thumb,
-html[data-theme="dark"] .apikey-fun-key-list::-webkit-scrollbar-thumb {
-  background: rgba(161, 161, 170, 0.22);
 }
 
 [data-theme="dark"] .apikey-fun-key-item,
 html[data-theme="dark"] .apikey-fun-key-item {
-  border-color: rgba(161, 161, 170, 0.16);
-  background: rgba(24, 24, 27, 0.72);
   box-shadow: 0 10px 22px rgba(0, 0, 0, 0.14);
-}
-
-[data-theme="dark"] .apikey-fun-key-item:hover,
-html[data-theme="dark"] .apikey-fun-key-item:hover {
-  border-color: color-mix(in srgb, var(--primary) 30%, transparent);
-  background: rgba(39, 39, 42, 0.9);
 }
 
 [data-theme="dark"] .apikey-fun-key-item.active,
@@ -966,21 +805,9 @@ html[data-theme="dark"] .apikey-fun-key-item.active {
     inset 0 0 0 1px color-mix(in srgb, var(--primary) 8%, transparent);
 }
 
-[data-theme="dark"] .apikey-fun-key-name-row .edit-icon-btn,
-html[data-theme="dark"] .apikey-fun-key-name-row .edit-icon-btn {
-  color: #71717a;
-}
-
-[data-theme="dark"] .apikey-fun-key-name-row .edit-icon-btn:hover,
-html[data-theme="dark"] .apikey-fun-key-name-row .edit-icon-btn:hover {
-  color: var(--primary-soft);
-  background: color-mix(in srgb, var(--primary) 14%, transparent);
-}
-
 [data-theme="dark"] .apikey-fun-rename-input,
 html[data-theme="dark"] .apikey-fun-rename-input {
   border-color: color-mix(in srgb, var(--primary) 72%, transparent);
-  background: rgba(24, 24, 27, 0.94);
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 18%, transparent);
 }
 

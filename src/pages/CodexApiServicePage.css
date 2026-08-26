@@ -2520,30 +2520,6 @@ html[data-reduced-motion="true"] .codex-api-service-key-advanced-toggle[aria-exp
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
-[data-theme="dark"] .codex-api-service-status.running,
-[data-theme="dark"] .codex-api-service-pill.success,
-[data-theme="dark"] .codex-api-service-message.success {
-  color: #86efac;
-}
-
-[data-theme="dark"] .codex-api-service-status.stopped,
-[data-theme="dark"] .codex-api-service-message.warning {
-  color: #fbbf24;
-}
-
-[data-theme="dark"] .codex-api-service-message.error,
-[data-theme="dark"] .codex-api-service-pill.error {
-  color: #fca5a5;
-}
-
-[data-theme="dark"] .codex-api-service-pill.mode-sidecar {
-  color: #67e8f9;
-}
-
-[data-theme="dark"] .codex-api-service-pill.mode-legacy {
-  color: #c4b5fd;
-}
-
 @media (max-width: 1180px) {
   .codex-api-service-grid.two {
     grid-template-columns: 1fr;

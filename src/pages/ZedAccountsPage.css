@@ -91,9 +91,9 @@
 }
 
 .zed-accounts-page .zed-usage-metric-bar.medium {
-  background: #fbbf24;
+  background: var(--warning);
 }
 
 .zed-accounts-page .zed-usage-metric-bar.low {
-  background: #fb923c;
+  background: var(--warning-strong);
 }

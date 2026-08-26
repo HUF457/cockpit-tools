@@ -490,7 +490,7 @@
 .codex-batch-import-row-error {
   display: block;
   margin-top: 6px;
-  color: #b91c1c;
+  color: var(--danger);
   font-size: 12px;
   line-height: 1.4;
 }
