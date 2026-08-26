@@ -246,7 +246,7 @@ export function SettingsSelect({
                 left: `${menuStyle.left}px`,
                 minWidth: `${menuStyle.width}px`,
                 maxHeight: `${menuStyle.maxHeight}px`,
-                zIndex: 12000,
+                zIndex: 15000,
               }}
             >
               {options.map((option, index) => {
