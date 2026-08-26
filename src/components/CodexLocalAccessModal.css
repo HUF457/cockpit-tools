@@ -101,7 +101,7 @@
   box-sizing: content-box;
   border-radius: var(--radius-xl);
   background: var(--primary);
-  color: #fff;
+  color: var(--on-primary);
   box-shadow:
     0 14px 28px -18px color-mix(in srgb, var(--primary) 72%, transparent),
     inset 0 1px 0 rgba(255, 255, 255, 0.25);
@@ -210,7 +210,7 @@
 }
 
 .codex-local-access-modal .codex-local-access-debug-toggle.is-active {
-  color: #fff;
+  color: var(--on-primary);
   border-color: color-mix(in srgb, var(--primary) 58%, rgba(161, 161, 170, 0.2));
   background: var(--primary);
   box-shadow:

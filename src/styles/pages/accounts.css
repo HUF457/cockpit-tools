@@ -27,11 +27,11 @@
 
 .view-btn:hover {
   color: var(--text-primary);
-  background: rgba(255, 255, 255, 0.5);
+  background: var(--bg-hover);
 }
 
 .view-btn.active {
-  background: #ffffff;
+  background: var(--bg-secondary);
   color: var(--primary);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
@@ -46,7 +46,7 @@
 
 .account-card {
   position: relative;
-  background: #ffffff;
+  background: var(--bg-card);
   border-radius: var(--radius-xl); /* 稍微减小圆角 */
   padding: 14px; /* 减小内边距 */
   display: flex;
@@ -67,7 +67,7 @@
 
 /* Current Account */
 .account-card.current {
-  background: #ffffff;
+  background: var(--bg-card);
   border: 1px solid var(--primary); /* 简化选中样式，用细边框 */
 }
 
@@ -132,10 +132,10 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px 12px;
-  background: #fafafa; /* 非常淡的背景 */
+  background: var(--bg-hover); /* 非常淡的背景 */
   border-radius: var(--radius-xl);
   padding: 10px;
-  border: 1px solid rgba(0,0,0,0.03);
+  border: 1px solid var(--border-light);
 }
 
 .card-quota-grid .quota-forbidden {
@@ -519,7 +519,7 @@
   height: 40px;
   border-radius: var(--radius-xl);
   background: var(--primary);
-  color: #fff;
+  color: var(--on-primary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -584,9 +584,9 @@
   flex-direction: column;
   gap: 4px;
   padding: 8px;
-  background: rgba(255, 255, 255, 0.6);
+  background: var(--bg-secondary);
   border-radius: var(--radius-xl);
-  border: 1px solid rgba(0, 0, 0, 0.04);
+  border: 1px solid var(--border-light);
   overflow-y: auto;
 }
 
@@ -673,14 +673,14 @@
 }
 
 [data-theme="dark"] .accounts-grid .account-card {
-  background: #27272a;
-  border-color: rgba(255,255,255,0.05);
+  background: var(--bg-card);
+  border-color: var(--border-light);
   box-shadow: 0 4px 6px rgba(0,0,0,0.2);
 }
 
 [data-theme="dark"] .account-card .account-email {
   background: transparent;
-  color: #e4e4e7;
+  color: var(--text-primary);
 }
 
 [data-theme="dark"] .card-quota-grid {
@@ -693,18 +693,18 @@
 }
 
 [data-theme="dark"] .view-btn.active {
-  background: #3f3f46;
-  color: #fff;
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
 }
 
 [data-theme="dark"] .card-actions {
-  background: #27272a;
-  border-color: rgba(255,255,255,0.05);
+  background: var(--bg-card);
+  border-color: var(--border-light);
 }
 
 [data-theme="dark"] .card-date {
-  background: rgba(255,255,255,0.05);
-  color: #a1a1aa;
+  background: var(--bg-hover);
+  color: var(--text-muted);
 }
 
 /* Custom quota columns layout for Antigravity */
@@ -990,7 +990,7 @@
 
 .accounts-page .view-btn.active {
   background: var(--primary);
-  color: white;
+  color: var(--on-primary);
 }
 
 .accounts-page .filter-tabs:not(.page-tabs) {
@@ -1305,13 +1305,13 @@
 
 .accounts-page .filter-tabs:not(.page-tabs) .filter-tab.active {
   background: var(--primary);
-  color: white;
+  color: var(--on-primary);
   border-color: transparent;
 }
 
 .accounts-page .filter-tabs:not(.page-tabs) .filter-tab.active .count {
-  background: rgba(255, 255, 255, 0.25);
-  color: white;
+  background: color-mix(in srgb, var(--on-primary) 25%, transparent);
+  color: var(--on-primary);
 }
 
 .accounts-page .btn-secondary {
@@ -1688,8 +1688,8 @@
 }
 
 .accounts-page .card-actions {
-  background: rgba(255, 255, 255, 0.75);
-  border: 1px solid rgba(24, 24, 27, 0.08);
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
   border-radius: var(--radius-full);
   padding: 3px;
   gap: 2px;

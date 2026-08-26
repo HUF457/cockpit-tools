@@ -8,9 +8,9 @@
   --ak-coral-hsl: 15, 95%, 60%;
   --ak-coral: hsl(var(--ak-coral-hsl));
   
-  --ak-ink: #18181b;
-  --ak-muted: #71717a;
-  --ak-line: rgba(24, 24, 27, 0.08);
+  --ak-ink: var(--text-primary);
+  --ak-muted: var(--text-muted);
+  --ak-line: var(--border-light);
   
   --ak-glass-bg: var(--bg-card);
   --ak-glass-bg-hover: var(--bg-card);
@@ -40,9 +40,6 @@ html[data-theme="dark"] .apikey-fun-page {
   --ak-primary-hsl: 217, 91%, 64%;
   --ak-cyan-hsl: 188, 86%, 53%;
   --ak-teal-hsl: 172, 76%, 46%;
-  --ak-ink: #e5edf7;
-  --ak-muted: #91a0b4;
-  --ak-line: rgba(161, 161, 170, 0.16);
   --ak-glass-bg: var(--bg-card);
   --ak-glass-bg-hover: var(--bg-card);
   --ak-glass-border: var(--border);
@@ -136,14 +133,14 @@ html[data-theme="dark"] .apikey-fun-page {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: #ffffff;
-  background: #2563eb;
+  color: var(--on-primary);
+  background: var(--primary);
   cursor: pointer;
-  transition: background-color 0.15s ease;
+  transition: background-color var(--motion-micro) var(--ease-standard);
 }
 
 .apikey-fun-page .apikey-fun-register-btn:hover {
-  background: #1d4ed8;
+  background: var(--primary-hover);
 }
 
 /* 仪表盘双栏布局 */
@@ -173,7 +170,10 @@ html[data-theme="dark"] .apikey-fun-page {
   border: 1px solid var(--ak-glass-border);
   background: var(--ak-glass-bg);
   box-shadow: var(--ak-glass-shadow), var(--ak-glass-inset-glow);
-  transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s;
+  transition:
+    border-color var(--motion-micro) var(--ease-standard),
+    box-shadow var(--motion-micro) var(--ease-standard),
+    background-color var(--motion-micro) var(--ease-standard);
 }
 
 .apikey-fun-dashboard-panel:hover {
@@ -218,9 +218,9 @@ html[data-theme="dark"] .apikey-fun-page {
   max-width: 240px;
   padding: 0 10px;
   border-radius: var(--radius-full);
-  border: 1px solid rgba(37, 99, 235, 0.15);
-  background: rgba(239, 246, 255, 0.65);
-  color: #1d4ed8;
+  border: 1px solid color-mix(in srgb, var(--primary) 15%, transparent);
+  background: var(--primary-light);
+  color: var(--primary-hover);
   font-size: 11px;
   font-weight: 700;
   box-shadow: var(--ak-glass-inset-glow);
@@ -257,14 +257,14 @@ html[data-theme="dark"] .apikey-fun-page {
   background: rgba(255, 255, 255, 0.88);
   padding: 2px 6px 2px 14px;
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: all var(--motion-micro) var(--ease-standard);
 }
 
 .apikey-fun-secret-input:focus-within {
   border-color: var(--ak-primary);
   box-shadow: 
-    0 0 0 4px rgba(37, 99, 235, 0.12),
-    0 8px 24px rgba(37, 99, 235, 0.04);
+    0 0 0 4px color-mix(in srgb, var(--primary) 12%, transparent),
+    0 8px 24px color-mix(in srgb, var(--primary) 4%, transparent);
   background: #ffffff;
 }
 
@@ -296,12 +296,12 @@ html[data-theme="dark"] .apikey-fun-page {
   color: #71717a;
   background: transparent;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all var(--motion-micro) var(--ease-standard);
 }
 
 .apikey-fun-icon-button:hover {
   color: var(--ak-primary);
-  background: rgba(37, 99, 235, 0.08);
+  background: color-mix(in srgb, var(--primary) 8%, transparent);
 }
 
 .apikey-fun-icon-button.copy-btn:hover {
@@ -346,14 +346,14 @@ html[data-theme="dark"] .apikey-fun-page {
   font-size: 12px;
   font-weight: 700;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all var(--motion-micro) var(--ease-standard);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .apikey-fun-page .btn:hover:not(:disabled) {
-  border-color: rgba(37, 99, 235, 0.25);
+  border-color: color-mix(in srgb, var(--primary) 25%, transparent);
   color: var(--ak-primary);
-  background: rgba(37, 99, 235, 0.02);
+  background: color-mix(in srgb, var(--primary) 2%, transparent);
 }
 
 .apikey-fun-page .btn:disabled {
@@ -368,20 +368,20 @@ html[data-theme="dark"] .apikey-fun-page {
 }
 
 .apikey-fun-page .apikey-fun-save-btn:hover:not(:disabled) {
-  background: #1d4ed8;
-  color: #ffffff;
+  background: var(--primary-hover);
+  color: var(--on-primary);
 }
 
 .apikey-fun-page .apikey-fun-target-btn {
-  border-color: rgba(37, 99, 235, 0.18);
-  color: #1e40af;
+  border-color: color-mix(in srgb, var(--primary) 18%, transparent);
+  color: var(--primary-deep);
   background: rgba(255, 255, 255, 0.82);
 }
 
 .apikey-fun-page .apikey-fun-target-btn:hover:not(:disabled) {
-  border-color: rgba(37, 99, 235, 0.34);
-  color: #1d4ed8;
-  background: rgba(239, 246, 255, 0.92);
+  border-color: color-mix(in srgb, var(--primary) 34%, transparent);
+  color: var(--primary-hover);
+  background: var(--primary-light);
 }
 
 .apikey-fun-save-flash {
@@ -435,7 +435,7 @@ html[data-theme="dark"] .apikey-fun-page {
   border: 1px solid var(--ak-glass-border);
   background: rgba(255, 255, 255, 0.6);
   box-shadow: var(--ak-glass-shadow);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: all var(--motion-micro) var(--ease-standard);
 }
 
 .apikey-fun-usage-card:hover {
@@ -586,11 +586,11 @@ html[data-theme="dark"] .apikey-fun-page {
   border: 1px solid var(--ak-glass-border);
   background: rgba(255, 255, 255, 0.65);
   box-shadow: 0 2px 8px rgba(24, 24, 27, 0.02);
-  transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: all var(--motion-micro) var(--ease-standard);
 }
 
 .apikey-fun-key-item:hover {
-  border-color: rgba(37, 99, 235, 0.18);
+  border-color: color-mix(in srgb, var(--primary) 18%, transparent);
   background: #ffffff;
   transform: translateX(2px);
   box-shadow: 0 4px 12px rgba(24, 24, 27, 0.04);
@@ -598,10 +598,10 @@ html[data-theme="dark"] .apikey-fun-page {
 
 .apikey-fun-key-item.active {
   border-color: var(--ak-primary);
-  background: rgba(239, 246, 255, 0.85);
+  background: var(--primary-light);
   box-shadow: 
-    0 4px 16px rgba(37, 99, 235, 0.05),
-    inset 0 0 0 1px rgba(37, 99, 235, 0.05);
+    0 4px 16px color-mix(in srgb, var(--primary) 5%, transparent),
+    inset 0 0 0 1px color-mix(in srgb, var(--primary) 5%, transparent);
 }
 
 .apikey-fun-key-select {
@@ -641,7 +641,7 @@ html[data-theme="dark"] .apikey-fun-page {
   border-radius: var(--radius-md);
   color: #a1a1aa;
   opacity: 0;
-  transition: all 0.2s;
+  transition: all var(--motion-micro) var(--ease-standard);
 }
 
 .apikey-fun-key-item:hover .edit-icon-btn {
@@ -650,7 +650,7 @@ html[data-theme="dark"] .apikey-fun-page {
 
 .apikey-fun-key-name-row .edit-icon-btn:hover {
   color: var(--ak-primary);
-  background: rgba(37, 99, 235, 0.08);
+  background: color-mix(in srgb, var(--primary) 8%, transparent);
 }
 
 .apikey-fun-key-select small {
@@ -690,7 +690,7 @@ html[data-theme="dark"] .apikey-fun-page {
   font-size: 12px;
   font-weight: 600;
   outline: none;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 12%, transparent);
 }
 
 /* 密钥项动作按钮 */
@@ -712,7 +712,7 @@ html[data-theme="dark"] .apikey-fun-page {
   color: #71717a;
   background: transparent;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all var(--motion-micro) var(--ease-standard);
 }
 
 .apikey-fun-key-copy:hover {
@@ -784,9 +784,9 @@ html[data-theme="dark"] .apikey-fun-key-select small {
 
 [data-theme="dark"] .apikey-fun-key-preview,
 html[data-theme="dark"] .apikey-fun-key-preview {
-  border-color: rgba(96, 165, 250, 0.22);
-  background: rgba(37, 99, 235, 0.16);
-  color: #93c5fd;
+  border-color: color-mix(in srgb, var(--primary) 22%, transparent);
+  background: color-mix(in srgb, var(--primary) 16%, transparent);
+  color: var(--primary-soft);
 }
 
 [data-theme="dark"] .apikey-fun-secret-input,
@@ -798,10 +798,10 @@ html[data-theme="dark"] .apikey-fun-secret-input {
 
 [data-theme="dark"] .apikey-fun-secret-input:focus-within,
 html[data-theme="dark"] .apikey-fun-secret-input:focus-within {
-  border-color: rgba(96, 165, 250, 0.72);
+  border-color: color-mix(in srgb, var(--primary) 72%, transparent);
   background: rgba(24, 24, 27, 0.94);
   box-shadow:
-    0 0 0 4px rgba(59, 130, 246, 0.16),
+    0 0 0 4px color-mix(in srgb, var(--primary) 16%, transparent),
     0 14px 28px rgba(0, 0, 0, 0.18);
 }
 
@@ -828,8 +828,8 @@ html[data-theme="dark"] .apikey-fun-key-delete {
 
 [data-theme="dark"] .apikey-fun-icon-button:hover,
 html[data-theme="dark"] .apikey-fun-icon-button:hover {
-  color: #bfdbfe;
-  background: rgba(59, 130, 246, 0.14);
+  color: var(--primary-soft);
+  background: color-mix(in srgb, var(--primary) 14%, transparent);
 }
 
 [data-theme="dark"] .apikey-fun-page .btn,
@@ -842,16 +842,16 @@ html[data-theme="dark"] .apikey-fun-page .btn {
 
 [data-theme="dark"] .apikey-fun-page .btn:hover:not(:disabled),
 html[data-theme="dark"] .apikey-fun-page .btn:hover:not(:disabled) {
-  border-color: rgba(96, 165, 250, 0.38);
+  border-color: color-mix(in srgb, var(--primary) 38%, transparent);
   background: rgba(39, 39, 42, 0.92);
-  color: #bfdbfe;
+  color: var(--primary-soft);
 }
 
 [data-theme="dark"] .apikey-fun-page .btn.apikey-fun-register-btn,
 html[data-theme="dark"] .apikey-fun-page .btn.apikey-fun-register-btn {
   border: 0;
-  color: #ffffff;
-  background: #2563eb;
+  color: var(--on-primary);
+  background: var(--primary);
   box-shadow:
     0 10px 24px rgba(8, 145, 178, 0.28),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
@@ -859,8 +859,8 @@ html[data-theme="dark"] .apikey-fun-page .btn.apikey-fun-register-btn {
 
 [data-theme="dark"] .apikey-fun-page .btn.apikey-fun-register-btn:hover:not(:disabled),
 html[data-theme="dark"] .apikey-fun-page .btn.apikey-fun-register-btn:hover:not(:disabled) {
-  color: #ffffff;
-  background: #1d4ed8;
+  color: var(--on-primary);
+  background: var(--primary-hover);
   box-shadow:
     0 14px 28px rgba(8, 145, 178, 0.34),
     inset 0 1px 0 rgba(255, 255, 255, 0.24);
@@ -869,14 +869,14 @@ html[data-theme="dark"] .apikey-fun-page .btn.apikey-fun-register-btn:hover:not(
 [data-theme="dark"] .apikey-fun-page .apikey-fun-save-btn,
 html[data-theme="dark"] .apikey-fun-page .apikey-fun-save-btn {
   border: 0;
-  color: #ffffff;
-  background: #2563eb;
+  color: var(--on-primary);
+  background: var(--primary);
 }
 
 [data-theme="dark"] .apikey-fun-page .apikey-fun-save-btn:hover:not(:disabled),
 html[data-theme="dark"] .apikey-fun-page .apikey-fun-save-btn:hover:not(:disabled) {
-  color: #ffffff;
-  background: #1d4ed8;
+  color: var(--on-primary);
+  background: var(--primary-hover);
 }
 
 [data-theme="dark"] .apikey-fun-save-flash,
@@ -953,17 +953,17 @@ html[data-theme="dark"] .apikey-fun-key-item {
 
 [data-theme="dark"] .apikey-fun-key-item:hover,
 html[data-theme="dark"] .apikey-fun-key-item:hover {
-  border-color: rgba(96, 165, 250, 0.3);
+  border-color: color-mix(in srgb, var(--primary) 30%, transparent);
   background: rgba(39, 39, 42, 0.9);
 }
 
 [data-theme="dark"] .apikey-fun-key-item.active,
 html[data-theme="dark"] .apikey-fun-key-item.active {
-  border-color: rgba(96, 165, 250, 0.62);
-  background: rgba(37, 99, 235, 0.22);
+  border-color: color-mix(in srgb, var(--primary) 62%, transparent);
+  background: color-mix(in srgb, var(--primary) 22%, transparent);
   box-shadow:
-    0 12px 28px rgba(37, 99, 235, 0.16),
-    inset 0 0 0 1px rgba(96, 165, 250, 0.08);
+    0 12px 28px color-mix(in srgb, var(--primary) 16%, transparent),
+    inset 0 0 0 1px color-mix(in srgb, var(--primary) 8%, transparent);
 }
 
 [data-theme="dark"] .apikey-fun-key-name-row .edit-icon-btn,
@@ -973,15 +973,15 @@ html[data-theme="dark"] .apikey-fun-key-name-row .edit-icon-btn {
 
 [data-theme="dark"] .apikey-fun-key-name-row .edit-icon-btn:hover,
 html[data-theme="dark"] .apikey-fun-key-name-row .edit-icon-btn:hover {
-  color: #bfdbfe;
-  background: rgba(59, 130, 246, 0.14);
+  color: var(--primary-soft);
+  background: color-mix(in srgb, var(--primary) 14%, transparent);
 }
 
 [data-theme="dark"] .apikey-fun-rename-input,
 html[data-theme="dark"] .apikey-fun-rename-input {
-  border-color: rgba(96, 165, 250, 0.72);
+  border-color: color-mix(in srgb, var(--primary) 72%, transparent);
   background: rgba(24, 24, 27, 0.94);
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.18);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 18%, transparent);
 }
 
 /* 转圈与动效 */
@@ -1056,6 +1056,6 @@ html[data-theme="dark"] .apikey-fun-rename-input {
   .spin,
   .apikey-fun-skeleton-text {
     animation: none !important;
-    transition: none !important;
+    transition: none var(--motion-micro) var(--ease-standard);
   }
 }

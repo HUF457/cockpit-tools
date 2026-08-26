@@ -98,7 +98,7 @@
 
 .side-nav-update-btn.is-update {
   background: var(--primary);
-  color: #fff;
+  color: var(--on-primary);
 }
 
 .side-nav-update-btn.is-restart {
@@ -108,7 +108,7 @@
 
 .side-nav-update-btn.is-updated {
   background: var(--primary);
-  color: #fff;
+  color: var(--on-primary);
 }
 
 .side-nav-update-btn.is-progress {
@@ -172,7 +172,7 @@
   height: 34px;
   border-radius: var(--radius-xl);
   background: var(--gradient-primary);
-  color: white;
+  color: var(--on-primary);
   display: flex;
   align-items: center;
   justify-content: center;

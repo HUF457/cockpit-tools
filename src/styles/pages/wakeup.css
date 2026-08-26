@@ -395,7 +395,7 @@ select.wakeup-input::-ms-expand,
 
 .wakeup-toggle-group .btn.is-active {
   background: var(--gradient-primary);
-  color: #fff;
+  color: var(--on-primary);
   border-color: transparent;
 }
 
@@ -431,7 +431,7 @@ select.wakeup-input::-ms-expand,
 
 .wakeup-segment-btn.active {
   background: var(--gradient-primary);
-  color: #fff;
+  color: var(--on-primary);
   border-color: transparent;
 }
 
@@ -460,7 +460,7 @@ select.wakeup-input::-ms-expand,
 
 .wakeup-chip.selected {
   background: var(--gradient-primary);
-  color: #fff;
+  color: var(--on-primary);
   border-color: transparent;
 }
 

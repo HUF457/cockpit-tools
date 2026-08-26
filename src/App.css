@@ -895,7 +895,7 @@
 
 .update-quick-action-btn.is-ready {
   background: var(--gradient-primary);
-  color: #fff;
+  color: var(--on-primary);
   border-color: transparent;
 }
 
