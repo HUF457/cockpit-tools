@@ -4181,15 +4181,69 @@ fn get_accounts_dir() -> PathBuf {
     accounts_dir
 }
 
-fn account_tombstone_path(account_id: &str) -> PathBuf {
-    let data_dir = account::get_data_dir().unwrap_or_else(|_| {
+fn codex_data_dir() -> PathBuf {
+    account::get_data_dir().unwrap_or_else(|_| {
         dirs::home_dir()
             .expect("无法获取用户目录")
             .join(".antigravity_cockpit")
-    });
-    data_dir
+    })
+}
+
+fn account_tombstone_path(account_id: &str) -> PathBuf {
+    codex_data_dir()
         .join(CODEX_ACCOUNT_TOMBSTONES_DIR)
         .join(format!("{}.json", account_id))
+}
+
+/// Directory paths and tombstone membership resolved once for a whole load pass.
+///
+/// Reading a single account used to cost eight filesystem operations: four
+/// `exists` probes hidden inside the data-directory helpers, a `create_dir_all`,
+/// two opens of a tombstone file that almost never exists, and the one read that
+/// actually matters. On Windows every open traverses the filesystem filter stack,
+/// so that came to roughly a millisecond per account and a few hundred accounts
+/// kept the list command busy for a third of a second before the UI saw a row.
+struct CodexAccountLoadContext {
+    accounts_dir: PathBuf,
+    tombstones_dir: PathBuf,
+    tombstoned_ids: HashSet<String>,
+}
+
+impl CodexAccountLoadContext {
+    fn new() -> Self {
+        let data_dir = codex_data_dir();
+        let tombstones_dir = data_dir.join(CODEX_ACCOUNT_TOMBSTONES_DIR);
+        // One directory read replaces a failed open per account.
+        let mut tombstoned_ids = HashSet::new();
+        if let Ok(entries) = fs::read_dir(&tombstones_dir) {
+            for entry in entries.flatten() {
+                if let Some(id) = entry
+                    .file_name()
+                    .to_str()
+                    .and_then(|name| name.strip_suffix(".json"))
+                {
+                    tombstoned_ids.insert(id.to_string());
+                }
+            }
+        }
+        Self {
+            accounts_dir: data_dir.join("codex_accounts"),
+            tombstones_dir,
+            tombstoned_ids,
+        }
+    }
+
+    fn detail_path(&self, account_id: &str) -> PathBuf {
+        self.accounts_dir.join(format!("{}.json", account_id))
+    }
+
+    fn tombstone(&self, account_id: &str) -> Option<CodexAccountTombstone> {
+        if !self.tombstoned_ids.contains(account_id) {
+            return None;
+        }
+        let path = self.tombstones_dir.join(format!("{}.json", account_id));
+        serde_json::from_str(&fs::read_to_string(path).ok()?).ok()
+    }
 }
 
 #[derive(Debug, serde::Deserialize, serde::Serialize)]
@@ -4220,7 +4274,14 @@ fn account_is_tombstoned(account_id: &str) -> bool {
 }
 
 fn validate_loaded_account_tombstone(account: &CodexAccount) -> Result<bool, String> {
-    let Some(tombstone) = read_account_tombstone(&account.id) else {
+    validate_account_tombstone(account, read_account_tombstone(&account.id))
+}
+
+fn validate_account_tombstone(
+    account: &CodexAccount,
+    tombstone: Option<CodexAccountTombstone>,
+) -> Result<bool, String> {
+    let Some(tombstone) = tombstone else {
         return Ok(true);
     };
     if tombstone.deleted {
@@ -6174,16 +6235,31 @@ fn load_account_with_summary(
     account_id: &str,
     summary: Option<&CodexAccountSummary>,
 ) -> Result<Option<CodexAccount>, String> {
-    if account_is_tombstoned(account_id) {
-        return Ok(None);
-    }
-    let path = get_accounts_dir().join(format!("{}.json", account_id));
-    if !path.exists() {
-        return Ok(None);
-    }
+    load_account_with_context(account_id, summary, &CodexAccountLoadContext::new())
+}
 
-    let content = fs::read_to_string(&path)
-        .map_err(|error| format!("读取账号详情失败 ({}): {}", path.display(), error))?;
+fn load_account_with_context(
+    account_id: &str,
+    summary: Option<&CodexAccountSummary>,
+    context: &CodexAccountLoadContext,
+) -> Result<Option<CodexAccount>, String> {
+    let tombstone = context.tombstone(account_id);
+    if tombstone.as_ref().is_some_and(|entry| entry.deleted) {
+        return Ok(None);
+    }
+    let path = context.detail_path(account_id);
+    // One read instead of an `exists` probe followed by the same open again.
+    let content = match fs::read_to_string(&path) {
+        Ok(content) => content,
+        Err(error) if error.kind() == std::io::ErrorKind::NotFound => return Ok(None),
+        Err(error) => {
+            return Err(format!(
+                "读取账号详情失败 ({}): {}",
+                path.display(),
+                error
+            ))
+        }
+    };
 
     // AES-GCM envelope first (#1104), then plaintext + compat paths.
     if let Ok((mut account, needs_rotation)) =
@@ -6199,7 +6275,7 @@ fn load_account_with_summary(
         let migrated_wire_api = migrate_apikey_fun_wire_api(&mut account);
         let migrated_deepseek = enforce_deepseek_responses_account(&mut account);
         let migrated_websocket = normalize_api_key_websocket_capability(&mut account);
-        if !validate_loaded_account_tombstone(&account)? {
+        if !validate_account_tombstone(&account, context.tombstone(&account.id))? {
             return Ok(None);
         }
         if needs_rotation
@@ -6233,7 +6309,7 @@ fn load_account_with_summary(
     let _ = migrate_apikey_fun_wire_api(&mut account);
     let _ = enforce_deepseek_responses_account(&mut account);
     let _ = clear_bound_oauth_local_gateway_flag(&mut account);
-    if !validate_loaded_account_tombstone(&account)? {
+    if !validate_account_tombstone(&account, context.tombstone(&account.id))? {
         return Ok(None);
     }
 
@@ -6491,7 +6567,11 @@ const CODEX_ACCOUNT_PARALLEL_LOAD_MAX_WORKERS: usize = 8;
 fn load_indexed_accounts(
     summaries: &[CodexAccountSummary],
 ) -> Vec<Result<Option<CodexAccount>, String>> {
-    let load_one = |summary: &CodexAccountSummary| load_account_with_summary(&summary.id, Some(summary));
+    // Resolve the directories and the tombstone set once for the whole pass
+    // rather than re-deriving them inside every single account load.
+    let context = CodexAccountLoadContext::new();
+    let load_one =
+        |summary: &CodexAccountSummary| load_account_with_context(&summary.id, Some(summary), &context);
 
     let workers = if summaries.len() < CODEX_ACCOUNT_PARALLEL_LOAD_THRESHOLD {
         1
