@@ -1,0 +1,207 @@
+/* ============================================
+   Cockpit Tools - Motion
+   ============================================
+
+   One place for every duration, easing and entrance in the app.
+
+   FOUR TIERS. Pick the tier from what the change owns on screen,
+   never from taste — that is the whole point of the file.
+
+     micro (--motion-micro, 120ms)
+       Feedback on a control the pointer is already touching:
+       hover tint, press, focus ring, checkbox, chevron flip,
+       icon colour. Must finish before the eye leaves the control.
+
+     meso (--motion-meso, 180ms)
+       A small surface appears next to its trigger and can be
+       dismissed by looking away: dropdown menu, popover, tooltip,
+       inline expand/collapse, toast.
+
+     macro (--motion-macro, 240ms)
+       A surface takes over the screen: modal and its scrim,
+       drawer, full-panel swap.
+
+     data (--motion-data, 400ms)
+       Value-driven bars that move because the number moved, not
+       because the user clicked. Never gates interaction.
+
+   ENTRANCES ONLY. React unmounts these surfaces synchronously, so
+   there is no exit animation anywhere; a surface that fades in and
+   snaps out everywhere reads as deliberate, one that does it in
+   half the app reads as broken. Do not add a lone exit.
+
+   NO DECORATIVE LOOPS. Only an indeterminate progress indicator may
+   repeat forever — ct-spin, and the skeleton shimmer on the API-key
+   page. A steady state (a service is up, today is a streak day) is
+   carried by colour, not by a pulse; anything else that loops is
+   competing with the content for attention.
+
+   TWO ZONES SIT OUTSIDE THE TIERS, on purpose:
+     - The rocket easter egg in components.css (countPop, rocketFly)
+       is meant to feel unlike the rest of the app.
+     - The unlock celebration in pages/settings/Settings.css.
+   Nothing else gets a bespoke curve.
+
+   Adding a surface? Register it in the blocks at the bottom of
+   this file rather than declaring a local @keyframes — duplicate
+   global keyframe names silently overwrite each other. */
+
+:root {
+  --motion-micro: 120ms;
+  --motion-meso: 180ms;
+  --motion-macro: 240ms;
+  --motion-data: 400ms;
+  /* One period for every indeterminate spinner in the app. */
+  --motion-spin: 900ms;
+
+  /* Decelerating — anything arriving on screen. */
+  --ease-entrance: cubic-bezier(0.16, 1, 0.3, 1);
+  /* Symmetric — a state toggling in place, both directions. */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  /* Accelerating — anything leaving. */
+  --ease-exit: cubic-bezier(0.4, 0, 1, 1);
+}
+
+/* ============================================
+   Canonical keyframes
+   ============================================ */
+
+@keyframes ct-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Dialogs: settle in place rather than travel, so the eye stays on
+   the title instead of chasing the box. */
+@keyframes ct-dialog-in {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Anchored menus: a hair of downward travel reads as "this belongs
+   to the trigger above" without breaking drop-up placements. */
+@keyframes ct-menu-in {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Inline blocks revealed inside an existing page. */
+@keyframes ct-rise-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Corner toasts drift in from their own corner. */
+@keyframes ct-toast-in {
+  from { opacity: 0; transform: translate(8px, 8px); }
+  to { opacity: 1; transform: translate(0, 0); }
+}
+
+@keyframes ct-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ============================================
+   Surface registry
+
+   Every surface that appears on top of the page gets its entrance
+   from here, so the app cannot drift back into "some of them
+   animate". Local rules must not re-declare these.
+   ============================================ */
+
+/* --- Scrims: the dimmed backdrop behind a modal --- */
+.modal-overlay,
+.qs-overlay,
+.close-dialog-overlay,
+.codex-oauth-policy-modal-overlay,
+.codex-sync-settings-overlay,
+.codex-experimental-model-manager-overlay,
+.codex-experimental-model-custom-context-overlay,
+.announcement-image-preview-overlay,
+.settings-account-scope-dialog-overlay,
+.platform-layout-group-editor-overlay,
+.floating-card-close-confirm-backdrop {
+  animation: ct-fade-in var(--motion-macro) var(--ease-standard);
+}
+
+/* --- Dialog surfaces --- */
+/* `> *` covers the dialog card whatever it is called locally; every
+   scrim in this app wraps exactly one card. Fill mode is left at
+   `none` on purpose: a lingering `transform: scale(1)` would turn
+   the card into a containing block and break any `position: fixed`
+   descendant it holds. */
+.modal-overlay > *,
+.qs-overlay > *,
+.close-dialog-overlay > *,
+.codex-oauth-policy-modal-overlay > *,
+.codex-sync-settings-overlay > *,
+.codex-experimental-model-manager-overlay > *,
+.codex-experimental-model-custom-context-overlay > *,
+.settings-account-scope-dialog-overlay > *,
+.platform-layout-group-editor-overlay > *,
+.floating-card-close-confirm-backdrop > * {
+  animation: ct-dialog-in var(--motion-macro) var(--ease-entrance);
+}
+
+/* --- Anchored menus: positioned against a trigger, dismissed on
+   blur. These are portalled with inline `position: fixed`, so the
+   class list is the only handle we have on them. --- */
+.settings-select-menu,
+.single-select-dropdown-menu,
+.codex-speed-menu,
+.platform-layout-icon-select-menu,
+.platform-group-switcher-dropdown,
+.side-nav-more-popover,
+.codex-visibility-repair-instance-menu,
+.codex-wakeup-single-select-panel-portal,
+.codex-experimental-model-editor__reasoning-menu,
+.codex-experimental-model-editor__context-menu {
+  animation: ct-menu-in var(--motion-meso) var(--ease-entrance);
+}
+
+/* --- Corner toasts --- */
+.toast,
+.silent-update-toast {
+  animation: ct-toast-in var(--motion-meso) var(--ease-entrance);
+}
+
+/* ============================================
+   Reduced motion
+
+   Two switches feed the same rules: the in-app setting
+   (`data-reduced-motion`, set by utils/reducedMotion.ts) and the
+   OS-level preference. Indeterminate spinners survive both — with
+   no spinner a long operation looks like a hang.
+   ============================================ */
+
+html[data-reduced-motion="true"] {
+  scroll-behavior: auto !important;
+}
+
+html[data-reduced-motion="true"] body {
+  background: var(--bg-primary) !important;
+}
+
+html[data-reduced-motion="true"] *:not(.loading-spinner):not(.spin):not(.icon-spin):not(.floating-card-spin):not(.animate-spin),
+html[data-reduced-motion="true"] *:not(.loading-spinner):not(.spin):not(.icon-spin):not(.floating-card-spin):not(.animate-spin)::before,
+html[data-reduced-motion="true"] *:not(.loading-spinner):not(.spin):not(.icon-spin):not(.floating-card-spin):not(.animate-spin)::after {
+  animation: none !important;
+  transition: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  scroll-behavior: auto !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  *:not(.loading-spinner):not(.spin):not(.icon-spin):not(.floating-card-spin):not(.animate-spin),
+  *:not(.loading-spinner):not(.spin):not(.icon-spin):not(.floating-card-spin):not(.animate-spin)::before,
+  *:not(.loading-spinner):not(.spin):not(.icon-spin):not(.floating-card-spin):not(.animate-spin)::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

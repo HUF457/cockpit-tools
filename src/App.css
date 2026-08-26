@@ -4,6 +4,9 @@
 @import './components/QuickSettingsPopover.css';
 @import './styles/settings-shared.css';
 @import './styles/pages.css';
+/* Last on purpose: the motion registry owns every entrance, so it has to
+   outrank same-specificity leftovers in the sheets above. */
+@import './styles/motion.css';
 
 .quota-alert-modal-content {
   display: flex;
