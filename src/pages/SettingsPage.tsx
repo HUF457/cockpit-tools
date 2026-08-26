@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { openUrl } from '@tauri-apps/plugin-opener';
 import { open } from '@tauri-apps/plugin-dialog';
 import { invoke } from '@tauri-apps/api/core';
-import { coalescedInvoke } from '../utils/invokeCache';
+import { coalescedInvoke, invalidateInvokeCache } from '../utils/invokeCache';
 import { getVersion } from '@tauri-apps/api/app';
 import { getCurrentWebview } from '@tauri-apps/api/webview';
 import { changeLanguage, getCurrentLanguage, normalizeLanguage } from '../i18n';
@@ -1273,6 +1273,7 @@ export function SettingsPage() {
       const operation = generalSaveQueueRef.current.then(async () => {
         try {
           await invoke('patch_general_config', { updates });
+          invalidateInvokeCache('get_general_config');
           persistedGeneralPayloadRef.current = {
             ...(persistedGeneralPayloadRef.current ?? {}),
             ...updates,

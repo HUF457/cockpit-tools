@@ -163,7 +163,7 @@ import {
 
 import { listen, UnlistenFn } from "@tauri-apps/api/event";
 import { invoke } from "@tauri-apps/api/core";
-import { coalescedInvoke } from "../utils/invokeCache";
+import { coalescedInvoke, invalidateInvokeCache } from "../utils/invokeCache";
 import {
   confirm as confirmDialog,
   open as openFileDialog,
@@ -2156,6 +2156,7 @@ export function CodexAccountsPage() {
           await invoke("patch_general_config", {
             updates: { codex_hide_relay_quota: true },
           });
+          invalidateInvokeCache("get_general_config");
           window.dispatchEvent(new Event("config-updated"));
         }
         if (legacy !== null) {

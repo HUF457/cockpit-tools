@@ -2,6 +2,7 @@ import { emit } from '@tauri-apps/api/event';
 import { getCurrentWindow } from '@tauri-apps/api/window';
 import type { Page } from '../types/navigation';
 import { ALL_PLATFORM_IDS, PLATFORM_PAGE_MAP, type PlatformId } from '../types/platform';
+import { invalidateInvokeCache } from './invokeCache';
 
 export const ACCOUNTS_CHANGED_EVENT = 'accounts:changed';
 export const CURRENT_ACCOUNT_CHANGED_EVENT = 'accounts:current-changed';
@@ -87,6 +88,9 @@ export async function emitAccountsChanged(payload: AccountSyncEventPayload) {
 }
 
 export async function emitCurrentAccountChanged(payload: AccountSyncEventPayload) {
+  // The backend's current-account answer just changed; drop coalesced reads so
+  // a caller arriving now cannot be glued to a pre-switch in-flight promise.
+  invalidateInvokeCache('get_provider_current_account_id');
   await emitAccountSyncEvent(CURRENT_ACCOUNT_CHANGED_EVENT, payload);
 }
 

@@ -13,7 +13,7 @@ import { getVersion } from '@tauri-apps/api/app';
 import { getCurrentWindow } from '@tauri-apps/api/window';
 import { listen, UnlistenFn } from '@tauri-apps/api/event';
 import { invoke } from '@tauri-apps/api/core';
-import { coalescedInvoke } from './utils/invokeCache';
+import { coalescedInvoke, invalidateInvokeCache } from './utils/invokeCache';
 import { open } from '@tauri-apps/plugin-dialog';
 import { useTranslation } from 'react-i18next';
 import { FileText, FolderOpen, RefreshCw, X } from 'lucide-react';
@@ -1121,6 +1121,7 @@ function MainApp() {
               await invoke('patch_general_config', {
                 updates: { ui_scale: toSave },
               });
+              invalidateInvokeCache('get_general_config');
               window.dispatchEvent(new Event('config-updated'));
             } catch (error) {
               console.error('Failed to save UI scale:', error);

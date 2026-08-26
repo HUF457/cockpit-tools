@@ -2,8 +2,10 @@ import { coalescedInvoke } from '../utils/invokeCache';
 import type { AntigravityRuntimeTarget } from '../utils/antigravityRuntimeTarget';
 
 // A full scan walks the filesystem and costs ~2.5s when Antigravity is absent.
-// The install cannot change while the app is open, so both the boot-time
-// resolver and the version badge should share one answer.
+// A found install stays put while the app is open, so the boot-time resolver
+// and the version badge can share one positive answer. A miss is not stable -
+// the user may install Antigravity with Cockpit running - so only hits are
+// held for the TTL; concurrent scans still share the in-flight promise.
 const INSTALLED_VERSION_TTL_MS = 60_000;
 
 export interface AntigravityInstalledVersionInfo {
@@ -22,7 +24,7 @@ export async function getAntigravityInstalledVersionInfo(
   return coalescedInvoke<AntigravityInstalledVersionInfo | null>(
     'get_antigravity_installed_version_info',
     { target, scanMode },
-    { ttlMs: INSTALLED_VERSION_TTL_MS },
+    { ttlMs: INSTALLED_VERSION_TTL_MS, cacheValue: (info) => info !== null },
   );
 }
 

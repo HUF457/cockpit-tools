@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { createPortal } from 'react-dom';
 import { open } from '@tauri-apps/plugin-dialog';
 import { invoke } from '@tauri-apps/api/core';
-import { coalescedInvoke } from '../utils/invokeCache';
+import { coalescedInvoke, invalidateInvokeCache } from '../utils/invokeCache';
 import {
   Settings,
   RefreshCw,
@@ -879,6 +879,7 @@ export function QuickSettingsPopover({ type }: QuickSettingsPopoverProps) {
         const latest = await coalescedInvoke<GeneralConfig>('get_general_config');
         const merged = { ...latest, ...updates };
         await invoke('patch_general_config', { updates });
+        invalidateInvokeCache('get_general_config');
         if (saveVersion === configSaveVersionRef.current) {
           configRef.current = merged;
           setConfig(merged);

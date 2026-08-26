@@ -39,6 +39,12 @@ function keyFor(command: string, args?: Record<string, unknown>): string {
 export interface CoalesceOptions {
   /** Reuse an already-settled result for this many ms. Defaults to 0 (in-flight only). */
   ttlMs?: number;
+  /**
+   * Gate for TTL reuse: return false to drop the settled value immediately
+   * (in-flight sharing still applies). Lets callers cache positive answers
+   * without freezing a miss for the whole TTL.
+   */
+  cacheValue?: (value: unknown) => boolean;
 }
 
 export function coalescedInvoke<T>(
@@ -65,7 +71,8 @@ export function coalescedInvoke<T>(
   entry.promise = invoke<T>(command, args).then(
     (value) => {
       entry.settledAt = Date.now();
-      if (ttlMs <= 0) entries.delete(key);
+      const keep = ttlMs > 0 && (options.cacheValue?.(value) ?? true);
+      if (!keep) entries.delete(key);
       return value;
     },
     (error) => {
