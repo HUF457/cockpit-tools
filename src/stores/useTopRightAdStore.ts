@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import type { TopRightAdState } from '../types/topRightAd';
 import { forceRefreshTopRightAdState, getTopRightAdState } from '../services/topRightAdService';
+import { PROMO_SURFACES_ENABLED } from '../config/forkFeatures';
 
 const EMPTY_STATE: TopRightAdState = {
   ad: null,
@@ -64,14 +65,18 @@ function persistTopRightAdState(state: TopRightAdState): void {
   }
 }
 
-const initialTopRightAdState = loadCachedTopRightAdState();
+const initialTopRightAdState = PROMO_SURFACES_ENABLED ? loadCachedTopRightAdState() : EMPTY_STATE;
 
 export const useTopRightAdStore = create<TopRightAdStoreState>((set, get) => ({
   state: initialTopRightAdState,
   loading: false,
-  initialized: initialTopRightAdState.ads.length > 0,
+  initialized: !PROMO_SURFACES_ENABLED || initialTopRightAdState.ads.length > 0,
 
   fetchState: async () => {
+    if (!PROMO_SURFACES_ENABLED) {
+      set({ state: EMPTY_STATE, loading: false, initialized: true });
+      return EMPTY_STATE;
+    }
     set({ loading: true });
     try {
       const nextState = normalizeTopRightAdState(await getTopRightAdState());
@@ -87,6 +92,10 @@ export const useTopRightAdStore = create<TopRightAdStoreState>((set, get) => ({
   },
 
   forceRefreshState: async () => {
+    if (!PROMO_SURFACES_ENABLED) {
+      set({ state: EMPTY_STATE, loading: false, initialized: true });
+      return EMPTY_STATE;
+    }
     set({ loading: true });
     try {
       const nextState = normalizeTopRightAdState(await forceRefreshTopRightAdState());

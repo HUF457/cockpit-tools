@@ -32,6 +32,7 @@ import {
   resolveUpdaterDownloadUrl,
 } from '../utils/updaterReleaseNotes';
 import { applyReducedMotion } from '../utils/reducedMotion';
+import { PROMO_SURFACES_ENABLED } from '../config/forkFeatures';
 import { UI_SCALE_OPTION_STRINGS as UI_SCALE_OPTIONS } from '../utils/uiScale';
 import {
   setClaudeQuotaDisplayRemainingEnabled,
@@ -3840,29 +3841,31 @@ export function SettingsPage() {
                 </div>
               </div>
 
-              <div className="settings-row">
-                <div className="row-label">
-                  <div className="row-title">
-                    {t('settings.general.topRightAdVisible', '显示顶部推广')}
+              {PROMO_SURFACES_ENABLED && (
+                <div className="settings-row">
+                  <div className="row-label">
+                    <div className="row-title">
+                      {t('settings.general.topRightAdVisible', '显示顶部推广')}
+                    </div>
+                    <div className="row-desc">
+                      {t(
+                        'settings.general.topRightAdVisibleDesc',
+                        '关闭后隐藏应用顶部推广位。'
+                      )}
+                    </div>
                   </div>
-                  <div className="row-desc">
-                    {t(
-                      'settings.general.topRightAdVisibleDesc',
-                      '关闭后隐藏应用顶部推广位。'
-                    )}
+                  <div className="row-control">
+                    <label className="switch">
+                      <input
+                        type="checkbox"
+                        checked={topRightAdVisible}
+                        onChange={(e) => setTopRightAdVisible(e.target.checked)}
+                      />
+                      <span className="slider"></span>
+                    </label>
                   </div>
                 </div>
-                <div className="row-control">
-                  <label className="switch">
-                    <input
-                      type="checkbox"
-                      checked={topRightAdVisible}
-                      onChange={(e) => setTopRightAdVisible(e.target.checked)}
-                    />
-                    <span className="slider"></span>
-                  </label>
-                </div>
-              </div>
+              )}
 
               <div className="settings-row">
                 <div className="row-label">

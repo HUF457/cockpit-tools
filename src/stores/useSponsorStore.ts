@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import type { SponsorModuleState } from '../types/sponsor';
 import { forceRefreshSponsorModuleState, getSponsorModuleState } from '../services/sponsorService';
+import { PROMO_SURFACES_ENABLED } from '../config/forkFeatures';
 
 const EMPTY_STATE: SponsorModuleState = {
   sponsorModule: null,
@@ -16,9 +17,13 @@ interface SponsorStoreState {
 export const useSponsorStore = create<SponsorStoreState>((set) => ({
   state: EMPTY_STATE,
   loading: false,
-  initialized: false,
+  initialized: !PROMO_SURFACES_ENABLED,
 
   fetchState: async (force = false) => {
+    if (!PROMO_SURFACES_ENABLED) {
+      set({ state: EMPTY_STATE, loading: false, initialized: true });
+      return EMPTY_STATE;
+    }
     set({ loading: true });
     try {
       const nextState = force
