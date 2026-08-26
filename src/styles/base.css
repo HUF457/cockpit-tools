@@ -58,15 +58,16 @@
   --gradient-success: var(--success);
   --gradient-danger: var(--danger);
 
-  /* Radius — exactly 3 rendered tiers + pill/circle exception.
+  /* Radius — exactly 3 rendered tiers + pill/circle exception, kept on the
+     large-rounded-rectangle scale the product is designed around.
      sm: tiny inline elements (badges, chips)
      md: controls (buttons, inputs, tabs, nav items); lg is a legacy alias
      xl: containers (cards, modals, popovers, callouts)
      full: pills, progress bars, scrollbar thumbs; 50% reserved for circles */
-  --radius-sm: 4px;
-  --radius-md: 6px;
+  --radius-sm: 6px;
+  --radius-md: 12px;
   --radius-lg: var(--radius-md);
-  --radius-xl: 8px;
+  --radius-xl: 16px;
   --radius-full: 9999px;
 
   /* Component sizing */
