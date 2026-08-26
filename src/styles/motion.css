@@ -75,6 +75,13 @@
 
 /* ============================================
    Canonical keyframes
+
+   These move things with the individual `translate` / `scale`
+   properties rather than `transform`, because the surfaces they are
+   applied to sometimes already own their `transform` — the side-nav
+   popover centres itself with translateY(-50%). The individual
+   properties compose with that instead of overwriting it, so an
+   entrance can never knock a surface out of position.
    ============================================ */
 
 @keyframes ct-fade-in {
@@ -85,31 +92,31 @@
 /* Dialogs: settle in place rather than travel, so the eye stays on
    the title instead of chasing the box. */
 @keyframes ct-dialog-in {
-  from { opacity: 0; transform: scale(0.96); }
-  to { opacity: 1; transform: scale(1); }
+  from { opacity: 0; scale: 0.96; }
+  to { opacity: 1; scale: 1; }
 }
 
 /* Anchored menus: a hair of downward travel reads as "this belongs
    to the trigger above" without breaking drop-up placements. */
 @keyframes ct-menu-in {
-  from { opacity: 0; transform: translateY(-4px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; translate: 0 -4px; }
+  to { opacity: 1; translate: 0 0; }
 }
 
 /* Inline blocks revealed inside an existing page. */
 @keyframes ct-rise-in {
-  from { opacity: 0; transform: translateY(6px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; translate: 0 6px; }
+  to { opacity: 1; translate: 0 0; }
 }
 
 /* Corner toasts drift in from their own corner. */
 @keyframes ct-toast-in {
-  from { opacity: 0; transform: translate(8px, 8px); }
-  to { opacity: 1; transform: translate(0, 0); }
+  from { opacity: 0; translate: 8px 8px; }
+  to { opacity: 1; translate: 0 0; }
 }
 
 @keyframes ct-spin {
-  to { transform: rotate(360deg); }
+  to { rotate: 360deg; }
 }
 
 /* ============================================
