@@ -144,7 +144,7 @@
 
 .action-message.warning {
   background: color-mix(in srgb, var(--warning) 12%, transparent);
-  color: #b45309;
+  color: var(--warning);
   border: 1px solid color-mix(in srgb, var(--warning) 30%, transparent);
 }
 

@@ -562,7 +562,7 @@
 
 .codex-local-access-status.running {
   background: color-mix(in srgb, var(--success) 14%, transparent);
-  color: #15803d;
+  color: var(--success);
 }
 
 .codex-local-access-status.stopped {
@@ -1017,18 +1017,18 @@
 
 .codex-local-access-member-quota.high {
   background: color-mix(in srgb, var(--success) 14%, transparent);
-  color: #15803d;
+  color: var(--success);
 }
 
 .codex-local-access-member-quota.medium {
   background: color-mix(in srgb, var(--warning) 14%, transparent);
-  color: #b45309;
+  color: var(--warning);
 }
 
 .codex-local-access-member-quota.low,
 .codex-local-access-member-quota.critical {
   background: color-mix(in srgb, var(--danger) 14%, transparent);
-  color: #b91c1c;
+  color: var(--danger);
 }
 
 .codex-local-access-footer {
@@ -1416,7 +1416,7 @@
 
 .codex-batch-delete-job__status.completed {
   background: color-mix(in srgb, var(--success) 10%, var(--bg-surface));
-  color: #15803d;
+  color: var(--success);
 }
 
 .codex-batch-delete-job__progress {
@@ -1442,7 +1442,7 @@
   padding: 8px 10px;
   border-radius: var(--radius-xl);
   background: color-mix(in srgb, var(--danger) 7%, var(--bg-surface));
-  color: #b91c1c;
+  color: var(--danger);
   font-size: 12px;
   line-height: 1.45;
 }
@@ -1713,18 +1713,18 @@
 
 [data-theme="dark"] .codex-local-access-member-quota.high {
   background: color-mix(in srgb, var(--success) 20%, transparent);
-  color: #86efac;
+  color: var(--success);
 }
 
 [data-theme="dark"] .codex-local-access-member-quota.medium {
   background: color-mix(in srgb, var(--warning) 20%, transparent);
-  color: #fcd34d;
+  color: var(--warning);
 }
 
 [data-theme="dark"] .codex-local-access-member-quota.low,
 [data-theme="dark"] .codex-local-access-member-quota.critical {
   background: color-mix(in srgb, var(--danger) 20%, transparent);
-  color: #fca5a5;
+  color: var(--danger);
 }
 
 [data-theme="dark"] .codex-local-access-status.running {
@@ -2889,7 +2889,7 @@
 .codex-accounts-page .folder-preview-item .tier-badge.sponsor-api,
 .codex-wakeup-account-chip .tier-badge.sponsor-api {
   background: color-mix(in srgb, var(--warning) 14%, transparent);
-  color: #92600a;
+  color: var(--warning);
   border: 1px solid rgba(180, 116, 11, 0.32);
 }
 
@@ -2906,7 +2906,7 @@
 
 .codex-accounts-page .codex-status-pill.quota-error {
   background: color-mix(in srgb, var(--danger) 12%, transparent);
-  color: #b91c1c;
+  color: var(--danger);
   border: 1px solid color-mix(in srgb, var(--danger) 25%, transparent);
 }
 
@@ -2947,13 +2947,13 @@
 
 .codex-accounts-page .codex-subscription-badge.warning {
   background: color-mix(in srgb, var(--warning) 14%, transparent);
-  color: #b45309;
+  color: var(--warning);
   border: 1px solid color-mix(in srgb, var(--warning) 28%, transparent);
 }
 
 .codex-accounts-page .codex-subscription-badge.expired {
   background: color-mix(in srgb, var(--danger) 12%, transparent);
-  color: #b91c1c;
+  color: var(--danger);
   border: 1px solid color-mix(in srgb, var(--danger) 25%, transparent);
 }
 
@@ -3576,7 +3576,7 @@
 
 .codex-reset-credit-btn.confirm {
   border-color: color-mix(in srgb, var(--warning) 45%, transparent);
-  color: #b45309;
+  color: var(--warning);
   background: color-mix(in srgb, var(--warning) 8%, transparent);
 }
 
@@ -3792,7 +3792,7 @@
 
 .codex-reset-credit-confirm-detail-status.is-expired {
   background: color-mix(in srgb, var(--warning) 12%, var(--bg-tertiary));
-  color: #b45309;
+  color: var(--warning);
 }
 
 .codex-reset-credit-confirm-detail-status.is-unknown {
@@ -3894,7 +3894,7 @@
 
 [data-theme="dark"] .codex-reset-credit-confirm-expiry {
   background: color-mix(in srgb, var(--warning) 10%, transparent);
-  color: #fbbf24;
+  color: var(--warning);
   border: 1px solid color-mix(in srgb, var(--warning) 20%, transparent);
 }
 
@@ -3923,7 +3923,7 @@
 
 [data-theme="dark"] .codex-reset-credit-confirm-detail-status.is-expired {
   background: color-mix(in srgb, var(--warning) 12%, transparent);
-  color: #fbbf24;
+  color: var(--warning);
   border-color: color-mix(in srgb, var(--warning) 18%, transparent);
 }
 
@@ -3993,7 +3993,7 @@
   border-radius: var(--radius-xl);
   background: color-mix(in srgb, var(--danger) 8%, transparent);
   border: 1px solid color-mix(in srgb, var(--danger) 20%, transparent);
-  color: #b91c1c;
+  color: var(--danger);
   font-size: 12px;
   line-height: 1.35;
 }
@@ -4413,12 +4413,12 @@
 
 .codex-accounts-page .codex-compact-expiry.warning {
   background: color-mix(in srgb, var(--warning) 14%, transparent);
-  color: #b45309;
+  color: var(--warning);
 }
 
 .codex-accounts-page .codex-compact-expiry.expired {
   background: color-mix(in srgb, var(--danger) 12%, transparent);
-  color: #b91c1c;
+  color: var(--danger);
 }
 
 .codex-accounts-page .codex-compact-expiry.missing {
@@ -4557,13 +4557,13 @@
 
 .codex-accounts-page .message-bar.success {
   background: color-mix(in srgb, var(--success) 12%, transparent);
-  color: #15803d;
+  color: var(--success);
   border: 1px solid color-mix(in srgb, var(--success) 30%, transparent);
 }
 
 .codex-accounts-page .message-bar.error {
   background: color-mix(in srgb, var(--danger) 12%, transparent);
-  color: #b91c1c;
+  color: var(--danger);
   border: 1px solid color-mix(in srgb, var(--danger) 30%, transparent);
 }
 
@@ -6283,7 +6283,8 @@
 .codex-account-note-mail-preview.is-changed {
   border-color: color-mix(in srgb, var(--success) 48%, var(--primary));
   background: color-mix(in srgb, var(--success) 12%, var(--bg-secondary));
-  animation: codex-account-note-mail-preview-pulse 1200ms ease-out;
+  animation: codex-account-note-mail-preview-pulse var(--motion-data)
+    var(--ease-entrance);
 }
 
 .codex-account-note-mail-preview__code {
@@ -6311,7 +6312,8 @@
   .codex-account-note-mail-preview__code
   strong {
   color: color-mix(in srgb, var(--success) 70%, var(--text-primary));
-  animation: codex-account-note-mail-code-pop 700ms ease-out;
+  animation: codex-account-note-mail-code-pop var(--motion-data)
+    var(--ease-entrance);
 }
 
 .codex-account-note-mail-preview__code .codex-account-note-icon-btn {
@@ -8411,7 +8413,7 @@
 
 .codex-provider-detail-title-chip.sponsor {
   background: color-mix(in srgb, var(--warning) 14%, transparent);
-  color: #92600a;
+  color: var(--warning);
   border-color: rgba(180, 116, 11, 0.4);
 }
 
@@ -8948,12 +8950,12 @@
 
 .codex-add-modal .add-status.success {
   background: color-mix(in srgb, var(--success) 12%, transparent);
-  color: #15803d;
+  color: var(--success);
 }
 
 .codex-add-modal .add-status.error {
   background: color-mix(in srgb, var(--danger) 12%, transparent);
-  color: #b91c1c;
+  color: var(--danger);
 }
 
 .codex-external-import-overlay {
@@ -9041,19 +9043,19 @@
 .codex-external-import-status.is-success {
   border-color: color-mix(in srgb, var(--success) 28%, transparent);
   background: color-mix(in srgb, var(--success) 10%, transparent);
-  color: #15803d;
+  color: var(--success);
 }
 
 .codex-external-import-status.is-partial {
   border-color: color-mix(in srgb, var(--warning) 32%, transparent);
   background: color-mix(in srgb, var(--warning) 12%, transparent);
-  color: #92400e;
+  color: var(--warning);
 }
 
 .codex-external-import-status.is-error {
   border-color: color-mix(in srgb, var(--danger) 28%, transparent);
   background: color-mix(in srgb, var(--danger) 10%, transparent);
-  color: #b91c1c;
+  color: var(--danger);
 }
 
 .codex-external-import-progress-card {
@@ -9210,7 +9212,7 @@
 .codex-external-import-step.is-done > span {
   border-color: color-mix(in srgb, var(--success) 26%, transparent);
   background: color-mix(in srgb, var(--success) 14%, transparent);
-  color: #15803d;
+  color: var(--success);
 }
 
 .codex-external-import-errors {
@@ -9447,12 +9449,12 @@
 
 [data-theme="dark"] .codex-accounts-page .message-bar.success {
   background: color-mix(in srgb, var(--success) 15%, transparent);
-  color: #4ade80;
+  color: var(--success);
 }
 
 [data-theme="dark"] .codex-accounts-page .message-bar.error {
   background: color-mix(in srgb, var(--danger) 15%, transparent);
-  color: #f87171;
+  color: var(--danger);
 }
 
 [data-theme="dark"] .codex-accounts-page .codex-status-pill.quota-error,
@@ -9595,7 +9597,7 @@
 }
 
 .codex-wakeup-runtime-badge.missing {
-  color: #b45309;
+  color: var(--warning);
   background: color-mix(in srgb, var(--warning) 14%, transparent);
 }
 
@@ -10146,7 +10148,7 @@
 
 .codex-wakeup-task-badge.enabled,
 .codex-wakeup-history-badge.success {
-  color: #166534;
+  color: var(--success);
   background: color-mix(in srgb, var(--success) 13%, transparent);
 }
 
@@ -10156,7 +10158,7 @@
 }
 
 .codex-wakeup-history-badge.error {
-  color: #b91c1c;
+  color: var(--danger);
   background: color-mix(in srgb, var(--danger) 14%, transparent);
 }
 
@@ -12833,7 +12835,7 @@
 
 .codex-session-location.is-running {
   background: color-mix(in srgb, var(--success) 12%, transparent);
-  color: #15803d;
+  color: var(--success);
 }
 
 @media (max-width: 860px) {

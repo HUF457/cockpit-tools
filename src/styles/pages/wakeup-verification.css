@@ -145,7 +145,7 @@
 }
 
 .verification-count-badge.is-tos-violation {
-  color: #b45309;
+  color: var(--warning);
   background: color-mix(in srgb, var(--warning) 12%, transparent);
   border-color: color-mix(in srgb, var(--warning) 40%, transparent);
 }
@@ -194,7 +194,7 @@
 }
 
 .verification-status-pill.is-tos-violation {
-  color: #b45309;
+  color: var(--warning);
   background: color-mix(in srgb, var(--warning) 12%, transparent);
   border-color: color-mix(in srgb, var(--warning) 28%, transparent);
 }
@@ -621,7 +621,7 @@
 }
 
 .verification-progress-message.is-failed {
-  color: #b91c1c;
+  color: var(--danger);
   border-color: color-mix(in srgb, var(--danger) 45%, transparent);
   background: color-mix(in srgb, var(--danger) 8%, transparent);
 }

@@ -280,7 +280,7 @@
 
 .pill-warning {
   background: color-mix(in srgb, var(--warning) 12%, transparent);
-  color: #b45309;
+  color: var(--warning);
   border-color: color-mix(in srgb, var(--warning) 30%, transparent);
 }
 
@@ -989,7 +989,7 @@ html[data-reduced-motion="true"] .platform-group-switcher-trigger.is-open .platf
 
 .btn-success {
   background: var(--success);
-  color: #052e16;
+  color: var(--success);
 }
 
 .btn-success:hover:not(:disabled) {
@@ -1183,7 +1183,7 @@ html[data-reduced-motion="true"] .platform-group-switcher-trigger.is-open .platf
 }
 
 .codex-speed-trigger.fast {
-  color: #7a4b00;
+  color: var(--warning);
   border-color: color-mix(in srgb, var(--warning) 24%, transparent);
   background: color-mix(in srgb, var(--warning) 10%, transparent);
   box-shadow: none;

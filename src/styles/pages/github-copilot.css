@@ -76,7 +76,7 @@
 .ghcp-accounts-page .status-banner.error {
   border-color: color-mix(in srgb, var(--danger) 38%, transparent);
   background: color-mix(in srgb, var(--danger) 12%, transparent);
-  color: #b91c1c;
+  color: var(--danger);
 }
 
 .ghcp-accounts-page .toolbar-block {
@@ -1746,13 +1746,13 @@
 
 .ghcp-accounts-page .message-bar.success {
   background: color-mix(in srgb, var(--success) 12%, transparent);
-  color: #15803d;
+  color: var(--success);
   border: 1px solid color-mix(in srgb, var(--success) 30%, transparent);
 }
 
 .ghcp-accounts-page .message-bar.error {
   background: color-mix(in srgb, var(--danger) 12%, transparent);
-  color: #b91c1c;
+  color: var(--danger);
   border: 1px solid color-mix(in srgb, var(--danger) 30%, transparent);
 }
 
@@ -3082,12 +3082,12 @@
 
 .ghcp-add-modal .add-status.success {
   background: color-mix(in srgb, var(--success) 12%, transparent);
-  color: #15803d;
+  color: var(--success);
 }
 
 .ghcp-add-modal .add-status.error {
   background: color-mix(in srgb, var(--danger) 12%, transparent);
-  color: #b91c1c;
+  color: var(--danger);
 }
 
 /* 确认弹窗 */
@@ -3128,12 +3128,12 @@
 
 [data-theme="dark"] .ghcp-accounts-page .message-bar.success {
   background: color-mix(in srgb, var(--success) 15%, transparent);
-  color: #4ade80;
+  color: var(--success);
 }
 
 [data-theme="dark"] .ghcp-accounts-page .message-bar.error {
   background: color-mix(in srgb, var(--danger) 15%, transparent);
-  color: #f87171;
+  color: var(--danger);
 }
 
 [data-theme="dark"] .ghcp-add-modal .add-status.success {

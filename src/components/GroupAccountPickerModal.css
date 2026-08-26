@@ -195,7 +195,7 @@
 
 .group-account-badge.is-ungrouped {
   background: color-mix(in srgb, var(--warning) 14%, transparent);
-  color: #b45309;
+  color: var(--warning);
 }
 
 .group-account-tier-badge {
@@ -204,7 +204,7 @@
 
 .group-account-status {
   background: color-mix(in srgb, var(--success) 12%, transparent);
-  color: #15803d;
+  color: var(--success);
 }
 
 .group-account-empty {

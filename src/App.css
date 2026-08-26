@@ -131,7 +131,7 @@
   border: 1px solid color-mix(in srgb, var(--danger) 25%, transparent);
   border-radius: var(--radius-xl);
   background: color-mix(in srgb, var(--danger) 8%, transparent);
-  color: #b91c1c;
+  color: var(--danger);
   font-size: 13px;
 }
 

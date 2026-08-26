@@ -10,7 +10,7 @@
 }
 
 .zed-accounts-page .status-pill.normal {
-  color: #15803d;
+  color: var(--success);
   background: color-mix(in srgb, var(--success) 12%, transparent);
   border-color: color-mix(in srgb, var(--success) 24%, transparent);
 }

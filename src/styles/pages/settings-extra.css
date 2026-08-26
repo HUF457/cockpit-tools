@@ -82,7 +82,7 @@
 
 .status-badge.running {
   background: color-mix(in srgb, var(--success) 10%, transparent);
-  color: #15803d;
+  color: var(--success);
 }
 
 .status-dot {

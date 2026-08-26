@@ -117,14 +117,14 @@
 .codex-api-service-pill.success {
   border-color: color-mix(in srgb, var(--success) 24%, transparent);
   background: color-mix(in srgb, var(--success) 12%, transparent);
-  color: #15803d;
+  color: var(--success);
 }
 
 .codex-api-service-status.stopped,
 .codex-api-service-message.warning {
   border-color: color-mix(in srgb, var(--warning) 28%, transparent);
   background: color-mix(in srgb, var(--warning) 12%, transparent);
-  color: #b45309;
+  color: var(--warning);
 }
 
 .codex-api-service-pill.mode-sidecar {
@@ -300,13 +300,13 @@
 .codex-api-service-message.error {
   border-color: color-mix(in srgb, var(--danger) 24%, transparent);
   background: color-mix(in srgb, var(--danger) 10%, transparent);
-  color: #b91c1c;
+  color: var(--danger);
 }
 
 .codex-api-service-message.success {
   border-color: color-mix(in srgb, var(--success) 22%, transparent);
   background: color-mix(in srgb, var(--success) 10%, transparent);
-  color: #15803d;
+  color: var(--success);
 }
 
 .codex-api-service-reprice-message {
@@ -1944,13 +1944,13 @@ html[data-reduced-motion="true"] .codex-api-service-key-advanced-toggle[aria-exp
 .codex-api-service-pricing-reprice.is-failed {
   border-color: color-mix(in srgb, var(--danger) 24%, transparent);
   background: color-mix(in srgb, var(--danger) 10%, transparent);
-  color: #b91c1c;
+  color: var(--danger);
 }
 
 .codex-api-service-pricing-reprice.is-completed {
   border-color: color-mix(in srgb, var(--success) 22%, transparent);
   background: color-mix(in srgb, var(--success) 10%, transparent);
-  color: #15803d;
+  color: var(--success);
 }
 
 .codex-api-service-pricing-reprice-head {
