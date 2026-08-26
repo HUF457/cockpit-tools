@@ -385,6 +385,10 @@ export const useCodexAccountStore = create<CodexAccountState>((set, get) => ({
 
   hydrateAccountProfilesIfNeeded: async (accountIds?: string[]) => {
     const now = Date.now();
+    // Pin this sweep to the account-list generation it started from. A newer
+    // fetch (or a mutation that bumps the seq) replaces the list, and flushing
+    // profiles gathered against the old list would clobber the newer data.
+    const sweepSeq = fetchCodexAccountsSeq;
     const scope = accountIds ? new Set(accountIds) : null;
     const candidates = get().accounts.filter(
       (account) =>
@@ -404,6 +408,12 @@ export const useCodexAccountStore = create<CodexAccountState>((set, get) => ({
 
     const flushPendingProfiles = () => {
       if (pending.size === 0) return;
+      if (fetchCodexAccountsSeq !== sweepSeq) {
+        // Stale sweep: the profiles are persisted backend-side and the next
+        // fetch returns them, so dropping the batch loses nothing.
+        pending.clear();
+        return;
+      }
       const updates = new Map(pending);
       pending.clear();
       lastFlushAt = Date.now();
@@ -431,6 +441,7 @@ export const useCodexAccountStore = create<CodexAccountState>((set, get) => ({
 
     try {
       for (const account of candidates) {
+        if (fetchCodexAccountsSeq !== sweepSeq) break;
         CODEX_PROFILE_SYNC_IN_FLIGHT.add(account.id);
         CODEX_PROFILE_SYNC_LAST_ATTEMPT.set(account.id, now);
         try {
