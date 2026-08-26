@@ -48,6 +48,21 @@ async function detectTargetVersion(
   }
 }
 
+type IdleWindow = Window & {
+  requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
+};
+
+function whenIdle(timeoutMs = 5_000): Promise<void> {
+  return new Promise((resolve) => {
+    const ric = (window as IdleWindow).requestIdleCallback;
+    if (typeof ric === 'function') {
+      ric(() => resolve(), { timeout: timeoutMs });
+      return;
+    }
+    window.setTimeout(resolve, Math.min(timeoutMs, 3_000));
+  });
+}
+
 export async function resolvePreferredAntigravityRuntimeTarget(
   currentTarget: AntigravityRuntimeTarget,
 ): Promise<AntigravityRuntimeTarget> {
@@ -64,14 +79,17 @@ export async function resolvePreferredAntigravityRuntimeTarget(
     return alternateTarget;
   }
 
-  const [currentFullAvailable, alternateFullAvailable] = await Promise.all([
-    detectTargetVersion(currentTarget, 'full'),
-    detectTargetVersion(alternateTarget, 'full'),
-  ]);
-  if (currentFullAvailable) {
+  // Neither quick scan found an install. The full scan walks the filesystem for
+  // seconds per target, and when nothing is installed it cannot change the
+  // answer below - so keep it out of the startup window, where it otherwise
+  // competes with account loading and the update check for CPU. Running the
+  // targets in sequence also stops two scans from pinning two cores at once.
+  await whenIdle();
+
+  if (await detectTargetVersion(currentTarget, 'full')) {
     return currentTarget;
   }
-  if (alternateFullAvailable) {
+  if (await detectTargetVersion(alternateTarget, 'full')) {
     return alternateTarget;
   }
   return currentTarget;
