@@ -85,7 +85,7 @@ function GuardFallback({ failure }: { failure: GuardFailure }) {
       <div
         style={{
           width: 'min(680px, calc(100vw - 32px))',
-          borderRadius: 8,
+          borderRadius: 'var(--radius-xl)',
           border: '1px solid var(--border, rgba(161, 161, 170, 0.28))',
           background: 'var(--bg-card, #ffffff)',
           boxShadow: '0 12px 32px rgba(9, 9, 11, 0.08)',
@@ -102,7 +102,7 @@ function GuardFallback({ failure }: { failure: GuardFailure }) {
         {detailText ? (
           <div
             style={{
-              borderRadius: 8,
+              borderRadius: 'var(--radius-xl)',
               border: '1px solid var(--border-light, rgba(161, 161, 170, 0.2))',
               background: 'var(--bg-tertiary, rgba(250, 250, 250, 0.8))',
               padding: 10,

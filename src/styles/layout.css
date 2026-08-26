@@ -46,7 +46,7 @@
 
 /* SideNav - 左侧贴边图标栏（icon rail） */
 .side-nav {
-  --side-nav-item-radius: 6px;
+  --side-nav-item-radius: var(--radius-md);
   --side-nav-shell-padding-x: 8px;
   position: fixed;
   inset-inline-start: 0;
@@ -349,13 +349,13 @@
   --side-nav-classic-shell-gap-scaled: calc(10px * var(--side-nav-classic-adaptive-scale));
   --side-nav-classic-update-padding-inline-scaled: calc(6px * var(--side-nav-classic-adaptive-scale));
   --side-nav-classic-update-height-scaled: calc(36px * var(--side-nav-classic-adaptive-scale));
-  --side-nav-classic-update-radius-scaled: calc(10px * var(--side-nav-classic-adaptive-scale));
+  --side-nav-classic-update-radius-scaled: calc(var(--radius-xl) * var(--side-nav-classic-adaptive-scale));
   --side-nav-classic-brand-gap-scaled: calc(10px * var(--side-nav-classic-adaptive-scale));
   --side-nav-classic-brand-padding-inline-scaled: calc(12px * var(--side-nav-classic-adaptive-scale));
   --side-nav-classic-brand-padding-bottom-scaled: calc(14px * var(--side-nav-classic-adaptive-scale));
   --side-nav-classic-brand-margin-inline-scaled: calc(6px * var(--side-nav-classic-adaptive-scale));
   --side-nav-classic-logo-size-scaled: calc(32px * var(--side-nav-classic-adaptive-scale));
-  --side-nav-classic-logo-radius-scaled: calc(10px * var(--side-nav-classic-adaptive-scale));
+  --side-nav-classic-logo-radius-scaled: calc(var(--radius-xl) * var(--side-nav-classic-adaptive-scale));
   --side-nav-classic-brand-title-font-size-scaled: calc(13px * var(--side-nav-classic-adaptive-scale));
   --side-nav-classic-nav-items-gap-scaled: calc(4px * var(--side-nav-classic-adaptive-scale));
   --side-nav-classic-nav-items-padding-inline-scaled: calc(6px * var(--side-nav-classic-adaptive-scale));
@@ -363,12 +363,12 @@
   --side-nav-classic-nav-item-height-scaled: calc(42px * var(--side-nav-classic-adaptive-scale));
   --side-nav-classic-nav-item-gap-scaled: calc(10px * var(--side-nav-classic-adaptive-scale));
   --side-nav-classic-nav-item-padding-inline-scaled: calc(12px * var(--side-nav-classic-adaptive-scale));
-  --side-nav-classic-nav-item-radius-scaled: calc(6px * var(--side-nav-classic-adaptive-scale));
+  --side-nav-classic-nav-item-radius-scaled: calc(var(--radius-md) * var(--side-nav-classic-adaptive-scale));
   --side-nav-classic-nav-item-text-size-scaled: calc(14px * var(--side-nav-classic-adaptive-scale));
   --side-nav-classic-bottom-padding-top-scaled: calc(12px * var(--side-nav-classic-adaptive-scale));
   --side-nav-classic-sub-list-indent-scaled: calc(16px * var(--side-nav-classic-adaptive-scale));
   --side-nav-classic-sub-item-height-scaled: calc(36px * var(--side-nav-classic-adaptive-scale));
-  --side-nav-classic-sub-item-radius-scaled: calc(6px * var(--side-nav-classic-adaptive-scale));
+  --side-nav-classic-sub-item-radius-scaled: calc(var(--radius-md) * var(--side-nav-classic-adaptive-scale));
   --side-nav-classic-sub-item-gap-scaled: calc(10px * var(--side-nav-classic-adaptive-scale));
   --side-nav-classic-sub-item-padding-inline-scaled: calc(12px * var(--side-nav-classic-adaptive-scale));
   --side-nav-classic-sub-item-icon-size-scaled: calc(16px * var(--side-nav-classic-adaptive-scale));
@@ -591,7 +591,7 @@
 .side-nav-more-popover.side-nav-more-popover-classic {
   width: 260px;
   transform: none;
-  border-radius: 0 8px 8px 8px;
+  border-radius: 0 var(--radius-xl) var(--radius-xl) var(--radius-xl);
   margin-left: 0;
   overflow-y: auto;
   border-left-color: transparent;
@@ -607,7 +607,7 @@
   height: 38px;
   border: 1px solid var(--border);
   border-right: none;
-  border-radius: 6px 0 0 6px;
+  border-radius: var(--radius-md) 0 0 var(--radius-md);
   background: var(--bg-surface);
   box-shadow: 0 8px 18px rgba(24, 24, 27, 0.08);
 }
@@ -677,7 +677,7 @@
   height: calc(var(--side-nav-classic-handle-height) * var(--side-nav-classic-adaptive-scale, 1));
   border: 1px solid var(--border-light);
   border-left: none;
-  border-radius: 0 6px 6px 0;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
   background: var(--bg-secondary);
   color: var(--text-secondary);
   display: inline-flex;

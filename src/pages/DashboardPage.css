@@ -479,7 +479,7 @@
   padding: 2px 6px;
   font-size: 10px;
   font-weight: 700;
-  border-radius: 3px;
+  border-radius: var(--radius-sm);
   position: relative;
   overflow: hidden;
   z-index: 0;
@@ -584,7 +584,7 @@
 
 .account-mini-quotas.quota-scroll-container::-webkit-scrollbar-thumb {
   background: var(--border-light);
-  border-radius: 2px;
+  border-radius: var(--radius-full);
 }
 
 .account-mini-quotas.quota-scroll-container::-webkit-scrollbar-thumb:hover {
@@ -627,14 +627,14 @@
 .quota-item-bar-track {
   height: 4px;
   background: var(--bg-tertiary);
-  border-radius: 2px;
+  border-radius: var(--radius-full);
   overflow: hidden;
   margin: 4px 0;
 }
 
 .quota-item-bar {
   height: 100%;
-  border-radius: 2px;
+  border-radius: var(--radius-full);
   transition: width 0.3s ease;
 }
 
@@ -729,7 +729,7 @@
   flex: 1;
   height: 3px; /* Adjusted to 3px */
   background: var(--bg-tertiary);
-  border-radius: 1.5px;
+  border-radius: var(--radius-full);
   overflow: hidden;
 }
 

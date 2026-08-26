@@ -73,7 +73,7 @@ export function CodebuddySessionListPanel() {
               key={item.path}
               style={{
                 border: '1px solid var(--border)',
-                borderRadius: 8,
+                borderRadius: 'var(--radius-xl)',
                 padding: '10px 12px',
                 display: 'flex',
                 justifyContent: 'space-between',

@@ -47,7 +47,7 @@
   top: 3px;
   width: 2px;
   height: 4px;
-  border-radius: 1px;
+  border-radius: var(--radius-full);
   background: #fef3c7;
 }
 
@@ -410,7 +410,7 @@
 }
 
 .page-tabs.filter-tabs {
-  --page-tab-item-radius: 5px;
+  --page-tab-item-radius: var(--radius-md);
   --page-tab-shell-padding: 3px;
   background: var(--bg-tertiary);
   border: 1px solid var(--border-light);
@@ -544,7 +544,7 @@
   height: 42px;
   padding: 0 16px;
   border: 0;
-  border-radius: var(--page-tab-item-radius, 16px);
+  border-radius: var(--page-tab-item-radius, var(--radius-md));
   background: rgba(29, 78, 216, 0.08);
   box-shadow: none;
   backdrop-filter: none;
@@ -1417,14 +1417,14 @@ html[data-reduced-motion="true"] .platform-group-switcher-trigger.is-open .platf
 .quota-progress-track {
   height: 4px;
   background: rgba(24, 24, 27, 0.08);
-  border-radius: 2px;
+  border-radius: var(--radius-full);
   overflow: hidden;
   width: 100%;
 }
 
 .quota-progress-bar {
   height: 100%;
-  border-radius: 2px;
+  border-radius: var(--radius-full);
   transition: width 0.5s ease-out;
 }
 

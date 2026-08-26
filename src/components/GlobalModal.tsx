@@ -116,7 +116,7 @@ export function GlobalModal() {
             <div style={{
               marginTop: 12,
               padding: '8px 12px',
-              borderRadius: 8,
+              borderRadius: 'var(--radius-xl)',
               background: 'rgba(239, 68, 68, 0.08)',
               border: '1px solid rgba(239, 68, 68, 0.2)',
               color: 'var(--danger, #ef4444)',

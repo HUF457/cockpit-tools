@@ -4086,7 +4086,7 @@ export function SettingsPage() {
                       padding: '12px',
                       marginTop: '8px',
                       background: 'rgba(59, 130, 246, 0.1)',
-                      borderRadius: '8px',
+                      borderRadius: 'var(--radius-xl)',
                       fontSize: '13px',
                       color: 'var(--accent)',
                       lineHeight: '1.5'
@@ -7771,7 +7771,7 @@ export function SettingsPage() {
                 padding: '12px 16px',
                 marginTop: '12px',
                 background: 'rgba(245, 158, 11, 0.1)',
-                borderRadius: '8px',
+                borderRadius: 'var(--radius-xl)',
                 color: 'var(--warning, #f59e0b)',
                 fontSize: '14px'
               }}>

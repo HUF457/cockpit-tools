@@ -5211,7 +5211,7 @@ export function AccountsPage({ onNavigate }: AccountsPageProps) {
                       key={item.id}
                       style={{
                         border: '1px solid var(--border)',
-                        borderRadius: 10,
+                        borderRadius: 'var(--radius-xl)',
                         padding: '10px 12px',
                         display: 'grid',
                         gap: 6,

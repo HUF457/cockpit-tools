@@ -130,12 +130,12 @@
 
 .release-notes-content::-webkit-scrollbar-track {
   background: var(--bg-tertiary);
-  border-radius: 2px;
+  border-radius: var(--radius-full);
 }
 
 .release-notes-content::-webkit-scrollbar-thumb {
   background: var(--border);
-  border-radius: 2px;
+  border-radius: var(--radius-full);
 }
 
 .release-notes-content::-webkit-scrollbar-thumb:hover {
@@ -159,14 +159,14 @@
 .update-progress-bar {
   flex: 1;
   height: 6px;
-  border-radius: 3px;
+  border-radius: var(--radius-full);
   background: var(--bg-tertiary);
   overflow: hidden;
 }
 
 .update-progress-fill {
   height: 100%;
-  border-radius: 3px;
+  border-radius: var(--radius-full);
   background: var(--gradient-primary);
   transition: width 0.3s ease;
 }

@@ -301,7 +301,7 @@ export const TagEditModal = ({ isOpen, initialTags, initialNotes, availableTags 
               ) : (
                 <div className="tag-suggestions-list">
                   {suggestedTags.map((tag) => (
-                    <div className="tag-suggestion-wrap" key={tag} style={{ display: 'inline-flex', alignItems: 'center', background: 'var(--tag-bg, #f3f4f6)', borderRadius: 12, paddingRight: 4, marginRight: 6, marginBottom: 6 }}>
+                    <div className="tag-suggestion-wrap" key={tag} style={{ display: 'inline-flex', alignItems: 'center', background: 'var(--tag-bg, #f3f4f6)', borderRadius: 'var(--radius-xl)', paddingRight: 4, marginRight: 6, marginBottom: 6 }}>
                       <button
                         type="button"
                         className="tag-suggestion"

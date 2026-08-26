@@ -42,7 +42,7 @@ const BASE_STYLE: CSSProperties = {
   padding: '8px 12px',
   background: 'rgba(239, 68, 68, 0.12)',
   border: '1px solid rgba(239, 68, 68, 0.24)',
-  borderRadius: 8,
+  borderRadius: 'var(--radius-xl)',
   color: '#ef4444',
   fontSize: 13,
   lineHeight: 1.5,

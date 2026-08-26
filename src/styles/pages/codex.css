@@ -3345,13 +3345,13 @@
 .codex-quota-section .quota-bar-track {
   height: 6px;
   background: var(--bg-tertiary);
-  border-radius: 3px;
+  border-radius: var(--radius-full);
   overflow: hidden;
 }
 
 .codex-quota-section .quota-bar {
   height: 100%;
-  border-radius: 3px;
+  border-radius: var(--radius-full);
   transition: width 0.3s ease;
 }
 
@@ -12152,7 +12152,7 @@
   flex-direction: column;
   overflow: hidden;
   border: 1px solid var(--border-light);
-  border-radius: var(--radius-xl, 16px);
+  border-radius: var(--radius-xl);
   background: var(--bg-secondary);
   box-shadow:
     0 20px 60px rgba(0, 0, 0, 0.3),

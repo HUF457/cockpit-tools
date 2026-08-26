@@ -313,7 +313,7 @@
   gap: 12px;
   padding: 10px 12px;
   border: 1px solid var(--border);
-  border-radius: var(--radius-md, 8px);
+  border-radius: var(--radius-md);
   background: var(--bg-secondary);
   transition: border-color 0.2s;
   flex-wrap: wrap;
@@ -515,7 +515,7 @@
 
 .quota-category-item {
   border: 1px solid var(--border);
-  border-radius: var(--radius-md, 8px);
+  border-radius: var(--radius-md);
   background: var(--bg-secondary);
   overflow: hidden;
   transition: border-color 0.2s;
@@ -603,13 +603,13 @@
   height: 4px;
   background: var(--bg-tertiary);
   margin: 0 12px 10px;
-  border-radius: 2px;
+  border-radius: var(--radius-full);
   overflow: hidden;
 }
 
 .quota-category-progress-bar {
   height: 100%;
-  border-radius: 2px;
+  border-radius: var(--radius-full);
   transition: width 0.3s ease;
 }
 
@@ -774,7 +774,7 @@
   height: 500px;
   min-height: 500px;
   max-height: 85vh;
-  border-radius: var(--radius-lg, 12px);
+  border-radius: var(--radius-lg);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -905,7 +905,7 @@
   height: 36px;
   padding: 6px 10px;
   border: 1px solid var(--border);
-  border-radius: var(--radius-md, 6px);
+  border-radius: var(--radius-md);
   background: var(--bg-tertiary);
   color: var(--text-primary);
   font-size: 13px;
@@ -934,7 +934,7 @@
   color: var(--color-error, #ef4444);
   background: rgba(239, 68, 68, 0.1);
   padding: 8px 12px;
-  border-radius: var(--radius-md, 6px);
+  border-radius: var(--radius-md);
 }
 
 /* ===== 自动签到弹窗 Tab 导航与历史记录 ===== */
@@ -961,7 +961,7 @@
   gap: 6px;
   background: var(--bg-tertiary, rgba(0, 0, 0, 0.04));
   padding: 3px;
-  border-radius: var(--radius-md, 8px);
+  border-radius: var(--radius-md);
   width: fit-content;
   margin: 0 auto;
 }
@@ -976,7 +976,7 @@
   color: var(--text-secondary);
   border: none;
   background: transparent;
-  border-radius: var(--radius-sm, 6px);
+  border-radius: var(--radius-sm);
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -1055,7 +1055,7 @@
 .history-log-item {
   flex-shrink: 0;
   border: 1px solid var(--border);
-  border-radius: var(--radius-md, 10px);
+  border-radius: var(--radius-md);
   background: var(--bg-secondary);
   overflow: hidden;
   transition: all 0.2s ease;
