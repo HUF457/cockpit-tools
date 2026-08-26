@@ -22,7 +22,7 @@
 }
 
 .account-overview-card:hover {
-  border-color: rgba(29, 78, 216, 0.3);
+  border-color: color-mix(in srgb, var(--primary) 30%, transparent);
 }
 
 .account-overview-card.current {
@@ -87,15 +87,15 @@
 }
 
 .tier-badge.pro {
-  background: #4f46e5;
-  color: white;
-  border: none;
+  background: var(--plan-pro-bg);
+  color: var(--plan-pro-color);
+  border: 1px solid var(--plan-pro-border);
 }
 .tier-badge.pro-plus,
 .tier-badge.ultra {
-  background: #f59e0b;
-  color: white;
-  border: none;
+  background: var(--plan-ultra-bg);
+  color: var(--plan-ultra-color);
+  border: 1px solid var(--plan-ultra-border);
 }
 
 .action-btn {

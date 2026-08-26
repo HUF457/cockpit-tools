@@ -2,49 +2,50 @@
    Utilities
    ============================================ */
 
-/* Shared plan/tier badge tokens across all platforms */
+/* Shared plan/tier badge tokens across all platforms.
+   Hue budget: grayscale + single accent + success/warning families only.
+   Paid personal tiers read as accent tints; top tiers as warning tints;
+   free/trial/unknown stay neutral. Tier text still tells them apart. */
 :root {
-  --plan-free-bg: rgba(148, 163, 184, 0.2);
+  --plan-free-bg: color-mix(in srgb, var(--text-muted) 14%, transparent);
   --plan-free-color: var(--text-secondary);
-  --plan-free-border: rgba(148, 163, 184, 0.35);
+  --plan-free-border: color-mix(in srgb, var(--text-muted) 28%, transparent);
 
-  --plan-individual-bg: rgba(16, 185, 129, 0.14);
-  --plan-individual-color: #047857;
-  --plan-individual-border: rgba(16, 185, 129, 0.3);
+  --plan-individual-bg: color-mix(in srgb, var(--success) 12%, transparent);
+  --plan-individual-color: var(--success);
+  --plan-individual-border: color-mix(in srgb, var(--success) 30%, transparent);
 
-  --plan-business-bg: rgba(59, 130, 246, 0.14);
-  --plan-business-color: #1d4ed8;
-  --plan-business-border: rgba(59, 130, 246, 0.28);
+  --plan-business-bg: var(--primary-light);
+  --plan-business-color: var(--primary);
+  --plan-business-border: color-mix(in srgb, var(--primary) 28%, transparent);
 
-  --plan-plus-bg: rgba(16, 185, 129, 0.15);
-  --plan-plus-color: #059669;
-  --plan-plus-border: rgba(16, 185, 129, 0.35);
+  --plan-plus-bg: color-mix(in srgb, var(--success) 12%, transparent);
+  --plan-plus-color: var(--success);
+  --plan-plus-border: color-mix(in srgb, var(--success) 30%, transparent);
 
-  --plan-team-bg: rgba(139, 92, 246, 0.15);
-  --plan-team-color: #7c3aed;
-  --plan-team-border: rgba(139, 92, 246, 0.35);
+  --plan-team-bg: var(--primary-light);
+  --plan-team-color: var(--primary);
+  --plan-team-border: color-mix(in srgb, var(--primary) 28%, transparent);
 
-  --plan-enterprise-bg: rgba(245, 158, 11, 0.18);
-  --plan-enterprise-color: #b45309;
-  --plan-enterprise-border: rgba(245, 158, 11, 0.35);
+  --plan-enterprise-bg: color-mix(in srgb, var(--warning) 14%, transparent);
+  --plan-enterprise-color: var(--warning-strong);
+  --plan-enterprise-border: color-mix(in srgb, var(--warning) 32%, transparent);
 
-  /* Align with Antigravity account management style */
-  --plan-pro-bg: #1d4ed8;
-  --plan-pro-color: #ffffff;
-  --plan-pro-border: rgba(255, 255, 255, 0.25);
+  --plan-pro-bg: var(--primary-light);
+  --plan-pro-color: var(--primary);
+  --plan-pro-border: color-mix(in srgb, var(--primary) 30%, transparent);
 
-  /* Align with Antigravity account management style */
-  --plan-ultra-bg: #f97316;
-  --plan-ultra-color: #3f1d00;
-  --plan-ultra-border: rgba(249, 115, 22, 0.4);
+  --plan-ultra-bg: color-mix(in srgb, var(--warning-strong) 14%, transparent);
+  --plan-ultra-color: var(--warning-strong);
+  --plan-ultra-border: color-mix(in srgb, var(--warning-strong) 32%, transparent);
 
-  --plan-trial-bg: rgba(168, 85, 247, 0.15);
-  --plan-trial-color: #7c3aed;
-  --plan-trial-border: rgba(168, 85, 247, 0.35);
+  --plan-trial-bg: color-mix(in srgb, var(--text-muted) 12%, transparent);
+  --plan-trial-color: var(--text-secondary);
+  --plan-trial-border: color-mix(in srgb, var(--text-muted) 26%, transparent);
 
-  --plan-unknown-bg: rgba(239, 68, 68, 0.16);
-  --plan-unknown-color: #b91c1c;
-  --plan-unknown-border: rgba(239, 68, 68, 0.35);
+  --plan-unknown-bg: color-mix(in srgb, var(--text-muted) 10%, transparent);
+  --plan-unknown-color: var(--text-muted);
+  --plan-unknown-border: color-mix(in srgb, var(--text-muted) 24%, transparent);
 }
 
 .text-muted {

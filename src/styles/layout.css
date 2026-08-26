@@ -224,6 +224,44 @@
   color: var(--primary);
 }
 
+/* Hue budget: brand icons in the sidebar stay grayscale until the entry is
+   hovered or active, so the rail reads as a single-accent surface. */
+.nav-item svg,
+.nav-item img {
+  filter: grayscale(1);
+  opacity: 0.82;
+  transition: filter 0.15s ease, opacity 0.15s ease;
+}
+
+.nav-item:hover svg,
+.nav-item:hover img,
+.nav-item.active svg,
+.nav-item.active img {
+  filter: none;
+  opacity: 1;
+}
+
+.side-nav-more-item-icon svg,
+.side-nav-more-item-icon img,
+.side-nav-more-sub-item-icon svg,
+.side-nav-more-sub-item-icon img {
+  filter: grayscale(1);
+  opacity: 0.82;
+  transition: filter 0.15s ease, opacity 0.15s ease;
+}
+
+.side-nav-more-item:hover svg,
+.side-nav-more-item:hover img,
+.side-nav-more-item.active svg,
+.side-nav-more-item.active img,
+.side-nav-more-sub-item:hover svg,
+.side-nav-more-sub-item:hover img,
+.side-nav-more-sub-item.active svg,
+.side-nav-more-sub-item.active img {
+  filter: none;
+  opacity: 1;
+}
+
 .nav-item-text {
   display: none;
 }

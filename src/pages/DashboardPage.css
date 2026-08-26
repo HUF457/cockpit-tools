@@ -78,11 +78,29 @@
   cursor: pointer;
 }
 
-.stat-icon-bg.primary { background: rgba(59, 130, 246, 0.1); color: var(--primary); }
-.stat-icon-bg.success { background: rgba(34, 197, 94, 0.1); color: var(--success); }
-.stat-icon-bg.info { background: rgba(14, 165, 198, 0.1); color: #0ea5c6; }
-.stat-icon-bg.github { background: var(--bg-tertiary); color: var(--text-primary); }
-.stat-icon-bg.windsurf { background: rgba(14, 165, 198, 0.12); color: #0ea5c6; }
+/* Hue budget: only the total-accounts chip keeps the accent; platform chips
+   stay neutral and their brand icons desaturate until the card is hovered. */
+.stat-icon-bg.primary { background: var(--primary-light); color: var(--primary); }
+.stat-icon-bg.success,
+.stat-icon-bg.info,
+.stat-icon-bg.github,
+.stat-icon-bg.windsurf {
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+}
+
+.stat-icon-bg:not(.primary) img,
+.stat-icon-bg:not(.primary) svg {
+  filter: grayscale(1);
+  opacity: 0.85;
+  transition: filter 0.15s ease, opacity 0.15s ease;
+}
+
+.stat-card:hover .stat-icon-bg img,
+.stat-card:hover .stat-icon-bg svg {
+  filter: none;
+  opacity: 1;
+}
 .dashboard-group-icon {
   border-radius: 8px;
   object-fit: cover;
@@ -140,7 +158,7 @@
   height: 20px;
   padding: 0 7px;
   border-radius: 999px;
-  background: rgba(59, 130, 246, 0.1);
+  background: var(--primary-light);
   color: var(--primary);
   display: inline-flex;
   align-items: center;
@@ -152,7 +170,7 @@
 }
 
 .stat-group-more-badge:hover {
-  background: rgba(59, 130, 246, 0.16);
+  background: color-mix(in srgb, var(--primary) 16%, transparent);
 }
 
 .stat-group-more-badge-corner {
@@ -220,6 +238,20 @@
   align-items: center;
   gap: 8px;
   color: var(--text-primary);
+}
+
+/* Brand icons in card headers stay grayscale until the card is hovered. */
+.header-title svg,
+.header-title img {
+  filter: grayscale(1);
+  opacity: 0.85;
+  transition: filter 0.15s ease, opacity 0.15s ease;
+}
+
+.main-card:hover .header-title svg,
+.main-card:hover .header-title img {
+  filter: none;
+  opacity: 1;
 }
 
 .header-title h3 {
@@ -463,21 +495,21 @@
 }
 
 .account-mini-card .tier-badge.codex-plus {
-  background: rgba(16, 185, 129, 0.12);
-  color: #047857;
-  border: 1px solid rgba(16, 185, 129, 0.3);
+  background: var(--plan-plus-bg);
+  color: var(--plan-plus-color);
+  border: 1px solid var(--plan-plus-border);
 }
 
 .account-mini-card .tier-badge.codex-pro-lite {
-  background: rgba(100, 116, 139, 0.12);
-  color: #334155;
-  border: 1px solid rgba(100, 116, 139, 0.3);
+  background: var(--plan-free-bg);
+  color: var(--plan-free-color);
+  border: 1px solid var(--plan-free-border);
 }
 
 .account-mini-card .tier-badge.codex-pro-max {
-  background: rgba(180, 116, 11, 0.12);
-  color: #92600a;
-  border: 1px solid rgba(180, 116, 11, 0.32);
+  background: var(--plan-enterprise-bg);
+  color: var(--plan-enterprise-color);
+  border: 1px solid var(--plan-enterprise-border);
 }
 
 .account-mini-card .tier-badge.pro-plus,
