@@ -6596,11 +6596,17 @@ fn load_indexed_accounts(
             .iter()
             .map(|chunk| scope.spawn(move || chunk.iter().map(load_one).collect::<Vec<_>>()))
             .collect();
-        for handle in handles {
+        for (handle, chunk) in handles.into_iter().zip(chunks.iter()) {
             // A panic inside a detail load must not take the whole listing down;
-            // report the chunk as unreadable and let the caller's repair path decide.
+            // report the chunk as unreadable and let the caller's repair path
+            // decide. One error per entry keeps the output aligned with the
+            // summaries the callers zip against - a short row would shift every
+            // later account onto the wrong summary.
             results.push(handle.join().unwrap_or_else(|_| {
-                vec![Err("读取账号详情线程异常退出".to_string())]
+                chunk
+                    .iter()
+                    .map(|_| Err("读取账号详情线程异常退出".to_string()))
+                    .collect()
             }));
         }
     });
