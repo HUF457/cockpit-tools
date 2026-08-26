@@ -147,7 +147,7 @@
   height: 100%;
   border-radius: var(--radius-full);
   background: var(--gradient-primary);
-  transition: width 0.3s ease;
+  transition: width var(--motion-data) var(--ease-standard);
 }
 
 .update-progress-cancel {
@@ -160,7 +160,9 @@
   cursor: pointer;
   color: var(--text-muted);
   border-radius: var(--radius-sm);
-  transition: color 0.15s ease, background 0.15s ease;
+  transition:
+    color var(--motion-micro) var(--ease-standard),
+    background var(--motion-micro) var(--ease-standard);
   flex-shrink: 0;
 }
 

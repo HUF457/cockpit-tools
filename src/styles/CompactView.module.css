@@ -43,7 +43,7 @@
   color: var(--text-muted);
   opacity: 0.5;
   flex-shrink: 0;
-  transition: opacity 0.15s;
+  transition: opacity var(--motion-micro) var(--ease-standard);
 }
 
 .legendItem:hover .gripIcon {
@@ -59,7 +59,7 @@
   cursor: grab;
   padding: 4px 8px 4px 4px;
   border-radius: var(--compact-radius);
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all var(--motion-micro) var(--ease-standard);
   user-select: none;
   border: 1px solid transparent;
   position: relative;
@@ -89,7 +89,9 @@
   height: 8px;
   border-radius: 50%;
   flex-shrink: 0;
-  transition: transform 0.15s, box-shadow 0.15s;
+  transition:
+    transform var(--motion-micro) var(--ease-standard),
+    box-shadow var(--motion-micro) var(--ease-standard);
 }
 
 .legendName {
@@ -113,7 +115,7 @@
   border: 1px solid var(--border-light);
   border-radius: var(--compact-radius);
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: all var(--motion-micro) var(--ease-standard);
   min-width: 0;
   overflow: hidden;
 }
@@ -277,7 +279,7 @@
   justify-content: center;
   flex-shrink: 0;
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: all var(--motion-micro) var(--ease-standard);
 }
 
 .switchBtn:hover:not(:disabled) {
@@ -306,7 +308,7 @@
   justify-content: center;
   flex-shrink: 0;
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: all var(--motion-micro) var(--ease-standard);
 }
 
 .noteBtn span {
@@ -385,7 +387,9 @@
   height: 16px;
   border-radius: 50%;
   cursor: pointer;
-  transition: transform 0.15s, box-shadow 0.15s;
+  transition:
+    transform var(--motion-micro) var(--ease-standard),
+    box-shadow var(--motion-micro) var(--ease-standard);
   border: 2px solid transparent;
 }
 
@@ -411,7 +415,7 @@
   color: var(--text-muted);
   cursor: pointer;
   border-radius: var(--compact-radius);
-  transition: all 0.15s;
+  transition: all var(--motion-micro) var(--ease-standard);
   opacity: 0.6;
 }
 

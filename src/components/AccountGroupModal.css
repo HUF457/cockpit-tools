@@ -32,7 +32,7 @@
   color: var(--text-primary);
   font-size: 13px;
   outline: none;
-  transition: border-color 0.2s;
+  transition: border-color var(--motion-micro) var(--ease-standard);
 }
 
 .group-create-row input:focus {
@@ -63,7 +63,9 @@
   background: var(--bg-tertiary);
   border: 1px solid var(--border);
   overflow: hidden;
-  transition: border-color 0.15s ease, background 0.15s ease;
+  transition:
+    border-color var(--motion-micro) var(--ease-standard),
+    background var(--motion-micro) var(--ease-standard);
 }
 
 .group-modal-item:hover {
@@ -254,7 +256,7 @@ body.theme-light .group-modal-item-meta {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.15s ease;
+  transition: all var(--motion-micro) var(--ease-standard);
 }
 
 .group-modal-item .group-action-btn:hover {
@@ -327,7 +329,7 @@ body.theme-light .group-modal-item-meta {
   border: 1px solid var(--border);
   background: var(--bg-tertiary);
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: all var(--motion-micro) var(--ease-standard);
 }
 
 .add-to-group-item:hover {

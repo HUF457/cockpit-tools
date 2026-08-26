@@ -120,7 +120,7 @@
   border: 1px solid var(--border);
   background: var(--bg-card);
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: all var(--motion-micro) var(--ease-standard);
 }
 
 .group-account-item:hover {

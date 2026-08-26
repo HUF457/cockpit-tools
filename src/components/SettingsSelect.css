@@ -20,9 +20,9 @@
   outline: none;
   text-align: left;
   transition:
-    border-color 0.15s ease,
-    background-color 0.15s ease,
-    box-shadow 0.15s ease;
+    border-color var(--motion-micro) var(--ease-standard),
+    background-color var(--motion-micro) var(--ease-standard),
+    box-shadow var(--motion-micro) var(--ease-standard);
 }
 
 .settings-select-trigger:hover:not(:disabled) {
@@ -71,7 +71,7 @@
 .settings-select-trigger-arrow {
   flex-shrink: 0;
   color: var(--text-muted);
-  transition: transform 0.15s ease;
+  transition: transform var(--motion-micro) var(--ease-standard);
 }
 
 .settings-select-trigger.open .settings-select-trigger-arrow {
@@ -119,7 +119,7 @@
   line-height: 1.4;
   cursor: pointer;
   text-align: left;
-  transition: background-color 0.12s ease;
+  transition: background-color var(--motion-micro) var(--ease-standard);
 }
 
 .settings-select-option:hover:not(:disabled),

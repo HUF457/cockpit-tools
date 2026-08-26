@@ -21,10 +21,10 @@
   padding: 0 14px 0 16px;
   cursor: pointer;
   transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease,
-    background 0.2s ease,
-    transform 0.2s ease;
+    border-color var(--motion-micro) var(--ease-standard),
+    box-shadow var(--motion-micro) var(--ease-standard),
+    background var(--motion-micro) var(--ease-standard),
+    transform var(--motion-micro) var(--ease-standard);
 }
 
 .single-select-dropdown-trigger:hover:not(:disabled) {
@@ -72,8 +72,8 @@
   color: var(--primary-hover);
   flex-shrink: 0;
   transition:
-    transform 0.2s ease,
-    background 0.2s ease;
+    transform var(--motion-micro) var(--ease-standard),
+    background var(--motion-micro) var(--ease-standard);
 }
 
 .single-select-dropdown-trigger.open .single-select-dropdown-arrow {
@@ -126,9 +126,9 @@
   color: var(--text-primary);
   cursor: pointer;
   transition:
-    background 0.16s ease,
-    color 0.16s ease,
-    transform 0.16s ease;
+    background var(--motion-micro) var(--ease-standard),
+    color var(--motion-micro) var(--ease-standard),
+    transform var(--motion-micro) var(--ease-standard);
 }
 
 .single-select-dropdown-item:hover {

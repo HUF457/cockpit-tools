@@ -1046,16 +1046,6 @@ html[data-theme="dark"] .apikey-fun-rename-input {
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .apikey-fun-page,
-  .apikey-fun-brand-logo,
-  .apikey-fun-register-btn,
-  .apikey-fun-secret-input,
-  .apikey-fun-key-item,
-  .success-icon,
-  .spin,
-  .apikey-fun-skeleton-text {
-    animation: none !important;
-    transition: none var(--motion-micro) var(--ease-standard);
-  }
-}
+/* This page used to carry the app's only prefers-reduced-motion block, listing
+   its own elements by hand. styles/motion.css now applies the same rules
+   app-wide, keeping the skeleton shimmer and the spinner alive. */

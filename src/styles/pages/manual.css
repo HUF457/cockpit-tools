@@ -126,7 +126,7 @@
 
 .manual-card-arrow {
   color: var(--text-secondary);
-  transition: transform 0.2s ease;
+  transition: transform var(--motion-micro) var(--ease-standard);
   flex-shrink: 0;
 }
 

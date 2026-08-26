@@ -122,7 +122,7 @@
   align-items: center;
   gap: 6px;
   border-bottom: 2px solid transparent;
-  transition: all 0.2s;
+  transition: all var(--motion-micro) var(--ease-standard);
 }
 
 .list-tab:hover {
@@ -301,7 +301,7 @@
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all var(--motion-micro) var(--ease-standard);
 }
 
 .mfa-type-tab:hover {
@@ -402,7 +402,7 @@
 /* Icon styles inside switcher */
 .mfa-type-tab svg {
   color: var(--text-tertiary);
-  transition: color 0.2s ease;
+  transition: color var(--motion-micro) var(--ease-standard);
 }
 
 .mfa-type-tab.active svg {

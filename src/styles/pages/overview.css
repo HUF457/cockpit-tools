@@ -17,7 +17,7 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  transition: all 0.2s ease;
+  transition: all var(--motion-micro) var(--ease-standard);
   box-shadow: var(--shadow-sm);
   position: relative;
   overflow: hidden;
@@ -103,7 +103,7 @@
     justify-content: center;
     cursor: pointer;
     color: var(--text-secondary);
-    transition: all 0.2s;
+    transition: all var(--motion-micro) var(--ease-standard);
 }
 
 .btn-icon-sm:hover {

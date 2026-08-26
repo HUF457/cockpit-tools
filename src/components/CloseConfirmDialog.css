@@ -31,7 +31,7 @@
   cursor: pointer;
   padding: 4px;
   border-radius: var(--radius-md);
-  transition: all 0.15s ease;
+  transition: all var(--motion-micro) var(--ease-standard);
 }
 
 .close-dialog-x:hover {
@@ -69,7 +69,7 @@
   border-radius: var(--radius-xl);
   cursor: pointer;
   text-align: left;
-  transition: all 0.2s ease;
+  transition: all var(--motion-micro) var(--ease-standard);
 }
 
 .close-option-btn:hover {

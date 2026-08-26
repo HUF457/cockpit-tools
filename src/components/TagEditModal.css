@@ -141,7 +141,7 @@
   color: var(--text-secondary);
   font-size: 12px;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all var(--motion-micro) var(--ease-standard);
 }
 
 [data-theme="dark"] .tag-suggestion {

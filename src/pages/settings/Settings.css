@@ -72,7 +72,9 @@
   font-size: 13px;
   font-weight: 500;
   cursor: pointer;
-  transition: background 0.15s ease, color 0.15s ease;
+  transition:
+    background var(--motion-micro) var(--ease-standard),
+    color var(--motion-micro) var(--ease-standard);
   min-width: 72px;
 }
 
@@ -129,7 +131,7 @@
   padding: 9px 14px;
   border-bottom: 1px solid var(--border-light);
   background: var(--bg-secondary);
-  transition: background 0.15s;
+  transition: background var(--motion-micro) var(--ease-standard);
 }
 
 .settings-row:last-child {
@@ -240,7 +242,9 @@
   color: var(--text-primary);
   text-align: left;
   cursor: pointer;
-  transition: border-color 0.15s, background 0.15s;
+  transition:
+    border-color var(--motion-micro) var(--ease-standard),
+    background var(--motion-micro) var(--ease-standard);
 }
 
 .settings-claude-candidate-item:hover,
@@ -351,7 +355,7 @@ input.settings-select {
   background-repeat: no-repeat;
   background-position: right 8px center;
   min-width: 140px;
-  transition: all 0.2s;
+  transition: all var(--motion-micro) var(--ease-standard);
 }
 
 select.settings-select:hover,
@@ -400,7 +404,7 @@ input.settings-select:hover {
   right: 0;
   bottom: 0;
   background-color: var(--border);
-  transition: .3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: all var(--motion-micro) var(--ease-standard);
   border-radius: var(--radius-xl);
 }
 
@@ -412,7 +416,7 @@ input.settings-select:hover {
   left: 2px;
   bottom: 2px;
   background-color: white;
-  transition: .3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: all var(--motion-micro) var(--ease-standard);
   border-radius: 50%;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
@@ -526,7 +530,7 @@ input:checked + .slider:before {
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all var(--motion-micro) var(--ease-standard);
   text-decoration: none;
   gap: 8px;
 }
@@ -635,7 +639,9 @@ input:checked + .slider:before {
   font-size: 11px;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s ease, border-color 0.2s ease;
+  transition:
+    background var(--motion-micro) var(--ease-standard),
+    border-color var(--motion-micro) var(--ease-standard);
 }
 
 .settings-release-history-download-btn:hover {
@@ -1131,7 +1137,7 @@ input:checked + .slider:before {
   height: 100%;
   border-radius: inherit;
   background: var(--accent, var(--primary));
-  transition: width 160ms ease;
+  transition: width var(--motion-data) var(--ease-standard);
 }
 
 .settings-backup-migration-progress-meta {
@@ -1222,7 +1228,7 @@ input:checked + .slider:before {
   height: 100%;
   width: 0;
   background: var(--gradient-primary);
-  transition: width 0.25s ease;
+  transition: width var(--motion-data) var(--ease-standard);
 }
 
 .settings-transfer-progress-main {
@@ -1356,7 +1362,7 @@ input:checked + .slider:before {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.2s ease;
+  transition: transform var(--motion-micro) var(--ease-standard);
   color: var(--text-secondary);
 }
 

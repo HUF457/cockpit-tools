@@ -173,9 +173,9 @@ body.floating-card-overlay-root,
   color: #aeb8c4;
   cursor: pointer;
   transition:
-    background-color 0.2s ease,
-    border-color 0.2s ease,
-    color 0.2s ease;
+    background-color var(--motion-micro) var(--ease-standard),
+    border-color var(--motion-micro) var(--ease-standard),
+    color var(--motion-micro) var(--ease-standard);
 }
 
 .floating-card-icon-button:hover,
@@ -500,7 +500,7 @@ body.floating-card-overlay-root,
 .floating-card-progress-bar {
   height: 100%;
   border-radius: inherit;
-  transition: width 0.2s ease;
+  transition: width var(--motion-data) var(--ease-standard);
 }
 
 .floating-card-progress-bar--high {
@@ -584,9 +584,9 @@ body.floating-card-overlay-root,
   letter-spacing: 0.02em;
   cursor: pointer;
   transition:
-    background-color 0.2s ease,
-    border-color 0.2s ease,
-    color 0.2s ease;
+    background-color var(--motion-micro) var(--ease-standard),
+    border-color var(--motion-micro) var(--ease-standard),
+    color var(--motion-micro) var(--ease-standard);
 }
 
 .floating-card-button--primary {

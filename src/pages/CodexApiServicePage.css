@@ -282,7 +282,9 @@
   color: inherit;
   cursor: pointer;
   opacity: 0.72;
-  transition: opacity 0.15s ease, background-color 0.15s ease;
+  transition:
+    opacity var(--motion-micro) var(--ease-standard),
+    background-color var(--motion-micro) var(--ease-standard);
 }
 
 .codex-api-service-message-dismiss:hover {
@@ -329,7 +331,7 @@
   height: 100%;
   border-radius: inherit;
   background: var(--primary);
-  transition: width 160ms ease;
+  transition: width var(--motion-data) var(--ease-standard);
 }
 
 .codex-api-service-summary-grid {
@@ -353,7 +355,10 @@
   background: var(--codex-api-surface-strong);
   box-shadow: var(--codex-api-shadow);
   overflow: hidden;
-  transition: transform 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease;
+  transition:
+    transform var(--motion-micro) var(--ease-standard),
+    border-color var(--motion-micro) var(--ease-standard),
+    box-shadow var(--motion-micro) var(--ease-standard);
 }
 
 .codex-api-service-summary-card::before {
@@ -658,9 +663,9 @@
   background: var(--bg-surface);
   cursor: pointer;
   transition:
-    border-color 140ms ease,
-    background-color 140ms ease,
-    box-shadow 140ms ease;
+    border-color var(--motion-micro) var(--ease-standard),
+    background-color var(--motion-micro) var(--ease-standard),
+    box-shadow var(--motion-micro) var(--ease-standard);
 }
 
 .codex-api-service-routing-form label > input[type="checkbox"]:checked {
@@ -788,7 +793,11 @@
   background: color-mix(in srgb, var(--bg-secondary) 86%, transparent);
   color: var(--text-secondary);
   cursor: pointer;
-  transition: background 0.16s ease, color 0.16s ease, border-color 0.16s ease, transform 0.16s ease;
+  transition:
+    background var(--motion-micro) var(--ease-standard),
+    color var(--motion-micro) var(--ease-standard),
+    border-color var(--motion-micro) var(--ease-standard),
+    transform var(--motion-micro) var(--ease-standard);
 }
 
 .codex-api-service-page .folder-icon-btn:hover:not(:disabled) {
@@ -1015,7 +1024,10 @@
   border: 1px solid var(--codex-api-border-soft);
   border-radius: var(--radius-md);
   background: color-mix(in srgb, var(--bg-surface) 70%, transparent);
-  transition: border-color 0.16s ease, background 0.16s ease, box-shadow 0.16s ease;
+  transition:
+    border-color var(--motion-micro) var(--ease-standard),
+    background var(--motion-micro) var(--ease-standard),
+    box-shadow var(--motion-micro) var(--ease-standard);
 }
 
 .codex-api-service-key-main {
@@ -1222,7 +1234,10 @@
   color: var(--text-secondary);
   cursor: pointer;
   text-align: left;
-  transition: border-color 0.16s ease, background 0.16s ease, color 0.16s ease;
+  transition:
+    border-color var(--motion-micro) var(--ease-standard),
+    background var(--motion-micro) var(--ease-standard),
+    color var(--motion-micro) var(--ease-standard);
 }
 
 .codex-api-service-key-advanced-toggle:hover {
@@ -1255,7 +1270,7 @@
 }
 
 .codex-api-service-key-advanced-state svg {
-  transition: transform 0.16s ease;
+  transition: transform var(--motion-micro) var(--ease-standard);
 }
 
 .codex-api-service-key-advanced-toggle[aria-expanded="true"] .codex-api-service-key-advanced-state svg {
@@ -1415,7 +1430,9 @@ html[data-reduced-motion="true"] .codex-api-service-key-advanced-toggle[aria-exp
   border-radius: var(--radius-md);
   background: color-mix(in srgb, var(--bg-card) 66%, transparent);
   cursor: pointer;
-  transition: border-color 0.16s ease, background 0.16s ease;
+  transition:
+    border-color var(--motion-micro) var(--ease-standard),
+    background var(--motion-micro) var(--ease-standard);
 }
 
 .api-key-account-scope-item.is-preferred {
@@ -1619,7 +1636,10 @@ html[data-reduced-motion="true"] .codex-api-service-key-advanced-toggle[aria-exp
   border: 1px solid var(--codex-api-border-soft);
   border-radius: var(--radius-md);
   background: color-mix(in srgb, var(--bg-surface) 70%, transparent);
-  transition: border-color 0.16s ease, background 0.16s ease, box-shadow 0.16s ease;
+  transition:
+    border-color var(--motion-micro) var(--ease-standard),
+    background var(--motion-micro) var(--ease-standard),
+    box-shadow var(--motion-micro) var(--ease-standard);
 }
 
 .codex-api-service-account-card > div:first-child {
@@ -1754,7 +1774,10 @@ html[data-reduced-motion="true"] .codex-api-service-key-advanced-toggle[aria-exp
   background: color-mix(in srgb, var(--bg-surface) 70%, transparent);
   color: var(--text-secondary);
   cursor: pointer;
-  transition: background 0.16s ease, color 0.16s ease, border-color 0.16s ease;
+  transition:
+    background var(--motion-micro) var(--ease-standard),
+    color var(--motion-micro) var(--ease-standard),
+    border-color var(--motion-micro) var(--ease-standard);
 }
 
 .codex-api-service-model-list button:hover,
@@ -1856,7 +1879,9 @@ html[data-reduced-motion="true"] .codex-api-service-key-advanced-toggle[aria-exp
   line-height: 1.2;
   white-space: nowrap;
   cursor: pointer;
-  transition: background 0.16s ease, color 0.16s ease;
+  transition:
+    background var(--motion-micro) var(--ease-standard),
+    color var(--motion-micro) var(--ease-standard);
 }
 
 .codex-api-service-subtabs button:hover,
@@ -2408,7 +2433,10 @@ html[data-reduced-motion="true"] .codex-api-service-key-advanced-toggle[aria-exp
   border: 1px solid var(--codex-api-border-soft);
   border-radius: var(--radius-md);
   background: color-mix(in srgb, var(--bg-surface) 70%, transparent);
-  transition: border-color 0.16s ease, background 0.16s ease, box-shadow 0.16s ease;
+  transition:
+    border-color var(--motion-micro) var(--ease-standard),
+    background var(--motion-micro) var(--ease-standard),
+    box-shadow var(--motion-micro) var(--ease-standard);
 }
 
 .codex-api-service-log-row:hover,

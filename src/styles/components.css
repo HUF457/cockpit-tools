@@ -5,7 +5,7 @@
 .rocket-easter-egg {
   cursor: pointer;
   position: relative;
-  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform var(--motion-micro) var(--ease-standard);
   user-select: none;
 }
 
@@ -331,7 +331,9 @@
   border-radius: var(--radius-md);
   color: var(--text-primary);
   font-size: 13px;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  transition:
+    border-color var(--motion-micro) var(--ease-standard),
+    box-shadow var(--motion-micro) var(--ease-standard);
 }
 
 .search-box input:focus {
@@ -370,7 +372,9 @@
   font-weight: 500;
   border-radius: var(--radius-sm);
   cursor: pointer;
-  transition: background 0.15s ease, color 0.15s ease;
+  transition:
+    background var(--motion-micro) var(--ease-standard),
+    color var(--motion-micro) var(--ease-standard);
   display: flex;
   align-items: center;
   gap: 6px;
@@ -620,9 +624,9 @@
   max-width: min(320px, 72vw);
   cursor: pointer;
   transition:
-    border-color 0.16s ease,
-    background 0.16s ease,
-    color 0.16s ease;
+    border-color var(--motion-micro) var(--ease-standard),
+    background var(--motion-micro) var(--ease-standard),
+    color var(--motion-micro) var(--ease-standard);
 }
 
 .platform-group-switcher-trigger:hover {
@@ -665,7 +669,7 @@
 .platform-group-switcher-trigger-caret {
   flex: 0 0 auto;
   color: var(--text-secondary);
-  transition: transform 0.16s ease;
+  transition: transform var(--motion-micro) var(--ease-standard);
 }
 
 .platform-group-switcher-trigger.is-open .platform-group-switcher-trigger-caret {
@@ -810,8 +814,8 @@ html[data-reduced-motion="true"] .platform-group-switcher-trigger.is-open .platf
   justify-content: center;
   cursor: pointer;
   transition:
-    background-color 0.2s ease,
-    color 0.2s ease;
+    background-color var(--motion-micro) var(--ease-standard),
+    color var(--motion-micro) var(--ease-standard);
 }
 
 .platform-header-help svg {
@@ -937,7 +941,10 @@ html[data-reduced-motion="true"] .platform-group-switcher-trigger.is-open .platf
   font-size: 13px;
   font-weight: 500;
   cursor: pointer;
-  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  transition:
+    background var(--motion-micro) var(--ease-standard),
+    color var(--motion-micro) var(--ease-standard),
+    border-color var(--motion-micro) var(--ease-standard);
   border: 1px solid transparent;
   white-space: nowrap;
 }
@@ -1161,10 +1168,10 @@ html[data-reduced-motion="true"] .platform-group-switcher-trigger.is-open .platf
   box-shadow: 0 1px 2px rgba(24, 24, 27, 0.05);
   cursor: pointer;
   transition:
-    border-color 0.16s ease,
-    background 0.16s ease,
-    color 0.16s ease,
-    box-shadow 0.16s ease;
+    border-color var(--motion-micro) var(--ease-standard),
+    background var(--motion-micro) var(--ease-standard),
+    color var(--motion-micro) var(--ease-standard),
+    box-shadow var(--motion-micro) var(--ease-standard);
 }
 
 .codex-speed-trigger:hover:not(:disabled),
@@ -1245,8 +1252,8 @@ html[data-reduced-motion="true"] .platform-group-switcher-trigger.is-open .platf
   text-align: left;
   cursor: pointer;
   transition:
-    border-color 0.16s ease,
-    background 0.16s ease;
+    border-color var(--motion-micro) var(--ease-standard),
+    background var(--motion-micro) var(--ease-standard);
 }
 
 .codex-speed-menu.compact .codex-speed-option {
@@ -1428,7 +1435,7 @@ html[data-reduced-motion="true"] .platform-group-switcher-trigger.is-open .platf
 .quota-progress-bar {
   height: 100%;
   border-radius: var(--radius-full);
-  transition: width 0.5s ease-out;
+  transition: width var(--motion-data) var(--ease-standard);
 }
 
 .quota-progress-bar.high { background: var(--success); box-shadow: 0 0 8px var(--success); }
@@ -1487,7 +1494,7 @@ html[data-reduced-motion="true"] .platform-group-switcher-trigger.is-open .platf
   border-radius: var(--radius-sm);
   color: var(--text-secondary);
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all var(--motion-micro) var(--ease-standard);
 }
 
 .action-btn:hover {
@@ -1644,7 +1651,7 @@ html[data-reduced-motion="true"] .platform-group-switcher-trigger.is-open .platf
   border-radius: var(--radius-full);
   color: var(--text-secondary);
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all var(--motion-micro) var(--ease-standard);
 }
 
 .modal-close svg {
@@ -1834,7 +1841,7 @@ html[data-reduced-motion="true"] .platform-group-switcher-trigger.is-open .platf
 .modal .quota-fill {
   height: 100%;
   border-radius: var(--radius-full);
-  transition: width 0.35s ease-out;
+  transition: width var(--motion-data) var(--ease-standard);
 }
 
 .modal .quota-fill.high {
@@ -1972,7 +1979,11 @@ html[data-reduced-motion="true"] .platform-group-switcher-trigger.is-open .platf
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  transition: border-color 0.12s ease, background 0.12s ease, box-shadow 0.12s ease, transform 0.12s ease;
+  transition:
+    border-color var(--motion-micro) var(--ease-standard),
+    background var(--motion-micro) var(--ease-standard),
+    box-shadow var(--motion-micro) var(--ease-standard),
+    transform var(--motion-micro) var(--ease-standard);
 }
 
 .platform-layout-row.is-dragging {
@@ -2070,7 +2081,9 @@ html[data-reduced-motion="true"] .platform-group-switcher-trigger.is-open .platf
 img.platform-layout-group-icon {
   filter: grayscale(1);
   opacity: 0.82;
-  transition: filter 0.15s ease, opacity 0.15s ease;
+  transition:
+    filter var(--motion-micro) var(--ease-standard),
+    opacity var(--motion-micro) var(--ease-standard);
 }
 
 .platform-layout-row:hover .platform-layout-icon svg,
@@ -2202,7 +2215,7 @@ img.platform-layout-group-icon {
   background: var(--bg-primary);
   display: inline-grid;
   place-items: center;
-  transition: all 0.15s ease;
+  transition: all var(--motion-micro) var(--ease-standard);
   cursor: pointer;
 }
 
@@ -2216,7 +2229,7 @@ img.platform-layout-group-icon {
   border-bottom: 2px solid #fff;
   transform: rotate(-45deg) scale(0);
   transform-origin: center;
-  transition: transform 0.12s ease;
+  transition: transform var(--motion-micro) var(--ease-standard);
 }
 
 .platform-layout-toggle input[type="checkbox"]:checked,
@@ -2316,7 +2329,11 @@ img.platform-layout-group-icon {
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  transition: border-color 0.12s ease, background 0.12s ease, box-shadow 0.12s ease, transform 0.12s ease;
+  transition:
+    border-color var(--motion-micro) var(--ease-standard),
+    background var(--motion-micro) var(--ease-standard),
+    box-shadow var(--motion-micro) var(--ease-standard),
+    transform var(--motion-micro) var(--ease-standard);
 }
 
 .platform-layout-child-row.is-dragging {
@@ -2544,7 +2561,7 @@ img.platform-layout-group-icon {
   background: transparent;
   color: var(--text-secondary);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all var(--motion-micro) var(--ease-standard);
 }
 
 .platform-layout-group-editor-close:hover {
@@ -2736,7 +2753,7 @@ img.platform-layout-group-icon {
   border-radius: var(--radius-md);
   color: var(--text-primary);
   font-size: 14px;
-  transition: all 0.2s;
+  transition: all var(--motion-micro) var(--ease-standard);
 }
 
 .form-group input:focus,

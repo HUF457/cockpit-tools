@@ -143,7 +143,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: all var(--motion-micro) var(--ease-standard);
 }
 
 .account-filter-surface .tag-filter-delete:hover {

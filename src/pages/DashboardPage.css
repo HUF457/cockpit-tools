@@ -46,7 +46,9 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  transition: background 0.15s ease, border-color 0.15s ease;
+  transition:
+    background var(--motion-micro) var(--ease-standard),
+    border-color var(--motion-micro) var(--ease-standard);
 }
 
 .stat-card-button {
@@ -93,7 +95,9 @@
 .stat-icon-bg:not(.primary) svg {
   filter: grayscale(1);
   opacity: 0.85;
-  transition: filter 0.15s ease, opacity 0.15s ease;
+  transition:
+    filter var(--motion-micro) var(--ease-standard),
+    opacity var(--motion-micro) var(--ease-standard);
 }
 
 .stat-card:hover .stat-icon-bg img,
@@ -245,7 +249,9 @@
 .header-title img {
   filter: grayscale(1);
   opacity: 0.85;
-  transition: filter 0.15s ease, opacity 0.15s ease;
+  transition:
+    filter var(--motion-micro) var(--ease-standard),
+    opacity var(--motion-micro) var(--ease-standard);
 }
 
 .main-card:hover .header-title svg,
@@ -272,7 +278,7 @@
   justify-content: center;
   gap: 6px;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all var(--motion-micro) var(--ease-standard);
   font-size: 13px;
   font-weight: 500;
   box-shadow: 0 1px 2px rgba(0,0,0,0.03);
@@ -298,7 +304,11 @@
 
 .main-card-collapsible .split-content,
 .main-card-collapsible .card-footer-action {
-  transition: opacity 0.2s ease, max-height 0.2s ease, margin 0.2s ease, padding 0.2s ease;
+  transition:
+    opacity var(--motion-micro) var(--ease-standard),
+    max-height var(--motion-meso) var(--ease-standard),
+    margin var(--motion-micro) var(--ease-standard),
+    padding var(--motion-micro) var(--ease-standard);
 }
 
 .main-card-collapsible .split-content {
@@ -341,7 +351,7 @@
 }
 
 .collapse-arrow {
-  transition: transform 0.2s ease;
+  transition: transform var(--motion-micro) var(--ease-standard);
 }
 
 .collapse-arrow.collapsed {
@@ -635,7 +645,7 @@
 .quota-item-bar {
   height: 100%;
   border-radius: var(--radius-full);
-  transition: width 0.3s ease;
+  transition: width var(--motion-data) var(--ease-standard);
 }
 
 .quota-item-bar.high {
@@ -693,7 +703,7 @@
   border: 1px solid transparent; 
   color: var(--text-muted);
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all var(--motion-micro) var(--ease-standard);
   padding: 0;
 }
 
@@ -736,7 +746,7 @@
 .mini-progress-bar {
   height: 100%;
   border-radius: var(--radius-sm);
-  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: width var(--motion-data) var(--ease-standard);
 }
 
 .mini-progress-bar.high { background: var(--success); }
@@ -890,7 +900,9 @@
   font-size: 12px;
   font-weight: 500;
   cursor: pointer;
-  transition: background 0.15s ease, color 0.15s ease;
+  transition:
+    background var(--motion-micro) var(--ease-standard),
+    color var(--motion-micro) var(--ease-standard);
 }
 
 .card-footer-action:hover {

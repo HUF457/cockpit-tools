@@ -69,7 +69,9 @@
   font-size: 14px;
   font-weight: 500;
   color: var(--text-primary);
-  transition: border-color 0.2s, box-shadow 0.2s;
+  transition:
+    border-color var(--motion-micro) var(--ease-standard),
+    box-shadow var(--motion-micro) var(--ease-standard);
 }
 
 .group-name-input:focus {

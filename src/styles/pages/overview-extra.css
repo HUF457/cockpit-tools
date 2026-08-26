@@ -16,7 +16,7 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: all var(--motion-micro) var(--ease-standard);
   position: relative;
   min-height: 220px;
 }
@@ -109,7 +109,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all var(--motion-micro) var(--ease-standard);
 }
 
 .action-btn:hover {
@@ -173,7 +173,7 @@
 .quota-mini-bar {
   height: 100%;
   border-radius: var(--radius-full);
-  transition: width 0.5s ease;
+  transition: width var(--motion-data) var(--ease-standard);
 }
 
 .disabled-state, .empty-quota {
@@ -202,7 +202,7 @@
   font-size: 13px;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all var(--motion-micro) var(--ease-standard);
 }
 
 .switch-btn:hover:not(:disabled) {

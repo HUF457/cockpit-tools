@@ -83,7 +83,7 @@
 .zed-accounts-page .zed-usage-metric-bar {
   height: 100%;
   border-radius: var(--radius-full);
-  transition: width 0.3s ease;
+  transition: width var(--motion-data) var(--ease-standard);
 }
 
 .zed-accounts-page .zed-usage-metric-bar.high {

@@ -50,7 +50,7 @@
   border: none;
   background: transparent;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all var(--motion-micro) var(--ease-standard);
   text-align: left;
 }
 

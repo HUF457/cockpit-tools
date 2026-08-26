@@ -42,7 +42,7 @@
   color: var(--text-secondary);
   font-size: 12px;
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: all var(--motion-micro) var(--ease-standard);
 }
 
 .silent-update-btn-later:hover {
@@ -62,7 +62,7 @@
   font-size: 12px;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: all var(--motion-micro) var(--ease-standard);
 }
 
 .silent-update-btn-restart:hover {

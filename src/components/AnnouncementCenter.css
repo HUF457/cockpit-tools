@@ -26,7 +26,7 @@
   justify-content: center;
   box-shadow: var(--shadow-sm);
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all var(--motion-micro) var(--ease-standard);
 }
 
 .announcement-bell-btn:hover {
@@ -47,7 +47,7 @@
   gap: 6px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all var(--motion-micro) var(--ease-standard);
   font-size: 13px;
   font-weight: 500;
   opacity: 0.9;
@@ -139,7 +139,10 @@
   font-size: 12px;
   font-weight: 600;
   white-space: nowrap;
-  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  transition:
+    background var(--motion-micro) var(--ease-standard),
+    border-color var(--motion-micro) var(--ease-standard),
+    color var(--motion-micro) var(--ease-standard);
 }
 
 .announcement-toolbar-text-btn:hover:not(:disabled) {
@@ -174,7 +177,10 @@
   color: var(--text-primary);
   padding: 14px 16px;
   cursor: pointer;
-  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  transition:
+    border-color var(--motion-micro) var(--ease-standard),
+    box-shadow var(--motion-micro) var(--ease-standard),
+    transform var(--motion-micro) var(--ease-standard);
   font-family: var(--font-sans);
 }
 

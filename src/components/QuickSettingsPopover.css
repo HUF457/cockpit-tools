@@ -64,7 +64,7 @@
   background: transparent;
   color: var(--text-muted);
   cursor: pointer;
-  transition: all 0.15s;
+  transition: all var(--motion-micro) var(--ease-standard);
 }
 
 .qs-close:hover {
@@ -131,7 +131,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 8px 0;
-  transition: background 0.15s;
+  transition: background var(--motion-micro) var(--ease-standard);
   border-radius: var(--radius-xl);
 }
 
@@ -215,7 +215,7 @@ input.qs-select {
   background-repeat: no-repeat;
   background-position: right 8px center;
   min-width: 100px;
-  transition: all 0.15s;
+  transition: all var(--motion-micro) var(--ease-standard);
 }
 
 select.qs-select:hover,
@@ -283,7 +283,7 @@ input.qs-select:focus {
   color: var(--text-primary);
   font-size: 13px;
   outline: none;
-  transition: all 0.15s;
+  transition: all var(--motion-micro) var(--ease-standard);
 }
 
 .qs-path-input:focus {
@@ -342,7 +342,9 @@ input.qs-select:focus {
   color: var(--text-primary);
   text-align: left;
   cursor: pointer;
-  transition: border-color 0.15s, background 0.15s;
+  transition:
+    border-color var(--motion-micro) var(--ease-standard),
+    background var(--motion-micro) var(--ease-standard);
 }
 
 .qs-claude-candidate-item:hover,
@@ -400,7 +402,7 @@ input.qs-select:focus {
   font-size: 12px;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.15s;
+  transition: all var(--motion-micro) var(--ease-standard);
   white-space: nowrap;
 }
 
@@ -445,7 +447,7 @@ input.qs-select:focus {
   right: 0;
   bottom: 0;
   background-color: var(--border);
-  transition: 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: all var(--motion-micro) var(--ease-standard);
   border-radius: var(--radius-xl);
 }
 
@@ -457,7 +459,7 @@ input.qs-select:focus {
   left: 2px;
   bottom: 2px;
   background-color: white;
-  transition: 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: all var(--motion-micro) var(--ease-standard);
   border-radius: 50%;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
 }
@@ -524,8 +526,10 @@ input.qs-select:focus {
   color: var(--text-primary);
   text-align: left;
   cursor: pointer;
-  transition: border-color 0.2s ease, background-color 0.2s ease,
-    transform 0.14s ease;
+  transition:
+    border-color var(--motion-micro) var(--ease-standard),
+    background-color var(--motion-micro) var(--ease-standard),
+    transform var(--motion-micro) var(--ease-standard);
 }
 
 .qs-codex-quick-preset-btn:hover:not(:disabled) {
@@ -794,7 +798,7 @@ input.qs-select:focus {
   cursor: pointer;
   flex-shrink: 0;
   margin-left: auto;
-  transition: background 0.15s;
+  transition: background var(--motion-micro) var(--ease-standard);
 }
 
 .qs-error-close:hover {

@@ -500,9 +500,9 @@
   white-space: nowrap;
   cursor: pointer;
   transition:
-    background 0.16s ease,
-    color 0.16s ease,
-    opacity 0.16s ease;
+    background var(--motion-micro) var(--ease-standard),
+    color var(--motion-micro) var(--ease-standard),
+    opacity var(--motion-micro) var(--ease-standard);
 }
 
 .codex-local-access-gateway-switch-btn.is-active {
@@ -520,7 +520,7 @@
 }
 
 .codex-local-access-toggle-icon {
-  transition: transform 0.2s ease;
+  transition: transform var(--motion-micro) var(--ease-standard);
 }
 
 .codex-local-access-toggle-icon.is-open {
@@ -728,7 +728,7 @@
   font-size: 11px;
   font-weight: 700;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all var(--motion-micro) var(--ease-standard);
 }
 
 .codex-local-access-pool-more:hover {
@@ -789,7 +789,7 @@
   font-size: 12px;
   font-weight: 700;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all var(--motion-micro) var(--ease-standard);
 }
 
 .codex-local-access-empty-action:hover:not(:disabled) {
@@ -1359,7 +1359,7 @@
   inset: 0 auto 0 0;
   border-radius: inherit;
   background: var(--primary);
-  transition: width 0.28s ease;
+  transition: width var(--motion-data) var(--ease-standard);
 }
 
 .codex-batch-delete-job {
@@ -1432,7 +1432,7 @@
   inset: 0 auto 0 0;
   border-radius: inherit;
   background: var(--primary);
-  transition: width 0.28s ease;
+  transition: width var(--motion-data) var(--ease-standard);
 }
 
 .codex-batch-delete-job__errors {
@@ -1890,7 +1890,7 @@
   height: 100%;
   border-radius: inherit;
   background: var(--primary);
-  transition: width 180ms ease;
+  transition: width var(--motion-data) var(--ease-standard);
 }
 .codex-batch-import-global-task__actions {
   display: flex;
@@ -2016,9 +2016,9 @@
   cursor: pointer;
   flex-shrink: 0;
   transition:
-    background 0.15s ease,
-    color 0.15s ease,
-    transform 0.15s ease;
+    background var(--motion-micro) var(--ease-standard),
+    color var(--motion-micro) var(--ease-standard),
+    transform var(--motion-micro) var(--ease-standard);
 }
 
 .codex-ssh-sync-modal__close:hover {
@@ -2239,10 +2239,10 @@
   font-weight: 700;
   cursor: pointer;
   transition:
-    background 0.16s ease,
-    border-color 0.16s ease,
-    color 0.16s ease,
-    box-shadow 0.16s ease;
+    background var(--motion-micro) var(--ease-standard),
+    border-color var(--motion-micro) var(--ease-standard),
+    color var(--motion-micro) var(--ease-standard),
+    box-shadow var(--motion-micro) var(--ease-standard);
 }
 
 .codex-ssh-panel__segmented button:hover {
@@ -2312,7 +2312,7 @@
   inset: 0;
   border-radius: var(--radius-full);
   background: color-mix(in srgb, var(--text-secondary) 28%, transparent);
-  transition: background 0.18s ease;
+  transition: background var(--motion-micro) var(--ease-standard);
 }
 
 .codex-ssh-panel__switch-slider::after {
@@ -2325,7 +2325,7 @@
   border-radius: 50%;
   background: #fff;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
-  transition: transform 0.18s ease;
+  transition: transform var(--motion-micro) var(--ease-standard);
 }
 
 .codex-ssh-panel__switch input:checked + .codex-ssh-panel__switch-slider {
@@ -2427,9 +2427,9 @@
   border-radius: var(--radius-xl);
   background: var(--bg-card, var(--bg-secondary));
   transition:
-    border-color 0.16s ease,
-    box-shadow 0.16s ease,
-    transform 0.16s ease;
+    border-color var(--motion-micro) var(--ease-standard),
+    box-shadow var(--motion-micro) var(--ease-standard),
+    transform var(--motion-micro) var(--ease-standard);
 }
 
 .codex-ssh-panel__item:hover {
@@ -2664,7 +2664,7 @@
   border-radius: var(--radius-lg);
   padding: 16px 14px;
   box-shadow: var(--shadow-sm);
-  transition: all 0.25s ease;
+  transition: all var(--motion-micro) var(--ease-standard);
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -3026,8 +3026,8 @@
   white-space: nowrap;
   opacity: 0.72;
   transition:
-    opacity 0.18s ease,
-    color 0.18s ease;
+    opacity var(--motion-micro) var(--ease-standard),
+    color var(--motion-micro) var(--ease-standard);
 }
 
 .codex-accounts-page .codex-subscription-refresh-btn:hover {
@@ -3340,7 +3340,7 @@
 .codex-quota-section .quota-bar {
   height: 100%;
   border-radius: var(--radius-full);
-  transition: width 0.3s ease;
+  transition: width var(--motion-data) var(--ease-standard);
 }
 
 .codex-quota-section .quota-bar.high {
@@ -3532,11 +3532,11 @@
   text-overflow: ellipsis;
   cursor: default;
   transition:
-    border-color 0.18s ease,
-    background 0.18s ease,
-    color 0.18s ease,
-    box-shadow 0.18s ease,
-    transform 0.18s ease;
+    border-color var(--motion-micro) var(--ease-standard),
+    background var(--motion-micro) var(--ease-standard),
+    color var(--motion-micro) var(--ease-standard),
+    box-shadow var(--motion-micro) var(--ease-standard),
+    transform var(--motion-micro) var(--ease-standard);
 }
 
 .codex-reset-credit-pill svg {
@@ -4182,7 +4182,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s;
+  transition: all var(--motion-micro) var(--ease-standard);
 }
 
 .codex-account-card .card-action-btn:hover {
@@ -4285,7 +4285,7 @@
   border-radius: var(--radius-md);
   min-width: 0;
   overflow: hidden;
-  transition: all 0.15s ease;
+  transition: all var(--motion-micro) var(--ease-standard);
 }
 
 .codex-accounts-page .codex-compact-row:hover {
@@ -4438,7 +4438,7 @@
   justify-content: center;
   flex-shrink: 0;
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: all var(--motion-micro) var(--ease-standard);
 }
 
 .codex-accounts-page .codex-compact-note-btn,
@@ -4454,7 +4454,7 @@
   justify-content: center;
   flex-shrink: 0;
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: all var(--motion-micro) var(--ease-standard);
 }
 
 .codex-accounts-page .codex-compact-note-btn:hover,
@@ -4691,7 +4691,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: all var(--motion-micro) var(--ease-standard);
 }
 
 .codex-accounts-page .tag-filter-delete:hover {
@@ -5011,7 +5011,7 @@
   font-weight: 600;
   line-height: 1;
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: all var(--motion-micro) var(--ease-standard);
 }
 
 .codex-accounts-page .codex-account-note-chip svg,
@@ -5087,7 +5087,7 @@
   cursor: pointer;
   white-space: nowrap;
   flex-shrink: 0;
-  transition: all 0.2s ease;
+  transition: all var(--motion-micro) var(--ease-standard);
 }
 
 .codex-accounts-page .codex-provider-inline-switch:disabled {
@@ -5227,7 +5227,7 @@
   color: var(--text-secondary);
   font-size: 16px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all var(--motion-micro) var(--ease-standard);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -5290,11 +5290,11 @@
   border-radius: var(--radius-xl);
   background: var(--bg-card);
   transition:
-    background 0.15s ease,
-    border-color 0.15s ease,
-    box-shadow 0.15s ease,
-    opacity 0.15s ease,
-    transform 0.15s ease;
+    background var(--motion-micro) var(--ease-standard),
+    border-color var(--motion-micro) var(--ease-standard),
+    box-shadow var(--motion-micro) var(--ease-standard),
+    opacity var(--motion-micro) var(--ease-standard),
+    transform var(--motion-micro) var(--ease-standard);
 }
 
 .codex-custom-sort-row:hover {
@@ -6053,8 +6053,8 @@
   font-size: 13px;
   outline: none;
   transition:
-    border-color 0.15s ease,
-    box-shadow 0.15s ease;
+    border-color var(--motion-micro) var(--ease-standard),
+    box-shadow var(--motion-micro) var(--ease-standard);
 }
 
 .codex-account-note-input:focus {
@@ -6085,9 +6085,9 @@
   color: var(--text-secondary);
   cursor: pointer;
   transition:
-    border-color 0.15s ease,
-    background 0.15s ease,
-    color 0.15s ease;
+    border-color var(--motion-micro) var(--ease-standard),
+    background var(--motion-micro) var(--ease-standard),
+    color var(--motion-micro) var(--ease-standard);
 }
 
 .codex-account-note-icon-btn:hover:not(:disabled) {
@@ -6393,8 +6393,8 @@
   line-height: 1.5;
   outline: none;
   transition:
-    border-color 0.15s ease,
-    box-shadow 0.15s ease;
+    border-color var(--motion-micro) var(--ease-standard),
+    box-shadow var(--motion-micro) var(--ease-standard);
 }
 
 .codex-account-note-textarea:focus {
@@ -6433,7 +6433,7 @@
   font-weight: 600;
   border-radius: var(--radius-xl);
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all var(--motion-micro) var(--ease-standard);
   min-width: 0;
 }
 
@@ -6502,7 +6502,10 @@
   font-size: 13px;
   font-weight: 650;
   cursor: pointer;
-  transition: background 0.18s ease, color 0.18s ease, box-shadow 0.18s ease;
+  transition:
+    background var(--motion-micro) var(--ease-standard),
+    color var(--motion-micro) var(--ease-standard),
+    box-shadow var(--motion-micro) var(--ease-standard);
 }
 
 .codex-oauth-method-switch button:hover:not(:disabled) {
@@ -6841,7 +6844,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all var(--motion-micro) var(--ease-standard);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
 }
 
@@ -6862,7 +6865,7 @@
 .codex-add-modal .api-provider-chip-badge,
 .codex-provider-modal .api-provider-chip-badge {
   color: var(--warning);
-  transition: color 0.3s;
+  transition: color var(--motion-micro) var(--ease-standard);
 }
 
 .codex-add-modal .api-provider-chip.active .api-provider-chip-badge,
@@ -7115,9 +7118,9 @@
   border-radius: var(--radius-sm);
   background: var(--bg-card);
   transition:
-    border-color 0.16s ease,
-    background 0.16s ease,
-    box-shadow 0.16s ease;
+    border-color var(--motion-micro) var(--ease-standard),
+    background var(--motion-micro) var(--ease-standard),
+    box-shadow var(--motion-micro) var(--ease-standard);
 }
 
 .codex-oauth-binding-checkbox-ui::after {
@@ -7132,8 +7135,8 @@
   opacity: 0;
   transform: rotate(45deg) scale(0.7);
   transition:
-    opacity 0.12s ease,
-    transform 0.12s ease;
+    opacity var(--motion-micro) var(--ease-standard),
+    transform var(--motion-micro) var(--ease-standard);
 }
 
 .codex-oauth-binding-gateway-toggle input:checked
@@ -7282,10 +7285,10 @@
   background: transparent;
   cursor: pointer;
   transition:
-    border-color 0.18s ease,
-    background 0.18s ease,
-    box-shadow 0.18s ease,
-    transform 0.18s ease;
+    border-color var(--motion-micro) var(--ease-standard),
+    background var(--motion-micro) var(--ease-standard),
+    box-shadow var(--motion-micro) var(--ease-standard),
+    transform var(--motion-micro) var(--ease-standard);
 }
 
 .codex-oauth-binding-row:hover {
@@ -7313,9 +7316,9 @@
   background: rgba(250, 250, 250, 0.86);
   flex-shrink: 0;
   transition:
-    border-color 0.16s ease,
-    box-shadow 0.16s ease,
-    background 0.16s ease;
+    border-color var(--motion-micro) var(--ease-standard),
+    box-shadow var(--motion-micro) var(--ease-standard),
+    background var(--motion-micro) var(--ease-standard);
 }
 
 .codex-oauth-binding-row input[type="radio"]:checked {
@@ -7623,7 +7626,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: all var(--motion-micro) var(--ease-standard);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
 }
 
@@ -7718,8 +7721,8 @@
   border-radius: var(--radius-full);
   background: color-mix(in srgb, var(--text-muted) 24%, var(--bg-card));
   transition:
-    background 0.16s ease,
-    box-shadow 0.16s ease;
+    background var(--motion-micro) var(--ease-standard),
+    box-shadow var(--motion-micro) var(--ease-standard);
 }
 
 .codex-provider-modal .provider-vision-switch-track::before {
@@ -7732,7 +7735,7 @@
   border-radius: 50%;
   background: var(--bg-card);
   box-shadow: 0 1px 3px rgba(24, 24, 27, 0.18);
-  transition: transform 0.16s ease;
+  transition: transform var(--motion-micro) var(--ease-standard);
 }
 
 .codex-provider-modal
@@ -7821,7 +7824,7 @@
   border-radius: var(--radius-xl);
   border: 1px solid var(--border);
   background: var(--bg-card);
-  transition: border-color 0.15s ease;
+  transition: border-color var(--motion-micro) var(--ease-standard);
 }
 
 .codex-provider-modal .provider-save-preview-item:hover {
@@ -7971,7 +7974,7 @@
   color: var(--text-primary);
   text-align: left;
   cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition: all var(--motion-micro) var(--ease-standard);
 }
 
 .codex-quick-config-modal .codex-quick-config-preset-btn:hover:not(:disabled) {
@@ -8056,7 +8059,7 @@
   cursor: pointer;
   background: var(--border);
   border-radius: var(--radius-full);
-  transition: 0.25s ease;
+  transition: all var(--motion-micro) var(--ease-standard);
 }
 
 .codex-quick-config-modal .codex-quick-config-switch__slider::before {
@@ -8069,7 +8072,7 @@
   border-radius: 50%;
   background: #fff;
   box-shadow: 0 1px 4px rgba(24, 24, 27, 0.18);
-  transition: 0.25s ease;
+  transition: all var(--motion-micro) var(--ease-standard);
 }
 
 .codex-quick-config-modal
@@ -8360,7 +8363,7 @@
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all var(--motion-micro) var(--ease-standard);
 }
 
 .codex-provider-picker-item:hover {
@@ -8488,9 +8491,9 @@
   justify-content: center;
   cursor: pointer;
   transition:
-    transform 0.18s ease,
-    background 0.18s ease,
-    color 0.18s ease;
+    transform var(--motion-micro) var(--ease-standard),
+    background var(--motion-micro) var(--ease-standard),
+    color var(--motion-micro) var(--ease-standard);
 }
 
 .codex-provider-card-actions .card-action-btn:hover:not(:disabled) {
@@ -8542,8 +8545,8 @@
   border: 1px solid var(--border-light);
   background: var(--bg-card);
   transition:
-    background 0.2s,
-    border-color 0.2s;
+    background var(--motion-micro) var(--ease-standard),
+    border-color var(--motion-micro) var(--ease-standard);
 }
 
 .codex-provider-key-row:hover {
@@ -8620,7 +8623,7 @@
 }
 
 .codex-provider-modal .form-input {
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all var(--motion-micro) var(--ease-standard);
   border-radius: var(--radius-xl);
 }
 
@@ -8658,10 +8661,10 @@
   font-weight: 700;
   cursor: pointer;
   transition:
-    background 0.18s ease,
-    border-color 0.18s ease,
-    color 0.18s ease,
-    box-shadow 0.18s ease;
+    background var(--motion-micro) var(--ease-standard),
+    border-color var(--motion-micro) var(--ease-standard),
+    color var(--motion-micro) var(--ease-standard),
+    box-shadow var(--motion-micro) var(--ease-standard);
 }
 
 .codex-provider-wire-segmented button:hover:not(:disabled) {
@@ -8716,8 +8719,8 @@
   color: var(--text-tertiary);
   cursor: help;
   transition:
-    background 0.16s ease,
-    color 0.16s ease;
+    background var(--motion-micro) var(--ease-standard),
+    color var(--motion-micro) var(--ease-standard);
 }
 
 .codex-provider-inline-help:hover {
@@ -8758,7 +8761,7 @@
   border-radius: var(--radius-md);
   color: var(--text-secondary);
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all var(--motion-micro) var(--ease-standard);
 }
 
 .codex-add-modal .oauth-url-box button:hover {
@@ -9100,7 +9103,7 @@
   min-width: 9px;
   border-radius: inherit;
   background: var(--primary);
-  transition: width 0.24s ease;
+  transition: width var(--motion-data) var(--ease-standard);
 }
 
 .codex-external-import-stats {
@@ -10540,9 +10543,9 @@
   background: rgba(255, 255, 255, 0.9);
   cursor: pointer;
   transition:
-    border-color 0.2s ease,
-    background 0.2s ease,
-    box-shadow 0.2s ease;
+    border-color var(--motion-micro) var(--ease-standard),
+    background var(--motion-micro) var(--ease-standard),
+    box-shadow var(--motion-micro) var(--ease-standard);
 }
 
 .codex-provider-batch-test-row:hover {
@@ -10752,10 +10755,10 @@
   gap: 12px;
   cursor: pointer;
   transition:
-    border-color 0.2s ease,
-    background 0.2s ease,
-    color 0.2s ease,
-    box-shadow 0.2s ease;
+    border-color var(--motion-micro) var(--ease-standard),
+    background var(--motion-micro) var(--ease-standard),
+    color var(--motion-micro) var(--ease-standard),
+    box-shadow var(--motion-micro) var(--ease-standard);
 }
 
 .codex-wakeup-single-select-trigger:hover:not(:disabled) {
@@ -10809,8 +10812,8 @@
   flex-shrink: 0;
   color: var(--text-muted);
   transition:
-    transform 0.2s ease,
-    color 0.2s ease;
+    transform var(--motion-micro) var(--ease-standard),
+    color var(--motion-micro) var(--ease-standard);
 }
 
 .codex-wakeup-single-select-chevron.open {
@@ -10904,9 +10907,9 @@
   color: var(--text-primary);
   cursor: pointer;
   transition:
-    border-color 0.2s ease,
-    background 0.2s ease,
-    color 0.2s ease;
+    border-color var(--motion-micro) var(--ease-standard),
+    background var(--motion-micro) var(--ease-standard),
+    color var(--motion-micro) var(--ease-standard);
 }
 
 .codex-wakeup-segmented button.active,
@@ -11120,10 +11123,10 @@
   cursor: pointer;
   box-shadow: 0 1px 2px rgba(24, 24, 27, 0.03);
   transition:
-    border-color 0.2s ease,
-    background 0.2s ease,
-    color 0.2s ease,
-    box-shadow 0.2s ease;
+    border-color var(--motion-micro) var(--ease-standard),
+    background var(--motion-micro) var(--ease-standard),
+    color var(--motion-micro) var(--ease-standard),
+    box-shadow var(--motion-micro) var(--ease-standard);
 }
 
 .codex-wakeup-results-filter-chip.tone-all {
@@ -12139,8 +12142,8 @@
   color: var(--text-muted);
   cursor: pointer;
   transition:
-    background 0.15s ease,
-    color 0.15s ease;
+    background var(--motion-micro) var(--ease-standard),
+    color var(--motion-micro) var(--ease-standard);
 }
 
 .codex-sync-settings-close:hover {
@@ -12211,9 +12214,9 @@
   cursor: pointer;
   white-space: nowrap;
   transition:
-    background 0.15s ease,
-    border-color 0.15s ease,
-    color 0.15s ease;
+    background var(--motion-micro) var(--ease-standard),
+    border-color var(--motion-micro) var(--ease-standard),
+    color var(--motion-micro) var(--ease-standard);
 }
 
 .codex-sync-settings-action:hover:not(:disabled) {
@@ -12246,7 +12249,7 @@
   border-radius: var(--radius-xl);
   background: var(--border);
   cursor: pointer;
-  transition: background 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: background var(--motion-micro) var(--ease-standard);
 }
 
 .codex-sync-settings-switch-slider::before {
@@ -12259,7 +12262,7 @@
   border-radius: 50%;
   background: #fff;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
-  transition: transform 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: transform var(--motion-micro) var(--ease-standard);
 }
 
 .codex-sync-settings-switch input:checked + .codex-sync-settings-switch-slider {
@@ -12607,9 +12610,9 @@
   background: var(--bg-card);
   color: var(--text-secondary);
   transition:
-    border-color 0.18s ease,
-    box-shadow 0.18s ease,
-    background 0.18s ease;
+    border-color var(--motion-micro) var(--ease-standard),
+    box-shadow var(--motion-micro) var(--ease-standard),
+    background var(--motion-micro) var(--ease-standard);
 }
 
 .codex-session-search-field__control:focus-within {
@@ -12764,7 +12767,7 @@
   gap: 12px;
   padding: 14px;
   border-bottom: 1px solid var(--border-light);
-  transition: background 0.18s ease;
+  transition: background var(--motion-micro) var(--ease-standard);
 }
 
 .codex-session-item:last-child {
@@ -12934,7 +12937,7 @@
   min-height: 40px;
   padding: 6px 8px;
   border-radius: var(--radius-xl);
-  transition: background 0.18s ease;
+  transition: background var(--motion-micro) var(--ease-standard);
 }
 
 .codex-session-folder__row:hover,
@@ -13052,7 +13055,7 @@
   background: transparent;
   color: var(--text-secondary);
   cursor: pointer;
-  transition: all 0.18s ease;
+  transition: all var(--motion-micro) var(--ease-standard);
 }
 
 .codex-session-row__copy-button:hover {
@@ -13408,7 +13411,7 @@
   inset: 0 auto 0 0;
   border-radius: inherit;
   background: var(--primary);
-  transition: width 0.28s ease;
+  transition: width var(--motion-data) var(--ease-standard);
 }
 
 .codex-session-transfer-result {
@@ -13476,7 +13479,7 @@
   inset: 0 auto 0 0;
   border-radius: inherit;
   background: var(--primary);
-  transition: width 0.28s ease;
+  transition: width var(--motion-data) var(--ease-standard);
 }
 
 .codex-session-transfer-task__actions {
@@ -13548,8 +13551,8 @@
   border-radius: var(--radius-xl);
   background: var(--bg-card);
   transition:
-    border-color 0.18s ease,
-    background 0.18s ease;
+    border-color var(--motion-micro) var(--ease-standard),
+    background var(--motion-micro) var(--ease-standard);
 }
 
 .codex-session-restore-row:hover {
@@ -13618,8 +13621,8 @@
   border-radius: var(--radius-xl);
   background: var(--bg-card);
   transition:
-    border-color 0.18s ease,
-    background 0.18s ease;
+    border-color var(--motion-micro) var(--ease-standard),
+    background var(--motion-micro) var(--ease-standard);
 }
 
 .codex-session-import-row:hover {
@@ -13744,7 +13747,7 @@
   min-width: 8px;
   border-radius: inherit;
   background: #6f8ff0;
-  transition: width 0.2s ease;
+  transition: width var(--motion-data) var(--ease-standard);
 }
 
 .claude-desktop-login-progress p {
@@ -13807,8 +13810,8 @@
   border-radius: var(--radius-xl);
   background: var(--bg-card);
   transition:
-    border-color 0.18s ease,
-    background 0.18s ease;
+    border-color var(--motion-micro) var(--ease-standard),
+    background var(--motion-micro) var(--ease-standard);
 }
 
 .codex-session-export-row:hover {
