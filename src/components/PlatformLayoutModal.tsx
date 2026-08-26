@@ -1665,7 +1665,7 @@ export function PlatformLayoutModal({
 
               <div className="platform-layout-group-editor-actions">
                 {editingGroupId && (
-                  <button type="button" className="btn btn-danger" onClick={handleDeleteGroup}>
+                  <button type="button" className="btn btn-danger-outline" onClick={handleDeleteGroup}>
                     <Trash2 size={14} />
                     <span>{t('platformLayout.deleteGroup', '删除分组')}</span>
                   </button>
@@ -1749,7 +1749,7 @@ export function PlatformLayoutModal({
               <div className="platform-layout-group-editor-actions">
                 <button
                   type="button"
-                  className="btn btn-danger"
+                  className="btn btn-danger-outline"
                   onClick={handleRemoveChildFromGroup}
                   disabled={(platformGroups.find((item) => item.id === childEditorGroupId)?.platformIds.length ?? 0) <= 1}
                   title={
