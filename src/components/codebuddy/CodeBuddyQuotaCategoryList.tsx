@@ -17,10 +17,10 @@ const CATEGORY_ICONS: Record<string, React.ReactNode> = {
 };
 
 const CATEGORY_COLORS: Record<string, string> = {
-  base: '#3b82f6',
-  activity: '#f59e0b',
-  extra: '#8b5cf6',
-  other: '#6b7280',
+  base: 'var(--primary)',
+  activity: 'var(--warning)',
+  extra: 'var(--success)',
+  other: 'var(--text-muted)',
 };
 
 function getQuotaClass(remainPercent: number | null): string {

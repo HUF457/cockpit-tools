@@ -7863,7 +7863,7 @@ export function SettingsPage() {
               
               
               <button className="credit-item" onClick={() => openLink('https://github.com/jlcodes99/cockpit-tools')}>
-                <div className="credit-icon" style={{ color: '#0f172a' }}><Github size={24} /></div>
+                <div className="credit-icon" style={{ color: 'var(--text-primary)' }}><Github size={24} /></div>
                 <h3>{t('settings.about.github')}</h3>
                 <p>cockpit-tools</p>
               </button>

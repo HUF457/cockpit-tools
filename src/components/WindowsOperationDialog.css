@@ -61,7 +61,7 @@
   gap: 6px;
   padding: 12px 14px;
   border: 1px solid rgba(239, 68, 68, 0.24);
-  border-radius: 10px;
+  border-radius: var(--radius-xl);
   color: var(--danger, #ef4444);
   background: rgba(239, 68, 68, 0.08);
   line-height: 1.55;
@@ -88,7 +88,7 @@
   gap: 10px;
   padding: 12px 14px;
   border: 1px solid var(--border-color);
-  border-radius: 10px;
+  border-radius: var(--radius-xl);
   background: var(--bg-secondary);
 }
 

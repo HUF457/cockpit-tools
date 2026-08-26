@@ -8,9 +8,9 @@
   --accounts-surface: rgba(255, 255, 255, 0.82);
   --accounts-surface-strong: rgba(255, 255, 255, 0.96);
   --accounts-surface-soft: rgba(255, 255, 255, 0.7);
-  --accounts-border: rgba(15, 23, 42, 0.1);
-  --accounts-border-strong: rgba(15, 23, 42, 0.18);
-  --accounts-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+  --accounts-border: rgba(24, 24, 27, 0.1);
+  --accounts-border-strong: rgba(24, 24, 27, 0.18);
+  --accounts-shadow: 0 18px 40px rgba(24, 24, 27, 0.12);
   --accounts-glow: 0 0 0 1px rgba(14, 165, 165, 0.28), 0 16px 32px rgba(29, 78, 216, 0.18);
   --accounts-primary: #1d4ed8;
   --accounts-accent: #0ea5a5;
@@ -74,7 +74,7 @@
   content: '';
   position: absolute;
   inset: 1px;
-  border-radius: 18px;
+  border-radius: var(--radius-xl);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
   pointer-events: none;
 } */
@@ -122,13 +122,13 @@
   padding: 2px;
   gap: 4px;
   height: 32px;
-  border-radius: 10px;
+  border-radius: var(--radius-xl);
 }
 
 .accounts-page .view-btn {
   width: 26px;
   height: 26px;
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
 }
 
 .accounts-page .view-btn.active {
@@ -137,8 +137,8 @@
 }
 
 .accounts-page .filter-tabs:not(.page-tabs) {
-  background: rgba(15, 23, 42, 0.05);
-  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: rgba(24, 24, 27, 0.05);
+  border: 1px solid rgba(24, 24, 27, 0.08);
   padding: 5px;
   gap: 4px;
   flex: 1;
@@ -158,7 +158,7 @@
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.02em;
-  border-radius: 10px;
+  border-radius: var(--radius-xl);
   flex-shrink: 0;
 }
 
@@ -172,7 +172,7 @@
   width: 100%;
   height: 32px;
   padding: 0 26px 0 10px;
-  border-radius: 10px;
+  border-radius: var(--radius-xl);
   border: 1px solid var(--border);
   background: var(--bg-tertiary);
   color: var(--text-secondary);
@@ -203,7 +203,7 @@
 .accounts-page .tag-filter-btn {
   height: 32px;
   padding: 0 12px;
-  border-radius: 10px;
+  border-radius: var(--radius-xl);
   border: 1px solid var(--border);
   background: var(--bg-tertiary);
   color: var(--text-secondary);
@@ -218,7 +218,7 @@
 .accounts-page .tag-filter-btn.active {
   border-color: rgba(59, 130, 246, 0.4);
   background: rgba(191, 219, 254, 0.45);
-  color: #0f172a;
+  color: #18181b;
 }
 
 .accounts-page .tag-filter-panel {
@@ -227,16 +227,16 @@
   left: 0;
   min-width: 220px;
   background: var(--bg-surface);
-  border: 1px solid rgba(148, 163, 184, 0.35);
-  border-radius: 12px;
-  box-shadow: 0 16px 30px rgba(15, 23, 42, 0.16);
+  border: 1px solid rgba(161, 161, 170, 0.35);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 16px 30px rgba(24, 24, 27, 0.16);
   padding: 10px;
   z-index: 20;
 }
 
 .accounts-page .tag-filter-divider {
   height: 1px;
-  background: rgba(148, 163, 184, 0.25);
+  background: rgba(161, 161, 170, 0.25);
   margin: 4px 0;
 }
 
@@ -270,7 +270,7 @@
   font-size: 12px;
   color: var(--text-secondary);
   padding: 6px 8px;
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
   cursor: pointer;
 }
 
@@ -285,7 +285,7 @@
 .accounts-page .tag-filter-delete {
   width: 20px;
   height: 20px;
-  border-radius: 6px;
+  border-radius: var(--radius-md);
   border: 1px solid transparent;
   background: transparent;
   color: var(--text-muted);
@@ -323,16 +323,16 @@
   margin-top: 10px;
   width: 100%;
   border: none;
-  background: rgba(15, 23, 42, 0.06);
+  background: rgba(24, 24, 27, 0.06);
   color: var(--text-secondary);
   font-size: 12px;
   padding: 6px 8px;
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
   cursor: pointer;
 }
 
 .accounts-page .tag-filter-clear:hover {
-  background: rgba(15, 23, 42, 0.12);
+  background: rgba(24, 24, 27, 0.12);
   color: var(--text-primary);
 }
 
@@ -348,9 +348,9 @@
   justify-content: space-between;
   gap: 8px;
   padding: 6px 10px;
-  border-radius: 10px;
-  background: rgba(15, 23, 42, 0.04);
-  border: 1px solid rgba(148, 163, 184, 0.25);
+  border-radius: var(--radius-xl);
+  background: rgba(24, 24, 27, 0.04);
+  border: 1px solid rgba(161, 161, 170, 0.25);
   color: var(--text-secondary);
   font-size: 12px;
   font-weight: 600;
@@ -373,8 +373,8 @@
 
 .accounts-page .tag-group-row td {
   padding: 8px 16px;
-  background: rgba(15, 23, 42, 0.04);
-  border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+  background: rgba(24, 24, 27, 0.04);
+  border-bottom: 1px solid rgba(161, 161, 170, 0.2);
 }
 
 /* Sort Select */
@@ -398,7 +398,7 @@
   width: 100%;
   height: 32px;
   padding: 0 26px 0 30px;
-  border-radius: 10px;
+  border-radius: var(--radius-xl);
   border: 1px solid var(--border);
   background: var(--bg-tertiary);
   color: var(--text-secondary);
@@ -426,7 +426,7 @@
   width: 32px;
   height: 32px;
   margin-left: 6px;
-  border-radius: 10px;
+  border-radius: var(--radius-xl);
   border: 1px solid var(--border);
   background: var(--bg-tertiary);
   color: var(--text-secondary);
@@ -484,7 +484,7 @@
   min-height: 32px;
   padding: 0 10px;
   font-size: 12px;
-  border-radius: 10px;
+  border-radius: var(--radius-xl);
 }
 
 .accounts-page .toolbar .btn svg {
@@ -559,7 +559,7 @@
 .accounts-page .account-card.disabled {
   opacity: 0.75;
   filter: saturate(0.6);
-  background: rgba(241, 245, 249, 0.85);
+  background: rgba(244, 244, 245, 0.85);
 }
 
 .accounts-page .card-top {
@@ -597,7 +597,7 @@
   color: var(--text-secondary);
   font-size: 11px;
   font-weight: 500;
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
   border: 1px solid var(--border-light);
 }
 
@@ -619,11 +619,11 @@
 .accounts-page .tier-badge,
 .accounts-page .verification-status-pill {
   padding: 2px 6px;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   font-size: 9px;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  border: 1px solid rgba(15, 23, 42, 0.12);
+  border: 1px solid rgba(24, 24, 27, 0.12);
   min-height: 18px;
   white-space: nowrap;
 }
@@ -676,7 +676,7 @@
   align-items: center;
   gap: 3px;
   padding: 2px 6px;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   font-size: 9px;
   font-weight: 700;
   line-height: 1.2;
@@ -719,7 +719,7 @@
   align-items: center;
   gap: 6px;
   padding: 8px 10px;
-  border-radius: 10px;
+  border-radius: var(--radius-xl);
   background: rgba(239, 68, 68, 0.08);
   color: var(--danger);
   font-size: 12px;
@@ -762,8 +762,8 @@
 
 .accounts-page .quota-compact-bar-track {
   height: 6px;
-  background: rgba(15, 23, 42, 0.08);
-  border-radius: 999px;
+  background: rgba(24, 24, 27, 0.08);
+  border-radius: var(--radius-full);
   overflow: hidden;
 }
 
@@ -808,16 +808,16 @@
 .accounts-page .quota-empty {
   grid-column: 1 / -1;
   padding: 16px;
-  border-radius: 12px;
-  border: 1px dashed rgba(15, 23, 42, 0.15);
-  background: rgba(15, 23, 42, 0.03);
+  border-radius: var(--radius-xl);
+  border: 1px dashed rgba(24, 24, 27, 0.15);
+  background: rgba(24, 24, 27, 0.03);
   color: var(--text-muted);
   text-align: center;
 }
 
 .accounts-page .card-footer {
   padding-top: 10px;
-  border-top: 1px dashed rgba(15, 23, 42, 0.12);
+  border-top: 1px dashed rgba(24, 24, 27, 0.12);
 }
 
 .accounts-page .card-date {
@@ -825,15 +825,15 @@
   font-family: var(--font-mono);
   letter-spacing: 0.02em;
   color: var(--text-secondary);
-  background: rgba(15, 23, 42, 0.05);
+  background: rgba(24, 24, 27, 0.05);
   padding: 4px 8px;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
 }
 
 .accounts-page .card-actions {
   background: rgba(255, 255, 255, 0.75);
-  border: 1px solid rgba(15, 23, 42, 0.08);
-  border-radius: 999px;
+  border: 1px solid rgba(24, 24, 27, 0.08);
+  border-radius: var(--radius-full);
   padding: 3px;
   gap: 2px;
 }
@@ -841,7 +841,7 @@
 .accounts-page .card-action-btn {
   width: 24px;
   height: 24px;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   color: var(--text-secondary);
   border: 1px solid transparent;
 }
@@ -885,7 +885,7 @@
 }
 
 .accounts-page .account-table th {
-  background: rgba(15, 23, 42, 0.06);
+  background: rgba(24, 24, 27, 0.06);
 }
 
 .accounts-page .account-table tr.current {
@@ -897,8 +897,8 @@
 /* Dark mode - list/table view tuning */
 [data-theme="dark"] .accounts-page .account-table-container {
   background: rgba(8, 11, 19, 0.98);
-  border-color: rgba(148, 163, 184, 0.18);
-  box-shadow: 0 18px 36px rgba(2, 6, 23, 0.6);
+  border-color: rgba(161, 161, 170, 0.18);
+  box-shadow: 0 18px 36px rgba(9, 9, 11, 0.6);
 }
 
 [data-theme="dark"] .accounts-page .account-table {
@@ -906,22 +906,22 @@
 }
 
 [data-theme="dark"] .accounts-page .account-table tbody tr {
-  background: rgba(15, 23, 42, 0.86);
+  background: rgba(24, 24, 27, 0.86);
 }
 
 [data-theme="dark"] .accounts-page .account-table tbody tr:nth-child(even) {
-  background: rgba(15, 23, 42, 0.92);
+  background: rgba(24, 24, 27, 0.92);
 }
 
 [data-theme="dark"] .accounts-page .account-table th {
-  background: rgba(15, 23, 42, 0.98);
-  color: rgba(226, 232, 240, 0.9);
-  border-bottom-color: rgba(148, 163, 184, 0.18);
+  background: rgba(24, 24, 27, 0.98);
+  color: rgba(228, 228, 231, 0.9);
+  border-bottom-color: rgba(161, 161, 170, 0.18);
 }
 
 [data-theme="dark"] .accounts-page .account-table td {
-  border-bottom-color: rgba(148, 163, 184, 0.1);
-  color: rgba(226, 232, 240, 0.92);
+  border-bottom-color: rgba(161, 161, 170, 0.1);
+  color: rgba(228, 228, 231, 0.92);
 }
 
 [data-theme="dark"] .accounts-page .account-table tr:hover {
@@ -942,16 +942,16 @@
 }
 
 [data-theme="dark"] .accounts-page .pagination-container .tag-filter-btn.single-filter-btn {
-  background: rgba(15, 23, 42, 0.58);
+  background: rgba(24, 24, 27, 0.58);
   border-color: rgba(96, 165, 250, 0.26);
-  color: rgba(226, 232, 240, 0.88);
+  color: rgba(228, 228, 231, 0.88);
 }
 
 [data-theme="dark"] .accounts-page .pagination-container .tag-filter-btn.single-filter-btn:hover:not(:disabled),
 [data-theme="dark"] .accounts-page .pagination-container .tag-filter-btn.single-filter-btn.active {
   background: rgba(37, 99, 235, 0.24);
   border-color: rgba(96, 165, 250, 0.44);
-  color: rgba(248, 250, 252, 0.96);
+  color: rgba(250, 250, 250, 0.96);
 }
 
 [data-theme="dark"] .accounts-page .pagination-container .single-filter-icon {
@@ -959,27 +959,27 @@
 }
 
 [data-theme="dark"] .accounts-page .pagination-btn:hover:not(:disabled) {
-  background: rgba(15, 23, 42, 0.5);
-  border-color: rgba(148, 163, 184, 0.14);
+  background: rgba(24, 24, 27, 0.5);
+  border-color: rgba(161, 161, 170, 0.14);
 }
 
 [data-theme="dark"] .accounts-page .pagination-page,
 [data-theme="dark"] .accounts-page .pagination-info {
-  color: rgba(226, 232, 240, 0.72);
+  color: rgba(228, 228, 231, 0.72);
 }
 
 [data-theme="dark"] .accounts-page .quota-progress-track {
-  background: rgba(148, 163, 184, 0.18);
+  background: rgba(161, 161, 170, 0.18);
 }
 
 [data-theme="dark"] .accounts-page .quota-name,
 [data-theme="dark"] .accounts-page .quota-reset {
-  color: rgba(226, 232, 240, 0.7);
+  color: rgba(228, 228, 231, 0.7);
 }
 
 [data-theme="dark"] .accounts-page .tag-group-row td {
-  background: rgba(15, 23, 42, 0.7);
-  border-bottom-color: rgba(148, 163, 184, 0.18);
+  background: rgba(24, 24, 27, 0.7);
+  border-bottom-color: rgba(161, 161, 170, 0.18);
 }
 
 /* ============================================
@@ -1005,7 +1005,7 @@
   gap: 6px;
   font-size: 0.88rem;
   font-weight: 600;
-  color: var(--text-primary, #1e293b);
+  color: var(--text-primary, #27272a);
   margin: 0;
 }
 
@@ -1022,9 +1022,9 @@
   align-items: center;
   gap: 8px;
   padding: 16px 12px 14px;
-  border-radius: 12px;
+  border-radius: var(--radius-xl);
   background: var(--surface-secondary, rgba(255,255,255,0.72));
-  border: 1px solid var(--border-secondary, rgba(15,23,42,0.08));
+  border: 1px solid var(--border-secondary, rgba(24, 24, 27,0.08));
   cursor: pointer;
   transition: all 0.18s ease;
 }
@@ -1048,7 +1048,7 @@
 .folder-card-name {
   font-size: 0.82rem;
   font-weight: 600;
-  color: var(--text-primary, #1e293b);
+  color: var(--text-primary, #27272a);
   max-width: 150px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1057,7 +1057,7 @@
 
 .folder-card-count {
   font-size: 0.72rem;
-  color: var(--text-secondary, #64748b);
+  color: var(--text-secondary, #71717a);
 }
 
 .folder-card-preview {
@@ -1070,9 +1070,9 @@
 .folder-preview-email {
   font-size: 12px;
   padding: 1px 6px;
-  border-radius: 6px;
+  border-radius: var(--radius-md);
   background: var(--surface-tertiary, rgba(59,130,246,0.08));
-  color: var(--text-secondary, #64748b);
+  color: var(--text-secondary, #71717a);
   word-break: break-all;
   white-space: normal;
   overflow: visible;
@@ -1081,7 +1081,7 @@
 .folder-preview-more {
   font-size: 0.65rem;
   padding: 1px 6px;
-  border-radius: 6px;
+  border-radius: var(--radius-md);
   background: var(--surface-tertiary, rgba(59,130,246,0.08));
   color: var(--primary, #3b82f6);
   font-weight: 600;
@@ -1095,9 +1095,9 @@
   padding: 8px 12px;
   margin: 0 0 8px;
   font-size: 0.82rem;
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
   background: var(--surface-secondary, rgba(255,255,255,0.72));
-  border: 1px solid var(--border-secondary, rgba(15,23,42,0.06));
+  border: 1px solid var(--border-secondary, rgba(24, 24, 27,0.06));
 }
 
 .breadcrumb-back {
@@ -1109,7 +1109,7 @@
   color: var(--primary, #3b82f6);
   cursor: pointer;
   padding: 2px 6px;
-  border-radius: 6px;
+  border-radius: var(--radius-md);
   font-size: 0.8rem;
   transition: background 0.15s;
 }
@@ -1119,17 +1119,17 @@
 }
 
 .breadcrumb-sep {
-  color: var(--text-tertiary, #94a3b8);
+  color: var(--text-tertiary, #a1a1aa);
 }
 
 .breadcrumb-current {
   font-weight: 600;
-  color: var(--text-primary, #1e293b);
+  color: var(--text-primary, #27272a);
 }
 
 .breadcrumb-count {
   font-weight: 400;
-  color: var(--text-secondary, #64748b);
+  color: var(--text-secondary, #71717a);
   margin-left: 4px;
 }
 
@@ -1165,8 +1165,8 @@
 
 /* ---------- dark mode ---------- */
 [data-theme="dark"] .account-folder-card {
-  background: rgba(30, 41, 59, 0.6);
-  border-color: rgba(148, 163, 184, 0.12);
+  background: rgba(39, 39, 42, 0.6);
+  border-color: rgba(161, 161, 170, 0.12);
 }
 
 [data-theme="dark"] .account-folder-card:hover {
@@ -1175,16 +1175,16 @@
 }
 
 [data-theme="dark"] .folder-card-name {
-  color: rgba(226, 232, 240, 0.9);
+  color: rgba(228, 228, 231, 0.9);
 }
 
 [data-theme="dark"] .folder-breadcrumb {
-  background: rgba(30, 41, 59, 0.6);
-  border-color: rgba(148, 163, 184, 0.12);
+  background: rgba(39, 39, 42, 0.6);
+  border-color: rgba(161, 161, 170, 0.12);
 }
 
 [data-theme="dark"] .breadcrumb-current {
-  color: rgba(226, 232, 240, 0.9);
+  color: rgba(228, 228, 231, 0.9);
 }
 
 html[data-reduced-motion="true"] .accounts-page .toolbar,

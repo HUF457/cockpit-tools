@@ -24,7 +24,7 @@
 .manual-search input {
   width: 100%;
   height: 40px;
-  border-radius: 12px;
+  border-radius: var(--radius-xl);
   border: 1px solid var(--border);
   background: var(--bg-secondary);
   color: var(--text-primary);
@@ -98,7 +98,7 @@
 .manual-card-icon {
   width: 34px;
   height: 34px;
-  border-radius: 10px;
+  border-radius: var(--radius-xl);
   background: rgba(29, 78, 216, 0.12);
   color: var(--primary);
   display: inline-flex;
@@ -150,7 +150,7 @@
 
 .manual-info-block {
   border: 1px solid var(--border-light);
-  border-radius: 12px;
+  border-radius: var(--radius-xl);
   background: var(--bg-secondary);
   padding: 10px 11px;
 }
@@ -187,9 +187,9 @@
   display: inline-flex;
   align-items: center;
   padding: 4px 8px;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   border: 1px solid var(--border);
-  background: rgba(148, 163, 184, 0.16);
+  background: rgba(161, 161, 170, 0.16);
   color: var(--text-secondary);
   font-size: 11px;
 }
@@ -203,7 +203,7 @@
 .manual-empty-state {
   min-height: 240px;
   border: 1px solid var(--border);
-  border-radius: 14px;
+  border-radius: var(--radius-xl);
   background: var(--bg-card);
 }
 
@@ -212,7 +212,7 @@
 }
 
 [data-theme="dark"] .manual-card-header:hover {
-  background: rgba(148, 163, 184, 0.08);
+  background: rgba(161, 161, 170, 0.08);
 }
 
 [data-theme="dark"] .manual-card-icon {

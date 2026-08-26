@@ -1,6 +1,6 @@
 .codex-account-pool-health-overlay {
   padding: 24px;
-  background: rgba(15, 23, 42, 0.62);
+  background: rgba(24, 24, 27, 0.62);
 }
 
 .codex-account-pool-health-modal {
@@ -10,9 +10,9 @@
   flex-direction: column;
   overflow: hidden;
   border: 1px solid var(--border);
-  border-radius: 18px;
+  border-radius: var(--radius-xl);
   background: var(--bg-surface);
-  box-shadow: 0 24px 70px rgba(2, 6, 23, 0.28);
+  box-shadow: 0 24px 70px rgba(9, 9, 11, 0.28);
 }
 
 .codex-account-pool-health-header {
@@ -60,7 +60,7 @@
   gap: 6px;
   padding: 12px 14px;
   border: 1px solid var(--border-light);
-  border-radius: 12px;
+  border-radius: var(--radius-xl);
   background: var(--bg-card);
 }
 
@@ -107,7 +107,7 @@
   gap: 4px;
   flex-shrink: 0;
   padding: 2px 8px;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   border: 1px solid var(--border-light);
   background: color-mix(in srgb, var(--bg-secondary) 88%, transparent);
   color: var(--text-secondary);

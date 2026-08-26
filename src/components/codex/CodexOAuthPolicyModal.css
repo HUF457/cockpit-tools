@@ -23,7 +23,7 @@
   flex-direction: column;
   overflow: hidden;
   border: 1px solid var(--border);
-  border-radius: 16px;
+  border-radius: var(--radius-xl);
   background: var(--bg-secondary);
   box-shadow: var(--shadow-lg);
   animation: codexOAuthPolicyModalIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) both;
@@ -68,7 +68,7 @@
   width: 32px;
   height: 32px;
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
   background: var(--bg-tertiary);
   color: var(--text-secondary);
   cursor: pointer;
@@ -78,7 +78,7 @@
   margin: 12px 24px 0;
   padding: 9px 11px;
   border: 1px solid color-mix(in srgb, var(--danger, #ef4444) 35%, transparent);
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
   background: color-mix(in srgb, var(--danger, #ef4444) 8%, transparent);
   color: var(--danger, #ef4444);
   font-size: 12px;
@@ -93,7 +93,7 @@
 .codex-oauth-policy-modal__batch {
   padding: 12px;
   border: 1px solid var(--border-light);
-  border-radius: 10px;
+  border-radius: var(--radius-xl);
   background: var(--bg-tertiary);
 }
 
@@ -170,7 +170,7 @@
   min-height: 48px;
   padding: 7px 10px;
   border: 1px solid var(--border-light);
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
   background: var(--bg-secondary);
 }
 

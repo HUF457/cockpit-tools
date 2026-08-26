@@ -78,17 +78,17 @@ function GuardFallback({ failure }: { failure: GuardFailure }) {
         alignItems: 'center',
         justifyContent: 'center',
         padding: 24,
-        background: 'var(--bg-primary, #f8fafc)',
-        color: 'var(--text-primary, #0f172a)',
+        background: 'var(--bg-primary, #fafafa)',
+        color: 'var(--text-primary, #18181b)',
       }}
     >
       <div
         style={{
           width: 'min(680px, calc(100vw - 32px))',
-          borderRadius: 12,
-          border: '1px solid var(--border, rgba(148, 163, 184, 0.28))',
+          borderRadius: 8,
+          border: '1px solid var(--border, rgba(161, 161, 170, 0.28))',
           background: 'var(--bg-card, #ffffff)',
-          boxShadow: '0 12px 32px rgba(2, 6, 23, 0.08)',
+          boxShadow: '0 12px 32px rgba(9, 9, 11, 0.08)',
           padding: 20,
           display: 'flex',
           flexDirection: 'column',
@@ -96,19 +96,19 @@ function GuardFallback({ failure }: { failure: GuardFailure }) {
         }}
       >
         <div style={{ fontSize: 16, fontWeight: 700 }}>{title}</div>
-        <div style={{ fontSize: 13, lineHeight: 1.6, color: 'var(--text-secondary, #475569)' }}>
+        <div style={{ fontSize: 13, lineHeight: 1.6, color: 'var(--text-secondary, #52525b)' }}>
           {message}
         </div>
         {detailText ? (
           <div
             style={{
-              borderRadius: 10,
-              border: '1px solid var(--border-light, rgba(148, 163, 184, 0.2))',
-              background: 'var(--bg-tertiary, rgba(248, 250, 252, 0.8))',
+              borderRadius: 8,
+              border: '1px solid var(--border-light, rgba(161, 161, 170, 0.2))',
+              background: 'var(--bg-tertiary, rgba(250, 250, 250, 0.8))',
               padding: 10,
               fontSize: 12,
               lineHeight: 1.5,
-              color: 'var(--text-secondary, #475569)',
+              color: 'var(--text-secondary, #52525b)',
               whiteSpace: 'pre-wrap',
               wordBreak: 'break-word',
             }}

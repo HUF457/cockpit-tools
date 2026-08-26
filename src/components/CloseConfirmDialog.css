@@ -15,7 +15,7 @@
   background: var(--bg-secondary);
   background-color: var(--bg-secondary);
   border: 1px solid var(--border);
-  border-radius: 16px;
+  border-radius: var(--radius-xl);
   padding: 28px;
   width: 400px;
   max-width: calc(100vw - 40px);
@@ -32,7 +32,7 @@
   color: var(--text-muted);
   cursor: pointer;
   padding: 4px;
-  border-radius: 6px;
+  border-radius: var(--radius-md);
   transition: all 0.15s ease;
 }
 
@@ -68,7 +68,7 @@
   padding: 16px;
   background: var(--hover);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: var(--radius-xl);
   cursor: pointer;
   text-align: left;
   transition: all 0.2s ease;
@@ -87,7 +87,7 @@
 .close-option-btn .option-icon {
   width: 48px;
   height: 48px;
-  border-radius: 12px;
+  border-radius: var(--radius-xl);
   display: flex;
   align-items: center;
   justify-content: center;

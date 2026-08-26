@@ -26,7 +26,7 @@
   flex: 1;
   height: 36px;
   padding: 0 12px;
-  border-radius: 10px;
+  border-radius: var(--radius-xl);
   border: 1px solid var(--border);
   background: var(--bg-tertiary);
   color: var(--text-primary);
@@ -59,7 +59,7 @@
   flex-direction: column;
   gap: 0;
   padding: 0;
-  border-radius: 12px;
+  border-radius: var(--radius-xl);
   background: var(--bg-tertiary);
   border: 1px solid var(--border);
   overflow: hidden;
@@ -120,7 +120,7 @@
 :root[data-theme='light'] .group-modal-item-meta,
 html.light .group-modal-item-meta,
 body.theme-light .group-modal-item-meta {
-  background: rgba(15, 23, 42, 0.02);
+  background: rgba(24, 24, 27, 0.02);
 }
 
 .group-quota-meta-label {
@@ -142,7 +142,7 @@ body.theme-light .group-modal-item-meta {
   min-height: 32px;
   height: 32px;
   padding: 0 8px 0 10px;
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
   border: 1px solid var(--border);
   background: var(--bg-card);
   box-shadow: none;
@@ -181,13 +181,13 @@ body.theme-light .group-modal-item-meta {
 }
 
 .group-quota-dropdown-menu.single-select-dropdown-menu {
-  border-radius: 10px;
+  border-radius: var(--radius-xl);
   padding: 4px;
 }
 
 .group-quota-dropdown-menu .single-select-dropdown-item {
   min-height: 34px;
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
   padding: 0 10px;
 }
 
@@ -203,7 +203,7 @@ body.theme-light .group-modal-item-meta {
   min-width: 120px;
   height: 32px;
   padding: 0 10px;
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
   border: 1px solid rgba(59, 130, 246, 0.4);
   background: var(--bg-card);
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
@@ -246,7 +246,7 @@ body.theme-light .group-modal-item-meta {
 .group-modal-item .group-action-btn {
   width: 28px;
   height: 28px;
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
   border: 1px solid transparent;
   background: transparent;
   color: var(--text-muted);
@@ -274,7 +274,7 @@ body.theme-light .group-modal-item-meta {
   flex: 1;
   height: 28px;
   padding: 0 8px;
-  border-radius: 6px;
+  border-radius: var(--radius-md);
   border: 1px solid var(--primary);
   background: var(--bg-card);
   color: var(--text-primary);
@@ -323,7 +323,7 @@ body.theme-light .group-modal-item-meta {
   align-items: center;
   gap: 10px;
   padding: 10px 14px;
-  border-radius: 10px;
+  border-radius: var(--radius-xl);
   border: 1px solid var(--border);
   background: var(--bg-tertiary);
   cursor: pointer;
@@ -362,7 +362,7 @@ body.theme-light .group-modal-item-meta {
   align-items: center;
   gap: 6px;
   padding: 8px 12px;
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
   background: rgba(239, 68, 68, 0.08);
   border: 1px solid rgba(239, 68, 68, 0.2);
   color: var(--danger, #ef4444);
@@ -410,7 +410,7 @@ body.theme-light .group-modal-item-meta {
   align-items: center;
   justify-content: space-between;
   padding: 6px 12px;
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
   background: rgba(59, 130, 246, 0.08);
   border: 1px solid rgba(59, 130, 246, 0.2);
   font-size: 12px;

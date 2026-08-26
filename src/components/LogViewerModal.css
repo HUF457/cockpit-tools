@@ -22,7 +22,7 @@
 
 .log-viewer-meta-item {
   height: 30px;
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
   border: 1px solid var(--border-light);
   background: var(--bg-tertiary);
   color: var(--text-secondary);
@@ -107,7 +107,7 @@
 .log-viewer-line-limit-input {
   width: 92px;
   height: 30px;
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
   border: 1px solid var(--border);
   background: var(--bg-card);
   color: var(--text-primary);
@@ -117,8 +117,8 @@
 
 .log-viewer-content {
   border: 1px solid var(--border);
-  background: #0f172a;
-  border-radius: 10px;
+  background: #18181b;
+  border-radius: var(--radius-xl);
   min-height: 360px;
   max-height: 52vh;
   overflow: auto;
@@ -127,7 +127,7 @@
 
 .log-viewer-content pre {
   margin: 0;
-  color: #e2e8f0;
+  color: #e4e4e7;
   font-size: 12px;
   line-height: 1.5;
   white-space: pre-wrap;
@@ -140,7 +140,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #94a3b8;
+  color: #a1a1aa;
   font-size: 13px;
 }
 

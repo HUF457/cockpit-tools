@@ -2,7 +2,7 @@
   overflow-y: auto;
   padding: clamp(16px, 2.6vw, 32px);
   background:
-    rgba(15, 23, 42, 0.68);
+    rgba(24, 24, 27, 0.68);
 }
 
 .codex-local-access-modal-overlay-panel {
@@ -27,12 +27,12 @@
     rgba(255, 255, 255, 0.56)
   );
   --codex-local-shadow:
-    0 34px 90px rgba(2, 6, 23, 0.24), 0 10px 32px rgba(15, 23, 42, 0.14);
+    0 34px 90px rgba(9, 9, 11, 0.24), 0 10px 32px rgba(24, 24, 27, 0.14);
   width: 100%;
   max-width: min(940px, calc(100vw - 48px));
   max-height: none;
   margin: 0 auto;
-  border-radius: 28px;
+  border-radius: var(--radius-xl);
   border: 1px solid var(--codex-local-border);
   background: color-mix;
   box-shadow: var(--codex-local-shadow);
@@ -99,7 +99,7 @@
   height: 18px;
   padding: 10px;
   box-sizing: content-box;
-  border-radius: 14px;
+  border-radius: var(--radius-xl);
   background: #2563eb;
   color: #fff;
   box-shadow:
@@ -162,9 +162,9 @@
   width: 100%;
   min-width: 0;
   height: 30px;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   border: 1px solid
-    color-mix(in srgb, var(--primary) 20%, rgba(148, 163, 184, 0.18));
+    color-mix(in srgb, var(--primary) 20%, rgba(161, 161, 170, 0.18));
   background: color-mix(in srgb, var(--primary) 4%, rgba(255, 255, 255, 0.9));
   color: var(--text-primary);
   font-size: 12px;
@@ -177,7 +177,7 @@
   border-color: color-mix(
     in srgb,
     var(--primary) 45%,
-    rgba(148, 163, 184, 0.26)
+    rgba(161, 161, 170, 0.26)
   );
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 11%, transparent);
 }
@@ -189,9 +189,9 @@
   width: 30px;
   height: 30px;
   flex: 0 0 30px;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   border: 1px solid
-    color-mix(in srgb, var(--primary) 24%, rgba(148, 163, 184, 0.18));
+    color-mix(in srgb, var(--primary) 24%, rgba(161, 161, 170, 0.18));
   background: color-mix(in srgb, var(--primary) 9%, rgba(255, 255, 255, 0.92));
   color: var(--primary);
   cursor: pointer;
@@ -204,14 +204,14 @@
 
 .codex-local-access-debug-toggle {
   border: 1px solid
-    color-mix(in srgb, var(--primary) 18%, rgba(148, 163, 184, 0.18));
+    color-mix(in srgb, var(--primary) 18%, rgba(161, 161, 170, 0.18));
   background: color-mix(in srgb, var(--primary) 5%, rgba(255, 255, 255, 0.88));
   color: var(--text-secondary);
 }
 
 .codex-local-access-modal .codex-local-access-debug-toggle.is-active {
   color: #fff;
-  border-color: color-mix(in srgb, #0284c7 58%, rgba(148, 163, 184, 0.2));
+  border-color: color-mix(in srgb, #0284c7 58%, rgba(161, 161, 170, 0.2));
   background: #0284c7;
   box-shadow:
     0 10px 22px -16px rgba(2, 132, 199, 0.86),
@@ -226,7 +226,7 @@
 .codex-local-access-modal
   .codex-local-access-debug-toggle.is-active:hover:not(:disabled) {
   color: #fff;
-  border-color: color-mix(in srgb, #0284c7 68%, rgba(148, 163, 184, 0.2));
+  border-color: color-mix(in srgb, #0284c7 68%, rgba(161, 161, 170, 0.2));
   background: #0369a1;
 }
 
@@ -238,7 +238,7 @@
 .codex-local-access-header-routing .single-select-dropdown-trigger {
   min-height: 34px;
   padding: 0 10px 0 12px;
-  border-radius: 12px;
+  border-radius: var(--radius-xl);
 }
 
 .codex-local-access-header-routing .single-select-dropdown-value {
@@ -249,13 +249,13 @@
   width: 34px;
   height: 34px;
   padding: 0;
-  border-radius: 12px;
+  border-radius: var(--radius-xl);
 }
 
 .codex-local-access-full-page-btn {
   min-height: 34px;
   padding: 0 12px;
-  border-radius: 12px;
+  border-radius: var(--radius-xl);
   white-space: nowrap;
 }
 
@@ -265,7 +265,7 @@
   border-color: color-mix(
     in srgb,
     var(--primary) 18%,
-    rgba(148, 163, 184, 0.18)
+    rgba(161, 161, 170, 0.18)
   );
 }
 
@@ -281,9 +281,9 @@
   right: 24px;
   width: 38px;
   height: 38px;
-  border: 1px solid rgba(148, 163, 184, 0.16);
+  border: 1px solid rgba(161, 161, 170, 0.16);
   background: rgba(255, 255, 255, 0.64);
-  box-shadow: 0 10px 24px -18px rgba(15, 23, 42, 0.45);
+  box-shadow: 0 10px 24px -18px rgba(24, 24, 27, 0.45);
 }
 
 .codex-local-access-close:hover {
@@ -291,7 +291,7 @@
   border-color: color-mix(
     in srgb,
     var(--primary) 30%,
-    rgba(148, 163, 184, 0.22)
+    rgba(161, 161, 170, 0.22)
   );
   color: var(--primary);
   transform: rotate(90deg) translateY(-1px);
@@ -346,8 +346,8 @@
   justify-content: center;
   min-height: 30px;
   padding: 0 12px;
-  border-radius: 999px;
-  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(161, 161, 170, 0.16);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.36);
   white-space: nowrap;
 }
@@ -384,9 +384,9 @@
   gap: 6px;
   min-height: 30px;
   padding: 0 12px;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   border: 1px solid
-    color-mix(in srgb, var(--primary) 26%, rgba(148, 163, 184, 0.18));
+    color-mix(in srgb, var(--primary) 26%, rgba(161, 161, 170, 0.18));
   background: color-mix(in srgb, var(--primary) 9%, rgba(255, 255, 255, 0.86));
   color: var(--primary);
   font-size: 11px;
@@ -408,7 +408,7 @@
   border-color: color-mix(
     in srgb,
     var(--primary) 42%,
-    rgba(148, 163, 184, 0.2)
+    rgba(161, 161, 170, 0.2)
   );
   background: color-mix(in srgb, var(--primary) 13%, rgba(255, 255, 255, 0.92));
 }
@@ -444,8 +444,8 @@
   align-items: center;
   gap: 4px;
   padding: 3px;
-  border-radius: 999px;
-  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(161, 161, 170, 0.18);
   background: rgba(255, 255, 255, 0.7);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
 }
@@ -454,7 +454,7 @@
   min-width: 34px;
   height: 28px;
   border: 1px solid transparent;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   background: transparent;
   color: var(--text-secondary);
   font-size: 12px;
@@ -465,7 +465,7 @@
 
 .codex-local-access-stats-range-tab:hover:not(:disabled) {
   color: var(--text-primary);
-  background: rgba(148, 163, 184, 0.14);
+  background: rgba(161, 161, 170, 0.14);
 }
 
 .codex-local-access-stats-range-tab.is-active {
@@ -481,9 +481,9 @@
   align-items: flex-start;
   gap: 10px;
   padding: 12px 14px;
-  border-radius: 16px;
+  border-radius: var(--radius-xl);
   border: 1px solid transparent;
-  box-shadow: 0 12px 24px -22px rgba(15, 23, 42, 0.45);
+  box-shadow: 0 12px 24px -22px rgba(24, 24, 27, 0.45);
 }
 
 .codex-local-access-inline-error svg,
@@ -532,18 +532,18 @@
 .codex-local-access-test-dialog-overlay {
   z-index: 10020;
   padding: 16px;
-  background: rgba(15, 23, 42, 0.56);
+  background: rgba(24, 24, 27, 0.56);
 }
 
 .codex-local-access-test-dialog {
   width: min(760px, calc(100vw - 32px));
   max-height: min(780px, calc(100vh - 32px));
-  border-radius: 22px;
+  border-radius: var(--radius-xl);
   border: 1px solid color-mix(in srgb, var(--primary) 16%, var(--border));
   background: color-mix;
   box-shadow:
-    0 28px 68px rgba(2, 6, 23, 0.28),
-    0 8px 28px rgba(15, 23, 42, 0.16);
+    0 28px 68px rgba(9, 9, 11, 0.28),
+    0 8px 28px rgba(24, 24, 27, 0.16);
 }
 
 .codex-local-access-test-dialog-header {
@@ -620,8 +620,8 @@
   gap: 12px;
   overflow: auto;
   padding: 14px;
-  border-radius: 18px;
-  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(161, 161, 170, 0.16);
   background:
     color-mix(in srgb, var(--bg-card) 94%, rgba(255, 255, 255, 0.56));
 }
@@ -656,11 +656,11 @@
   flex-direction: column;
   gap: 7px;
   padding: 11px 13px;
-  border-radius: 16px;
-  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(161, 161, 170, 0.16);
   background: rgba(255, 255, 255, 0.82);
   color: var(--text-primary);
-  box-shadow: 0 10px 24px -22px rgba(15, 23, 42, 0.42);
+  box-shadow: 0 10px 24px -22px rgba(24, 24, 27, 0.42);
 }
 
 .codex-local-access-test-chat-message.is-user
@@ -668,7 +668,7 @@
   border-color: color-mix(
     in srgb,
     var(--primary) 26%,
-    rgba(148, 163, 184, 0.16)
+    rgba(161, 161, 170, 0.16)
   );
   background: color-mix(in srgb, var(--primary) 12%, rgba(255, 255, 255, 0.9));
   color: var(--primary);
@@ -714,9 +714,9 @@
   align-items: flex-start;
   gap: 12px;
   padding: 14px 16px;
-  border-radius: 16px;
+  border-radius: var(--radius-xl);
   border: 1px solid
-    color-mix(in srgb, var(--primary) 18%, rgba(148, 163, 184, 0.18));
+    color-mix(in srgb, var(--primary) 18%, rgba(161, 161, 170, 0.18));
   background: color-mix(in srgb, var(--primary) 7%, rgba(255, 255, 255, 0.82));
   color: var(--text-primary);
 }
@@ -756,7 +756,7 @@
   flex-direction: column;
   gap: 14px;
   padding: 14px;
-  border-radius: 16px;
+  border-radius: var(--radius-xl);
   border: 1px solid rgba(239, 68, 68, 0.2);
   background: rgba(254, 242, 242, 0.96);
   color: var(--text-primary);
@@ -819,8 +819,8 @@
   margin: 0;
   overflow: auto;
   padding: 12px 14px;
-  border-radius: 14px;
-  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(161, 161, 170, 0.18);
   background:
     color-mix(in srgb, var(--bg-card) 92%, rgba(255, 255, 255, 0.6));
   color: var(--text-primary);
@@ -847,8 +847,8 @@
   min-height: 48px;
   max-height: 120px;
   resize: vertical;
-  border-radius: 14px;
-  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(161, 161, 170, 0.22);
   background: color-mix(in srgb, var(--bg-card) 94%, rgba(255, 255, 255, 0.72));
   color: var(--text-primary);
   font: inherit;
@@ -862,7 +862,7 @@
   border-color: color-mix(
     in srgb,
     var(--primary) 44%,
-    rgba(148, 163, 184, 0.22)
+    rgba(161, 161, 170, 0.22)
   );
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 10%, transparent);
 }
@@ -875,19 +875,19 @@
   z-index: 10018;
   overflow-y: auto;
   padding: 18px;
-  background: rgba(15, 23, 42, 0.58);
+  background: rgba(24, 24, 27, 0.58);
 }
 
 .codex-local-access-custom-routing-dialog {
   width: min(850px, calc(100vw - 40px));
   max-width: calc(100vw - 40px);
   max-height: min(820px, calc(100vh - 36px));
-  border-radius: 24px;
+  border-radius: var(--radius-xl);
   border: 1px solid color-mix(in srgb, var(--primary) 16%, var(--border));
   background: color-mix;
   box-shadow:
-    0 32px 76px rgba(2, 6, 23, 0.3),
-    0 10px 30px rgba(15, 23, 42, 0.16);
+    0 32px 76px rgba(9, 9, 11, 0.3),
+    0 10px 30px rgba(24, 24, 27, 0.16);
   overflow: hidden;
 }
 
@@ -949,9 +949,9 @@
   flex-direction: column;
   gap: 6px;
   padding: 13px 14px;
-  border-radius: 16px;
+  border-radius: var(--radius-xl);
   border: 1px solid
-    color-mix(in srgb, var(--primary) 14%, rgba(148, 163, 184, 0.18));
+    color-mix(in srgb, var(--primary) 14%, rgba(161, 161, 170, 0.18));
   background:
     color-mix(in srgb, var(--primary) 4%, var(--bg-card));
 }
@@ -1008,9 +1008,9 @@
   justify-content: center;
   min-height: 30px;
   padding: 0 10px;
-  border-radius: 999px;
-  border: 1px solid rgba(148, 163, 184, 0.16);
-  background: rgba(148, 163, 184, 0.09);
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(161, 161, 170, 0.16);
+  background: rgba(161, 161, 170, 0.09);
   color: var(--text-secondary);
   font-size: 12px;
   font-weight: 700;
@@ -1032,8 +1032,8 @@
   width: 74px;
   height: 34px;
   padding: 0 9px;
-  border-radius: 11px;
-  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(161, 161, 170, 0.2);
   background:
     var(--bg-card);
   color: var(--text-primary);
@@ -1052,7 +1052,7 @@
   border-color: color-mix(
     in srgb,
     var(--primary) 44%,
-    rgba(148, 163, 184, 0.22)
+    rgba(161, 161, 170, 0.22)
   );
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 14%, transparent);
 }
@@ -1065,11 +1065,11 @@
   max-height: min(46vh, 420px);
   min-height: 0;
   overflow: hidden;
-  border-radius: 18px;
-  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(161, 161, 170, 0.16);
   background:
     var(--bg-card);
-  box-shadow: 0 18px 34px -30px rgba(15, 23, 42, 0.36);
+  box-shadow: 0 18px 34px -30px rgba(24, 24, 27, 0.36);
 }
 
 .codex-local-access-custom-routing-list {
@@ -1088,7 +1088,7 @@
   gap: 12px;
   min-width: 0;
   padding: 12px 14px;
-  border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+  border-bottom: 1px solid rgba(161, 161, 170, 0.12);
   transition:
     background 0.16s ease,
     border-color 0.16s ease;
@@ -1113,7 +1113,7 @@
   min-height: 44px;
   padding-top: 10px;
   padding-bottom: 10px;
-  border-bottom-color: rgba(148, 163, 184, 0.18);
+  border-bottom-color: rgba(161, 161, 170, 0.18);
   background:
     var(--bg-tertiary);
   color: var(--text-secondary);
@@ -1154,7 +1154,7 @@
 .codex-local-access-custom-routing-account .tier-badge {
   flex-shrink: 0;
   padding: 4px 10px;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.05em;
@@ -1235,7 +1235,7 @@
 .codex-local-access-custom-routing-switch-track {
   position: absolute;
   inset: 0;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   background: color-mix(in srgb, var(--text-muted) 24%, var(--bg-card));
   transition:
     background 0.16s ease,
@@ -1251,7 +1251,7 @@
   height: 16px;
   border-radius: 50%;
   background: var(--bg-card);
-  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.2);
+  box-shadow: 0 1px 3px rgba(24, 24, 27, 0.2);
   transition: transform 0.16s ease;
 }
 
@@ -1304,12 +1304,12 @@
   flex-direction: column;
   gap: 14px;
   padding: 18px;
-  border-radius: 22px;
-  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(161, 161, 170, 0.14);
   background:
     var(--codex-local-surface);
   box-shadow:
-    0 22px 40px -34px rgba(15, 23, 42, 0.42),
+    0 22px 40px -34px rgba(24, 24, 27, 0.42),
     inset 0 1px 0 rgba(255, 255, 255, 0.55);
   overflow: hidden;
 }
@@ -1363,7 +1363,7 @@
 
 .codex-local-access-member-routing .single-select-dropdown-trigger {
   min-height: 34px;
-  border-radius: 10px;
+  border-radius: var(--radius-xl);
 }
 
 .codex-local-access-free-toggle {
@@ -1372,8 +1372,8 @@
   gap: 8px;
   min-height: 32px;
   padding: 0 12px;
-  border-radius: 999px;
-  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(161, 161, 170, 0.18);
   background: rgba(255, 255, 255, 0.68);
   color: var(--text-secondary);
   font-size: 12px;
@@ -1391,8 +1391,8 @@
   gap: 4px;
   min-width: 0;
   padding: 5px 8px;
-  border: 1px solid rgba(148, 163, 184, 0.18);
-  border-radius: 12px;
+  border: 1px solid rgba(161, 161, 170, 0.18);
+  border-radius: var(--radius-xl);
   background: rgba(255, 255, 255, 0.68);
 }
 
@@ -1423,7 +1423,7 @@
   height: 16px;
   margin: 0;
   border: 1.5px solid var(--border-strong, var(--border));
-  border-radius: 5px;
+  border-radius: var(--radius-sm);
   background: var(--bg-surface);
   cursor: pointer;
   transition:
@@ -1460,7 +1460,7 @@
   min-width: 0;
   padding: 0 8px;
   border: 1px solid var(--codex-local-border);
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
   background: color-mix(in srgb, var(--bg-surface) 90%, transparent);
   color: var(--text-primary);
   outline: none;
@@ -1499,7 +1499,7 @@
   .single-select-dropdown-trigger {
   min-height: 30px;
   padding: 0 7px 0 10px;
-  border-radius: 9px;
+  border-radius: var(--radius-xl);
   gap: 5px;
 }
 
@@ -1518,7 +1518,7 @@
 .codex-local-access-member-priority-menu .single-select-dropdown-item {
   min-height: 34px;
   padding: 0 9px;
-  border-radius: 9px;
+  border-radius: var(--radius-xl);
 }
 
 .codex-local-access-custom-routing-usage-priority-badge {
@@ -1526,7 +1526,7 @@
   align-items: center;
   min-height: 22px;
   padding: 0 8px;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   border: 1px solid color-mix(in srgb, var(--primary) 28%, var(--border));
   background: color-mix(in srgb, var(--primary) 12%, var(--bg-card));
   color: var(--primary);
@@ -1548,14 +1548,14 @@
   flex-direction: column;
   gap: 6px;
   padding: 15px 15px 14px;
-  border-radius: 18px;
+  border-radius: var(--radius-xl);
   border: 1px solid
-    color-mix(in srgb, currentColor 18%, rgba(148, 163, 184, 0.18));
+    color-mix(in srgb, currentColor 18%, rgba(161, 161, 170, 0.18));
   background:
     color-mix(in srgb, var(--bg-card) 94%, white 6%);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.48),
-    0 12px 24px -22px rgba(15, 23, 42, 0.44);
+    0 12px 24px -22px rgba(24, 24, 27, 0.44);
   overflow: hidden;
 }
 
@@ -1565,21 +1565,21 @@
   inset: 0 auto auto 14px;
   width: calc(100% - 28px);
   height: 3px;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   background: transparent;
   opacity: 0.7;
 }
 
 .codex-local-access-stat-card-requests {
-  color: #2563eb;
+  color: var(--primary);
 }
 
 .codex-local-access-stat-card-tokens {
-  color: #0f766e;
+  color: var(--success);
 }
 
 .codex-local-access-stat-card-specialTokens {
-  color: #7c3aed;
+  color: var(--warning-strong);
 }
 
 .codex-local-access-stat-card-cost {
@@ -1632,7 +1632,7 @@
   min-height: 32px;
   min-width: max-content;
   padding: 0 11px;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   border: 1px solid rgba(37, 99, 235, 0.16);
   background: rgba(239, 246, 255, 0.62);
   color: #1e3a8a;
@@ -1707,13 +1707,13 @@
   align-items: stretch;
   gap: 12px;
   padding: 16px;
-  border-radius: 18px;
-  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(161, 161, 170, 0.14);
   background:
     var(--codex-local-surface-soft);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.45),
-    0 12px 24px -22px rgba(15, 23, 42, 0.45);
+    0 12px 24px -22px rgba(24, 24, 27, 0.45);
 }
 
 .codex-local-access-config-card-root,
@@ -1766,7 +1766,7 @@
   min-height: 24px;
   gap: 2px;
   padding: 0 2px 0 6px;
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
   border-color: transparent;
   background: color-mix(in srgb, var(--primary) 5%, transparent);
   box-shadow: none;
@@ -1799,7 +1799,7 @@
 .codex-local-access-view-only-badge {
   margin-right: auto;
   padding: 3px 8px;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   background: color-mix(in srgb, var(--primary) 9%, transparent);
   color: var(--text-secondary);
   font-size: 11px;
@@ -1812,17 +1812,17 @@
   width: 32px;
   height: 32px;
   padding: 0;
-  border: 1px solid rgba(148, 163, 184, 0.16);
-  border-radius: 10px;
+  border: 1px solid rgba(161, 161, 170, 0.16);
+  border-radius: var(--radius-xl);
   background: rgba(255, 255, 255, 0.72);
-  box-shadow: 0 8px 20px -18px rgba(15, 23, 42, 0.45);
+  box-shadow: 0 8px 20px -18px rgba(24, 24, 27, 0.45);
 }
 
 .codex-local-access-modal .folder-icon-btn:hover:not(:disabled) {
   border-color: color-mix(
     in srgb,
     var(--primary) 28%,
-    rgba(148, 163, 184, 0.18)
+    rgba(161, 161, 170, 0.18)
   );
   background: color-mix(in srgb, var(--primary) 8%, rgba(255, 255, 255, 0.84));
 }
@@ -1831,8 +1831,8 @@
   display: block;
   width: 100%;
   padding: 12px 14px;
-  border-radius: 14px;
-  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(161, 161, 170, 0.16);
   background:
     color-mix(in srgb, var(--bg-tertiary) 90%, white 10%);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65);
@@ -1859,8 +1859,8 @@
 
 .codex-local-access-port-row input,
 .codex-local-access-member-section .group-account-search input {
-  border-radius: 14px;
-  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(161, 161, 170, 0.18);
   background:
     var(--bg-card);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
@@ -1883,7 +1883,7 @@
   border-color: color-mix(
     in srgb,
     var(--primary) 46%,
-    rgba(148, 163, 184, 0.2)
+    rgba(161, 161, 170, 0.2)
   );
   box-shadow:
     0 0 0 4px rgba(37, 99, 235, 0.1),
@@ -1919,11 +1919,11 @@
   align-items: stretch;
   gap: 12px;
   padding: 16px;
-  border-radius: 18px;
-  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(161, 161, 170, 0.14);
   background:
     color-mix(in srgb, var(--bg-card) 95%, white 5%);
-  box-shadow: 0 14px 28px -24px rgba(15, 23, 42, 0.38);
+  box-shadow: 0 14px 28px -24px rgba(24, 24, 27, 0.38);
   overflow: hidden;
 }
 
@@ -1931,7 +1931,7 @@
   border-color: color-mix(
     in srgb,
     var(--primary) 20%,
-    rgba(148, 163, 184, 0.16)
+    rgba(161, 161, 170, 0.16)
   );
 }
 
@@ -2000,9 +2000,9 @@
   align-items: center;
   min-height: 28px;
   padding: 0 10px;
-  border-radius: 999px;
-  border: 1px solid rgba(148, 163, 184, 0.14);
-  background: rgba(148, 163, 184, 0.08);
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(161, 161, 170, 0.14);
+  background: rgba(161, 161, 170, 0.08);
   font-size: 11px;
   font-weight: 600;
   line-height: 1;
@@ -2033,9 +2033,9 @@
   min-width: max-content;
   max-width: none;
   padding: 5px 9px;
-  border-radius: 999px;
-  border: 1px solid rgba(148, 163, 184, 0.14);
-  background: rgba(148, 163, 184, 0.08);
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(161, 161, 170, 0.14);
+  background: rgba(161, 161, 170, 0.08);
   font-size: 11px;
   line-height: 1.2;
   color: var(--text-secondary);
@@ -2052,7 +2052,7 @@
 .codex-local-access-quota-dot {
   width: 6px;
   height: 6px;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   background: currentColor;
   opacity: 0.92;
 }
@@ -2111,11 +2111,11 @@
   position: relative;
   align-items: flex-start;
   padding: 14px 16px;
-  border-radius: 16px;
-  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(161, 161, 170, 0.14);
   background:
     color-mix(in srgb, var(--bg-card) 95%, white 5%);
-  box-shadow: 0 14px 28px -24px rgba(15, 23, 42, 0.38);
+  box-shadow: 0 14px 28px -24px rgba(24, 24, 27, 0.38);
   transition:
     transform 0.18s ease,
     border-color 0.18s ease,
@@ -2127,7 +2127,7 @@
   border-color: color-mix(
     in srgb,
     var(--primary) 20%,
-    rgba(148, 163, 184, 0.16)
+    rgba(161, 161, 170, 0.16)
   );
   background:
     color-mix(in srgb, var(--bg-card) 95%, white 5%);
@@ -2137,7 +2137,7 @@
   border-color: color-mix(
     in srgb,
     var(--primary) 28%,
-    rgba(148, 163, 184, 0.16)
+    rgba(161, 161, 170, 0.16)
   );
   background:
     color-mix(in srgb, var(--primary) 5%, var(--bg-card));
@@ -2152,8 +2152,8 @@
 
 .codex-local-access-member-section .group-account-item.is-disabled:hover {
   transform: none;
-  border-color: rgba(148, 163, 184, 0.14);
-  box-shadow: 0 14px 28px -24px rgba(15, 23, 42, 0.38);
+  border-color: rgba(161, 161, 170, 0.14);
+  box-shadow: 0 14px 28px -24px rgba(24, 24, 27, 0.38);
 }
 
 .codex-local-access-member-section
@@ -2168,7 +2168,7 @@
 .codex-local-access-member-section
   .group-account-item.group-account-item-header:hover {
   transform: none;
-  border-color: rgba(148, 163, 184, 0.14);
+  border-color: rgba(161, 161, 170, 0.14);
   background: rgba(255, 255, 255, 0.34);
   box-shadow: none;
 }
@@ -2207,7 +2207,7 @@
 }
 
 .codex-local-access-member-list::-webkit-scrollbar-thumb {
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   background: color-mix(in srgb, var(--text-muted) 35%, transparent);
 }
 
@@ -2276,7 +2276,7 @@
 .codex-local-access-member-list .group-account-email:focus-visible {
   outline: 2px solid color-mix(in srgb, var(--primary) 55%, transparent);
   outline-offset: 2px;
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
 }
 
 .codex-local-access-member-list .codex-local-access-member-plan,
@@ -2316,7 +2316,7 @@
   align-items: center;
   flex: 0 0 auto;
   padding: 3px 8px;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   border: 1px solid rgba(59, 130, 246, 0.24);
   background: rgba(219, 234, 254, 0.7);
   color: #1e3a8a;
@@ -2390,8 +2390,8 @@
 }
 
 .codex-local-access-member-section .group-account-badge {
-  border: 1px solid rgba(148, 163, 184, 0.12);
-  background: rgba(148, 163, 184, 0.1);
+  border: 1px solid rgba(161, 161, 170, 0.12);
+  background: rgba(161, 161, 170, 0.1);
   color: var(--text-secondary);
 }
 
@@ -2404,8 +2404,8 @@
 .codex-local-access-member-section .group-account-empty,
 .codex-local-access-panel-grid .group-account-empty {
   padding: 28px 16px;
-  border-radius: 16px;
-  border: 1px dashed rgba(148, 163, 184, 0.22);
+  border-radius: var(--radius-xl);
+  border: 1px dashed rgba(161, 161, 170, 0.22);
   background: rgba(255, 255, 255, 0.4);
   text-align: center;
   color: var(--text-secondary);
@@ -2463,7 +2463,7 @@
 
   .codex-local-access-modal {
     max-width: 100%;
-    border-radius: 24px;
+    border-radius: var(--radius-xl);
   }
 
   .codex-local-access-modal .modal-header,
@@ -2474,7 +2474,7 @@
   }
 
   .codex-local-access-section-surface {
-    border-radius: 20px;
+    border-radius: var(--radius-xl);
   }
 
   .codex-local-access-close {
@@ -2502,7 +2502,7 @@
     width: min(100%, calc(100vw - 24px));
     max-width: calc(100vw - 24px);
     max-height: calc(100vh - 24px);
-    border-radius: 22px;
+    border-radius: var(--radius-xl);
   }
 
   .codex-local-access-custom-routing-header,
@@ -2644,7 +2644,7 @@
 
   .codex-local-access-modal .group-account-picker-title > svg {
     padding: 9px;
-    border-radius: 12px;
+    border-radius: var(--radius-xl);
   }
 
   .codex-local-access-member-section .group-account-toolbar {
@@ -2681,35 +2681,35 @@
 
 [data-theme="dark"] .codex-local-access-modal-overlay {
   background:
-    rgba(2, 6, 23, 0.82);
+    rgba(9, 9, 11, 0.82);
 }
 
 [data-theme="dark"] .codex-local-access-modal {
   --codex-local-border: color-mix(
     in srgb,
     var(--primary) 22%,
-    rgba(148, 163, 184, 0.2)
+    rgba(161, 161, 170, 0.2)
   );
   --codex-local-border-strong: color-mix(
     in srgb,
     var(--primary) 32%,
-    rgba(148, 163, 184, 0.22)
+    rgba(161, 161, 170, 0.22)
   );
   --codex-local-surface: color-mix(
     in srgb,
     var(--bg-surface) 96%,
-    rgba(15, 23, 42, 0.88)
+    rgba(24, 24, 27, 0.88)
   );
   --codex-local-surface-soft: color-mix(
     in srgb,
     var(--bg-card) 96%,
-    rgba(15, 23, 42, 0.84)
+    rgba(24, 24, 27, 0.84)
   );
   background:
     var(--bg-surface);
   box-shadow:
-    0 36px 90px rgba(2, 6, 23, 0.62),
-    0 12px 32px rgba(2, 6, 23, 0.45);
+    0 36px 90px rgba(9, 9, 11, 0.62),
+    0 12px 32px rgba(9, 9, 11, 0.45);
 }
 
 [data-theme="dark"] .codex-local-access-modal::before {
@@ -2718,37 +2718,37 @@
 
 [data-theme="dark"] .codex-local-access-modal .modal-header {
   background:
-    color-mix(in srgb, var(--bg-surface) 96%, rgba(15, 23, 42, 0.88));
-  border-bottom-color: rgba(148, 163, 184, 0.12);
+    color-mix(in srgb, var(--bg-surface) 96%, rgba(24, 24, 27, 0.88));
+  border-bottom-color: rgba(161, 161, 170, 0.12);
 }
 
 [data-theme="dark"] .codex-local-access-modal .modal-footer {
   background:
-    color-mix(in srgb, var(--bg-tertiary) 96%, rgba(15, 23, 42, 0.84));
-  border-top-color: rgba(148, 163, 184, 0.12);
+    color-mix(in srgb, var(--bg-tertiary) 96%, rgba(24, 24, 27, 0.84));
+  border-top-color: rgba(161, 161, 170, 0.12);
 }
 
 [data-theme="dark"] .codex-local-access-close {
-  background: rgba(15, 23, 42, 0.68);
-  border-color: rgba(148, 163, 184, 0.16);
-  box-shadow: 0 12px 24px -20px rgba(2, 6, 23, 0.68);
+  background: rgba(24, 24, 27, 0.68);
+  border-color: rgba(161, 161, 170, 0.16);
+  box-shadow: 0 12px 24px -20px rgba(9, 9, 11, 0.68);
 }
 
 [data-theme="dark"] .codex-local-access-close:hover {
-  background: rgba(30, 41, 59, 0.92);
+  background: rgba(39, 39, 42, 0.92);
 }
 
 [data-theme="dark"] .codex-local-access-subtle-badge {
-  background: rgba(15, 23, 42, 0.52);
-  border-color: rgba(148, 163, 184, 0.14);
+  background: rgba(24, 24, 27, 0.52);
+  border-color: rgba(161, 161, 170, 0.14);
 }
 
 [data-theme="dark"] .codex-local-access-test-pill {
-  background: color-mix(in srgb, var(--primary) 16%, rgba(15, 23, 42, 0.76));
+  background: color-mix(in srgb, var(--primary) 16%, rgba(24, 24, 27, 0.76));
   border-color: color-mix(
     in srgb,
     var(--primary) 32%,
-    rgba(148, 163, 184, 0.2)
+    rgba(161, 161, 170, 0.2)
   );
   color: #bfdbfe;
   box-shadow:
@@ -2757,18 +2757,18 @@
 }
 
 [data-theme="dark"] .codex-local-access-test-pill:hover:not(:disabled) {
-  background: color-mix(in srgb, var(--primary) 22%, rgba(15, 23, 42, 0.82));
+  background: color-mix(in srgb, var(--primary) 22%, rgba(24, 24, 27, 0.82));
   border-color: color-mix(
     in srgb,
     var(--primary) 48%,
-    rgba(148, 163, 184, 0.24)
+    rgba(161, 161, 170, 0.24)
   );
 }
 
 [data-theme="dark"] .codex-local-access-free-toggle,
 [data-theme="dark"] .codex-local-access-session-affinity-settings {
-  background: rgba(15, 23, 42, 0.62);
-  border-color: rgba(148, 163, 184, 0.2);
+  background: rgba(24, 24, 27, 0.62);
+  border-color: rgba(161, 161, 170, 0.2);
   color: color-mix(in srgb, var(--text-secondary) 88%, var(--text-muted));
 }
 
@@ -2776,16 +2776,16 @@
   .codex-local-access-header-routing
   .single-select-dropdown-trigger,
 [data-theme="dark"] .codex-local-access-modal .folder-icon-btn {
-  background: rgba(15, 23, 42, 0.58);
-  border-color: rgba(148, 163, 184, 0.16);
+  background: rgba(24, 24, 27, 0.58);
+  border-color: rgba(161, 161, 170, 0.16);
   color: var(--text-primary);
 }
 
 [data-theme="dark"] .codex-local-access-header-upstream-url input,
 [data-theme="dark"] .codex-local-access-upstream-save-btn,
 [data-theme="dark"] .codex-local-access-debug-toggle {
-  background: rgba(15, 23, 42, 0.58);
-  border-color: rgba(148, 163, 184, 0.16);
+  background: rgba(24, 24, 27, 0.58);
+  border-color: rgba(161, 161, 170, 0.16);
   color: #bfdbfe;
 }
 
@@ -2813,8 +2813,8 @@
 }
 
 [data-theme="dark"] .codex-local-access-stats-range-tabs {
-  background: rgba(15, 23, 42, 0.62);
-  border-color: rgba(148, 163, 184, 0.22);
+  background: rgba(24, 24, 27, 0.62);
+  border-color: rgba(161, 161, 170, 0.22);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
@@ -2824,7 +2824,7 @@
 
 [data-theme="dark"] .codex-local-access-stats-range-tab:hover:not(:disabled) {
   color: var(--text-primary);
-  background: rgba(71, 85, 105, 0.4);
+  background: rgba(82, 82, 91, 0.4);
 }
 
 [data-theme="dark"] .codex-local-access-stats-range-tab.is-active {
@@ -2843,9 +2843,9 @@
   .group-account-item.group-account-item-header {
   background:
     var(--bg-card);
-  border-color: rgba(148, 163, 184, 0.14);
+  border-color: rgba(161, 161, 170, 0.14);
   box-shadow:
-    0 18px 32px -28px rgba(2, 6, 23, 0.72),
+    0 18px 32px -28px rgba(9, 9, 11, 0.72),
     inset 0 1px 0 rgba(255, 255, 255, 0.03);
 }
 
@@ -2876,7 +2876,7 @@
   .codex-local-access-member-section
   .group-account-item.is-current {
   background:
-    color-mix(in srgb, var(--primary) 8%, rgba(15, 23, 42, 0.92));
+    color-mix(in srgb, var(--primary) 8%, rgba(24, 24, 27, 0.92));
   border-color: rgba(96, 165, 250, 0.28);
 }
 
@@ -2888,7 +2888,7 @@
   input {
   background:
     var(--bg-card);
-  border-color: rgba(148, 163, 184, 0.16);
+  border-color: rgba(161, 161, 170, 0.16);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
 }
 
@@ -2920,29 +2920,29 @@
 }
 
 [data-theme="dark"] .codex-local-access-test-progress {
-  background: color-mix(in srgb, var(--primary) 12%, rgba(15, 23, 42, 0.84));
+  background: color-mix(in srgb, var(--primary) 12%, rgba(24, 24, 27, 0.84));
   border-color: rgba(96, 165, 250, 0.22);
 }
 
 [data-theme="dark"] .codex-local-access-test-chat {
   background:
     var(--bg-card);
-  border-color: rgba(148, 163, 184, 0.16);
+  border-color: rgba(161, 161, 170, 0.16);
 }
 
 [data-theme="dark"] .codex-local-access-test-chat-bubble {
-  background: rgba(30, 41, 59, 0.82);
-  border-color: rgba(148, 163, 184, 0.16);
+  background: rgba(39, 39, 42, 0.82);
+  border-color: rgba(161, 161, 170, 0.16);
 }
 
 [data-theme="dark"]
   .codex-local-access-test-chat-message.is-user
   .codex-local-access-test-chat-bubble {
-  background: color-mix(in srgb, var(--primary) 22%, rgba(15, 23, 42, 0.86));
+  background: color-mix(in srgb, var(--primary) 22%, rgba(24, 24, 27, 0.86));
   border-color: color-mix(
     in srgb,
     var(--primary) 36%,
-    rgba(148, 163, 184, 0.18)
+    rgba(161, 161, 170, 0.18)
   );
   color: #bfdbfe;
 }
@@ -2959,8 +2959,8 @@
 }
 
 [data-theme="dark"] .codex-local-access-test-chat-input {
-  background: rgba(15, 23, 42, 0.82);
-  border-color: rgba(148, 163, 184, 0.2);
+  background: rgba(24, 24, 27, 0.82);
+  border-color: rgba(161, 161, 170, 0.2);
 }
 
 [data-theme="dark"] .codex-local-access-test-failure {
@@ -2975,7 +2975,7 @@
 [data-theme="dark"] .codex-local-access-test-output pre {
   background:
     var(--bg-card);
-  border-color: rgba(148, 163, 184, 0.16);
+  border-color: rgba(161, 161, 170, 0.16);
 }
 
 [data-theme="dark"] .codex-local-access-custom-routing-dialog {
@@ -2991,20 +2991,20 @@
 [data-theme="dark"] .codex-local-access-custom-routing-list-shell {
   background:
     var(--bg-card);
-  border-color: rgba(148, 163, 184, 0.14);
+  border-color: rgba(161, 161, 170, 0.14);
   box-shadow:
-    0 18px 32px -28px rgba(2, 6, 23, 0.72),
+    0 18px 32px -28px rgba(9, 9, 11, 0.72),
     inset 0 1px 0 rgba(255, 255, 255, 0.03);
 }
 
 [data-theme="dark"] .codex-local-access-custom-routing-row-head {
   background:
     var(--bg-tertiary);
-  border-bottom-color: rgba(148, 163, 184, 0.18);
+  border-bottom-color: rgba(161, 161, 170, 0.18);
 }
 
 [data-theme="dark"] .codex-local-access-custom-routing-row {
-  border-bottom-color: rgba(148, 163, 184, 0.12);
+  border-bottom-color: rgba(161, 161, 170, 0.12);
 }
 
 [data-theme="dark"] .codex-local-access-custom-routing-row:hover {
@@ -3016,15 +3016,15 @@
 }
 
 [data-theme="dark"] .codex-local-access-custom-routing-selected-count {
-  background: rgba(15, 23, 42, 0.58);
-  border-color: rgba(148, 163, 184, 0.16);
+  background: rgba(24, 24, 27, 0.58);
+  border-color: rgba(161, 161, 170, 0.16);
 }
 
 [data-theme="dark"] .codex-local-access-custom-routing-bulk input,
 [data-theme="dark"] .codex-local-access-custom-routing-number {
   background:
     var(--bg-card);
-  border-color: rgba(148, 163, 184, 0.16);
+  border-color: rgba(161, 161, 170, 0.16);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
 }
 
@@ -3036,6 +3036,6 @@
 
 [data-theme="dark"] .codex-local-access-member-section .group-account-empty,
 [data-theme="dark"] .codex-local-access-panel-grid .group-account-empty {
-  background: rgba(15, 23, 42, 0.42);
-  border-color: rgba(148, 163, 184, 0.16);
+  background: rgba(24, 24, 27, 0.42);
+  border-color: rgba(161, 161, 170, 0.16);
 }

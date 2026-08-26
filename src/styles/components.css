@@ -33,7 +33,7 @@
   bottom: -5px;
   width: 14px;
   height: 14px;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   background: #111827;
   border: 2px solid #fde68a;
   box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.28);
@@ -71,7 +71,7 @@
   color: white;
   font-size: 11px;
   font-weight: 700;
-  border-radius: 9px;
+  border-radius: var(--radius-xl);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -255,9 +255,9 @@
 }
 
 .pill-secondary {
-  background: rgba(148, 163, 184, 0.2);
+  background: rgba(161, 161, 170, 0.2);
   color: var(--text-secondary);
-  border-color: rgba(148, 163, 184, 0.4);
+  border-color: rgba(161, 161, 170, 0.4);
 }
 
 .pill-emphasis {
@@ -399,7 +399,7 @@
 }
 
 .filter-tab .count {
-  background: rgba(15, 23, 42, 0.08);
+  background: rgba(24, 24, 27, 0.08);
   padding: 2px 8px;
   border-radius: var(--radius-full);
   font-size: 11px;
@@ -495,7 +495,7 @@
   flex: 0 0 auto;
   width: 7px;
   height: 7px;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   background: #22c55e;
   box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.14);
 }
@@ -513,8 +513,8 @@
 }
 
 .installed-version-badge.is-loading .installed-version-dot {
-  background: #94a3b8;
-  box-shadow: 0 0 0 3px rgba(148, 163, 184, 0.16);
+  background: #a1a1aa;
+  box-shadow: 0 0 0 3px rgba(161, 161, 170, 0.16);
 }
 
 .installed-version-badge.is-missing .installed-version-dot {
@@ -699,7 +699,7 @@ html[data-reduced-motion="true"] .platform-group-switcher-trigger.is-open .platf
   width: 240px;
   max-width: min(280px, calc(100vw - 16px));
   border: 1px solid var(--border);
-  border-radius: 16px;
+  border-radius: var(--radius-xl);
   background: var(--bg-surface);
   box-shadow: var(--shadow-lg);
   padding: 8px;
@@ -709,7 +709,7 @@ html[data-reduced-motion="true"] .platform-group-switcher-trigger.is-open .platf
   width: 100%;
   border: 0;
   background: transparent;
-  border-radius: 12px;
+  border-radius: var(--radius-xl);
   min-height: 44px;
   padding: 0 12px;
   display: grid;
@@ -771,7 +771,7 @@ html[data-reduced-motion="true"] .platform-group-switcher-trigger.is-open .platf
   width: 100%;
   border: 0;
   background: transparent;
-  border-radius: 12px;
+  border-radius: var(--radius-xl);
   min-height: 40px;
   padding: 0 12px;
   display: grid;
@@ -810,7 +810,7 @@ html[data-reduced-motion="true"] .platform-group-switcher-trigger.is-open .platf
   height: 28px;
   padding: 0;
   flex: 0 0 auto;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   background: transparent;
   border: none;
   box-shadow: none;
@@ -1148,14 +1148,14 @@ html[data-reduced-motion="true"] .platform-group-switcher-trigger.is-open .platf
   gap: 3px;
   padding: 0 7px;
   border: 1px solid var(--border);
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   background: color-mix(in srgb, var(--bg-secondary) 84%, var(--bg-card));
   color: var(--text-secondary);
   font-size: 11px;
   font-weight: 600;
   line-height: 1;
   white-space: nowrap;
-  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+  box-shadow: 0 1px 2px rgba(24, 24, 27, 0.05);
   cursor: pointer;
   transition:
     border-color 0.16s ease,
@@ -1169,7 +1169,7 @@ html[data-reduced-motion="true"] .platform-group-switcher-trigger.is-open .platf
   border-color: color-mix(in srgb, var(--primary) 40%, var(--border));
   color: var(--text-primary);
   background: var(--bg-secondary);
-  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08);
+  box-shadow: 0 2px 6px rgba(24, 24, 27, 0.08);
 }
 
 .codex-speed-trigger.fast {
@@ -1224,14 +1224,14 @@ html[data-reduced-motion="true"] .platform-group-switcher-trigger.is-open .platf
 
 .codex-speed-menu.compact {
   padding: 5px;
-  border-radius: 12px;
+  border-radius: var(--radius-xl);
 }
 
 .codex-speed-option {
   width: 100%;
   min-height: 42px;
   border: 1px solid transparent;
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
   background: transparent;
   color: var(--text-primary);
   display: flex;
@@ -1249,7 +1249,7 @@ html[data-reduced-motion="true"] .platform-group-switcher-trigger.is-open .platf
 .codex-speed-menu.compact .codex-speed-option {
   min-height: 44px;
   padding: 5px 7px;
-  border-radius: 9px;
+  border-radius: var(--radius-xl);
   gap: 6px;
 }
 
@@ -1316,7 +1316,7 @@ html[data-reduced-motion="true"] .platform-group-switcher-trigger.is-open .platf
   display: inline-flex;
   align-items: center;
   padding: 1px 6px;
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
   font-size: 9px;
   font-weight: 700;
   text-transform: uppercase;
@@ -1371,7 +1371,7 @@ html[data-reduced-motion="true"] .platform-group-switcher-trigger.is-open .platf
   align-items: center;
   gap: 6px;
   padding: 6px 8px;
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
   background: rgba(239, 68, 68, 0.08);
   color: var(--danger);
   font-size: 12px;
@@ -1416,7 +1416,7 @@ html[data-reduced-motion="true"] .platform-group-switcher-trigger.is-open .platf
 
 .quota-progress-track {
   height: 4px;
-  background: rgba(15, 23, 42, 0.08);
+  background: rgba(24, 24, 27, 0.08);
   border-radius: 2px;
   overflow: hidden;
   width: 100%;
@@ -1569,7 +1569,7 @@ html[data-reduced-motion="true"] .platform-group-switcher-trigger.is-open .platf
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(15, 23, 42, 0.6);
+  background: rgba(24, 24, 27, 0.6);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   display: flex;
@@ -1582,7 +1582,7 @@ html[data-reduced-motion="true"] .platform-group-switcher-trigger.is-open .platf
 
 .modal {
   background: var(--bg-surface);
-  border-radius: 20px;
+  border-radius: var(--radius-xl);
   border: 1px solid rgba(255, 255, 255, 0.1);
   width: 100%;
   max-width: 560px;
@@ -1666,7 +1666,7 @@ html[data-reduced-motion="true"] .platform-group-switcher-trigger.is-open .platf
   gap: 10px;
   padding: 12px;
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: var(--radius-xl);
   background: var(--bg-tertiary);
 }
 
@@ -1821,15 +1821,15 @@ html[data-reduced-motion="true"] .platform-group-switcher-trigger.is-open .platf
 
 .modal .quota-bar {
   height: 8px;
-  background: rgba(15, 23, 42, 0.08);
-  border-radius: 999px;
+  background: rgba(24, 24, 27, 0.08);
+  border-radius: var(--radius-full);
   overflow: hidden;
   width: 100%;
 }
 
 .modal .quota-fill {
   height: 100%;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   transition: width 0.35s ease-out;
 }
 
@@ -1885,7 +1885,7 @@ html[data-reduced-motion="true"] .platform-group-switcher-trigger.is-open .platf
   gap: 12px;
   padding: 10px 12px;
   border: 1px solid var(--border-light);
-  border-radius: 12px;
+  border-radius: var(--radius-xl);
   background: var(--bg-tertiary);
 }
 
@@ -1960,7 +1960,7 @@ html[data-reduced-motion="true"] .platform-group-switcher-trigger.is-open .platf
 
 .platform-layout-row {
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: var(--radius-xl);
   background: var(--bg-tertiary);
   min-height: 56px;
   padding: 10px 12px;
@@ -2046,7 +2046,7 @@ html[data-reduced-motion="true"] .platform-group-switcher-trigger.is-open .platf
 }
 
 .platform-layout-group-icon {
-  border-radius: 6px;
+  border-radius: var(--radius-md);
   object-fit: cover;
   display: block;
 }
@@ -2068,7 +2068,7 @@ html[data-reduced-motion="true"] .platform-group-switcher-trigger.is-open .platf
   justify-content: center;
   height: 20px;
   padding: 0 8px;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   border: 1px solid rgba(59, 130, 246, 0.25);
   background: rgba(59, 130, 246, 0.1);
   color: var(--primary);
@@ -2159,7 +2159,7 @@ html[data-reduced-motion="true"] .platform-group-switcher-trigger.is-open .platf
   margin: 0;
   flex: 0 0 auto;
   border: 2px solid var(--border);
-  border-radius: 6px;
+  border-radius: var(--radius-md);
   background: var(--bg-primary);
   display: inline-grid;
   place-items: center;
@@ -2204,7 +2204,7 @@ html[data-reduced-motion="true"] .platform-group-switcher-trigger.is-open .platf
   width: 32px;
   height: 32px;
   padding: 0;
-  border-radius: 10px;
+  border-radius: var(--radius-xl);
 }
 
 .platform-layout-group-edit-btn svg {
@@ -2240,7 +2240,7 @@ html[data-reduced-motion="true"] .platform-group-switcher-trigger.is-open .platf
   flex: 1;
   min-width: 240px;
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: var(--radius-xl);
   background: var(--bg-primary);
   padding: 10px;
   display: flex;
@@ -2269,7 +2269,7 @@ html[data-reduced-motion="true"] .platform-group-switcher-trigger.is-open .platf
 
 .platform-layout-child-row {
   border: 1px solid var(--border-light);
-  border-radius: 10px;
+  border-radius: var(--radius-xl);
   background: var(--bg-primary);
   min-height: 44px;
   padding: 7px 10px;
@@ -2345,7 +2345,7 @@ html[data-reduced-motion="true"] .platform-group-switcher-trigger.is-open .platf
 .platform-layout-icon-select-trigger {
   width: 100%;
   height: 34px;
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
   border: 1px solid var(--border);
   background: var(--bg-primary);
   color: var(--text-primary);
@@ -2385,7 +2385,7 @@ html[data-reduced-motion="true"] .platform-group-switcher-trigger.is-open .platf
   right: 0;
   z-index: 60;
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: var(--radius-xl);
   background: var(--bg-surface);
   box-shadow: var(--shadow-lg);
   max-height: 280px;
@@ -2403,14 +2403,14 @@ html[data-reduced-motion="true"] .platform-group-switcher-trigger.is-open .platf
   display: flex;
   align-items: center;
   gap: 4px;
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
 }
 
 .platform-layout-icon-select-item {
   width: 100%;
   min-height: 30px;
   border: 1px solid transparent;
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
   background: transparent;
   color: var(--text-primary);
   padding: 0 8px;
@@ -2443,7 +2443,7 @@ html[data-reduced-motion="true"] .platform-group-switcher-trigger.is-open .platf
   height: 24px;
   margin-right: 4px;
   border: 0;
-  border-radius: 6px;
+  border-radius: var(--radius-md);
   background: transparent;
   color: var(--text-muted);
   display: inline-flex;
@@ -2465,7 +2465,7 @@ html[data-reduced-motion="true"] .platform-group-switcher-trigger.is-open .platf
   align-items: center;
   justify-content: center;
   padding: 18px;
-  background: rgba(15, 23, 42, 0.42);
+  background: rgba(24, 24, 27, 0.42);
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
 }
@@ -2475,7 +2475,7 @@ html[data-reduced-motion="true"] .platform-group-switcher-trigger.is-open .platf
   max-height: 100%;
   overflow-y: auto;
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: var(--radius-xl);
   background: var(--bg-surface);
   box-shadow: var(--shadow-lg);
   padding: 16px;
@@ -2500,7 +2500,7 @@ html[data-reduced-motion="true"] .platform-group-switcher-trigger.is-open .platf
   align-items: center;
   justify-content: center;
   border: 0;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   background: transparent;
   color: var(--text-secondary);
   cursor: pointer;
@@ -2536,7 +2536,7 @@ html[data-reduced-motion="true"] .platform-group-switcher-trigger.is-open .platf
 .platform-layout-group-field select {
   width: 100%;
   height: 34px;
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
   border: 1px solid var(--border);
   background: var(--bg-primary);
   color: var(--text-primary);
@@ -2567,7 +2567,7 @@ html[data-reduced-motion="true"] .platform-group-switcher-trigger.is-open .platf
   min-height: 30px;
   padding: 0 10px;
   border: 1px solid var(--border);
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   background: var(--bg-primary);
   font-size: 12px;
   color: var(--text-primary);

@@ -88,7 +88,7 @@
   justify-content: center;
   width: 28px;
   height: 28px;
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
   border: none;
   background: transparent;
   color: var(--text-muted);
@@ -161,7 +161,7 @@
   justify-content: space-between;
   padding: 8px 0;
   transition: background 0.15s;
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
 }
 
 .qs-row-label {
@@ -230,7 +230,7 @@
 /* Select */
 .qs-select {
   padding: 6px 30px 6px 12px;
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
   border: 1px solid var(--border);
   background: var(--bg-tertiary);
   color: var(--text-primary);
@@ -303,7 +303,7 @@
   flex: 1;
   min-width: 0;
   padding: 7px 12px;
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
   border: 1px solid var(--border);
   background: var(--bg-tertiary);
   color: var(--text-primary);
@@ -363,7 +363,7 @@
   width: 100%;
   padding: 9px 10px;
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
   background: var(--bg-tertiary);
   color: var(--text-primary);
   text-align: left;
@@ -389,7 +389,7 @@
 .qs-claude-candidate-badge {
   flex-shrink: 0;
   padding: 2px 6px;
-  border-radius: 6px;
+  border-radius: var(--radius-md);
   background: var(--bg-secondary);
   color: var(--text-secondary);
   font-size: 11px;
@@ -419,7 +419,7 @@
   justify-content: center;
   gap: 4px;
   padding: 6px 12px;
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
   border: 1px solid var(--border);
   background: var(--bg-tertiary);
   color: var(--text-secondary);
@@ -472,7 +472,7 @@
   bottom: 0;
   background-color: var(--border);
   transition: 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
-  border-radius: 20px;
+  border-radius: var(--radius-xl);
 }
 
 .qs-switch-slider:before {
@@ -513,7 +513,7 @@
   font-size: 12px;
   color: var(--text-secondary);
   line-height: 1.55;
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
   background: var(--bg-tertiary);
   border: 1px solid var(--border-light);
 }
@@ -544,7 +544,7 @@
   gap: 3px;
   min-height: 56px;
   padding: 7px 9px;
-  border-radius: 10px;
+  border-radius: var(--radius-xl);
   border: 1px solid color-mix(in srgb, var(--border) 88%, transparent);
   background: color-mix(in srgb, var(--bg-card) 84%, var(--bg-secondary));
   color: var(--text-primary);
@@ -606,7 +606,7 @@
   width: 100%;
   min-height: 36px;
   padding: 7px 10px;
-  border-radius: 9px;
+  border-radius: var(--radius-xl);
   font-size: 13px;
   line-height: 1.35;
 }
@@ -670,7 +670,7 @@
   min-height: 30px;
   padding: 5px 11px;
   border: 1px solid var(--border);
-  border-radius: 7px;
+  border-radius: var(--radius-md);
   background: var(--bg-tertiary);
   color: var(--text-secondary);
   cursor: pointer;
@@ -698,7 +698,7 @@
   min-height: 34px;
   padding: 6px 9px;
   border: 1px solid var(--border-light);
-  border-radius: 7px;
+  border-radius: var(--radius-md);
   background: var(--bg-tertiary);
 }
 
@@ -723,7 +723,7 @@
 .qs-codex-oauth-policy-summary__empty {
   padding: 12px 9px;
   border: 1px solid var(--border-light);
-  border-radius: 7px;
+  border-radius: var(--radius-md);
   background: var(--bg-tertiary);
   color: var(--text-muted);
   font-size: 11px;
@@ -754,7 +754,7 @@
 
 .qs-codex-quick-warning {
   padding: 8px 10px;
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
   border: 1px solid color-mix(in srgb, var(--warning) 20%, var(--border));
   background: color-mix(in srgb, var(--warning) 10%, var(--bg-secondary));
   color: color-mix(in srgb, var(--warning) 72%, var(--text-primary));
@@ -764,7 +764,7 @@
 
 .qs-codex-quick-status {
   padding: 8px 10px;
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
   font-size: 11px;
   line-height: 1.5;
   border: 1px solid var(--border);
@@ -798,7 +798,7 @@
   gap: 8px;
   margin: 0 24px 8px;
   padding: 8px 12px;
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
   background: rgba(239, 68, 68, 0.08);
   border: 1px solid rgba(239, 68, 68, 0.2);
   color: var(--danger, #ef4444);
@@ -813,7 +813,7 @@
   justify-content: center;
   width: 20px;
   height: 20px;
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
   border: none;
   background: transparent;
   color: var(--danger, #ef4444);

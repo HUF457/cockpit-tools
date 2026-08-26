@@ -9,7 +9,7 @@
   margin: 14px 0 6px;
   padding: 12px 14px;
   border: 1px solid color-mix(in srgb, var(--warning, #f59e0b) 34%, transparent);
-  border-radius: 10px;
+  border-radius: var(--radius-xl);
   color: var(--warning, #f59e0b);
   background: color-mix(in srgb, var(--warning, #f59e0b) 9%, transparent);
 }

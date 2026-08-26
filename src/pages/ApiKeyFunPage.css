@@ -8,9 +8,9 @@
   --ak-coral-hsl: 15, 95%, 60%;
   --ak-coral: hsl(var(--ak-coral-hsl));
   
-  --ak-ink: #0f172a;
-  --ak-muted: #64748b;
-  --ak-line: rgba(15, 23, 42, 0.08);
+  --ak-ink: #18181b;
+  --ak-muted: #71717a;
+  --ak-line: rgba(24, 24, 27, 0.08);
   
   --ak-glass-bg: var(--bg-card);
   --ak-glass-bg-hover: var(--bg-card);
@@ -42,7 +42,7 @@ html[data-theme="dark"] .apikey-fun-page {
   --ak-teal-hsl: 172, 76%, 46%;
   --ak-ink: #e5edf7;
   --ak-muted: #91a0b4;
-  --ak-line: rgba(148, 163, 184, 0.16);
+  --ak-line: rgba(161, 161, 170, 0.16);
   --ak-glass-bg: var(--bg-card);
   --ak-glass-bg-hover: var(--bg-card);
   --ak-glass-border: var(--border);
@@ -281,7 +281,7 @@ html[data-theme="dark"] .apikey-fun-page {
 }
 
 .apikey-fun-secret-input input::placeholder {
-  color: #94a3b8;
+  color: #a1a1aa;
 }
 
 .apikey-fun-icon-button {
@@ -291,9 +291,9 @@ html[data-theme="dark"] .apikey-fun-page {
   flex-shrink: 0;
   width: 32px;
   height: 32px;
-  border-radius: 9px;
+  border-radius: var(--radius-xl);
   border: 0;
-  color: #64748b;
+  color: #71717a;
   background: transparent;
   cursor: pointer;
   transition: all 0.2s;
@@ -339,10 +339,10 @@ html[data-theme="dark"] .apikey-fun-page {
   gap: 8px;
   min-height: 36px;
   padding: 0 16px;
-  border-radius: 10px;
-  border: 1px solid rgba(15, 23, 42, 0.1);
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(24, 24, 27, 0.1);
   background: #ffffff;
-  color: #334155;
+  color: #3f3f46;
   font-size: 12px;
   font-weight: 700;
   cursor: pointer;
@@ -398,7 +398,7 @@ html[data-theme="dark"] .apikey-fun-page {
 .apikey-fun-message {
   margin-top: 14px;
   padding: 10px 14px;
-  border-radius: 10px;
+  border-radius: var(--radius-xl);
   font-size: 11.5px;
   line-height: 1.5;
   font-weight: 600;
@@ -474,7 +474,7 @@ html[data-theme="dark"] .apikey-fun-page {
   align-items: center;
   min-height: 28px;
   padding: 0 10px;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   border: 1px solid rgba(20, 184, 166, 0.18);
   color: #0f766e;
   background: rgba(240, 253, 250, 0.68);
@@ -495,9 +495,9 @@ html[data-theme="dark"] .apikey-fun-page {
   max-width: 100%;
   min-height: 28px;
   padding: 0 10px;
-  border-radius: 999px;
-  border: 1px solid rgba(15, 23, 42, 0.08);
-  color: #334155;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(24, 24, 27, 0.08);
+  color: #3f3f46;
   background: rgba(255, 255, 255, 0.8);
   font-size: 11px;
   font-weight: 750;
@@ -521,7 +521,7 @@ html[data-theme="dark"] .apikey-fun-page {
 .apikey-fun-skeleton-text {
   height: 22px;
   width: 75%;
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
   background: rgba(0, 0, 0, 0.05);
   background-size: 400% 100%;
   animation: skeletonShine 1.4s ease infinite;
@@ -542,7 +542,7 @@ html[data-theme="dark"] .apikey-fun-page {
   justify-content: center;
   gap: 10px;
   padding: 40px 20px;
-  border: 1.5px dashed rgba(15, 23, 42, 0.1);
+  border: 1.5px dashed rgba(24, 24, 27, 0.1);
   border-radius: var(--ak-radius-md);
   color: var(--ak-muted);
   background: rgba(255, 255, 255, 0.25);
@@ -550,7 +550,7 @@ html[data-theme="dark"] .apikey-fun-page {
 }
 
 .apikey-fun-empty-keys svg {
-  color: #cbd5e1;
+  color: #d4d4d8;
 }
 
 .apikey-fun-empty-keys span {
@@ -572,7 +572,7 @@ html[data-theme="dark"] .apikey-fun-page {
 }
 
 .apikey-fun-key-list::-webkit-scrollbar-thumb {
-  background: rgba(15, 23, 42, 0.08);
+  background: rgba(24, 24, 27, 0.08);
   border-radius: 99px;
 }
 
@@ -585,7 +585,7 @@ html[data-theme="dark"] .apikey-fun-page {
   border-radius: var(--ak-radius-md);
   border: 1px solid var(--ak-glass-border);
   background: rgba(255, 255, 255, 0.65);
-  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.02);
+  box-shadow: 0 2px 8px rgba(24, 24, 27, 0.02);
   transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
@@ -593,7 +593,7 @@ html[data-theme="dark"] .apikey-fun-page {
   border-color: rgba(37, 99, 235, 0.18);
   background: #ffffff;
   transform: translateX(2px);
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+  box-shadow: 0 4px 12px rgba(24, 24, 27, 0.04);
 }
 
 .apikey-fun-key-item.active {
@@ -638,8 +638,8 @@ html[data-theme="dark"] .apikey-fun-page {
   align-items: center;
   justify-content: center;
   padding: 4px;
-  border-radius: 6px;
-  color: #94a3b8;
+  border-radius: var(--radius-md);
+  color: #a1a1aa;
   opacity: 0;
   transition: all 0.2s;
 }
@@ -707,9 +707,9 @@ html[data-theme="dark"] .apikey-fun-page {
   justify-content: center;
   height: 30px;
   width: 30px;
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
   border: 0;
-  color: #64748b;
+  color: #71717a;
   background: transparent;
   cursor: pointer;
   transition: all 0.2s;
@@ -740,7 +740,7 @@ html[data-theme="dark"] .apikey-fun-page {
 
 [data-theme="dark"] .apikey-fun-header-brand,
 html[data-theme="dark"] .apikey-fun-header-brand {
-  border-color: rgba(148, 163, 184, 0.16);
+  border-color: rgba(161, 161, 170, 0.16);
   background: rgba(4, 10, 24, 0.98);
   box-shadow:
     0 24px 54px rgba(0, 0, 0, 0.34),
@@ -749,7 +749,7 @@ html[data-theme="dark"] .apikey-fun-header-brand {
 
 [data-theme="dark"] .apikey-fun-brand-text p,
 html[data-theme="dark"] .apikey-fun-brand-text p {
-  color: rgba(226, 232, 240, 0.76);
+  color: rgba(228, 228, 231, 0.76);
 }
 
 [data-theme="dark"] .apikey-fun-dashboard-panel,
@@ -767,12 +767,12 @@ html[data-theme="dark"] .apikey-fun-dashboard-panel:hover {
 
 [data-theme="dark"] .apikey-fun-config-panel,
 html[data-theme="dark"] .apikey-fun-config-panel {
-  background: rgba(15, 23, 42, 0.82);
+  background: rgba(24, 24, 27, 0.82);
 }
 
 [data-theme="dark"] .apikey-fun-manager-panel,
 html[data-theme="dark"] .apikey-fun-manager-panel {
-  background: rgba(15, 23, 42, 0.7);
+  background: rgba(24, 24, 27, 0.7);
 }
 
 [data-theme="dark"] .apikey-fun-panel-head p,
@@ -791,15 +791,15 @@ html[data-theme="dark"] .apikey-fun-key-preview {
 
 [data-theme="dark"] .apikey-fun-secret-input,
 html[data-theme="dark"] .apikey-fun-secret-input {
-  border-color: rgba(148, 163, 184, 0.22);
-  background: rgba(15, 23, 42, 0.78);
+  border-color: rgba(161, 161, 170, 0.22);
+  background: rgba(24, 24, 27, 0.78);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 [data-theme="dark"] .apikey-fun-secret-input:focus-within,
 html[data-theme="dark"] .apikey-fun-secret-input:focus-within {
   border-color: rgba(96, 165, 250, 0.72);
-  background: rgba(15, 23, 42, 0.94);
+  background: rgba(24, 24, 27, 0.94);
   box-shadow:
     0 0 0 4px rgba(59, 130, 246, 0.16),
     0 14px 28px rgba(0, 0, 0, 0.18);
@@ -809,12 +809,12 @@ html[data-theme="dark"] .apikey-fun-secret-input:focus-within {
 html[data-theme="dark"] .apikey-fun-secret-input input,
 [data-theme="dark"] .apikey-fun-rename-input,
 html[data-theme="dark"] .apikey-fun-rename-input {
-  color: #f8fafc;
+  color: #fafafa;
 }
 
 [data-theme="dark"] .apikey-fun-secret-input input::placeholder,
 html[data-theme="dark"] .apikey-fun-secret-input input::placeholder {
-  color: #64748b;
+  color: #71717a;
 }
 
 [data-theme="dark"] .apikey-fun-icon-button,
@@ -823,7 +823,7 @@ html[data-theme="dark"] .apikey-fun-icon-button,
 html[data-theme="dark"] .apikey-fun-key-copy,
 [data-theme="dark"] .apikey-fun-key-delete,
 html[data-theme="dark"] .apikey-fun-key-delete {
-  color: #94a3b8;
+  color: #a1a1aa;
 }
 
 [data-theme="dark"] .apikey-fun-icon-button:hover,
@@ -834,16 +834,16 @@ html[data-theme="dark"] .apikey-fun-icon-button:hover {
 
 [data-theme="dark"] .apikey-fun-page .btn,
 html[data-theme="dark"] .apikey-fun-page .btn {
-  border-color: rgba(148, 163, 184, 0.2);
-  background: rgba(15, 23, 42, 0.72);
-  color: #e2e8f0;
+  border-color: rgba(161, 161, 170, 0.2);
+  background: rgba(24, 24, 27, 0.72);
+  color: #e4e4e7;
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.16);
 }
 
 [data-theme="dark"] .apikey-fun-page .btn:hover:not(:disabled),
 html[data-theme="dark"] .apikey-fun-page .btn:hover:not(:disabled) {
   border-color: rgba(96, 165, 250, 0.38);
-  background: rgba(30, 41, 59, 0.92);
+  background: rgba(39, 39, 42, 0.92);
   color: #bfdbfe;
 }
 
@@ -900,14 +900,14 @@ html[data-theme="dark"] .apikey-fun-message.error {
 
 [data-theme="dark"] .apikey-fun-usage-card,
 html[data-theme="dark"] .apikey-fun-usage-card {
-  border-color: rgba(148, 163, 184, 0.16);
-  background: rgba(15, 23, 42, 0.66);
+  border-color: rgba(161, 161, 170, 0.16);
+  background: rgba(24, 24, 27, 0.66);
   box-shadow: var(--ak-glass-shadow);
 }
 
 [data-theme="dark"] .apikey-fun-usage-card:hover,
 html[data-theme="dark"] .apikey-fun-usage-card:hover {
-  background: rgba(30, 41, 59, 0.84);
+  background: rgba(39, 39, 42, 0.84);
 }
 
 [data-theme="dark"] .apikey-fun-usage-card.primary,
@@ -923,38 +923,38 @@ html[data-theme="dark"] .apikey-fun-usage-card span {
 
 [data-theme="dark"] .apikey-fun-skeleton-text,
 html[data-theme="dark"] .apikey-fun-skeleton-text {
-  background: rgba(148, 163, 184, 0.1);
+  background: rgba(161, 161, 170, 0.1);
   background-size: 400% 100%;
 }
 
 [data-theme="dark"] .apikey-fun-empty-keys,
 html[data-theme="dark"] .apikey-fun-empty-keys {
-  border-color: rgba(148, 163, 184, 0.2);
-  background: rgba(15, 23, 42, 0.42);
+  border-color: rgba(161, 161, 170, 0.2);
+  background: rgba(24, 24, 27, 0.42);
   color: var(--ak-muted);
 }
 
 [data-theme="dark"] .apikey-fun-empty-keys svg,
 html[data-theme="dark"] .apikey-fun-empty-keys svg {
-  color: #64748b;
+  color: #71717a;
 }
 
 [data-theme="dark"] .apikey-fun-key-list::-webkit-scrollbar-thumb,
 html[data-theme="dark"] .apikey-fun-key-list::-webkit-scrollbar-thumb {
-  background: rgba(148, 163, 184, 0.22);
+  background: rgba(161, 161, 170, 0.22);
 }
 
 [data-theme="dark"] .apikey-fun-key-item,
 html[data-theme="dark"] .apikey-fun-key-item {
-  border-color: rgba(148, 163, 184, 0.16);
-  background: rgba(15, 23, 42, 0.72);
+  border-color: rgba(161, 161, 170, 0.16);
+  background: rgba(24, 24, 27, 0.72);
   box-shadow: 0 10px 22px rgba(0, 0, 0, 0.14);
 }
 
 [data-theme="dark"] .apikey-fun-key-item:hover,
 html[data-theme="dark"] .apikey-fun-key-item:hover {
   border-color: rgba(96, 165, 250, 0.3);
-  background: rgba(30, 41, 59, 0.9);
+  background: rgba(39, 39, 42, 0.9);
 }
 
 [data-theme="dark"] .apikey-fun-key-item.active,
@@ -968,7 +968,7 @@ html[data-theme="dark"] .apikey-fun-key-item.active {
 
 [data-theme="dark"] .apikey-fun-key-name-row .edit-icon-btn,
 html[data-theme="dark"] .apikey-fun-key-name-row .edit-icon-btn {
-  color: #64748b;
+  color: #71717a;
 }
 
 [data-theme="dark"] .apikey-fun-key-name-row .edit-icon-btn:hover,
@@ -980,7 +980,7 @@ html[data-theme="dark"] .apikey-fun-key-name-row .edit-icon-btn:hover {
 [data-theme="dark"] .apikey-fun-rename-input,
 html[data-theme="dark"] .apikey-fun-rename-input {
   border-color: rgba(96, 165, 250, 0.72);
-  background: rgba(15, 23, 42, 0.94);
+  background: rgba(24, 24, 27, 0.94);
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.18);
 }
 

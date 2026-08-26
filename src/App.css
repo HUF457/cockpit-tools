@@ -61,12 +61,12 @@
 .codex-batch-import-queue-task {
   width: 100%;
   border: 1px solid var(--border-color);
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
   background: var(--bg-primary);
   color: var(--text-primary);
   text-align: left;
   cursor: pointer;
-  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.16);
+  box-shadow: 0 10px 28px rgba(24, 24, 27, 0.16);
 }
 
 .codex-batch-import-floating-task {
@@ -113,7 +113,7 @@
   padding: 18px 22px;
   scrollbar-gutter: stable;
   scrollbar-width: thin;
-  scrollbar-color: rgba(100, 116, 139, 0.45) rgba(148, 163, 184, 0.14);
+  scrollbar-color: rgba(113, 113, 122, 0.45) rgba(161, 161, 170, 0.14);
 }
 
 .codex-batch-import-body > * + * {
@@ -126,7 +126,7 @@
   gap: 8px;
   padding: 10px 12px;
   border: 1px solid rgba(239, 68, 68, 0.25);
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
   background: rgba(239, 68, 68, 0.08);
   color: #b91c1c;
   font-size: 13px;
@@ -135,7 +135,7 @@
 .codex-batch-import-progress-panel {
   padding: 14px;
   border: 1px solid var(--border-color);
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
   background: var(--bg-secondary);
 }
 
@@ -157,8 +157,8 @@
 .codex-batch-import-progress-track {
   height: 8px;
   overflow: hidden;
-  border-radius: 999px;
-  background: rgba(148, 163, 184, 0.22);
+  border-radius: var(--radius-full);
+  background: rgba(161, 161, 170, 0.22);
 }
 
 .codex-batch-import-progress-fill {
@@ -217,7 +217,7 @@
 .codex-batch-import-stat-grid > div {
   padding: 12px;
   border: 1px solid var(--border-color);
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
   background: var(--bg-primary);
 }
 
@@ -287,8 +287,8 @@
   position: relative;
   width: 32px;
   height: 18px;
-  border-radius: 999px;
-  background: rgba(148, 163, 184, 0.35);
+  border-radius: var(--radius-full);
+  background: rgba(161, 161, 170, 0.35);
   transition: background 160ms ease;
 }
 
@@ -301,7 +301,7 @@
   height: 12px;
   border-radius: 50%;
   background: #fff;
-  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.24);
+  box-shadow: 0 1px 3px rgba(24, 24, 27, 0.24);
   transition: transform 160ms ease;
 }
 
@@ -334,7 +334,7 @@
   gap: 16px;
   padding: 10px 12px;
   border: 1px solid var(--border-color);
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
   background: var(--bg-secondary);
   cursor: pointer;
 }
@@ -370,8 +370,8 @@
   width: 36px;
   height: 20px;
   flex: 0 0 36px;
-  border-radius: 999px;
-  background: rgba(148, 163, 184, 0.4);
+  border-radius: var(--radius-full);
+  background: rgba(161, 161, 170, 0.4);
   transition: background 160ms ease;
 }
 
@@ -384,7 +384,7 @@
   height: 14px;
   border-radius: 50%;
   background: #fff;
-  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.24);
+  box-shadow: 0 1px 3px rgba(24, 24, 27, 0.24);
   transition: transform 160ms ease;
 }
 
@@ -409,7 +409,7 @@
   gap: 8px;
   padding: 10px 12px;
   border: 1px solid color-mix(in srgb, var(--danger) 35%, var(--border-color));
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
   color: var(--danger);
   background: color-mix(in srgb, var(--danger) 8%, transparent);
   font-size: 13px;
@@ -426,20 +426,20 @@
 }
 
 .codex-batch-import-body::-webkit-scrollbar-track {
-  border-radius: 999px;
-  background: rgba(148, 163, 184, 0.14);
+  border-radius: var(--radius-full);
+  background: rgba(161, 161, 170, 0.14);
 }
 
 .codex-batch-import-body::-webkit-scrollbar-thumb {
   min-height: 44px;
   border: 2px solid transparent;
-  border-radius: 999px;
-  background: rgba(100, 116, 139, 0.48);
+  border-radius: var(--radius-full);
+  background: rgba(113, 113, 122, 0.48);
   background-clip: padding-box;
 }
 
 .codex-batch-import-body::-webkit-scrollbar-thumb:hover {
-  background: rgba(71, 85, 105, 0.62);
+  background: rgba(82, 82, 91, 0.62);
   background-clip: padding-box;
 }
 
@@ -565,7 +565,7 @@
   justify-content: space-between;
   gap: 12px;
   padding: 10px 12px;
-  border-radius: 10px;
+  border-radius: var(--radius-xl);
   border: 1px solid var(--border-light);
   background: var(--bg-tertiary);
 }
@@ -652,7 +652,7 @@
   width: 100%;
   padding: 10px 12px;
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
   background: var(--bg-tertiary);
   color: var(--text-primary);
   text-align: left;
@@ -683,7 +683,7 @@
 .app-path-candidate-badge {
   flex-shrink: 0;
   padding: 2px 6px;
-  border-radius: 6px;
+  border-radius: var(--radius-md);
   background: var(--bg-secondary);
   color: var(--text-secondary);
   font-size: 11px;
@@ -767,7 +767,7 @@
   width: fit-content;
   height: 18px;
   padding: 0 7px;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   background: rgba(37, 99, 235, 0.12);
   color: var(--primary);
   display: inline-flex;
@@ -794,7 +794,7 @@
   width: fit-content;
   height: 22px;
   padding: 0 8px;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   border: 1px solid rgba(37, 99, 235, 0.24);
   background: rgba(37, 99, 235, 0.08);
   color: var(--primary);
@@ -862,7 +862,7 @@
 
 .update-quick-action-btn {
   height: 36px;
-  border-radius: 12px;
+  border-radius: var(--radius-xl);
   border: 1px solid var(--border);
   padding: 0 12px;
   display: inline-flex;

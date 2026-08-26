@@ -27,7 +27,7 @@ body.floating-card-overlay-root,
   min-height: 0;
   flex-direction: column;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
+  border-radius: var(--radius-xl);
   background: rgba(10, 14, 20, 0.76);
   box-shadow:
     0 22px 50px rgba(0, 0, 0, 0.46),
@@ -113,7 +113,7 @@ body.floating-card-overlay-root,
   height: 24px;
   padding: 0 22px 0 8px;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 10px;
+  border-radius: var(--radius-xl);
   background: rgba(11, 16, 23, 0.74);
   color: #f3f6fa;
   font-size: 10px;
@@ -137,7 +137,7 @@ body.floating-card-overlay-root,
   align-items: center;
   padding: 0 8px;
   border: 1px solid rgba(255, 184, 76, 0.22);
-  border-radius: 10px;
+  border-radius: var(--radius-xl);
   background: rgba(11, 16, 23, 0.74);
   color: #f3f6fa;
   font-size: 10px;
@@ -162,7 +162,7 @@ body.floating-card-overlay-root,
   align-items: center;
   justify-content: center;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 9px;
+  border-radius: var(--radius-xl);
   background: rgba(11, 16, 23, 0.72);
   color: #aeb8c4;
   cursor: pointer;
@@ -244,7 +244,7 @@ body.floating-card-overlay-root,
   gap: 4px;
   padding: 3px 6px;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   background: rgba(12, 18, 25, 0.72);
   color: #cbd4df;
   font-size: 9px;
@@ -262,7 +262,7 @@ body.floating-card-overlay-root,
   gap: 6px;
   padding: 6px;
   border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 11px;
+  border-radius: var(--radius-xl);
   background: rgba(17, 24, 33, 0.56);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.03),
@@ -322,7 +322,7 @@ body.floating-card-overlay-root,
   gap: 5px;
   min-width: 0;
   padding: 4px 6px;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   background: rgba(9, 14, 20, 0.72);
   border: 1px solid rgba(255, 255, 255, 0.06);
 }
@@ -356,7 +356,7 @@ body.floating-card-overlay-root,
   align-items: center;
   justify-content: center;
   padding: 4px 6px;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   border: 1px solid transparent;
   font-size: 9px;
   font-weight: 800;
@@ -394,9 +394,9 @@ body.floating-card-overlay-root,
 
 .floating-card-plan.codex-pro-lite {
   border-color: rgba(180, 200, 224, 0.36);
-  background: rgba(248, 250, 252, 0.95);
+  background: rgba(250, 250, 250, 0.95);
   color: #203047;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.62), 0 1px 4px rgba(148, 163, 184, 0.18);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.62), 0 1px 4px rgba(161, 161, 170, 0.18);
 }
 
 .floating-card-plan.codex-pro-max {
@@ -431,7 +431,7 @@ body.floating-card-overlay-root,
   flex-direction: column;
   gap: 4px;
   padding: 5px 6px;
-  border-radius: 9px;
+  border-radius: var(--radius-xl);
   background: rgba(9, 14, 20, 0.76);
   border: 1px solid rgba(255, 255, 255, 0.06);
 }
@@ -486,7 +486,7 @@ body.floating-card-overlay-root,
 .floating-card-progress-track {
   width: 100%;
   height: 4px;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   background: rgba(255, 255, 255, 0.07);
   overflow: hidden;
 }
@@ -528,7 +528,7 @@ body.floating-card-overlay-root,
 
 .floating-card-error {
   padding: 5px 7px;
-  border-radius: 9px;
+  border-radius: var(--radius-xl);
   border: 1px solid rgba(255, 115, 115, 0.2);
   background: rgba(255, 115, 115, 0.1);
   color: #ff9f9f;
@@ -569,7 +569,7 @@ body.floating-card-overlay-root,
   gap: 5px;
   min-height: 24px;
   padding: 0 7px;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   border: 1px solid rgba(255, 255, 255, 0.08);
   background: rgba(11, 16, 23, 0.74);
   color: #dbe4ee;
@@ -626,7 +626,7 @@ body.floating-card-overlay-root,
   gap: 8px;
   padding: 10px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
+  border-radius: var(--radius-xl);
   background: rgba(17, 24, 33, 0.96);
   box-shadow:
     0 16px 34px rgba(0, 0, 0, 0.38),

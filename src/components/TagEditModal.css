@@ -24,9 +24,9 @@
 }
 
 [data-theme="dark"] .tag-edit-modal {
-  background: rgba(15, 23, 42, 0.94);
-  border-color: rgba(148, 163, 184, 0.24);
-  box-shadow: 0 28px 64px rgba(2, 6, 23, 0.52), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  background: rgba(24, 24, 27, 0.94);
+  border-color: rgba(161, 161, 170, 0.24);
+  box-shadow: 0 28px 64px rgba(9, 9, 11, 0.52), inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 .tag-edit-title {
@@ -74,8 +74,8 @@
   min-height: 88px;
   resize: vertical;
   padding: 10px 12px;
-  border-radius: 12px;
-  border: 1px solid rgba(148, 163, 184, 0.4);
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(161, 161, 170, 0.4);
   background: var(--bg-card);
   color: var(--text-primary);
   font-size: 13px;
@@ -84,8 +84,8 @@
 }
 
 [data-theme="dark"] .tag-notes-section textarea {
-  border-color: rgba(148, 163, 184, 0.26);
-  background: rgba(15, 23, 42, 0.38);
+  border-color: rgba(161, 161, 170, 0.26);
+  background: rgba(24, 24, 27, 0.38);
 }
 
 .tag-notes-section textarea:focus {
@@ -103,14 +103,14 @@
   gap: 8px;
   min-height: 40px;
   padding: 10px;
-  border-radius: 12px;
-  background: rgba(15, 23, 42, 0.03);
-  border: 1px dashed rgba(148, 163, 184, 0.5);
+  border-radius: var(--radius-xl);
+  background: rgba(24, 24, 27, 0.03);
+  border: 1px dashed rgba(161, 161, 170, 0.5);
 }
 
 [data-theme="dark"] .tag-list {
   background: rgba(255, 255, 255, 0.03);
-  border-color: rgba(148, 163, 184, 0.26);
+  border-color: rgba(161, 161, 170, 0.26);
 }
 
 .tag-suggestions {
@@ -135,8 +135,8 @@
   align-items: center;
   gap: 6px;
   padding: 6px 10px;
-  border-radius: 10px;
-  border: 1px solid rgba(148, 163, 184, 0.45);
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(161, 161, 170, 0.45);
   background: var(--bg-card);
   color: var(--text-secondary);
   font-size: 12px;
@@ -145,7 +145,7 @@
 }
 
 [data-theme="dark"] .tag-suggestion {
-  border-color: rgba(148, 163, 184, 0.28);
+  border-color: rgba(161, 161, 170, 0.28);
 }
 
 .tag-suggestion:hover {
@@ -169,18 +169,18 @@
   align-items: center;
   gap: 6px;
   padding: 4px 10px;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   font-size: 12px;
-  color: #0f172a;
+  color: #18181b;
   background: rgba(191, 219, 254, 0.75);
   border: 1px solid rgba(59, 130, 246, 0.35);
 }
 
 [data-theme="dark"] .tag-chip {
-  color: #e2e8f0;
+  color: #e4e4e7;
   background: rgba(37, 99, 235, 0.35);
   border-color: rgba(96, 165, 250, 0.35);
-  box-shadow: 0 8px 18px rgba(2, 6, 23, 0.28);
+  box-shadow: 0 8px 18px rgba(9, 9, 11, 0.28);
 }
 
 .tag-remove {
@@ -189,9 +189,9 @@
   justify-content: center;
   width: 18px;
   height: 18px;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   border: none;
-  background: rgba(15, 23, 42, 0.08);
+  background: rgba(24, 24, 27, 0.08);
   color: rgba(30, 64, 175, 0.8);
   cursor: pointer;
 }
@@ -202,7 +202,7 @@
 }
 
 .tag-remove:hover {
-  background: rgba(15, 23, 42, 0.16);
+  background: rgba(24, 24, 27, 0.16);
   color: rgba(30, 58, 138, 0.9);
 }
 
@@ -226,8 +226,8 @@
 .tag-input-wrap input {
   flex: 1 1 220px;
   padding: 10px 12px;
-  border-radius: 10px;
-  border: 1px solid rgba(148, 163, 184, 0.4);
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(161, 161, 170, 0.4);
   background: var(--bg-card);
   color: var(--text-primary);
   font-size: 13px;
@@ -235,8 +235,8 @@
 }
 
 [data-theme="dark"] .tag-input-wrap input {
-  border-color: rgba(148, 163, 184, 0.26);
-  background: rgba(15, 23, 42, 0.38);
+  border-color: rgba(161, 161, 170, 0.26);
+  background: rgba(24, 24, 27, 0.38);
 }
 
 .tag-input-wrap input::placeholder {
@@ -257,7 +257,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  border-radius: 10px;
+  border-radius: var(--radius-xl);
 }
 
 .tag-edit-error {

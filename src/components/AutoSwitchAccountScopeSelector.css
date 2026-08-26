@@ -36,7 +36,7 @@
 
 .settings-account-scope-panel {
   border: 1px solid var(--border-light);
-  border-radius: 10px;
+  border-radius: var(--radius-xl);
   background: var(--bg-tertiary);
   padding: 10px;
   display: flex;
@@ -60,7 +60,7 @@
 
 .settings-account-scope-dialog-trigger {
   border: 1px solid var(--border-light);
-  border-radius: 10px;
+  border-radius: var(--radius-xl);
   background: var(--bg-tertiary);
   padding: 10px 12px;
   display: flex;
@@ -121,7 +121,7 @@
   align-items: center;
   gap: 8px;
   padding: 8px 10px;
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
   border: 1px solid var(--border-light);
   background: var(--bg-secondary);
   cursor: pointer;
@@ -163,7 +163,7 @@
   max-height: calc(100vh - 48px);
   background: var(--bg-secondary);
   border: 1px solid var(--border-light);
-  border-radius: 14px;
+  border-radius: var(--radius-xl);
   box-shadow: var(--shadow-xl);
   display: flex;
   flex-direction: column;
@@ -196,7 +196,7 @@
 
 .settings-account-scope-dialog-all-accounts-hint {
   border: 1px solid var(--border-light);
-  border-radius: 10px;
+  border-radius: var(--radius-xl);
   background: var(--bg-tertiary);
   color: var(--text-secondary);
   font-size: 13px;
@@ -237,7 +237,7 @@
   .settings-account-scope-dialog {
     width: 100%;
     max-height: calc(100vh - 24px);
-    border-radius: 12px;
+    border-radius: var(--radius-xl);
     padding: 12px;
   }
 

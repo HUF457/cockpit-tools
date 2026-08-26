@@ -2,10 +2,10 @@
   --codex-api-surface: color-mix(in srgb, var(--bg-card) 92%, rgba(255, 255, 255, 0.54));
   --codex-api-surface-strong: color-mix(in srgb, var(--bg-card) 96%, rgba(255, 255, 255, 0.74));
   --codex-api-surface-soft: color-mix(in srgb, var(--primary) 4%, rgba(255, 255, 255, 0.72));
-  --codex-api-border: color-mix(in srgb, var(--border) 78%, rgba(148, 163, 184, 0.14));
-  --codex-api-border-soft: color-mix(in srgb, var(--border-light) 82%, rgba(148, 163, 184, 0.12));
-  --codex-api-shadow: 0 10px 24px -22px rgba(15, 23, 42, 0.42);
-  --codex-api-shadow-hover: 0 14px 28px -24px rgba(15, 23, 42, 0.48);
+  --codex-api-border: color-mix(in srgb, var(--border) 78%, rgba(161, 161, 170, 0.14));
+  --codex-api-border-soft: color-mix(in srgb, var(--border-light) 82%, rgba(161, 161, 170, 0.12));
+  --codex-api-shadow: 0 10px 24px -22px rgba(24, 24, 27, 0.42);
+  --codex-api-shadow-hover: 0 14px 28px -24px rgba(24, 24, 27, 0.48);
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -32,7 +32,7 @@
   min-height: 48px;
   padding: 8px 10px;
   border: 1px solid var(--codex-api-border);
-  border-radius: 12px;
+  border-radius: var(--radius-xl);
   background: var(--codex-api-surface);
   box-shadow: var(--codex-api-shadow);
 }
@@ -56,7 +56,7 @@
   width: 28px;
   height: 28px;
   border: 1px solid color-mix(in srgb, var(--primary) 16%, var(--border-light));
-  border-radius: 9px;
+  border-radius: var(--radius-xl);
   background: color-mix(in srgb, var(--primary) 10%, rgba(255, 255, 255, 0.76));
   color: var(--primary);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.42);
@@ -100,7 +100,7 @@
   min-height: 18px;
   padding: 1px 6px;
   border: 1px solid transparent;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   font-size: 10.5px;
   font-weight: 700;
   line-height: 1.2;
@@ -128,15 +128,15 @@
 }
 
 .codex-api-service-pill.mode-sidecar {
-  border-color: color-mix(in srgb, #0891b2 24%, transparent);
-  background: color-mix(in srgb, #0891b2 12%, transparent);
-  color: #0f766e;
+  border-color: color-mix(in srgb, var(--success) 24%, transparent);
+  background: color-mix(in srgb, var(--success) 12%, transparent);
+  color: var(--success);
 }
 
 .codex-api-service-pill.mode-legacy {
-  border-color: color-mix(in srgb, #6366f1 24%, transparent);
-  background: color-mix(in srgb, #6366f1 12%, transparent);
-  color: #4338ca;
+  border-color: color-mix(in srgb, var(--primary) 24%, transparent);
+  background: color-mix(in srgb, var(--primary) 12%, transparent);
+  color: var(--primary);
 }
 
 .codex-api-service-status.disabled,
@@ -171,7 +171,7 @@
 .codex-api-service-hero-actions .btn {
   min-height: 30px;
   padding: 0 10px;
-  border-radius: 9px;
+  border-radius: var(--radius-xl);
   font-size: 12px;
   white-space: nowrap;
 }
@@ -191,7 +191,7 @@
   min-height: 24px;
   padding: 0 3px 0 0;
   border: 0;
-  border-radius: 7px;
+  border-radius: var(--radius-md);
   background: transparent;
   color: var(--text-primary);
   box-shadow: none;
@@ -277,7 +277,7 @@
   margin-left: auto;
   padding: 0;
   border: 1px solid transparent;
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
   background: transparent;
   color: inherit;
   cursor: pointer;
@@ -321,7 +321,7 @@
 .codex-api-service-reprice-track {
   height: 6px;
   overflow: hidden;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   background: color-mix(in srgb, var(--border-light) 70%, transparent);
 }
 
@@ -349,7 +349,7 @@
   min-height: 72px;
   padding: 9px 10px;
   border: 1px solid var(--codex-api-border);
-  border-radius: 16px;
+  border-radius: var(--radius-xl);
   background: var(--codex-api-surface-strong);
   box-shadow: var(--codex-api-shadow);
   overflow: hidden;
@@ -625,7 +625,7 @@
 .codex-api-service-routing-form label > input[type="number"] {
   height: 38px;
   padding: 0 12px;
-  border-radius: 12px;
+  border-radius: var(--radius-xl);
   font-size: 13px;
   font-weight: 520;
   line-height: 38px;
@@ -633,7 +633,7 @@
 
 .codex-api-service-routing-form .single-select-dropdown-trigger {
   min-height: 38px;
-  border-radius: 12px;
+  border-radius: var(--radius-xl);
   padding: 0 10px 0 12px;
 }
 
@@ -654,7 +654,7 @@
   height: 18px;
   margin: 0;
   border: 1.5px solid var(--border-strong, var(--border));
-  border-radius: 6px;
+  border-radius: var(--radius-md);
   background: var(--bg-surface);
   cursor: pointer;
   transition:
@@ -808,7 +808,7 @@
 
 .codex-api-service-page .single-select-dropdown-trigger {
   min-height: 34px;
-  border-radius: 10px;
+  border-radius: var(--radius-xl);
 }
 
 .codex-api-service-page .codex-api-service-client-host-select .single-select-dropdown-trigger {
@@ -845,7 +845,7 @@
 .codex-api-service-page .codex-api-service-client-host-select .single-select-dropdown-arrow {
   width: 20px;
   height: 20px;
-  border-radius: 6px;
+  border-radius: var(--radius-md);
   background: transparent;
   color: var(--text-secondary);
 }
@@ -867,7 +867,7 @@
 .codex-api-service-client-host-menu .single-select-dropdown-item {
   min-height: 30px;
   padding: 0 8px;
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
 }
 
 .codex-api-service-client-host-menu .single-select-dropdown-item:hover {
@@ -954,7 +954,7 @@
   max-width: 100%;
   padding: 4px 8px;
   border: 1px solid color-mix(in srgb, var(--accent) 16%, var(--codex-api-border-soft));
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   background: color-mix(in srgb, var(--accent) 7%, transparent);
   color: var(--text-secondary);
   font-size: 11px;
@@ -1149,7 +1149,7 @@
   width: 100%;
   height: 4px;
   margin-top: 2px;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   background: color-mix(in srgb, var(--text-muted) 18%, transparent);
   overflow: hidden;
 }
@@ -1217,7 +1217,7 @@
   min-height: 32px;
   padding: 0 10px;
   border: 1px solid var(--codex-api-border-soft);
-  border-radius: 12px;
+  border-radius: var(--radius-xl);
   background: color-mix(in srgb, var(--bg-card) 70%, transparent);
   color: var(--text-secondary);
   cursor: pointer;
@@ -1248,7 +1248,7 @@
 .api-key-policy-dirty {
   padding: 2px 6px;
   border: 1px solid color-mix(in srgb, var(--warning) 32%, var(--codex-api-border-soft));
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   background: color-mix(in srgb, var(--warning) 8%, transparent);
   color: var(--warning);
   line-height: 1.2;
@@ -1378,7 +1378,7 @@ html[data-reduced-motion="true"] .codex-api-service-key-advanced-toggle[aria-exp
   min-height: 28px;
   padding: 0 10px;
   border: 0;
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
   background: transparent;
   color: var(--text-secondary);
   font-size: 11px;
@@ -1488,7 +1488,7 @@ html[data-reduced-motion="true"] .codex-api-service-key-advanced-toggle[aria-exp
   place-items: center;
   padding: 0;
   border: 1px solid var(--codex-api-border-soft);
-  border-radius: 6px;
+  border-radius: var(--radius-md);
   background: transparent;
   color: var(--text-muted);
   cursor: pointer;
@@ -1501,7 +1501,7 @@ html[data-reduced-motion="true"] .codex-api-service-key-advanced-toggle[aria-exp
   min-width: 11px;
   height: 11px;
   padding: 0 2px;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   background: var(--primary);
   color: var(--primary-foreground, #fff);
   content: attr(data-priority-rank);
@@ -1720,7 +1720,7 @@ html[data-reduced-motion="true"] .codex-api-service-key-advanced-toggle[aria-exp
   max-width: 100%;
   padding: 3px 6px;
   border: 1px solid var(--codex-api-border-soft);
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   background: color-mix(in srgb, var(--bg-card) 82%, transparent);
   color: var(--text-secondary);
   font-size: 11px;
@@ -1798,7 +1798,7 @@ html[data-reduced-motion="true"] .codex-api-service-key-advanced-toggle[aria-exp
   height: 30px;
   padding: 0 9px;
   border: 0;
-  border-radius: 9px;
+  border-radius: var(--radius-xl);
   background: transparent;
   color: var(--text-secondary);
   font-size: 11px;
@@ -1848,7 +1848,7 @@ html[data-reduced-motion="true"] .codex-api-service-key-advanced-toggle[aria-exp
   min-height: 28px;
   padding: 0 10px;
   border: 0;
-  border-radius: 9px;
+  border-radius: var(--radius-xl);
   background: transparent;
   color: var(--text-secondary);
   font-size: 12px;
@@ -2416,7 +2416,7 @@ html[data-reduced-motion="true"] .codex-api-service-key-advanced-toggle[aria-exp
 .codex-api-service-key-card:hover {
   border-color: color-mix(in srgb, var(--primary) 22%, var(--codex-api-border-soft));
   background: color-mix(in srgb, var(--bg-surface) 82%, var(--primary) 4%);
-  box-shadow: 0 10px 24px -22px rgba(15, 23, 42, 0.46);
+  box-shadow: 0 10px 24px -22px rgba(24, 24, 27, 0.46);
 }
 
 .codex-api-service-log-row > div {
@@ -2478,17 +2478,17 @@ html[data-reduced-motion="true"] .codex-api-service-key-advanced-toggle[aria-exp
 }
 
 [data-theme="dark"] .codex-api-service-page {
-  --codex-api-surface: color-mix(in srgb, var(--bg-card) 92%, rgba(15, 23, 42, 0.58));
-  --codex-api-surface-strong: color-mix(in srgb, var(--bg-card) 96%, rgba(15, 23, 42, 0.7));
-  --codex-api-surface-soft: color-mix(in srgb, var(--primary) 7%, rgba(15, 23, 42, 0.66));
-  --codex-api-border: color-mix(in srgb, var(--border) 84%, rgba(148, 163, 184, 0.12));
-  --codex-api-border-soft: color-mix(in srgb, var(--border-light) 88%, rgba(148, 163, 184, 0.08));
+  --codex-api-surface: color-mix(in srgb, var(--bg-card) 92%, rgba(24, 24, 27, 0.58));
+  --codex-api-surface-strong: color-mix(in srgb, var(--bg-card) 96%, rgba(24, 24, 27, 0.7));
+  --codex-api-surface-soft: color-mix(in srgb, var(--primary) 7%, rgba(24, 24, 27, 0.66));
+  --codex-api-border: color-mix(in srgb, var(--border) 84%, rgba(161, 161, 170, 0.12));
+  --codex-api-border-soft: color-mix(in srgb, var(--border-light) 88%, rgba(161, 161, 170, 0.08));
   --codex-api-shadow: 0 14px 32px -26px rgba(0, 0, 0, 0.72);
   --codex-api-shadow-hover: 0 18px 36px -28px rgba(0, 0, 0, 0.82);
 }
 
 [data-theme="dark"] .codex-api-service-title-icon {
-  background: color-mix(in srgb, var(--primary) 16%, rgba(15, 23, 42, 0.76));
+  background: color-mix(in srgb, var(--primary) 16%, rgba(24, 24, 27, 0.76));
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 

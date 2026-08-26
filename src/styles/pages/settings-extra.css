@@ -100,7 +100,7 @@
   gap: 8px;
   background: var(--bg-tertiary);
   padding: 4px 4px 4px 12px;
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
   border: 1px solid var(--border);
 }
 
@@ -118,7 +118,7 @@
   justify-content: center;
   border: none;
   background: var(--bg-secondary);
-  border-radius: 6px;
+  border-radius: var(--radius-md);
   color: var(--text-secondary);
   cursor: pointer;
   transition: all 0.2s;
@@ -137,14 +137,14 @@
 .version-pill {
   background: var(--bg-tertiary);
   padding: 4px 12px;
-  border-radius: 6px;
+  border-radius: var(--radius-md);
   font-family: var(--font-mono);
   font-size: 13px;
   color: var(--text-secondary);
 }
 
 .icon-blue { color: var(--primary); }
-.icon-purple { color: #8b5cf6; }
+.icon-purple { color: var(--primary); }
 
 @keyframes pulse {
   0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }

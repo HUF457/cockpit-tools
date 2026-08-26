@@ -17,8 +17,8 @@
 
 .zed-accounts-page .status-pill.neutral {
   color: var(--text-secondary);
-  background: rgba(148, 163, 184, 0.12);
-  border-color: rgba(148, 163, 184, 0.24);
+  background: rgba(161, 161, 170, 0.12);
+  border-color: rgba(161, 161, 170, 0.24);
 }
 
 .zed-login-pill {
@@ -72,7 +72,7 @@
 .zed-accounts-page .zed-usage-metric-track {
   height: 6px;
   background: var(--bg-tertiary);
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   overflow: hidden;
 }
 
@@ -82,7 +82,7 @@
 
 .zed-accounts-page .zed-usage-metric-bar {
   height: 100%;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   transition: width 0.3s ease;
 }
 

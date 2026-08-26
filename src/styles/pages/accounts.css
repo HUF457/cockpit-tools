@@ -6,7 +6,7 @@
 .view-switcher {
   display: flex;
   background: rgba(0, 0, 0, 0.04);
-  border-radius: 10px;
+  border-radius: var(--radius-xl);
   padding: 3px;
   border: none;
 }
@@ -19,7 +19,7 @@
   justify-content: center;
   background: transparent;
   border: none;
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
   color: var(--text-muted);
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -47,7 +47,7 @@
 .account-card {
   position: relative;
   background: #ffffff;
-  border-radius: 12px; /* 稍微减小圆角 */
+  border-radius: var(--radius-xl); /* 稍微减小圆角 */
   padding: 14px; /* 减小内边距 */
   display: flex;
   flex-direction: column;
@@ -118,7 +118,7 @@
   color: var(--text-secondary);
   font-size: 11px;
   font-weight: 500;
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
   border: 1px solid var(--border-light);
 }
 
@@ -132,8 +132,8 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px 12px;
-  background: #f8fafc; /* 非常淡的背景 */
-  border-radius: 8px;
+  background: #fafafa; /* 非常淡的背景 */
+  border-radius: var(--radius-xl);
   padding: 10px;
   border: 1px solid rgba(0,0,0,0.03);
 }
@@ -144,7 +144,7 @@
   align-items: center;
   gap: 6px;
   padding: 8px 10px;
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
   background: rgba(239, 68, 68, 0.08);
   color: var(--danger);
   font-size: 12px;
@@ -196,7 +196,7 @@
 .card-action-btn {
   width: 24px;
   height: 24px;
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
   color: var(--text-muted); /* 默认灰色 */
   transition: all 0.2s;
   background: transparent;
@@ -293,9 +293,9 @@
   max-width: 140px;
   height: 24px;
   padding: 0 9px;
-  border: 1px solid rgba(148, 163, 184, 0.28);
-  border-radius: 999px;
-  background: rgba(15, 23, 42, 0.04);
+  border: 1px solid rgba(161, 161, 170, 0.28);
+  border-radius: var(--radius-full);
+  background: rgba(24, 24, 27, 0.04);
   color: var(--text-secondary);
   font-size: 11px;
   font-weight: 600;
@@ -371,7 +371,7 @@
 .instance-plan-badge.plan-badge-style-soft {
   filter: saturate(0.85);
   opacity: 0.92;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
 }
 .tier-badge.plan-badge-style-mono,
 .instance-plan-badge.plan-badge-style-mono {
@@ -473,7 +473,7 @@
   color: var(--text-muted);
   cursor: pointer;
   padding: 4px;
-  border-radius: 6px;
+  border-radius: var(--radius-md);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -517,7 +517,7 @@
 .folder-inline-icon {
   width: 40px;
   height: 40px;
-  border-radius: 10px;
+  border-radius: var(--radius-xl);
   background: var(--primary);
   color: #fff;
   display: flex;
@@ -554,7 +554,7 @@
   min-width: 0;
   height: 32px;
   padding: 0 10px;
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
   border: 1px solid var(--border);
   background: var(--bg-surface);
   color: var(--text-primary);
@@ -585,7 +585,7 @@
   gap: 4px;
   padding: 8px;
   background: rgba(255, 255, 255, 0.6);
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
   border: 1px solid rgba(0, 0, 0, 0.04);
   overflow-y: auto;
 }
@@ -633,7 +633,7 @@
   width: 22px;
   height: 22px;
   border: none;
-  border-radius: 6px;
+  border-radius: var(--radius-md);
   background: transparent;
   color: var(--text-muted);
   cursor: pointer;
@@ -673,14 +673,14 @@
 }
 
 [data-theme="dark"] .accounts-grid .account-card {
-  background: #1e293b;
+  background: #27272a;
   border-color: rgba(255,255,255,0.05);
   box-shadow: 0 4px 6px rgba(0,0,0,0.2);
 }
 
 [data-theme="dark"] .account-card .account-email {
   background: transparent;
-  color: #e2e8f0;
+  color: #e4e4e7;
 }
 
 [data-theme="dark"] .card-quota-grid {
@@ -693,18 +693,18 @@
 }
 
 [data-theme="dark"] .view-btn.active {
-  background: #334155;
+  background: #3f3f46;
   color: #fff;
 }
 
 [data-theme="dark"] .card-actions {
-  background: #1e293b;
+  background: #27272a;
   border-color: rgba(255,255,255,0.05);
 }
 
 [data-theme="dark"] .card-date {
   background: rgba(255,255,255,0.05);
-  color: #94a3b8;
+  color: #a1a1aa;
 }
 
 /* Custom quota columns layout for Antigravity */
@@ -774,7 +774,7 @@
   gap: 12px;
   padding: 10px 12px;
   border: 1px solid var(--border-light);
-  border-radius: 12px;
+  border-radius: var(--radius-xl);
   background: var(--bg-card);
   transition:
     background 0.15s ease,
@@ -820,7 +820,7 @@
   height: 28px;
   padding: 0;
   border: 0;
-  border-radius: 8px;
+  border-radius: var(--radius-xl);
   background: transparent;
   color: var(--text-muted);
   cursor: grab;
@@ -835,7 +835,7 @@
 .codex-custom-sort-index {
   width: 28px;
   height: 28px;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   display: inline-flex;
   align-items: center;
   justify-content: center;
