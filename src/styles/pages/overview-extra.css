@@ -118,10 +118,8 @@
 }
 
 .action-btn.spin svg {
-  animation: spin 1s linear infinite;
+  animation: ct-spin var(--motion-spin) linear infinite;
 }
-
-@keyframes spin { 100% { transform: rotate(360deg); } }
 
 .card-body {
   flex: 1;

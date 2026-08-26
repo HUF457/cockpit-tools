@@ -90,8 +90,9 @@
   height: 8px;
   border-radius: 50%;
   background: var(--success);
+  /* Static halo: "running" is a steady state, not indeterminate progress,
+     so it does not get to pulse forever. */
   box-shadow: 0 0 0 2px color-mix(in srgb, var(--success) 20%, transparent);
-  animation: pulse 2s infinite;
 }
 
 .port-display {
@@ -145,12 +146,6 @@
 
 .icon-blue { color: var(--primary); }
 .icon-purple { color: var(--primary); }
-
-@keyframes pulse {
-  0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--success) 40%, transparent); }
-  70% { box-shadow: 0 0 0 6px color-mix(in srgb, var(--success) 0%, transparent); }
-  100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--success) 0%, transparent); }
-}
 
 /* Quota Bar Colors */
 .quota-mini-bar.high {

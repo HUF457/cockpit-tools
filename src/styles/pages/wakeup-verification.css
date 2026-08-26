@@ -618,11 +618,6 @@
 }
 
 .spin {
-  animation: verificationSpin 0.8s linear infinite;
+  animation: ct-spin var(--motion-spin) linear infinite;
 }
 
-@keyframes verificationSpin {
-  to {
-    transform: rotate(360deg);
-  }
-}

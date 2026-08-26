@@ -1,5 +1,5 @@
 .manual-page {
-  animation: fadeIn 0.24s ease-out;
+  animation: ct-fade-in var(--motion-macro) var(--ease-standard);
 }
 
 .manual-toolbar {

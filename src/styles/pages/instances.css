@@ -230,7 +230,7 @@
 }
 
 .icon-spin {
-  animation: spin 1s linear infinite;
+  animation: ct-spin var(--motion-spin) linear infinite;
 }
 
 /* ============================================

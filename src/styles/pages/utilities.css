@@ -378,12 +378,7 @@
 }
 
 .spin {
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  animation: ct-spin var(--motion-spin) linear infinite;
 }
 
 /* Modal medium size */
@@ -566,7 +561,7 @@
 
 .add-tab.active {
   background: var(--gradient-primary);
-  color: #fff;
+  color: var(--on-primary);
   box-shadow: var(--shadow-sm);
 }
 

@@ -284,17 +284,6 @@
   border-color: color-mix(in srgb, var(--warning) 30%, transparent);
 }
 
-@keyframes floatIn {
-  from {
-    opacity: 0;
-    transform: translateY(-6px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 /* ============================================
    Toolbar
    ============================================ */
@@ -971,7 +960,7 @@ html[data-reduced-motion="true"] .platform-group-switcher-trigger.is-open .platf
 
 .btn-primary {
   background: var(--primary);
-  color: white;
+  color: var(--on-primary);
   border-color: var(--primary);
 }
 
@@ -1591,7 +1580,7 @@ html[data-reduced-motion="true"] .platform-group-switcher-trigger.is-open .platf
   justify-content: center;
   z-index: 10000;
   -webkit-app-region: no-drag;
-  animation: fadeIn 0.2s ease-out;
+  /* Entrance comes from the scrim registry in styles/motion.css. */
 }
 
 .modal {
@@ -1608,21 +1597,22 @@ html[data-reduced-motion="true"] .platform-group-switcher-trigger.is-open .platf
   box-shadow:
     0 25px 50px -12px rgba(0, 0, 0, 0.35),
     0 0 15px rgba(0, 0, 0, 0.1);
-  animation: scaleIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .modal.modal-lg {
   max-width: 720px;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes scaleIn {
-  from { transform: scale(0.96); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+/* The other dialog surface used across the app. Lived duplicated in
+   pages/codex.css and pages/github-copilot.css, where whichever sheet
+   loaded last decided how every modal in the app opened. */
+.modal-content {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-lg);
+  max-height: 85vh;
+  overflow: auto;
 }
 
 .modal-header {
@@ -2837,18 +2827,6 @@ img.platform-layout-group-icon {
   border-radius: var(--radius-md);
   border: 1px solid var(--border);
   box-shadow: var(--shadow-lg);
-  animation: slideIn 0.3s ease;
-}
-
-@keyframes slideIn {
-  from {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
 }
 
 .toast.success {

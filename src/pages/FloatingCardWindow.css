@@ -682,15 +682,6 @@ body.floating-card-overlay-root,
 }
 
 .floating-card-spin {
-  animation: floating-card-spin 0.9s linear infinite;
+  animation: ct-spin var(--motion-spin) linear infinite;
 }
 
-@keyframes floating-card-spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}

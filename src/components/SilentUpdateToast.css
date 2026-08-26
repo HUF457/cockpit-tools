@@ -12,7 +12,6 @@
   background: var(--bg-secondary);
   border: 1px solid var(--border);
   box-shadow: var(--shadow-lg, 0 8px 24px rgba(0, 0, 0, 0.15));
-  animation: silentToastSlideIn 0.3s ease;
   max-width: 380px;
 }
 
@@ -59,7 +58,7 @@
   border-radius: var(--radius-md);
   border: none;
   background: var(--gradient-primary);
-  color: #ffffff;
+  color: var(--on-primary);
   font-size: 12px;
   font-weight: 500;
   cursor: pointer;
@@ -83,15 +82,4 @@
 .silent-update-toast-close:hover {
   color: var(--text-primary);
   background: var(--bg-tertiary);
-}
-
-@keyframes silentToastSlideIn {
-  from {
-    opacity: 0;
-    transform: translateY(12px) translateX(12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) translateX(0);
-  }
 }

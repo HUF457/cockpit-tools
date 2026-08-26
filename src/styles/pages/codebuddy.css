@@ -374,15 +374,11 @@
   color: var(--text-secondary);
 }
 
+/* Colour and weight already mark today's streak; the old 1.5s opacity
+   loop blinked static text forever with nothing to report. */
 .checkin-streak-reward.streak-today {
   color: var(--primary);
   font-weight: 600;
-  animation: checkin-pulse 1.5s ease-in-out infinite;
-}
-
-@keyframes checkin-pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
 }
 
 .checkin-dates {

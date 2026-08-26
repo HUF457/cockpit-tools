@@ -449,7 +449,7 @@ input:checked + .slider:before {
   height: 80px;
   border-radius: var(--radius-xl);
   background: var(--gradient-primary);
-  color: white;
+  color: var(--on-primary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1365,19 +1365,9 @@ input:checked + .slider:before {
 }
 
 .settings-webdav-list-wrap {
-  animation: settingsFadeIn 0.2s ease-out;
+  animation: ct-rise-in var(--motion-meso) var(--ease-entrance) both;
 }
 
-@keyframes settingsFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-6px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 .settings-codex-policy-list {
   display: flex;
   flex-direction: column;

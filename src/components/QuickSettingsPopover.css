@@ -16,12 +16,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: qsOverlayIn 0.2s ease both;
-}
-
-@keyframes qsOverlayIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
 }
 
 /* Modal dialog */
@@ -33,7 +27,6 @@
   border: 1px solid var(--border-light);
   border-radius: var(--radius-xl);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255,255,255,0.05) inset;
-  animation: qsModalIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) both;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -42,28 +35,6 @@
 .qs-modal--codex {
   width: min(860px, calc(100vw - 48px));
   max-width: calc(100vw - 48px);
-}
-
-@keyframes qsModalIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95) translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
-}
-
-@keyframes qsFadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(-4px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 /* Header */
@@ -441,14 +412,14 @@ input.qs-select:focus {
 
 .qs-btn--primary {
   background: var(--primary);
-  color: white;
+  color: var(--on-primary);
   border-color: var(--primary);
 }
 
 .qs-btn--primary:hover {
   background: var(--primary-hover, var(--primary));
   border-color: var(--primary-hover, var(--primary));
-  color: white;
+  color: var(--on-primary);
   filter: brightness(1.1);
 }
 
@@ -807,7 +778,7 @@ input.qs-select:focus {
   color: var(--danger);
   font-size: 12px;
   line-height: 1.4;
-  animation: qsFadeUp 0.2s ease both;
+  animation: ct-rise-in var(--motion-meso) var(--ease-entrance) both;
 }
 
 .qs-error-close {

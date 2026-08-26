@@ -391,7 +391,7 @@ html[data-theme="dark"] .apikey-fun-page {
   color: #0f766e;
   font-size: 11px;
   font-weight: 700;
-  animation: fadeUp 0.18s ease-out;
+  animation: ct-rise-in var(--motion-meso) var(--ease-entrance) both;
 }
 
 /* 提示通知 */
@@ -402,7 +402,7 @@ html[data-theme="dark"] .apikey-fun-page {
   font-size: 11.5px;
   line-height: 1.5;
   font-weight: 600;
-  animation: slideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: ct-rise-in var(--motion-meso) var(--ease-entrance) both;
 }
 
 .apikey-fun-message.success {
@@ -727,7 +727,7 @@ html[data-theme="dark"] .apikey-fun-page {
 
 .success-icon {
   color: var(--ak-teal);
-  animation: scaleUp 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: ct-rise-in var(--motion-meso) var(--ease-entrance) both;
 }
 
 .apikey-fun-key-action-state.success {
@@ -986,13 +986,7 @@ html[data-theme="dark"] .apikey-fun-rename-input {
 
 /* 转圈与动效 */
 .spin {
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
+  animation: ct-spin var(--motion-spin) linear infinite;
 }
 
 @keyframes skeletonShine {
@@ -1001,37 +995,6 @@ html[data-theme="dark"] .apikey-fun-rename-input {
   }
   100% {
     background-position: 0% 50%;
-  }
-}
-
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(6px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes scaleUp {
-  from {
-    transform: scale(0.7);
-  }
-  to {
-    transform: scale(1);
   }
 }
 
