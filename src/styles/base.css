@@ -219,7 +219,8 @@ html[data-theme="dark"] {
   --success: #a3be8c;
   --warning: #ebcb8b;
   --warning-strong: #d08770;
-  --danger: #bf616a;
+  /* Aurora's nord11 only reaches 2.46:1 against Polar Night; lightened. */
+  --danger: #d98d94;
 
   --bg-primary: #2e3440;
   --bg-secondary: #3b4252;
@@ -254,7 +255,7 @@ html[data-theme="dark"] {
 
   --text-primary: #3760bf;
   --text-secondary: #4c5c9c;
-  --text-muted: #7982ab;
+  --text-muted: #666fa0;
 
   --border: rgba(55, 96, 191, 0.18);
   --border-light: rgba(55, 96, 191, 0.1);
@@ -304,7 +305,8 @@ html[data-theme="dark"] {
 
   --text-primary: #4c4f69;
   --text-secondary: #5c5f77;
-  --text-muted: #8c8fa1;
+  /* Latte's overlay1 lands at 2.96:1 on this surface; overlay0 clears AA. */
+  --text-muted: #6c6f85;
 
   --border: rgba(76, 79, 105, 0.16);
   --border-light: rgba(76, 79, 105, 0.09);
@@ -404,7 +406,7 @@ html[data-theme="dark"] {
 
   --text-primary: #414b50;
   --text-secondary: #5c6a72;
-  --text-muted: #829181;
+  --text-muted: #6b7a68;
 
   --border: rgba(92, 106, 114, 0.2);
   --border-light: rgba(92, 106, 114, 0.11);
@@ -427,7 +429,7 @@ html[data-theme="dark"] {
   --bg-hover: rgba(211, 198, 170, 0.08);
 
   --text-primary: #d3c6aa;
-  --text-secondary: #9da9a0;
+  --text-secondary: #aab5ac;
   --text-muted: #859289;
 
   --border: rgba(211, 198, 170, 0.16);
