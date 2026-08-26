@@ -28,7 +28,7 @@ body.floating-card-overlay-root,
   flex-direction: column;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-xl);
-  background: rgba(10, 14, 20, 0.76);
+  background: rgba(12, 12, 14, 0.76);
   box-shadow:
     0 22px 50px rgba(0, 0, 0, 0.46),
     0 0 0 1px rgba(255, 255, 255, 0.03),
@@ -114,7 +114,7 @@ body.floating-card-overlay-root,
   padding: 0 22px 0 8px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-xl);
-  background: rgba(11, 16, 23, 0.74);
+  background: rgba(14, 14, 16, 0.74);
   color: #f3f6fa;
   font-size: 10px;
   font-weight: 700;
@@ -138,7 +138,7 @@ body.floating-card-overlay-root,
   padding: 0 8px;
   border: 1px solid rgba(255, 184, 76, 0.22);
   border-radius: var(--radius-xl);
-  background: rgba(11, 16, 23, 0.74);
+  background: rgba(14, 14, 16, 0.74);
   color: #f3f6fa;
   font-size: 10px;
   font-weight: 700;
@@ -163,7 +163,7 @@ body.floating-card-overlay-root,
   justify-content: center;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-xl);
-  background: rgba(11, 16, 23, 0.72);
+  background: rgba(14, 14, 16, 0.72);
   color: #aeb8c4;
   cursor: pointer;
   transition:
@@ -176,7 +176,7 @@ body.floating-card-overlay-root,
 .floating-card-nav-button:hover:not(:disabled),
 .floating-card-button:hover:not(:disabled) {
   border-color: rgba(255, 184, 76, 0.22);
-  background: rgba(18, 25, 34, 0.8);
+  background: rgba(24, 24, 27, 0.8);
   color: #f8fbff;
 }
 
@@ -245,7 +245,7 @@ body.floating-card-overlay-root,
   padding: 3px 6px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-full);
-  background: rgba(12, 18, 25, 0.72);
+  background: rgba(16, 16, 18, 0.72);
   color: #cbd4df;
   font-size: 9px;
   font-weight: 700;
@@ -263,7 +263,7 @@ body.floating-card-overlay-root,
   padding: 6px;
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: var(--radius-xl);
-  background: rgba(17, 24, 33, 0.56);
+  background: rgba(22, 22, 25, 0.56);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.03),
     inset 0 -1px 0 rgba(255, 255, 255, 0.02);
@@ -323,7 +323,7 @@ body.floating-card-overlay-root,
   min-width: 0;
   padding: 4px 6px;
   border-radius: var(--radius-full);
-  background: rgba(9, 14, 20, 0.72);
+  background: rgba(11, 11, 13, 0.72);
   border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
@@ -393,7 +393,7 @@ body.floating-card-overlay-root,
 }
 
 .floating-card-plan.codex-pro-lite {
-  border-color: rgba(180, 200, 224, 0.36);
+  border-color: rgba(161, 161, 170, 0.36);
   background: rgba(250, 250, 250, 0.95);
   color: #203047;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.62), 0 1px 4px rgba(161, 161, 170, 0.18);
@@ -432,7 +432,7 @@ body.floating-card-overlay-root,
   gap: 4px;
   padding: 5px 6px;
   border-radius: var(--radius-xl);
-  background: rgba(9, 14, 20, 0.76);
+  background: rgba(11, 11, 13, 0.76);
   border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
@@ -571,7 +571,7 @@ body.floating-card-overlay-root,
   padding: 0 7px;
   border-radius: var(--radius-full);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(11, 16, 23, 0.74);
+  background: rgba(14, 14, 16, 0.74);
   color: #dbe4ee;
   font-size: 9px;
   font-weight: 800;
@@ -590,12 +590,12 @@ body.floating-card-overlay-root,
 }
 
 .floating-card-button--secondary {
-  background: rgba(14, 20, 28, 0.74);
+  background: rgba(18, 18, 20, 0.74);
   color: #eef4fa;
 }
 
 .floating-card-button--ghost {
-  background: rgba(11, 16, 23, 0.58);
+  background: rgba(14, 14, 16, 0.58);
   color: #aeb8c4;
 }
 
@@ -613,7 +613,7 @@ body.floating-card-overlay-root,
   align-items: center;
   justify-content: center;
   padding: 10px;
-  background: rgba(4, 7, 11, 0.72);
+  background: rgba(5, 5, 6, 0.72);
   backdrop-filter: blur(4px);
   -webkit-app-region: no-drag;
 }
@@ -627,7 +627,7 @@ body.floating-card-overlay-root,
   padding: 10px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-xl);
-  background: rgba(17, 24, 33, 0.96);
+  background: rgba(22, 22, 25, 0.96);
   box-shadow:
     0 16px 34px rgba(0, 0, 0, 0.38),
     inset 0 1px 0 rgba(255, 255, 255, 0.05);
