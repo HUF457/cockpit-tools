@@ -1,4 +1,4 @@
-import { invoke } from '@tauri-apps/api/core';
+import { coalescedInvoke } from '../utils/invokeCache';
 
 export type ProviderCurrentPlatform =
   | 'windsurf'
@@ -20,5 +20,5 @@ export type ProviderCurrentPlatform =
 export async function getProviderCurrentAccountId(
   platform: ProviderCurrentPlatform,
 ): Promise<string | null> {
-  return await invoke('get_provider_current_account_id', { platform });
+  return await coalescedInvoke('get_provider_current_account_id', { platform });
 }

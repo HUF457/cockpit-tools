@@ -163,6 +163,7 @@ import {
 
 import { listen, UnlistenFn } from "@tauri-apps/api/event";
 import { invoke } from "@tauri-apps/api/core";
+import { coalescedInvoke } from "../utils/invokeCache";
 import {
   confirm as confirmDialog,
   open as openFileDialog,
@@ -2130,7 +2131,7 @@ export function CodexAccountsPage() {
   const reloadLocalAccessEntryVisibility = useCallback(async () => {
     try {
       const config =
-        await invoke<CodexOverviewGeneralConfig>("get_general_config");
+        await coalescedInvoke<CodexOverviewGeneralConfig>("get_general_config");
       setLocalAccessEntryVisible(
         config.codex_local_access_entry_visible ?? true,
       );
@@ -2145,7 +2146,7 @@ export function CodexAccountsPage() {
   const reloadHideRelayQuota = useCallback(async () => {
     try {
       const config =
-        await invoke<CodexOverviewGeneralConfig>("get_general_config");
+        await coalescedInvoke<CodexOverviewGeneralConfig>("get_general_config");
       let hide = config.codex_hide_relay_quota ?? false;
       // One-time migrate toolbar preference from localStorage into user config.
       try {

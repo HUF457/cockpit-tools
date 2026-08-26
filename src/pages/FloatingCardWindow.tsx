@@ -3,7 +3,7 @@ import { ChevronLeft, ChevronRight, ExternalLink, Pin, PinOff, RefreshCw, Star, 
 import { getCurrentWebview } from '@tauri-apps/api/webview';
 import { LogicalSize } from '@tauri-apps/api/dpi';
 import { getCurrentWindow } from '@tauri-apps/api/window';
-import { invoke } from '@tauri-apps/api/core';
+import { coalescedInvoke } from '../utils/invokeCache';
 import { TauriEvent, emit, listen } from '@tauri-apps/api/event';
 import { useTranslation } from 'react-i18next';
 import { dismissBootSplash } from '../utils/bootSplash';
@@ -676,7 +676,7 @@ export function FloatingCardWindow() {
 
     const loadGeneralConfig = async () => {
       try {
-        const config = await invoke<FloatingCardGeneralConfig>('get_general_config');
+        const config = await coalescedInvoke<FloatingCardGeneralConfig>('get_general_config');
         if (disposed) return;
 
         await changeLanguage(normalizeLanguage(config.language));

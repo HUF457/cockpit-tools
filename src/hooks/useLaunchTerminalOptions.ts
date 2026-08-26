@@ -1,4 +1,5 @@
 import { invoke } from "@tauri-apps/api/core";
+import { coalescedInvoke } from "../utils/invokeCache";
 import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { usePlatformRuntimeSupport } from "./usePlatformRuntimeSupport";
@@ -33,7 +34,7 @@ export function useLaunchTerminalOptions(enabled = true) {
 
     Promise.all([
       invoke<string[]>("get_available_terminals"),
-      invoke<GeneralConfig>("get_general_config"),
+      coalescedInvoke<GeneralConfig>("get_general_config"),
     ])
       .then(([terminals, config]) => {
         if (disposed) return;

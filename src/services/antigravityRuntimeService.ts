@@ -1,5 +1,10 @@
-import { invoke } from '@tauri-apps/api/core';
+import { coalescedInvoke } from '../utils/invokeCache';
 import type { AntigravityRuntimeTarget } from '../utils/antigravityRuntimeTarget';
+
+// A full scan walks the filesystem and costs ~2.5s when Antigravity is absent.
+// The install cannot change while the app is open, so both the boot-time
+// resolver and the version badge should share one answer.
+const INSTALLED_VERSION_TTL_MS = 60_000;
 
 export interface AntigravityInstalledVersionInfo {
   product_name: string;
@@ -14,10 +19,11 @@ export async function getAntigravityInstalledVersionInfo(
   target?: AntigravityRuntimeTarget,
   scanMode: AntigravityInstalledVersionScanMode = 'quick',
 ): Promise<AntigravityInstalledVersionInfo | null> {
-  return invoke<AntigravityInstalledVersionInfo | null>('get_antigravity_installed_version_info', {
-    target,
-    scanMode,
-  });
+  return coalescedInvoke<AntigravityInstalledVersionInfo | null>(
+    'get_antigravity_installed_version_info',
+    { target, scanMode },
+    { ttlMs: INSTALLED_VERSION_TTL_MS },
+  );
 }
 
 function getAlternateAntigravityRuntimeTarget(

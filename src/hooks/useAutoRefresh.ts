@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, type MutableRefObject } from 'react';
 import { invoke } from '@tauri-apps/api/core';
+import { coalescedInvoke } from '../utils/invokeCache';
 import { listen, type UnlistenFn } from '@tauri-apps/api/event';
 import { useAccountStore } from '../stores/useAccountStore';
 import { useCodexAccountStore } from '../stores/useCodexAccountStore';
@@ -350,7 +351,7 @@ export function useAutoRefresh() {
 
         try {
           const configInvokeStartedAt = performance.now();
-          const config = await invoke<GeneralConfig>('get_general_config');
+          const config = await coalescedInvoke<GeneralConfig>('get_general_config');
           console.log(
             `[StartupPerf][AutoRefresh] get_general_config completed in ${(performance.now() - configInvokeStartedAt).toFixed(2)}ms`,
           );

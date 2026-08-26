@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { invoke } from '@tauri-apps/api/core';
+import { coalescedInvoke } from '../utils/invokeCache';
 import { confirm as confirmDialog } from '@tauri-apps/plugin-dialog';
 import { openUrl } from '@tauri-apps/plugin-opener';
 import { ChevronLeft, Plus, Pencil, Trash2, Power, X } from 'lucide-react';
@@ -1952,7 +1953,7 @@ export function WakeupTasksPage({ onNavigate }: WakeupPageProps) {
    */
   const ensureMinRefreshInterval = async (minMinutes: number) => {
     try {
-      const config = await invoke<WakeupGeneralConfig>('get_general_config');
+      const config = await coalescedInvoke<WakeupGeneralConfig>('get_general_config');
       
       // 如果刷新间隔大于最小值（或禁用），自动调整
       if (config.auto_refresh_minutes < 0 || config.auto_refresh_minutes > minMinutes) {

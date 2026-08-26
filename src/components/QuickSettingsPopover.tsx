@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { createPortal } from 'react-dom';
 import { open } from '@tauri-apps/plugin-dialog';
 import { invoke } from '@tauri-apps/api/core';
+import { coalescedInvoke } from '../utils/invokeCache';
 import {
   Settings,
   RefreshCw,
@@ -789,7 +790,7 @@ export function QuickSettingsPopover({ type }: QuickSettingsPopoverProps) {
           : Promise.resolve([[] as CodexAccount[], [] as CodexAccountGroup[]] as const);
 
       const [cfg, groups, antigravityScopeData, codexScopeData] = await Promise.all([
-        invoke<GeneralConfig>('get_general_config'),
+        coalescedInvoke<GeneralConfig>('get_general_config'),
         getDisplayGroups().catch(() => [] as DisplayGroup[]),
         antigravityScopeDataPromise,
         codexScopeDataPromise,
@@ -875,7 +876,7 @@ export function QuickSettingsPopover({ type }: QuickSettingsPopoverProps) {
       configSaveVersionRef.current = saveVersion;
 
       const operation = configSaveQueueRef.current.then(async () => {
-        const latest = await invoke<GeneralConfig>('get_general_config');
+        const latest = await coalescedInvoke<GeneralConfig>('get_general_config');
         const merged = { ...latest, ...updates };
         await invoke('patch_general_config', { updates });
         if (saveVersion === configSaveVersionRef.current) {

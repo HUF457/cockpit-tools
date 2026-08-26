@@ -13,6 +13,7 @@ import { getVersion } from '@tauri-apps/api/app';
 import { getCurrentWindow } from '@tauri-apps/api/window';
 import { listen, UnlistenFn } from '@tauri-apps/api/event';
 import { invoke } from '@tauri-apps/api/core';
+import { coalescedInvoke } from './utils/invokeCache';
 import { open } from '@tauri-apps/plugin-dialog';
 import { useTranslation } from 'react-i18next';
 import { FileText, FolderOpen, RefreshCw, X } from 'lucide-react';
@@ -808,7 +809,7 @@ function MainApp() {
     let disposed = false;
     const applyStartupPagePreference = async () => {
       try {
-        const config = await invoke<{ startup_page?: string }>('get_general_config');
+        const config = await coalescedInvoke<{ startup_page?: string }>('get_general_config');
         if (disposed) {
           return;
         }
@@ -1042,7 +1043,7 @@ function MainApp() {
 
     const syncLanguageFromConfig = async () => {
       try {
-        const config = await invoke<GeneralConfigLanguage>('get_general_config');
+        const config = await coalescedInvoke<GeneralConfigLanguage>('get_general_config');
         const nextLanguage = await syncLanguage(config.language);
         if (disposed) {
           return;
@@ -1094,7 +1095,7 @@ function MainApp() {
 
     const loadCurrentScale = async () => {
       try {
-        const config = await invoke<{ ui_scale?: number }>('get_general_config');
+        const config = await coalescedInvoke<{ ui_scale?: number }>('get_general_config');
         if (disposed) return;
         currentScale = normalizeUiScale(config.ui_scale);
       } catch (error) {
@@ -1183,7 +1184,7 @@ function MainApp() {
 
     const loadTopRightAdVisible = async () => {
       try {
-        const config = await invoke<GeneralConfig>('get_general_config');
+        const config = await coalescedInvoke<GeneralConfig>('get_general_config');
         if (disposed) {
           return;
         }
@@ -2168,7 +2169,7 @@ function MainApp() {
 
     const syncVisualConfig = async () => {
       try {
-        const config = await invoke<GeneralConfigTheme>('get_general_config');
+        const config = await coalescedInvoke<GeneralConfigTheme>('get_general_config');
         if (disposed) {
           return;
         }
@@ -3226,7 +3227,7 @@ function MainApp() {
     setAppLaunchCandidates([]);
     (async () => {
       try {
-        const config = await invoke<GeneralConfig>('get_general_config');
+        const config = await coalescedInvoke<GeneralConfig>('get_general_config');
         const currentPath =
           appPathMissing.app === 'codex'
             ? config.codex_app_path

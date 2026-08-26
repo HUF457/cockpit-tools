@@ -11,6 +11,7 @@ import { createPortal } from 'react-dom';
 import { useTranslation } from 'react-i18next';
 import { listen, type UnlistenFn } from '@tauri-apps/api/event';
 import { invoke } from '@tauri-apps/api/core';
+import { coalescedInvoke } from '../../utils/invokeCache';
 import { confirm as confirmDialog } from '@tauri-apps/plugin-dialog';
 import {
   Check,
@@ -1733,7 +1734,7 @@ export function CodexWakeupContent({
   );
 
   const ensureCodexRefreshIntervalForQuotaReset = useCallback(async () => {
-    const config = await invoke<CodexWakeupGeneralConfig>('get_general_config');
+    const config = await coalescedInvoke<CodexWakeupGeneralConfig>('get_general_config');
     if (config.codex_auto_refresh_minutes === QUOTA_RESET_MIN_REFRESH_MINUTES) {
       return false;
     }

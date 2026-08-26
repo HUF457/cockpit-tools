@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { openUrl } from '@tauri-apps/plugin-opener';
 import { open } from '@tauri-apps/plugin-dialog';
 import { invoke } from '@tauri-apps/api/core';
+import { coalescedInvoke } from '../utils/invokeCache';
 import { getVersion } from '@tauri-apps/api/app';
 import { getCurrentWebview } from '@tauri-apps/api/webview';
 import { changeLanguage, getCurrentLanguage, normalizeLanguage } from '../i18n';
@@ -1643,7 +1644,7 @@ export function SettingsPage() {
       setGeneralLoaded(false);
     }
     try {
-      const config = await invoke<GeneralConfig>('get_general_config');
+      const config = await coalescedInvoke<GeneralConfig>('get_general_config');
       if (loadVersion !== generalConfigLoadVersionRef.current) {
         return;
       }
