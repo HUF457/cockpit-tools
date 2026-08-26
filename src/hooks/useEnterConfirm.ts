@@ -23,6 +23,11 @@ function shouldIgnoreEnterTarget(target: EventTarget | null): boolean {
   const tag = target.tagName;
   if (tag === 'TEXTAREA' || tag === 'SELECT') return true;
 
+  // SettingsSelect replaced native <select> with buttons; Enter on its trigger
+  // or inside its listbox must keep operating the dropdown, exactly like the
+  // native SELECT branch above, instead of firing the topmost confirm.
+  if (target.closest('.settings-select-trigger, .settings-select-menu')) return true;
+
   // Multi-line rich text / custom editors often use role="textbox"
   if (target.getAttribute('role') === 'textbox' && target.getAttribute('aria-multiline') === 'true') {
     return true;

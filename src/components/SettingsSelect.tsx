@@ -68,6 +68,7 @@ function parseOptions(children: ReactNode): ParsedOption[] {
 
 const MENU_MAX_HEIGHT = 320;
 const MENU_GAP = 6;
+const TYPEAHEAD_RESET_MS = 700;
 
 export function SettingsSelect({
   value,
@@ -89,6 +90,7 @@ export function SettingsSelect({
   } | null>(null);
   const triggerRef = useRef<HTMLButtonElement | null>(null);
   const menuRef = useRef<HTMLDivElement | null>(null);
+  const typeaheadRef = useRef({ buffer: "", lastTime: 0 });
 
   const options = useMemo(() => parseOptions(children), [children]);
   const selected = options.find((option) => option.value === value) ?? null;
@@ -152,22 +154,73 @@ export function SettingsSelect({
         triggerRef.current?.focus();
         return;
       }
+      if (event.key === "Tab") {
+        // Close like a native select; refocusing the trigger lets the default
+        // Tab continue from the control instead of the document body.
+        setOpen(false);
+        triggerRef.current?.focus();
+        return;
+      }
+      const items = Array.from(
+        menuRef.current?.querySelectorAll<HTMLButtonElement>(
+          ".settings-select-option:not(:disabled)",
+        ) ?? [],
+      );
+      if (items.length === 0) return;
+      const focusedIndex = items.findIndex(
+        (item) => item === document.activeElement,
+      );
+      // While focus is still on the trigger, navigation starts from the
+      // current value - where a native select popup would resume.
+      const currentIndex =
+        focusedIndex >= 0
+          ? focusedIndex
+          : items.findIndex(
+              (item) => item.getAttribute("aria-selected") === "true",
+            );
       if (event.key === "ArrowDown" || event.key === "ArrowUp") {
         event.preventDefault();
-        const items = Array.from(
-          menuRef.current?.querySelectorAll<HTMLButtonElement>(
-            ".settings-select-option:not(:disabled)",
-          ) ?? [],
-        );
-        if (items.length === 0) return;
-        const activeIndex = items.findIndex(
-          (item) => item === document.activeElement,
-        );
         const nextIndex =
           event.key === "ArrowDown"
-            ? Math.min(items.length - 1, activeIndex + 1)
-            : Math.max(0, activeIndex <= 0 ? 0 : activeIndex - 1);
+            ? Math.min(items.length - 1, currentIndex + 1)
+            : Math.max(0, currentIndex <= 0 ? 0 : currentIndex - 1);
         items[nextIndex]?.focus();
+        return;
+      }
+      if (event.key === "Home" || event.key === "End") {
+        event.preventDefault();
+        items[event.key === "Home" ? 0 : items.length - 1]?.focus();
+        return;
+      }
+      // Typeahead parity with the native listbox: printable characters jump
+      // to the next matching option; repeating one letter cycles its matches.
+      if (
+        event.key.length === 1 &&
+        event.key !== " " &&
+        !event.ctrlKey &&
+        !event.metaKey &&
+        !event.altKey
+      ) {
+        const now = Date.now();
+        const typeahead = typeaheadRef.current;
+        typeahead.buffer =
+          now - typeahead.lastTime > TYPEAHEAD_RESET_MS
+            ? event.key
+            : typeahead.buffer + event.key;
+        typeahead.lastTime = now;
+        const query = typeahead.buffer.toLowerCase();
+        const cycling =
+          query.length > 1 &&
+          query.split("").every((char) => char === query[0]);
+        const needle = cycling ? query[0] : query;
+        const start =
+          cycling || query.length === 1 ? currentIndex + 1 : currentIndex;
+        const from = Math.max(0, start);
+        const ordered = [...items.slice(from), ...items.slice(0, from)];
+        const match = ordered.find((item) =>
+          (item.textContent ?? "").trim().toLowerCase().startsWith(needle),
+        );
+        match?.focus();
       }
     };
 
@@ -191,9 +244,23 @@ export function SettingsSelect({
 
   useEffect(() => {
     if (!open || !menuStyle) return;
-    const active = menuRef.current?.querySelector<HTMLButtonElement>(
+    const menu = menuRef.current;
+    if (!menu) return;
+    const active = menu.querySelector<HTMLButtonElement>(
       ".settings-select-option.active",
     );
+    // Move focus into the listbox so arrows and typeahead start from the
+    // current value; guard so repositioning does not steal focus back.
+    if (!menu.contains(document.activeElement)) {
+      const target =
+        menu.querySelector<HTMLButtonElement>(
+          ".settings-select-option.active:not(:disabled)",
+        ) ??
+        menu.querySelector<HTMLButtonElement>(
+          ".settings-select-option:not(:disabled)",
+        );
+      target?.focus({ preventScroll: true });
+    }
     active?.scrollIntoView({ block: "nearest" });
   }, [open, menuStyle]);
 
@@ -262,6 +329,9 @@ export function SettingsSelect({
                     onClick={() => {
                       if (option.disabled) return;
                       setOpen(false);
+                      // The portal unmounts with the menu; without this the
+                      // keyboard focus would drop onto document.body.
+                      triggerRef.current?.focus();
                       if (option.value !== value) {
                         onChange?.({ target: { value: option.value } });
                       }
