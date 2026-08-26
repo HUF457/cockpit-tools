@@ -1122,10 +1122,9 @@ fn account_has_refresh_token(account: &CodexAccount) -> bool {
 }
 
 fn managed_account_tokens_need_refresh(account: &CodexAccount) -> bool {
-    // Codex app-server authenticates requests with access_token. An OAuth
-    // refresh response may omit id_token, so treating an expired id_token as
-    // a mandatory refresh condition would repeatedly rotate refresh_token and
-    // eventually invalidate the account even while access_token is healthy.
+    // app-server 使用 access_token 作为请求登录态；id_token 仅用于账号资料元数据。
+    // 刷新响应可能不返回 id_token，若把 id_token 过期当作强制刷新条件，会反复轮换
+    // refresh_token，最终在 access_token 仍健康时把账号刷失效。
     codex_oauth::is_token_expired(&account.tokens.access_token)
 }
 
@@ -2765,7 +2764,7 @@ async fn refresh_managed_account_locked(
             account.id, err
         ));
     }
-    if account.requires_reauth {
+    if account.requires_reauth && codex_oauth::is_token_expired(&account.tokens.access_token) {
         return Err(account
             .reauth_reason
             .clone()
