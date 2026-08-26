@@ -1,0 +1,150 @@
+/* Custom select control shared by settings-style forms.
+   Trigger mirrors the legacy .settings-select sizing; the popup menu is
+   custom-rendered so it follows the app theme instead of the OS listbox. */
+
+.settings-select-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-width: 140px;
+  padding: 6px 10px 6px 12px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+  cursor: pointer;
+  outline: none;
+  text-align: left;
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.settings-select-trigger:hover:not(:disabled) {
+  border-color: var(--border-light);
+  background: var(--bg-secondary);
+}
+
+.settings-select-trigger:focus-visible {
+  border-color: color-mix(in srgb, var(--primary) 55%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 12%, transparent);
+}
+
+.settings-select-trigger.open {
+  border-color: color-mix(in srgb, var(--primary) 55%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 10%, transparent);
+}
+
+.settings-select-trigger:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.settings-select-trigger-label {
+  min-width: 0;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.settings-select-trigger-arrow {
+  flex-shrink: 0;
+  color: var(--text-muted);
+  transition: transform 0.15s ease;
+}
+
+.settings-select-trigger.open .settings-select-trigger-arrow {
+  transform: rotate(180deg);
+}
+
+.settings-select-menu {
+  padding: 4px;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border);
+  background: var(--bg-surface);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  box-shadow: var(--shadow-md);
+  scrollbar-width: thin;
+}
+
+.settings-select-menu::-webkit-scrollbar {
+  width: 8px;
+}
+
+.settings-select-menu::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.settings-select-menu::-webkit-scrollbar-thumb {
+  border-radius: var(--radius-full);
+  background: var(--border);
+}
+
+.settings-select-option {
+  width: 100%;
+  min-height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 4px 8px 4px 10px;
+  border: none;
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--text-primary);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.12s ease;
+}
+
+.settings-select-option:hover:not(:disabled),
+.settings-select-option:focus-visible {
+  background: var(--bg-hover);
+  outline: none;
+}
+
+.settings-select-option.active {
+  background: var(--primary-light);
+  color: var(--primary);
+}
+
+[data-theme="dark"] .settings-select-option.active {
+  color: var(--primary-soft);
+}
+
+.settings-select-option:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.settings-select-option-label {
+  min-width: 0;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.settings-select-option-check {
+  width: 16px;
+  height: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--primary);
+}
+
+[data-theme="dark"] .settings-select-option-check {
+  color: var(--primary-soft);
+}

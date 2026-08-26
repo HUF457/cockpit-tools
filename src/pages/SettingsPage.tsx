@@ -89,6 +89,7 @@ import { getZedAccountDisplayEmail } from '../types/zed';
 import { ALL_PLATFORM_IDS, PlatformId } from '../types/platform';
 import { SettingsAccountTransferSection } from '../components/SettingsAccountTransferSection';
 import { SettingsWebdavSyncSection } from '../components/SettingsWebdavSyncSection';
+import { SettingsSelect } from '../components/SettingsSelect';
 import { CodexSshSyncSettingsControl } from '../components/codex/CodexSshSyncSettingsControl';
 import { useEscClose } from '../hooks/useEscClose';
 import './settings/Settings.css';
@@ -2463,7 +2464,7 @@ export function SettingsPage() {
                 <span className="settings-input-unit">{t('settings.general.minutes')}</span>
               </div>
             ) : (
-              <select
+              <SettingsSelect
                 className="settings-select"
                 style={{ minWidth: '120px', width: 'auto' }}
                 value={displayValue}
@@ -2499,7 +2500,7 @@ export function SettingsPage() {
                 <option value="10">10 {t('settings.general.minutes')}</option>
                 <option value="15">15 {t('settings.general.minutes')}</option>
                 <option value="custom">{t('settings.general.autoRefreshCustom')}</option>
-              </select>
+              </SettingsSelect>
             )}
           </div>
         </div>
@@ -2707,7 +2708,7 @@ export function SettingsPage() {
                         <span className="settings-input-unit">{t('settings.general.minutes')}</span>
                       </div>
                     ) : (
-                      <select
+                      <SettingsSelect
                         className="settings-select"
                         style={{ minWidth: '100px', width: 'auto', fontSize: '12px' }}
                         value={selectValue}
@@ -2732,7 +2733,7 @@ export function SettingsPage() {
                           </option>
                         )}
                         <option value="custom">{t('settings.general.autoRefreshCustom', '自定义')}</option>
-                      </select>
+                      </SettingsSelect>
                     )}
                   </div>
                 );
@@ -2793,7 +2794,7 @@ export function SettingsPage() {
               <span className="settings-input-unit">{t('settings.general.minutes')}</span>
             </div>
           ) : (
-            <select
+            <SettingsSelect
               className="settings-select"
               style={{ minWidth: '120px', width: 'auto' }}
               value={value}
@@ -2819,7 +2820,7 @@ export function SettingsPage() {
               <option value="10">10 {t('settings.general.minutes')}</option>
               <option value="15">15 {t('settings.general.minutes')}</option>
               <option value="custom">{t('settings.general.autoRefreshCustom')}</option>
-            </select>
+            </SettingsSelect>
           )}
         </div>
       </div>
@@ -2899,7 +2900,7 @@ export function SettingsPage() {
                 <span className="settings-input-unit">%</span>
               </div>
             ) : (
-              <select
+              <SettingsSelect
                 className="settings-select"
                 value={threshold}
                 onChange={(event) => {
@@ -2919,7 +2920,7 @@ export function SettingsPage() {
                 <option value="40">40%</option>
                 <option value="60">60%</option>
                 <option value="custom">{t('settings.general.autoRefreshCustom')}</option>
-              </select>
+              </SettingsSelect>
             )}
           </div>
         </div>
@@ -3273,7 +3274,7 @@ export function SettingsPage() {
                   <div className="row-desc">{t('settings.general.languageDesc')}</div>
                 </div>
                 <div className="row-control">
-                  <select 
+                  <SettingsSelect 
                     className="settings-select" 
                     value={language} 
                     onChange={(e) => setLanguage(normalizeLanguage(e.target.value))}
@@ -3281,7 +3282,7 @@ export function SettingsPage() {
                     {languageOptions.map((option) => (
                       <option key={option.value} value={option.value}>{option.label}</option>
                     ))}
-                  </select>
+                  </SettingsSelect>
                 </div>
               </div>
 
@@ -3291,7 +3292,7 @@ export function SettingsPage() {
                   <div className="row-desc">{t('settings.general.themeDesc')}</div>
                 </div>
                 <div className="row-control">
-                  <select 
+                  <SettingsSelect 
                     className="settings-select" 
                     value={theme} 
                     onChange={(e) => setTheme(e.target.value)}
@@ -3299,7 +3300,7 @@ export function SettingsPage() {
                     <option value="light">{t('settings.general.themeLight')}</option>
                     <option value="dark">{t('settings.general.themeDark')}</option>
                     <option value="system">{t('settings.general.themeSystem')}</option>
-                  </select>
+                  </SettingsSelect>
                 </div>
               </div>
 
@@ -3333,7 +3334,7 @@ export function SettingsPage() {
                   <div className="row-desc">{t('settings.general.defaultTerminalDesc', 'CLI 打开时使用的终端')}</div>
                 </div>
                 <div className="row-control">
-                  <select 
+                  <SettingsSelect 
                     className="settings-select" 
                     value={defaultTerminal} 
                     onChange={(e) => setDefaultTerminal(e.target.value)}
@@ -3341,7 +3342,7 @@ export function SettingsPage() {
                     {terminalOptions.map((option) => (
                       <option key={option.value} value={option.value}>{option.label}</option>
                     ))}
-                  </select>
+                  </SettingsSelect>
                 </div>
               </div>
 
@@ -3351,14 +3352,14 @@ export function SettingsPage() {
                   <div className="row-desc">{t('settings.general.sideNavLayoutDesc', '切换原始布局或经典布局')}</div>
                 </div>
                 <div className="row-control">
-                  <select
+                  <SettingsSelect
                     className="settings-select"
                     value={sideNavLayoutMode}
                     onChange={(e) => setSideNavLayoutMode(e.target.value as SideNavLayoutMode)}
                   >
                     <option value="original">{t('settings.general.sideNavLayoutOriginal', '原始布局')}</option>
                     <option value="classic">{t('settings.general.sideNavLayoutClassic', '经典布局')}</option>
-                  </select>
+                  </SettingsSelect>
                 </div>
               </div>
 
@@ -3368,7 +3369,7 @@ export function SettingsPage() {
                   <div className="row-desc">{t('settings.general.uiScaleDesc')}</div>
                 </div>
                 <div className="row-control">
-                  <select
+                  <SettingsSelect
                     className="settings-select"
                     value={uiScale}
                     onChange={(e) => setUiScale(e.target.value)}
@@ -3376,7 +3377,7 @@ export function SettingsPage() {
                     {UI_SCALE_OPTIONS.map((value) => (
                       <option key={value} value={value}>{`${Math.round(Number.parseFloat(value) * 100)}%`}</option>
                     ))}
-                  </select>
+                  </SettingsSelect>
                 </div>
               </div>
 
@@ -3386,7 +3387,7 @@ export function SettingsPage() {
                   <div className="row-desc">{t('settings.general.closeBehaviorDesc')}</div>
                 </div>
                 <div className="row-control">
-                  <select 
+                  <SettingsSelect 
                     className="settings-select" 
                     value={closeBehavior} 
                     onChange={(e) => setCloseBehavior(e.target.value as 'ask' | 'minimize' | 'quit')}
@@ -3394,7 +3395,7 @@ export function SettingsPage() {
                     <option value="ask">{t('settings.general.closeBehaviorAsk')}</option>
                     <option value="minimize">{t('settings.general.closeBehaviorMinimize')}</option>
                     <option value="quit">{t('settings.general.closeBehaviorQuit')}</option>
-                  </select>
+                  </SettingsSelect>
                 </div>
               </div>
 
@@ -3411,14 +3412,14 @@ export function SettingsPage() {
                   </div>
                 </div>
                 <div className="row-control">
-                  <select
+                  <SettingsSelect
                     className="settings-select"
                     value={startupMinimized ? 'true' : 'false'}
                     onChange={(e) => setStartupMinimized(e.target.value === 'true')}
                   >
                     <option value="false">{t('common.disable', '停用')}</option>
                     <option value="true">{t('common.enable', '启用')}</option>
-                  </select>
+                  </SettingsSelect>
                 </div>
               </div>
 
@@ -3452,7 +3453,7 @@ export function SettingsPage() {
                   <div className="row-desc">{t('settings.general.autoUpdateDesc')}</div>
                 </div>
                 <div className="row-control">
-                  <select
+                  <SettingsSelect
                     className="settings-select"
                     value={autoInstall ? 'true' : 'false'}
                     disabled={!autoInstallLoaded}
@@ -3463,7 +3464,7 @@ export function SettingsPage() {
                   >
                     <option value="false">{t('settings.general.autoUpdateOff')}</option>
                     <option value="true">{t('settings.general.autoUpdateOn')}</option>
-                  </select>
+                  </SettingsSelect>
                 </div>
               </div>
 
@@ -3473,7 +3474,7 @@ export function SettingsPage() {
                   <div className="row-desc">{t('settings.general.updateReminderDesc')}</div>
                 </div>
                 <div className="row-control">
-                  <select
+                  <SettingsSelect
                     className="settings-select"
                     value={updateRemindersEnabled ? 'true' : 'false'}
                     disabled={!updateRemindersLoaded}
@@ -3484,7 +3485,7 @@ export function SettingsPage() {
                   >
                     <option value="true">{t('settings.general.updateReminderOn')}</option>
                     <option value="false">{t('settings.general.updateReminderOff')}</option>
-                  </select>
+                  </SettingsSelect>
                 </div>
               </div>
 
@@ -3503,7 +3504,7 @@ export function SettingsPage() {
                       </div>
                     </div>
                     <div className="row-control">
-                      <select
+                      <SettingsSelect
                         className="settings-select"
                         value={hideDockIcon ? 'true' : 'false'}
                         onChange={(e) => setHideDockIcon(e.target.value === 'true')}
@@ -3514,7 +3515,7 @@ export function SettingsPage() {
                         <option value="true">
                           {t('settings.general.hideDockIconOn', '是（隐藏Dock图标）')}
                         </option>
-                      </select>
+                      </SettingsSelect>
                     </div>
                   </div>
 
@@ -3531,7 +3532,7 @@ export function SettingsPage() {
                       </div>
                     </div>
                     <div className="row-control">
-                      <select
+                      <SettingsSelect
                         className="settings-select"
                         value={trayIconStyle}
                         onChange={(e) =>
@@ -3544,7 +3545,7 @@ export function SettingsPage() {
                         <option value="color">
                           {t('settings.general.trayIconStyleColor', '彩色图标')}
                         </option>
-                      </select>
+                      </SettingsSelect>
                     </div>
                   </div>
 
@@ -3572,7 +3573,7 @@ export function SettingsPage() {
                       </div>
                     </div>
                     <div className="row-control">
-                      <select
+                      <SettingsSelect
                         className="settings-select"
                         value={menuBarQuotaEnabled ? 'true' : 'false'}
                         onChange={(e) => {
@@ -3585,7 +3586,7 @@ export function SettingsPage() {
                       >
                         <option value="false">{t('common.disable', '停用')}</option>
                         <option value="true">{t('common.enable', '启用')}</option>
-                      </select>
+                      </SettingsSelect>
                       {menuBarQuotaEnabled ? (
                         <button
                           type="button"
@@ -3606,14 +3607,14 @@ export function SettingsPage() {
                   <div className="row-desc">{t('settings.general.floatingCardStartupDesc', '应用启动后默认展示悬浮账号卡片')}</div>
                 </div>
                 <div className="row-control">
-                  <select
+                  <SettingsSelect
                     className="settings-select"
                     value={floatingCardShowOnStartup ? 'true' : 'false'}
                     onChange={(e) => setFloatingCardShowOnStartup(e.target.value === 'true')}
                   >
                     <option value="true">{t('common.enable', '启用')}</option>
                     <option value="false">{t('common.disable', '停用')}</option>
-                  </select>
+                  </SettingsSelect>
                 </div>
               </div>
 
@@ -3623,14 +3624,14 @@ export function SettingsPage() {
                   <div className="row-desc">{t('settings.general.floatingCardAlwaysOnTopDesc', '新打开的悬浮卡片窗口默认保持置顶')}</div>
                 </div>
                 <div className="row-control">
-                  <select
+                  <SettingsSelect
                     className="settings-select"
                     value={floatingCardAlwaysOnTop ? 'true' : 'false'}
                     onChange={(e) => setFloatingCardAlwaysOnTop(e.target.value === 'true')}
                   >
                     <option value="false">{t('common.disable', '停用')}</option>
                     <option value="true">{t('common.enable', '启用')}</option>
-                  </select>
+                  </SettingsSelect>
                 </div>
               </div>
 
@@ -3640,14 +3641,14 @@ export function SettingsPage() {
                   <div className="row-desc">{t('settings.general.appAutoLaunchDesc')}</div>
                 </div>
                 <div className="row-control">
-                  <select
+                  <SettingsSelect
                     className="settings-select"
                     value={appAutoLaunchEnabled ? 'true' : 'false'}
                     onChange={(e) => setAppAutoLaunchEnabled(e.target.value === 'true')}
                   >
                     <option value="false">{t('common.disable', '停用')}</option>
                     <option value="true">{t('common.enable', '启用')}</option>
-                  </select>
+                  </SettingsSelect>
                 </div>
               </div>
 
@@ -3880,7 +3881,7 @@ export function SettingsPage() {
                   </div>
                 </div>
                 <div className="row-control">
-                  <select
+                  <SettingsSelect
                     className="settings-select"
                     value={startupPage}
                     onChange={(e) => setStartupPage(e.target.value)}
@@ -3916,7 +3917,7 @@ export function SettingsPage() {
                     <option value="api-relay">{t('nav.apiRelay', '中转站')}</option>
                     <option value="manual">{t('nav.manual', '使用手册')}</option>
                     <option value="settings">{t('nav.settings', '设置')}</option>
-                  </select>
+                  </SettingsSelect>
                 </div>
               </div>
 
@@ -3933,7 +3934,7 @@ export function SettingsPage() {
                   </div>
                 </div>
                 <div className="row-control">
-                  <select
+                  <SettingsSelect
                     className="settings-select"
                     value={themeColor}
                     onChange={(e) => {
@@ -3960,7 +3961,7 @@ export function SettingsPage() {
                     <option value="everforest">
                       {t('settings.general.themeColorEverforest', 'Everforest')}
                     </option>
-                  </select>
+                  </SettingsSelect>
                 </div>
               </div>
 
@@ -4048,7 +4049,7 @@ export function SettingsPage() {
                         <span className="settings-input-unit">{t('settings.general.minutes')}</span>
                       </div>
                     ) : (
-                      <select
+                      <SettingsSelect
                         className="settings-select"
                         style={{ minWidth: '120px', width: 'auto' }}
                         value={autoRefresh}
@@ -4074,7 +4075,7 @@ export function SettingsPage() {
                         <option value="10" disabled={hasActiveResetTasks}>10 {t('settings.general.minutes')}</option>
                         <option value="15" disabled={hasActiveResetTasks}>15 {t('settings.general.minutes')}</option>
                         <option value="custom" disabled={hasActiveResetTasks}>{t('settings.general.autoRefreshCustom')}</option>
-                      </select>
+                      </SettingsSelect>
                     )}
                   </div>
                   
@@ -4244,7 +4245,7 @@ export function SettingsPage() {
                         <span className="settings-input-unit">%</span>
                       </div>
                     ) : (
-                      <select
+                      <SettingsSelect
                         className="settings-select"
                         value={autoSwitchThreshold}
                         onChange={(e) => {
@@ -4266,7 +4267,7 @@ export function SettingsPage() {
                         <option value="40">40%</option>
                         <option value="60">60%</option>
                         <option value="custom">{t('settings.general.autoRefreshCustom')}</option>
-                      </select>
+                      </SettingsSelect>
                     )}
                   </div>
                 </div>
@@ -4331,7 +4332,7 @@ export function SettingsPage() {
                         />
                       </div>
                     ) : (
-                      <select
+                      <SettingsSelect
                         className="settings-select"
                         value={autoSwitchCreditsThreshold}
                         onChange={(e) => {
@@ -4355,7 +4356,7 @@ export function SettingsPage() {
                         <option value="10">10</option>
                         <option value="20">20</option>
                         <option value="custom">{t('settings.general.autoRefreshCustom')}</option>
-                      </select>
+                      </SettingsSelect>
                     )}
                   </div>
                 </div>
@@ -4435,7 +4436,7 @@ export function SettingsPage() {
                         <span className="settings-input-unit">%</span>
                       </div>
                     ) : (
-                      <select
+                      <SettingsSelect
                         className="settings-select"
                         value={quotaAlertThreshold}
                         onChange={(e) => {
@@ -4457,7 +4458,7 @@ export function SettingsPage() {
                         <option value="40">40%</option>
                         <option value="60">60%</option>
                         <option value="custom">{t('settings.general.autoRefreshCustom')}</option>
-                      </select>
+                      </SettingsSelect>
                     )}
                   </div>
                 </div>
@@ -4526,7 +4527,7 @@ export function SettingsPage() {
                         <span className="settings-input-unit">{t('settings.general.minutes')}</span>
                       </div>
                     ) : (
-                      <select
+                      <SettingsSelect
                         className="settings-select"
                         style={{ minWidth: '120px', width: 'auto' }}
                         value={codexAutoRefresh}
@@ -4552,7 +4553,7 @@ export function SettingsPage() {
                         <option value="10">10 {t('settings.general.minutes')}</option>
                         <option value="15">15 {t('settings.general.minutes')}</option>
                         <option value="custom">{t('settings.general.autoRefreshCustom')}</option>
-                      </select>
+                      </SettingsSelect>
                     )}
                   </div>
                 </div>
@@ -4962,7 +4963,7 @@ export function SettingsPage() {
                         <span className="settings-input-unit">%</span>
                       </div>
                     ) : (
-                      <select
+                      <SettingsSelect
                         className="settings-select"
                         value={codexQuotaAlertThreshold}
                         onChange={(e) => {
@@ -4984,7 +4985,7 @@ export function SettingsPage() {
                         <option value="40">40%</option>
                         <option value="60">60%</option>
                         <option value="custom">{t('settings.general.autoRefreshCustom')}</option>
-                      </select>
+                      </SettingsSelect>
                     )}
                   </div>
                 </div>
@@ -5199,7 +5200,7 @@ export function SettingsPage() {
                         <span className="settings-input-unit">{t('settings.general.minutes')}</span>
                       </div>
                     ) : (
-                      <select
+                      <SettingsSelect
                         className="settings-select"
                         style={{ minWidth: '120px', width: 'auto' }}
                         value={ghcpAutoRefresh}
@@ -5225,7 +5226,7 @@ export function SettingsPage() {
                         <option value="10">10 {t('settings.general.minutes')}</option>
                         <option value="15">15 {t('settings.general.minutes')}</option>
                         <option value="custom">{t('settings.general.autoRefreshCustom')}</option>
-                      </select>
+                      </SettingsSelect>
                     )}
                   </div>
                 </div>
@@ -5319,7 +5320,7 @@ export function SettingsPage() {
                         <span className="settings-input-unit">%</span>
                       </div>
                     ) : (
-                      <select
+                      <SettingsSelect
                         className="settings-select"
                         value={ghcpQuotaAlertThreshold}
                         onChange={(e) => {
@@ -5341,7 +5342,7 @@ export function SettingsPage() {
                         <option value="40">40%</option>
                         <option value="60">60%</option>
                         <option value="custom">{t('settings.general.autoRefreshCustom')}</option>
-                      </select>
+                      </SettingsSelect>
                     )}
                   </div>
                 </div>
@@ -5387,7 +5388,7 @@ export function SettingsPage() {
                         <span className="settings-input-unit">{t('settings.general.minutes')}</span>
                       </div>
                     ) : (
-                      <select
+                      <SettingsSelect
                         className="settings-select"
                         style={{ minWidth: '120px', width: 'auto' }}
                         value={windsurfAutoRefresh}
@@ -5413,7 +5414,7 @@ export function SettingsPage() {
                         <option value="10">10 {t('settings.general.minutes')}</option>
                         <option value="15">15 {t('settings.general.minutes')}</option>
                         <option value="custom">{t('settings.general.autoRefreshCustom')}</option>
-                      </select>
+                      </SettingsSelect>
                     )}
                   </div>
                 </div>
@@ -5507,7 +5508,7 @@ export function SettingsPage() {
                         <span className="settings-input-unit">%</span>
                       </div>
                     ) : (
-                      <select
+                      <SettingsSelect
                         className="settings-select"
                         value={windsurfQuotaAlertThreshold}
                         onChange={(e) => {
@@ -5529,7 +5530,7 @@ export function SettingsPage() {
                         <option value="40">40%</option>
                         <option value="60">60%</option>
                         <option value="custom">{t('settings.general.autoRefreshCustom')}</option>
-                      </select>
+                      </SettingsSelect>
                     )}
                   </div>
                 </div>
@@ -5575,7 +5576,7 @@ export function SettingsPage() {
                         <span className="settings-input-unit">{t('settings.general.minutes')}</span>
                       </div>
                     ) : (
-                      <select
+                      <SettingsSelect
                         className="settings-select"
                         style={{ minWidth: '120px', width: 'auto' }}
                         value={kiroAutoRefresh}
@@ -5601,7 +5602,7 @@ export function SettingsPage() {
                         <option value="10">10 {t('settings.general.minutes')}</option>
                         <option value="15">15 {t('settings.general.minutes')}</option>
                         <option value="custom">{t('settings.general.autoRefreshCustom')}</option>
-                      </select>
+                      </SettingsSelect>
                     )}
                   </div>
                 </div>
@@ -5695,7 +5696,7 @@ export function SettingsPage() {
                         <span className="settings-input-unit">%</span>
                       </div>
                     ) : (
-                      <select
+                      <SettingsSelect
                         className="settings-select"
                         value={kiroQuotaAlertThreshold}
                         onChange={(e) => {
@@ -5717,7 +5718,7 @@ export function SettingsPage() {
                         <option value="40">40%</option>
                         <option value="60">60%</option>
                         <option value="custom">{t('settings.general.autoRefreshCustom')}</option>
-                      </select>
+                      </SettingsSelect>
                     )}
                   </div>
                 </div>
@@ -5764,7 +5765,7 @@ export function SettingsPage() {
                         <span className="settings-input-unit">{t('settings.general.minutes')}</span>
                       </div>
                     ) : (
-                      <select
+                      <SettingsSelect
                         className="settings-select"
                         style={{ minWidth: '120px', width: 'auto' }}
                         value={codebuddyAutoRefresh}
@@ -5790,7 +5791,7 @@ export function SettingsPage() {
                         <option value="10">10 {t('settings.general.minutes')}</option>
                         <option value="15">15 {t('settings.general.minutes')}</option>
                         <option value="custom">{t('settings.general.autoRefreshCustom')}</option>
-                      </select>
+                      </SettingsSelect>
                     )}
                   </div>
                 </div>
@@ -5907,7 +5908,7 @@ export function SettingsPage() {
                         <span className="settings-input-unit">%</span>
                       </div>
                     ) : (
-                      <select
+                      <SettingsSelect
                         className="settings-select"
                         value={codebuddyQuotaAlertThreshold}
                         onChange={(e) => {
@@ -5929,7 +5930,7 @@ export function SettingsPage() {
                         <option value="40">40%</option>
                         <option value="60">60%</option>
                         <option value="custom">{t('settings.general.autoRefreshCustom')}</option>
-                      </select>
+                      </SettingsSelect>
                     )}
                   </div>
                 </div>
@@ -5976,7 +5977,7 @@ export function SettingsPage() {
                             <span className="settings-input-unit">{t('settings.general.minutes')}</span>
                           </div>
                         ) : (
-                          <select
+                          <SettingsSelect
                             className="settings-select"
                             style={{ minWidth: '120px', width: 'auto' }}
                             value={codebuddyCnAutoRefresh}
@@ -6002,7 +6003,7 @@ export function SettingsPage() {
                             <option value="10">10 {t('settings.general.minutes')}</option>
                             <option value="15">15 {t('settings.general.minutes')}</option>
                             <option value="custom">{t('settings.general.autoRefreshCustom')}</option>
-                          </select>
+                          </SettingsSelect>
                         )}
                       </div>
                     </div>
@@ -6104,7 +6105,7 @@ export function SettingsPage() {
                             <span className="settings-input-unit">%</span>
                           </div>
                         ) : (
-                          <select
+                          <SettingsSelect
                             className="settings-select"
                             value={codebuddyCnQuotaAlertThreshold}
                             onChange={(e) => {
@@ -6126,7 +6127,7 @@ export function SettingsPage() {
                             <option value="40">40%</option>
                             <option value="60">60%</option>
                             <option value="custom">{t('settings.general.autoRefreshCustom')}</option>
-                          </select>
+                          </SettingsSelect>
                         )}
                       </div>
                     </div>
@@ -6173,7 +6174,7 @@ export function SettingsPage() {
                             <span className="settings-input-unit">{t('settings.general.minutes')}</span>
                           </div>
                         ) : (
-                          <select
+                          <SettingsSelect
                             className="settings-select"
                             style={{ minWidth: '120px', width: 'auto' }}
                             value={qoderAutoRefresh}
@@ -6199,7 +6200,7 @@ export function SettingsPage() {
                             <option value="10">10 {t('settings.general.minutes')}</option>
                             <option value="15">15 {t('settings.general.minutes')}</option>
                             <option value="custom">{t('settings.general.autoRefreshCustom')}</option>
-                          </select>
+                          </SettingsSelect>
                         )}
                       </div>
                     </div>
@@ -6295,7 +6296,7 @@ export function SettingsPage() {
                             <span className="settings-input-unit">%</span>
                           </div>
                         ) : (
-                          <select
+                          <SettingsSelect
                             className="settings-select"
                             value={qoderQuotaAlertThreshold}
                             onChange={(e) => {
@@ -6317,7 +6318,7 @@ export function SettingsPage() {
                             <option value="40">40%</option>
                             <option value="60">60%</option>
                             <option value="custom">{t('settings.general.autoRefreshCustom')}</option>
-                          </select>
+                          </SettingsSelect>
                         )}
                       </div>
                     </div>
@@ -6364,7 +6365,7 @@ export function SettingsPage() {
                             <span className="settings-input-unit">{t('settings.general.minutes')}</span>
                           </div>
                         ) : (
-                          <select
+                          <SettingsSelect
                             className="settings-select"
                             style={{ minWidth: '120px', width: 'auto' }}
                             value={zcodeAutoRefresh}
@@ -6390,7 +6391,7 @@ export function SettingsPage() {
                             <option value="10">10 {t('settings.general.minutes')}</option>
                             <option value="15">15 {t('settings.general.minutes')}</option>
                             <option value="custom">{t('settings.general.autoRefreshCustom')}</option>
-                          </select>
+                          </SettingsSelect>
                         )}
                       </div>
                     </div>
@@ -6482,7 +6483,7 @@ export function SettingsPage() {
                             <span className="settings-input-unit">{t('settings.general.minutes')}</span>
                           </div>
                         ) : (
-                          <select
+                          <SettingsSelect
                             className="settings-select"
                             style={{ minWidth: '120px', width: 'auto' }}
                             value={traeAutoRefresh}
@@ -6508,7 +6509,7 @@ export function SettingsPage() {
                             <option value="10">10 {t('settings.general.minutes')}</option>
                             <option value="15">15 {t('settings.general.minutes')}</option>
                             <option value="custom">{t('settings.general.autoRefreshCustom')}</option>
-                          </select>
+                          </SettingsSelect>
                         )}
                       </div>
                     </div>
@@ -6626,7 +6627,7 @@ export function SettingsPage() {
                             <span className="settings-input-unit">%</span>
                           </div>
                         ) : (
-                          <select
+                          <SettingsSelect
                             className="settings-select"
                             value={traeQuotaAlertThreshold}
                             onChange={(e) => {
@@ -6648,7 +6649,7 @@ export function SettingsPage() {
                             <option value="40">40%</option>
                             <option value="60">60%</option>
                             <option value="custom">{t('settings.general.autoRefreshCustom')}</option>
-                          </select>
+                          </SettingsSelect>
                         )}
                       </div>
                     </div>
@@ -6758,7 +6759,7 @@ export function SettingsPage() {
                             <span className="settings-input-unit">{t('settings.general.minutes')}</span>
                           </div>
                         ) : (
-                          <select
+                          <SettingsSelect
                             className="settings-select"
                             style={{ minWidth: '120px', width: 'auto' }}
                             value={workbuddyAutoRefresh}
@@ -6784,7 +6785,7 @@ export function SettingsPage() {
                             <option value="10">10 {t('settings.general.minutes')}</option>
                             <option value="15">15 {t('settings.general.minutes')}</option>
                             <option value="custom">{t('settings.general.autoRefreshCustom')}</option>
-                          </select>
+                          </SettingsSelect>
                         )}
                       </div>
                     </div>
@@ -6903,7 +6904,7 @@ export function SettingsPage() {
                             <span className="settings-input-unit">%</span>
                           </div>
                         ) : (
-                          <select
+                          <SettingsSelect
                             className="settings-select"
                             value={workbuddyQuotaAlertThreshold}
                             onChange={(e) => {
@@ -6925,7 +6926,7 @@ export function SettingsPage() {
                             <option value="40">40%</option>
                             <option value="60">60%</option>
                             <option value="custom">{t('settings.general.autoRefreshCustom')}</option>
-                          </select>
+                          </SettingsSelect>
                         )}
                       </div>
                     </div>
@@ -6970,7 +6971,7 @@ export function SettingsPage() {
                             <span className="settings-input-unit">{t('settings.general.minutes')}</span>
                           </div>
                         ) : (
-                          <select
+                          <SettingsSelect
                             className="settings-select"
                             style={{ minWidth: '120px', width: 'auto' }}
                             value={zedAutoRefresh}
@@ -6996,7 +6997,7 @@ export function SettingsPage() {
                             <option value="10">10 {t('settings.general.minutes')}</option>
                             <option value="15">15 {t('settings.general.minutes')}</option>
                             <option value="custom">{t('settings.general.autoRefreshCustom')}</option>
-                          </select>
+                          </SettingsSelect>
                         )}
                       </div>
                     </div>
@@ -7090,7 +7091,7 @@ export function SettingsPage() {
                             <span className="settings-input-unit">%</span>
                           </div>
                         ) : (
-                          <select
+                          <SettingsSelect
                             className="settings-select"
                             value={zedQuotaAlertThreshold}
                             onChange={(e) => {
@@ -7112,7 +7113,7 @@ export function SettingsPage() {
                             <option value="40">40%</option>
                             <option value="60">60%</option>
                             <option value="custom">{t('settings.general.autoRefreshCustom')}</option>
-                          </select>
+                          </SettingsSelect>
                         )}
                       </div>
                     </div>
@@ -7157,7 +7158,7 @@ export function SettingsPage() {
                         <span className="settings-input-unit">{t('settings.general.minutes')}</span>
                       </div>
                     ) : (
-                      <select
+                      <SettingsSelect
                         className="settings-select"
                         style={{ minWidth: '120px', width: 'auto' }}
                         value={cursorAutoRefresh}
@@ -7183,7 +7184,7 @@ export function SettingsPage() {
                         <option value="10">10 {t('settings.general.minutes')}</option>
                         <option value="15">15 {t('settings.general.minutes')}</option>
                         <option value="custom">{t('settings.general.autoRefreshCustom')}</option>
-                      </select>
+                      </SettingsSelect>
                     )}
                   </div>
                 </div>
@@ -7277,7 +7278,7 @@ export function SettingsPage() {
                         <span className="settings-input-unit">%</span>
                       </div>
                     ) : (
-                      <select
+                      <SettingsSelect
                         className="settings-select"
                         value={cursorQuotaAlertThreshold}
                         onChange={(e) => {
@@ -7299,7 +7300,7 @@ export function SettingsPage() {
                         <option value="40">40%</option>
                         <option value="60">60%</option>
                         <option value="custom">{t('settings.general.autoRefreshCustom')}</option>
-                      </select>
+                      </SettingsSelect>
                     )}
                   </div>
                 </div>
@@ -7920,7 +7921,7 @@ export function SettingsPage() {
                     '跟随该平台当前正在使用的账号，刷新或切换后自动更新'
                   )}
                 </p>
-                <select
+                <SettingsSelect
                   id="menu-bar-quota-platform"
                   className="settings-select settings-menu-bar-quota-modal-select"
                   value={menuBarQuotaDraftPlatform}
@@ -7931,7 +7932,7 @@ export function SettingsPage() {
                       {option.label}
                     </option>
                   ))}
-                </select>
+                </SettingsSelect>
               </div>
               <div className="settings-menu-bar-quota-modal-field">
                 <label className="settings-menu-bar-quota-modal-label" htmlFor="menu-bar-quota-prefix">
@@ -7943,7 +7944,7 @@ export function SettingsPage() {
                     '仅普通账号：关闭后不显示邮箱前缀。Codex API 服务 / API Key 仍会显示 API 标签'
                   )}
                 </p>
-                <select
+                <SettingsSelect
                   id="menu-bar-quota-prefix"
                   className="settings-select settings-menu-bar-quota-modal-select"
                   value={menuBarQuotaDraftShowPrefix ? 'true' : 'false'}
@@ -7951,7 +7952,7 @@ export function SettingsPage() {
                 >
                   <option value="true">{t('common.enable', '启用')}</option>
                   <option value="false">{t('common.disable', '停用')}</option>
-                </select>
+                </SettingsSelect>
               </div>
             </div>
             <div className="modal-footer">

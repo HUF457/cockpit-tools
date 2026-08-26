@@ -332,8 +332,10 @@
   min-width: 0;
 }
 
-/* Controls */
-.settings-select {
+/* Controls — scoped to native elements; the custom SettingsSelect trigger
+   ships its own styling in components/SettingsSelect.css */
+select.settings-select,
+input.settings-select {
   padding: 6px 12px;
   padding-right: 32px; /* Space for arrow */
   border-radius: var(--radius-xl);
@@ -352,7 +354,8 @@
   transition: all 0.2s;
 }
 
-.settings-select:hover {
+select.settings-select:hover,
+input.settings-select:hover {
   border-color: var(--border-light);
   background-color: var(--bg-secondary);
 }
