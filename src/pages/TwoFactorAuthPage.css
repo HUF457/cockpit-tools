@@ -229,7 +229,7 @@
 }
 
 .tfa-secret-value::selection {
-  background: rgba(37, 99, 235, 0.2);
+  background: color-mix(in srgb, var(--primary) 20%, transparent);
   color: var(--text-primary);
 }
 
@@ -275,7 +275,7 @@
 
 .tfa-time-badge.warning {
   color: var(--danger);
-  background: rgba(239, 68, 68, 0.1);
+  background: color-mix(in srgb, var(--danger) 10%, transparent);
 }
 
 /* MFA Type Switcher */

@@ -51,27 +51,27 @@
 }
 
 .wakeup-verification-page .verification-notice.is-success {
-  border-color: rgba(34, 197, 94, 0.35);
-  background: rgba(34, 197, 94, 0.12);
+  border-color: color-mix(in srgb, var(--success) 35%, transparent);
+  background: color-mix(in srgb, var(--success) 12%, transparent);
   color: var(--success);
 }
 
 .wakeup-verification-page .verification-notice.is-warning {
-  border-color: rgba(37, 99, 235, 0.35);
-  background: rgba(37, 99, 235, 0.12);
-  color: #2563eb;
+  border-color: color-mix(in srgb, var(--primary) 35%, transparent);
+  background: color-mix(in srgb, var(--primary) 12%, transparent);
+  color: var(--primary);
 }
 
 .wakeup-verification-page .verification-notice.is-error {
-  border-color: rgba(239, 68, 68, 0.35);
-  background: rgba(239, 68, 68, 0.12);
+  border-color: color-mix(in srgb, var(--danger) 35%, transparent);
+  background: color-mix(in srgb, var(--danger) 12%, transparent);
   color: var(--danger);
 }
 
 .wakeup-verification-page .verification-confirm-hint {
-  border: 1px solid rgba(29, 78, 216, 0.35);
+  border: 1px solid color-mix(in srgb, var(--primary-hover) 35%, transparent);
   border-radius: var(--radius-md);
-  background: rgba(29, 78, 216, 0.12);
+  background: color-mix(in srgb, var(--primary-hover) 12%, transparent);
   padding: 12px;
   color: var(--text-secondary);
   display: flex;
@@ -127,27 +127,27 @@
 }
 
 .verification-count-badge.is-success {
-  color: #22c55e;
-  background: rgba(34, 197, 94, 0.12);
-  border-color: rgba(34, 197, 94, 0.4);
+  color: var(--success);
+  background: color-mix(in srgb, var(--success) 12%, transparent);
+  border-color: color-mix(in srgb, var(--success) 40%, transparent);
 }
 
 .verification-count-badge.is-warning {
-  color: #3b82f6;
-  background: rgba(59, 130, 246, 0.12);
-  border-color: rgba(59, 130, 246, 0.4);
+  color: var(--primary);
+  background: color-mix(in srgb, var(--primary) 12%, transparent);
+  border-color: color-mix(in srgb, var(--primary) 40%, transparent);
 }
 
 .verification-count-badge.is-failed {
-  color: #ef4444;
-  background: rgba(239, 68, 68, 0.12);
-  border-color: rgba(239, 68, 68, 0.4);
+  color: var(--danger);
+  background: color-mix(in srgb, var(--danger) 12%, transparent);
+  border-color: color-mix(in srgb, var(--danger) 40%, transparent);
 }
 
 .verification-count-badge.is-tos-violation {
   color: #b45309;
-  background: rgba(245, 158, 11, 0.12);
-  border-color: rgba(245, 158, 11, 0.4);
+  background: color-mix(in srgb, var(--warning) 12%, transparent);
+  border-color: color-mix(in srgb, var(--warning) 40%, transparent);
 }
 
 .verification-status-pill {
@@ -171,32 +171,32 @@
 
 .verification-status-pill.is-running {
   color: var(--primary);
-  background: rgba(29, 78, 216, 0.12);
-  border-color: rgba(29, 78, 216, 0.28);
+  background: color-mix(in srgb, var(--primary-hover) 12%, transparent);
+  border-color: color-mix(in srgb, var(--primary-hover) 28%, transparent);
 }
 
 .verification-status-pill.is-success {
   color: var(--success);
-  background: rgba(34, 197, 94, 0.12);
-  border-color: rgba(34, 197, 94, 0.28);
+  background: color-mix(in srgb, var(--success) 12%, transparent);
+  border-color: color-mix(in srgb, var(--success) 28%, transparent);
 }
 
 .verification-status-pill.is-warning {
-  color: #2563eb;
-  background: rgba(37, 99, 235, 0.12);
-  border-color: rgba(37, 99, 235, 0.28);
+  color: var(--primary);
+  background: color-mix(in srgb, var(--primary) 12%, transparent);
+  border-color: color-mix(in srgb, var(--primary) 28%, transparent);
 }
 
 .verification-status-pill.is-failed {
   color: var(--danger);
-  background: rgba(239, 68, 68, 0.12);
-  border-color: rgba(239, 68, 68, 0.3);
+  background: color-mix(in srgb, var(--danger) 12%, transparent);
+  border-color: color-mix(in srgb, var(--danger) 30%, transparent);
 }
 
 .verification-status-pill.is-tos-violation {
   color: #b45309;
-  background: rgba(245, 158, 11, 0.12);
-  border-color: rgba(245, 158, 11, 0.28);
+  background: color-mix(in srgb, var(--warning) 12%, transparent);
+  border-color: color-mix(in srgb, var(--warning) 28%, transparent);
 }
 
 .verification-empty-cell {
@@ -244,12 +244,12 @@
 }
 
 .verification-select:hover {
-  border-color: rgba(59, 130, 246, 0.55);
+  border-color: color-mix(in srgb, var(--primary) 55%, transparent);
 }
 
 .verification-select:focus {
-  border-color: rgba(37, 99, 235, 0.82);
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.16);
+  border-color: color-mix(in srgb, var(--primary) 82%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 16%, transparent);
 }
 
 .verification-account-select-all {
@@ -329,8 +329,8 @@
 }
 
 .verification-account-search:focus {
-  border-color: rgba(37, 99, 235, 0.72);
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+  border-color: color-mix(in srgb, var(--primary) 72%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 12%, transparent);
 }
 
 .verification-checkbox-row {
@@ -419,13 +419,13 @@
 .verification-checkbox-input:focus-visible+.verification-checkbox-ui {
   box-shadow:
     inset 0 1px 2px rgba(24, 24, 27, 0.08),
-    0 0 0 3px rgba(59, 130, 246, 0.2);
+    0 0 0 3px color-mix(in srgb, var(--primary) 20%, transparent);
 }
 
 .verification-checkbox-input:checked+.verification-checkbox-ui {
-  border-color: rgba(37, 99, 235, 0.92);
-  background: #2563eb;
-  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
+  border-color: color-mix(in srgb, var(--primary) 92%, transparent);
+  background: var(--primary);
+  box-shadow: 0 4px 10px color-mix(in srgb, var(--primary) 25%, transparent);
 }
 
 .verification-checkbox-input:checked+.verification-checkbox-ui::after {
@@ -434,8 +434,8 @@
 }
 
 .verification-checkbox-input:indeterminate+.verification-checkbox-ui {
-  border-color: rgba(37, 99, 235, 0.9);
-  background: #2563eb;
+  border-color: color-mix(in srgb, var(--primary) 90%, transparent);
+  background: var(--primary);
 }
 
 .verification-checkbox-input:indeterminate+.verification-checkbox-ui::after {
@@ -485,13 +485,13 @@
 }
 
 .verification-account-item:hover {
-  border-color: rgba(59, 130, 246, 0.32);
-  background: rgba(59, 130, 246, 0.06);
+  border-color: color-mix(in srgb, var(--primary) 32%, transparent);
+  background: color-mix(in srgb, var(--primary) 6%, transparent);
 }
 
 .verification-account-item.selected {
-  border-color: rgba(37, 99, 235, 0.44);
-  background: rgba(37, 99, 235, 0.1);
+  border-color: color-mix(in srgb, var(--primary) 44%, transparent);
+  background: color-mix(in srgb, var(--primary) 10%, transparent);
 }
 
 .verification-account-item-email {
@@ -613,8 +613,8 @@
 
 .verification-progress-message.is-failed {
   color: #b91c1c;
-  border-color: rgba(239, 68, 68, 0.45);
-  background: rgba(239, 68, 68, 0.08);
+  border-color: color-mix(in srgb, var(--danger) 45%, transparent);
+  background: color-mix(in srgb, var(--danger) 8%, transparent);
 }
 
 .spin {

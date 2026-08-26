@@ -4085,7 +4085,7 @@ export function SettingsPage() {
                       gap: '8px',
                       padding: '12px',
                       marginTop: '8px',
-                      background: 'rgba(59, 130, 246, 0.1)',
+                      background: 'color-mix(in srgb, var(--primary) 10%, transparent)',
                       borderRadius: 'var(--radius-xl)',
                       fontSize: '13px',
                       color: 'var(--accent)',
@@ -7574,7 +7574,7 @@ export function SettingsPage() {
                         <span style={{ 
                           fontFamily: 'var(--font-mono)', 
                           fontSize: '14px',
-                          color: actualPort === parseInt(wsPort, 10) ? 'var(--accent)' : 'var(--warning, #f59e0b)'
+                          color: actualPort === parseInt(wsPort, 10) ? 'var(--accent)' : 'var(--warning)'
                         }}>
                           ws://127.0.0.1:{actualPort}
                         </span>
@@ -7665,7 +7665,7 @@ export function SettingsPage() {
                         <span style={{
                           fontFamily: 'var(--font-mono)',
                           fontSize: '14px',
-                          color: reportActualPort === parseInt(reportPort, 10) ? 'var(--accent)' : 'var(--warning, #f59e0b)',
+                          color: reportActualPort === parseInt(reportPort, 10) ? 'var(--accent)' : 'var(--warning)',
                         }}>
                           http://0.0.0.0:{reportActualPort}
                         </span>
@@ -7770,9 +7770,9 @@ export function SettingsPage() {
                 gap: '8px', 
                 padding: '12px 16px',
                 marginTop: '12px',
-                background: 'rgba(245, 158, 11, 0.1)',
+                background: 'color-mix(in srgb, var(--warning) 10%, transparent)',
                 borderRadius: 'var(--radius-xl)',
-                color: 'var(--warning, #f59e0b)',
+                color: 'var(--warning)',
                 fontSize: '14px'
               }}>
                 <AlertCircle size={18} />
@@ -7869,13 +7869,13 @@ export function SettingsPage() {
               </button>
 
               <button className="credit-item" onClick={() => openLink('https://github.com/jlcodes99/cockpit-tools/blob/main/docs/DONATE.md')}>
-                <div className="credit-icon" style={{ color: '#ef4444' }}><Heart size={24} /></div>
+                <div className="credit-icon" style={{ color: 'var(--danger)' }}><Heart size={24} /></div>
                 <h3>{t('settings.about.sponsor')}</h3>
                 <p>{t('settings.about.sponsorDesc', 'Donate')}</p>
               </button>
 
               <button className="credit-item" onClick={() => openLink('https://github.com/jlcodes99/cockpit-tools/issues')}>
-                <div className="credit-icon" style={{ color: '#3b82f6' }}><MessageSquare size={24} /></div>
+                <div className="credit-icon" style={{ color: 'var(--primary)' }}><MessageSquare size={24} /></div>
                 <h3>{t('settings.about.feedback', '意见反馈')}</h3>
                 <p>{t('settings.about.feedbackDesc', 'Issues')}</p>
               </button>

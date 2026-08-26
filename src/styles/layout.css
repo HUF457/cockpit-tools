@@ -481,7 +481,7 @@
 }
 
 .side-nav.side-nav-classic .nav-item.active {
-  background: rgba(37, 99, 235, 0.12);
+  background: color-mix(in srgb, var(--primary) 12%, transparent);
   color: var(--primary);
   box-shadow: none;
 }
@@ -565,7 +565,7 @@
 }
 
 .nav-sub-item.active {
-  background: rgba(37, 99, 235, 0.1);
+  background: color-mix(in srgb, var(--primary) 10%, transparent);
   color: var(--primary);
 }
 
@@ -768,7 +768,7 @@ html[data-theme="dark"] .side-nav.side-nav-classic {
 
 .side-nav-more-item.active {
   background: var(--primary-light);
-  border-color: rgba(59, 130, 246, 0.35);
+  border-color: color-mix(in srgb, var(--primary) 35%, transparent);
 }
 
 .side-nav-more-item-icon {
@@ -825,7 +825,7 @@ html[data-theme="dark"] .side-nav.side-nav-classic {
 
 .side-nav-more-sub-item.active {
   color: var(--text-primary);
-  background: rgba(59, 130, 246, 0.1);
+  background: color-mix(in srgb, var(--primary) 10%, transparent);
 }
 
 .side-nav-more-sub-item-icon {

@@ -29,7 +29,7 @@
 }
 
 .codex-account-pool-health-title-row svg {
-  color: var(--danger, #dc2626);
+  color: var(--danger);
 }
 
 .codex-account-pool-health-header h3 {
@@ -127,7 +127,7 @@
 }
 
 .codex-account-pool-health-quota-pill.quota-high .codex-account-pool-health-quota-value {
-  color: var(--success, #16a34a);
+  color: var(--success);
 }
 
 .codex-account-pool-health-quota-pill.quota-medium .codex-account-pool-health-quota-value {
@@ -136,13 +136,13 @@
 
 .codex-account-pool-health-quota-pill.quota-low .codex-account-pool-health-quota-value,
 .codex-account-pool-health-quota-pill.quota-critical .codex-account-pool-health-quota-value {
-  color: var(--danger, #dc2626);
+  color: var(--danger);
 }
 
 .codex-account-pool-health-item-status {
   display: inline-flex;
   flex-shrink: 0;
-  color: var(--danger, #dc2626);
+  color: var(--danger);
   font-size: 12px;
   font-weight: 600;
   white-space: nowrap;
@@ -180,7 +180,7 @@
 }
 
 .codex-account-pool-health-empty svg {
-  color: var(--success, #16a34a);
+  color: var(--success);
 }
 
 .codex-account-pool-health-footer {

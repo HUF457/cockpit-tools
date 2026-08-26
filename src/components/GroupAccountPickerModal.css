@@ -15,7 +15,7 @@
 .group-account-picker-target {
   padding: 2px 8px;
   border-radius: var(--radius-full);
-  background: rgba(59, 130, 246, 0.12);
+  background: color-mix(in srgb, var(--primary) 12%, transparent);
   color: var(--primary);
   font-size: 12px;
   font-weight: 600;
@@ -54,7 +54,7 @@
 .group-account-name-field input:focus {
   outline: none;
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 12%, transparent);
 }
 
 .group-account-toolbar {
@@ -100,7 +100,7 @@
 .group-account-search input:focus {
   outline: none;
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 12%, transparent);
 }
 
 .group-account-list {
@@ -139,8 +139,8 @@
 }
 
 .group-account-item.is-current {
-  border-color: rgba(59, 130, 246, 0.22);
-  background: rgba(59, 130, 246, 0.05);
+  border-color: color-mix(in srgb, var(--primary) 22%, transparent);
+  background: color-mix(in srgb, var(--primary) 5%, transparent);
 }
 
 .group-account-item input {
@@ -194,7 +194,7 @@
 }
 
 .group-account-badge.is-ungrouped {
-  background: rgba(245, 158, 11, 0.14);
+  background: color-mix(in srgb, var(--warning) 14%, transparent);
   color: #b45309;
 }
 
@@ -203,7 +203,7 @@
 }
 
 .group-account-status {
-  background: rgba(34, 197, 94, 0.12);
+  background: color-mix(in srgb, var(--success) 12%, transparent);
   color: #15803d;
 }
 
@@ -228,7 +228,7 @@
 }
 
 [data-theme="dark"] .group-account-picker-target {
-  background: rgba(96, 165, 250, 0.18);
+  background: color-mix(in srgb, var(--primary-soft) 18%, transparent);
 }
 
 [data-theme="dark"] .group-account-item.is-current {

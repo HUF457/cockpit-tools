@@ -11,7 +11,7 @@
   padding: 14px;
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  background: rgba(29, 78, 216, 0.08);
+  background: color-mix(in srgb, var(--primary-hover) 8%, transparent);
   box-shadow: var(--shadow-sm);
 }
 
@@ -34,8 +34,8 @@
 }
 
 .manual-search input:focus {
-  border-color: rgba(29, 78, 216, 0.4);
-  box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.12);
+  border-color: color-mix(in srgb, var(--primary-hover) 40%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary-hover) 12%, transparent);
 }
 
 .manual-search-icon {
@@ -99,7 +99,7 @@
   width: 34px;
   height: 34px;
   border-radius: var(--radius-xl);
-  background: rgba(29, 78, 216, 0.12);
+  background: color-mix(in srgb, var(--primary-hover) 12%, transparent);
   color: var(--primary);
   display: inline-flex;
   align-items: center;
@@ -208,7 +208,7 @@
 }
 
 [data-theme="dark"] .manual-toolbar {
-  background: rgba(59, 130, 246, 0.14);
+  background: color-mix(in srgb, var(--primary) 14%, transparent);
 }
 
 [data-theme="dark"] .manual-card-header:hover {
@@ -216,7 +216,7 @@
 }
 
 [data-theme="dark"] .manual-card-icon {
-  background: rgba(59, 130, 246, 0.2);
+  background: color-mix(in srgb, var(--primary) 20%, transparent);
 }
 
 [data-theme="dark"] .manual-info-block.caution h4 {

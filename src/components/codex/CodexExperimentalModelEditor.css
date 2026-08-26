@@ -203,8 +203,8 @@
 }
 
 .codex-experimental-model-editor__icon-btn.is-danger:hover:not(:disabled) {
-  border-color: var(--danger, #ef4444);
-  color: var(--danger, #ef4444);
+  border-color: var(--danger);
+  color: var(--danger);
 }
 
 .codex-experimental-model-editor__icon-btn:disabled,
@@ -299,7 +299,7 @@
 
 .codex-experimental-model-editor__fields input.has-error,
 .codex-experimental-model-custom-context-modal input.has-error {
-  border-color: var(--danger, #ef4444);
+  border-color: var(--danger);
 }
 
 .codex-experimental-model-editor__reasoning-picker,
@@ -428,7 +428,7 @@
 }
 
 .codex-experimental-model-editor__error {
-  color: var(--danger, #ef4444);
+  color: var(--danger);
   font-size: 10px;
   line-height: 1.35;
 }

@@ -202,7 +202,7 @@
 }
 
 .workbuddy-accounts-page .workbuddy-oauth-feature-card.oauth {
-  border-color: rgba(59, 130, 246, 0.2);
+  border-color: color-mix(in srgb, var(--primary) 20%, transparent);
 }
 
 .workbuddy-accounts-page .workbuddy-oauth-feature-card .feature-title {

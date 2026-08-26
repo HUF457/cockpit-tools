@@ -40,10 +40,10 @@ export function useModalErrorState(initialMessage: string | null = null) {
 
 const BASE_STYLE: CSSProperties = {
   padding: '8px 12px',
-  background: 'rgba(239, 68, 68, 0.12)',
-  border: '1px solid rgba(239, 68, 68, 0.24)',
+  background: 'color-mix(in srgb, var(--danger) 12%, transparent)',
+  border: '1px solid color-mix(in srgb, var(--danger) 24%, transparent)',
   borderRadius: 'var(--radius-xl)',
-  color: '#ef4444',
+  color: 'var(--danger)',
   fontSize: 13,
   lineHeight: 1.5,
   whiteSpace: 'pre-wrap',

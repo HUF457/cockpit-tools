@@ -407,7 +407,7 @@
 
 .qs-claude-candidate-note {
   margin-top: 5px;
-  color: var(--warning, #f59e0b);
+  color: var(--warning);
   font-size: 11px;
   line-height: 1.45;
 }
@@ -613,7 +613,7 @@
 
 .qs-codex-quick-field-error {
   font-size: 11px;
-  color: var(--danger, #ef4444);
+  color: var(--danger);
 }
 
 .qs-codex-experimental-model {
@@ -779,9 +779,9 @@
 }
 
 .qs-codex-quick-status.error {
-  border-color: color-mix(in srgb, var(--danger, #ef4444) 35%, var(--border));
-  background: color-mix(in srgb, var(--danger, #ef4444) 10%, var(--bg-secondary));
-  color: var(--danger, #ef4444);
+  border-color: color-mix(in srgb, var(--danger) 35%, var(--border));
+  background: color-mix(in srgb, var(--danger) 10%, var(--bg-secondary));
+  color: var(--danger);
 }
 
 /* Active state for the trigger button */
@@ -799,9 +799,9 @@
   margin: 0 24px 8px;
   padding: 8px 12px;
   border-radius: var(--radius-xl);
-  background: rgba(239, 68, 68, 0.08);
-  border: 1px solid rgba(239, 68, 68, 0.2);
-  color: var(--danger, #ef4444);
+  background: color-mix(in srgb, var(--danger) 8%, transparent);
+  border: 1px solid color-mix(in srgb, var(--danger) 20%, transparent);
+  color: var(--danger);
   font-size: 12px;
   line-height: 1.4;
   animation: qsFadeUp 0.2s ease both;
@@ -816,7 +816,7 @@
   border-radius: var(--radius-sm);
   border: none;
   background: transparent;
-  color: var(--danger, #ef4444);
+  color: var(--danger);
   cursor: pointer;
   flex-shrink: 0;
   margin-left: auto;
@@ -824,7 +824,7 @@
 }
 
 .qs-error-close:hover {
-  background: rgba(239, 68, 68, 0.15);
+  background: color-mix(in srgb, var(--danger) 15%, transparent);
 }
 
 .qs-modal .settings-account-scope-toolbar {

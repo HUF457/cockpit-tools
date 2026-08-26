@@ -186,8 +186,8 @@
 }
 
 .update-progress-cancel:hover {
-  color: var(--text-error, #ef4444);
-  background: var(--bg-error, rgba(239, 68, 68, 0.1));
+  color: var(--text-error, var(--danger));
+  background: var(--bg-error, color-mix(in srgb, var(--danger) 10%, transparent));
 }
 
 .update-progress-text {
@@ -208,18 +208,18 @@
 }
 
 .update-status-success {
-  background: var(--bg-success, rgba(34, 197, 94, 0.1));
-  color: var(--text-success, #22c55e);
+  background: var(--bg-success, color-mix(in srgb, var(--success) 10%, transparent));
+  color: var(--text-success, var(--success));
 }
 
 .update-status-retrying {
-  background: var(--bg-warning, rgba(245, 158, 11, 0.12));
-  color: var(--text-warning, #d97706);
+  background: var(--bg-warning, color-mix(in srgb, var(--warning) 12%, transparent));
+  color: var(--text-warning, var(--warning));
 }
 
 .update-status-error {
-  background: var(--bg-error, rgba(239, 68, 68, 0.1));
-  color: var(--text-error, #ef4444);
+  background: var(--bg-error, color-mix(in srgb, var(--danger) 10%, transparent));
+  color: var(--text-error, var(--danger));
   flex-direction: column;
   align-items: flex-start;
 }

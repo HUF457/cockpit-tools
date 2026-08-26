@@ -211,8 +211,8 @@
 
 .codex-local-access-modal .codex-local-access-debug-toggle.is-active {
   color: #fff;
-  border-color: color-mix(in srgb, #0284c7 58%, rgba(161, 161, 170, 0.2));
-  background: #0284c7;
+  border-color: color-mix(in srgb, var(--primary) 58%, rgba(161, 161, 170, 0.2));
+  background: var(--primary);
   box-shadow:
     0 10px 22px -16px rgba(2, 132, 199, 0.86),
     inset 0 1px 0 rgba(255, 255, 255, 0.24);
@@ -226,8 +226,8 @@
 .codex-local-access-modal
   .codex-local-access-debug-toggle.is-active:hover:not(:disabled) {
   color: #fff;
-  border-color: color-mix(in srgb, #0284c7 68%, rgba(161, 161, 170, 0.2));
-  background: #0369a1;
+  border-color: color-mix(in srgb, var(--primary) 68%, rgba(161, 161, 170, 0.2));
+  background: var(--primary-hover);
 }
 
 .codex-local-access-debug-toggle:disabled {
@@ -359,14 +359,14 @@
 }
 
 .codex-local-access-status.running {
-  background: rgba(34, 197, 94, 0.14);
-  border-color: rgba(34, 197, 94, 0.2);
+  background: color-mix(in srgb, var(--success) 14%, transparent);
+  border-color: color-mix(in srgb, var(--success) 20%, transparent);
   color: #15803d;
 }
 
 .codex-local-access-status.stopped {
   background: rgba(248, 113, 113, 0.14);
-  border-color: rgba(239, 68, 68, 0.18);
+  border-color: color-mix(in srgb, var(--danger) 18%, transparent);
   color: #b91c1c;
 }
 
@@ -514,19 +514,19 @@
 .codex-local-access-inline-error {
   color: #b91c1c;
   background: rgba(254, 242, 242, 0.95);
-  border-color: rgba(239, 68, 68, 0.18);
+  border-color: color-mix(in srgb, var(--danger) 18%, transparent);
 }
 
 .codex-local-access-inline-success {
   color: #166534;
   background: rgba(240, 253, 244, 0.95);
-  border-color: rgba(34, 197, 94, 0.16);
+  border-color: color-mix(in srgb, var(--success) 16%, transparent);
 }
 
 .codex-local-access-inline-info {
-  color: #1e3a8a;
+  color: var(--primary-deep);
   background: rgba(239, 246, 255, 0.95);
-  border-color: rgba(59, 130, 246, 0.2);
+  border-color: color-mix(in srgb, var(--primary) 20%, transparent);
 }
 
 .codex-local-access-test-dialog-overlay {
@@ -676,7 +676,7 @@
 
 .codex-local-access-test-chat-message.is-error
   .codex-local-access-test-chat-bubble {
-  border-color: rgba(239, 68, 68, 0.2);
+  border-color: color-mix(in srgb, var(--danger) 20%, transparent);
   background: rgba(254, 242, 242, 0.96);
   color: var(--text-primary);
 }
@@ -757,7 +757,7 @@
   gap: 14px;
   padding: 14px;
   border-radius: var(--radius-xl);
-  border: 1px solid rgba(239, 68, 68, 0.2);
+  border: 1px solid color-mix(in srgb, var(--danger) 20%, transparent);
   background: rgba(254, 242, 242, 0.96);
   color: var(--text-primary);
 }
@@ -1320,7 +1320,7 @@
   inset: 0 auto auto 0;
   width: 100%;
   height: 72px;
-  background: rgba(29, 78, 216, 0.05);
+  background: color-mix(in srgb, var(--primary-hover) 5%, transparent);
   pointer-events: none;
 }
 
@@ -1474,12 +1474,12 @@
 }
 
 .codex-local-access-session-affinity-expiry input[aria-invalid="true"] {
-  border-color: var(--danger, #ef4444);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--danger, #ef4444) 12%, transparent);
+  border-color: var(--danger);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--danger) 12%, transparent);
 }
 
 .codex-local-access-session-affinity-error {
-  color: var(--danger, #ef4444);
+  color: var(--danger);
   font-size: 11px;
   line-height: 1.35;
 }
@@ -1633,9 +1633,9 @@
   min-width: max-content;
   padding: 0 11px;
   border-radius: var(--radius-full);
-  border: 1px solid rgba(37, 99, 235, 0.16);
+  border: 1px solid color-mix(in srgb, var(--primary) 16%, transparent);
   background: rgba(239, 246, 255, 0.62);
-  color: #1e3a8a;
+  color: var(--primary-deep);
   font-size: 11px;
   line-height: 1;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.48);
@@ -1656,7 +1656,7 @@
 .codex-local-access-health-pool-card {
   font-family: inherit;
   cursor: pointer;
-  border-color: rgba(22, 163, 74, 0.2);
+  border-color: color-mix(in srgb, var(--success) 20%, transparent);
   background: rgba(240, 253, 244, 0.72);
   color: #166534;
 }
@@ -1670,7 +1670,7 @@
 }
 
 .codex-local-access-health-pool-card.has-issue {
-  border-color: rgba(217, 119, 6, 0.22);
+  border-color: color-mix(in srgb, var(--warning) 22%, transparent);
   background: rgba(255, 251, 235, 0.78);
   color: #92400e;
 }
@@ -1886,7 +1886,7 @@
     rgba(161, 161, 170, 0.2)
   );
   box-shadow:
-    0 0 0 4px rgba(37, 99, 235, 0.1),
+    0 0 0 4px color-mix(in srgb, var(--primary) 10%, transparent),
     inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 
@@ -2059,21 +2059,21 @@
 
 .codex-local-access-quota-chip.high {
   color: #15803d;
-  border-color: rgba(34, 197, 94, 0.22);
-  background: rgba(34, 197, 94, 0.08);
+  border-color: color-mix(in srgb, var(--success) 22%, transparent);
+  background: color-mix(in srgb, var(--success) 8%, transparent);
 }
 
 .codex-local-access-quota-chip.medium {
   color: #b45309;
-  border-color: rgba(245, 158, 11, 0.2);
-  background: rgba(245, 158, 11, 0.08);
+  border-color: color-mix(in srgb, var(--warning) 20%, transparent);
+  background: color-mix(in srgb, var(--warning) 8%, transparent);
 }
 
 .codex-local-access-quota-chip.low,
 .codex-local-access-quota-chip.critical {
   color: #b91c1c;
-  border-color: rgba(239, 68, 68, 0.2);
-  background: rgba(239, 68, 68, 0.08);
+  border-color: color-mix(in srgb, var(--danger) 20%, transparent);
+  background: color-mix(in srgb, var(--danger) 8%, transparent);
 }
 
 .codex-local-access-member-section {
@@ -2142,7 +2142,7 @@
   background:
     color-mix(in srgb, var(--primary) 5%, var(--bg-card));
   box-shadow:
-    0 24px 36px -28px rgba(29, 78, 216, 0.34),
+    0 24px 36px -28px color-mix(in srgb, var(--primary-hover) 34%, transparent),
     inset 0 1px 0 rgba(255, 255, 255, 0.62);
 }
 
@@ -2317,9 +2317,9 @@
   flex: 0 0 auto;
   padding: 3px 8px;
   border-radius: var(--radius-full);
-  border: 1px solid rgba(59, 130, 246, 0.24);
+  border: 1px solid color-mix(in srgb, var(--primary) 24%, transparent);
   background: rgba(219, 234, 254, 0.7);
-  color: #1e3a8a;
+  color: var(--primary-deep);
   font-size: 11px;
   line-height: 1;
   white-space: nowrap;
@@ -2396,8 +2396,8 @@
 }
 
 .codex-local-access-member-section .group-account-badge.is-current {
-  border-color: rgba(29, 78, 216, 0.16);
-  background: rgba(29, 78, 216, 0.1);
+  border-color: color-mix(in srgb, var(--primary-hover) 16%, transparent);
+  background: color-mix(in srgb, var(--primary-hover) 10%, transparent);
   color: var(--primary);
 }
 
@@ -2750,9 +2750,9 @@
     var(--primary) 32%,
     rgba(161, 161, 170, 0.2)
   );
-  color: #bfdbfe;
+  color: var(--primary-softer);
   box-shadow:
-    0 12px 24px -18px rgba(96, 165, 250, 0.72),
+    0 12px 24px -18px color-mix(in srgb, var(--primary-soft) 72%, transparent),
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
@@ -2786,7 +2786,7 @@
 [data-theme="dark"] .codex-local-access-debug-toggle {
   background: rgba(24, 24, 27, 0.58);
   border-color: rgba(161, 161, 170, 0.16);
-  color: #bfdbfe;
+  color: var(--primary-softer);
 }
 
 [data-theme="dark"]
@@ -2794,16 +2794,16 @@
   .codex-local-access-debug-toggle.is-active {
   color: #fff;
   border-color: rgba(125, 211, 252, 0.58);
-  background: #0369a1;
+  background: var(--primary-hover);
   box-shadow:
     0 12px 24px -18px rgba(14, 165, 233, 0.78),
     inset 0 1px 0 rgba(255, 255, 255, 0.14);
 }
 
 [data-theme="dark"] .codex-local-access-toolbar-btn.is-primary {
-  color: #bfdbfe;
+  color: var(--primary-softer);
   background: rgba(30, 64, 175, 0.2);
-  border-color: rgba(96, 165, 250, 0.24);
+  border-color: color-mix(in srgb, var(--primary-soft) 24%, transparent);
 }
 
 [data-theme="dark"] .codex-local-access-toolbar-btn.is-danger {
@@ -2828,8 +2828,8 @@
 }
 
 [data-theme="dark"] .codex-local-access-stats-range-tab.is-active {
-  color: #bfdbfe;
-  border-color: rgba(96, 165, 250, 0.28);
+  color: var(--primary-softer);
+  border-color: color-mix(in srgb, var(--primary-soft) 28%, transparent);
   background: rgba(30, 64, 175, 0.3);
 }
 
@@ -2857,7 +2857,7 @@
 }
 
 [data-theme="dark"] .codex-local-access-health-pool-card {
-  border-color: rgba(34, 197, 94, 0.24);
+  border-color: color-mix(in srgb, var(--success) 24%, transparent);
   background: rgba(20, 83, 45, 0.28);
   color: #bbf7d0;
 }
@@ -2877,7 +2877,7 @@
   .group-account-item.is-current {
   background:
     color-mix(in srgb, var(--primary) 8%, rgba(24, 24, 27, 0.92));
-  border-color: rgba(96, 165, 250, 0.28);
+  border-color: color-mix(in srgb, var(--primary-soft) 28%, transparent);
 }
 
 [data-theme="dark"] .codex-local-access-modal .codex-local-access-code,
@@ -2913,7 +2913,7 @@
 [data-theme="dark"] .codex-local-access-test-dialog {
   background:
     var(--bg-surface);
-  border-color: rgba(96, 165, 250, 0.18);
+  border-color: color-mix(in srgb, var(--primary-soft) 18%, transparent);
   box-shadow:
     0 30px 74px rgba(0, 0, 0, 0.48),
     0 8px 28px rgba(0, 0, 0, 0.26);
@@ -2921,7 +2921,7 @@
 
 [data-theme="dark"] .codex-local-access-test-progress {
   background: color-mix(in srgb, var(--primary) 12%, rgba(24, 24, 27, 0.84));
-  border-color: rgba(96, 165, 250, 0.22);
+  border-color: color-mix(in srgb, var(--primary-soft) 22%, transparent);
 }
 
 [data-theme="dark"] .codex-local-access-test-chat {
@@ -2944,7 +2944,7 @@
     var(--primary) 36%,
     rgba(161, 161, 170, 0.18)
   );
-  color: #bfdbfe;
+  color: var(--primary-softer);
 }
 
 [data-theme="dark"]
@@ -2981,7 +2981,7 @@
 [data-theme="dark"] .codex-local-access-custom-routing-dialog {
   background:
     var(--bg-surface);
-  border-color: rgba(96, 165, 250, 0.18);
+  border-color: color-mix(in srgb, var(--primary-soft) 18%, transparent);
   box-shadow:
     0 30px 74px rgba(0, 0, 0, 0.5),
     0 8px 28px rgba(0, 0, 0, 0.28);
@@ -3029,9 +3029,9 @@
 }
 
 [data-theme="dark"] .codex-local-access-member-unsupported {
-  border-color: rgba(96, 165, 250, 0.28);
+  border-color: color-mix(in srgb, var(--primary-soft) 28%, transparent);
   background: rgba(30, 58, 138, 0.4);
-  color: #bfdbfe;
+  color: var(--primary-softer);
 }
 
 [data-theme="dark"] .codex-local-access-member-section .group-account-empty,

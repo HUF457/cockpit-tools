@@ -145,11 +145,11 @@
   gap: 6px;
   padding: 8px 10px;
   border-radius: var(--radius-xl);
-  background: rgba(239, 68, 68, 0.08);
+  background: color-mix(in srgb, var(--danger) 8%, transparent);
   color: var(--danger);
   font-size: 12px;
   font-weight: 600;
-  border: 1px solid rgba(239, 68, 68, 0.2);
+  border: 1px solid color-mix(in srgb, var(--danger) 20%, transparent);
 }
 
 .card-quota-grid .quota-forbidden svg {
@@ -210,12 +210,12 @@
 }
 
 .card-action-btn.success:hover:not(:disabled) {
-  background: rgba(34, 197, 94, 0.1);
+  background: color-mix(in srgb, var(--success) 10%, transparent);
   color: var(--success);
 }
 
 .card-action-btn.danger:hover:not(:disabled) {
-  background: rgba(239, 68, 68, 0.1);
+  background: color-mix(in srgb, var(--danger) 10%, transparent);
   color: var(--danger);
 }
 
@@ -451,14 +451,14 @@
 /* Inline Folder Cards (inside accounts-grid) */
 .folder-inline-card {
   cursor: pointer;
-  background: #f0f7ff;
-  border: 1.5px dashed rgba(29, 78, 216, 0.25);
+  background: color-mix(in srgb, var(--primary) 5%, var(--bg-secondary));
+  border: 1.5px dashed color-mix(in srgb, var(--primary-hover) 25%, transparent);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .folder-inline-card:hover {
   border-color: var(--primary);
-  background: #e8f0fe;
+  background: color-mix(in srgb, var(--primary) 9%, var(--bg-secondary));
 }
 
 .folder-inline-header {
@@ -491,11 +491,11 @@
   transition: background 0.15s;
 }
 .folder-table-row:hover {
-  background: var(--bg-hover, #eef0f4);
+  background: var(--bg-hover);
 }
 .folder-icon-btn:hover {
   color: var(--primary);
-  background: rgba(59, 130, 246, 0.1);
+  background: color-mix(in srgb, var(--primary) 10%, transparent);
 }
 
 .folder-icon-btn:disabled {
@@ -504,8 +504,8 @@
 }
 
 .folder-delete-btn:hover {
-  color: var(--danger, #ef4444);
-  background: rgba(239, 68, 68, 0.1);
+  color: var(--danger);
+  background: color-mix(in srgb, var(--danger) 10%, transparent);
 }
 
 .folder-table-actions {
@@ -565,7 +565,7 @@
 .folder-inline-name-input:focus {
   outline: none;
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 12%, transparent);
 }
 
 .folder-inline-name-input--table {
@@ -641,8 +641,8 @@
 }
 
 .folder-preview-remove-btn:hover:not(:disabled) {
-  color: var(--danger, #ef4444);
-  background: rgba(239, 68, 68, 0.1);
+  color: var(--danger);
+  background: color-mix(in srgb, var(--danger) 10%, transparent);
 }
 
 .folder-preview-remove-btn:disabled {
@@ -658,13 +658,13 @@
 
 /* Dark Mode Overrides */
 [data-theme="dark"] .folder-inline-card {
-  background: #1a2744;
-  border-color: rgba(96, 165, 250, 0.2);
+  background: color-mix(in srgb, var(--primary) 18%, var(--bg-secondary));
+  border-color: color-mix(in srgb, var(--primary-soft) 20%, transparent);
 }
 
 [data-theme="dark"] .folder-inline-card:hover {
-  background: #1e3a5f;
-  border-color: rgba(96, 165, 250, 0.4);
+  background: color-mix(in srgb, var(--primary) 30%, var(--bg-secondary));
+  border-color: color-mix(in srgb, var(--primary-soft) 40%, transparent);
 }
 
 [data-theme="dark"] .folder-inline-preview {
@@ -1155,8 +1155,8 @@
 
 .accounts-page .tag-filter-delete:hover {
   color: var(--danger);
-  background: rgba(239, 68, 68, 0.12);
-  border-color: rgba(239, 68, 68, 0.3);
+  background: color-mix(in srgb, var(--danger) 12%, transparent);
+  border-color: color-mix(in srgb, var(--danger) 30%, transparent);
 }
 
 .accounts-page .tag-filter-option input {
@@ -1542,24 +1542,24 @@
 }
 
 .accounts-page .status-pill.disabled {
-  background: rgba(239, 68, 68, 0.12);
+  background: color-mix(in srgb, var(--danger) 12%, transparent);
   color: var(--danger);
-  border-color: rgba(239, 68, 68, 0.25);
-  box-shadow: 0 6px 12px rgba(239, 68, 68, 0.12);
+  border-color: color-mix(in srgb, var(--danger) 25%, transparent);
+  box-shadow: 0 6px 12px color-mix(in srgb, var(--danger) 12%, transparent);
 }
 
 .accounts-page .status-pill.warning {
-  background: rgba(245, 158, 11, 0.12);
+  background: color-mix(in srgb, var(--warning) 12%, transparent);
   color: var(--warning);
-  border-color: rgba(245, 158, 11, 0.25);
-  box-shadow: 0 6px 12px rgba(245, 158, 11, 0.12);
+  border-color: color-mix(in srgb, var(--warning) 25%, transparent);
+  box-shadow: 0 6px 12px color-mix(in srgb, var(--warning) 12%, transparent);
 }
 
 .accounts-page .status-pill.forbidden {
-  background: rgba(239, 68, 68, 0.12);
+  background: color-mix(in srgb, var(--danger) 12%, transparent);
   color: var(--danger);
-  border-color: rgba(239, 68, 68, 0.25);
-  box-shadow: 0 6px 12px rgba(239, 68, 68, 0.12);
+  border-color: color-mix(in srgb, var(--danger) 25%, transparent);
+  box-shadow: 0 6px 12px color-mix(in srgb, var(--danger) 12%, transparent);
 }
 
 .accounts-page .card-quota-grid {
@@ -1577,11 +1577,11 @@
   gap: 6px;
   padding: 8px 10px;
   border-radius: var(--radius-xl);
-  background: rgba(239, 68, 68, 0.08);
+  background: color-mix(in srgb, var(--danger) 8%, transparent);
   color: var(--danger);
   font-size: 12px;
   font-weight: 600;
-  border: 1px solid rgba(239, 68, 68, 0.2);
+  border: 1px solid color-mix(in srgb, var(--danger) 20%, transparent);
 }
 
 .accounts-page .quota-forbidden svg {
@@ -1722,7 +1722,7 @@
 }
 
 .accounts-page .card-action-btn.is-success:hover:not(:disabled) {
-  background: rgba(34, 197, 94, 0.15);
+  background: color-mix(in srgb, var(--success) 15%, transparent);
   color: var(--success);
 }
 
@@ -1731,7 +1731,7 @@
 }
 
 .accounts-page .card-action-btn.is-danger:hover:not(:disabled) {
-  background: rgba(239, 68, 68, 0.15);
+  background: color-mix(in srgb, var(--danger) 15%, transparent);
   color: var(--danger);
 }
 
@@ -1782,11 +1782,11 @@
 }
 
 [data-theme="dark"] .accounts-page .account-table tr:hover {
-  background: rgba(59, 130, 246, 0.18);
+  background: color-mix(in srgb, var(--primary) 18%, transparent);
 }
 
 [data-theme="dark"] .accounts-page .account-table tr.current {
-  background: rgba(59, 130, 246, 0.24);
+  background: color-mix(in srgb, var(--primary) 24%, transparent);
 }
 
 
@@ -1800,19 +1800,19 @@
 
 [data-theme="dark"] .accounts-page .pagination-container .tag-filter-btn.single-filter-btn {
   background: rgba(24, 24, 27, 0.58);
-  border-color: rgba(96, 165, 250, 0.26);
+  border-color: color-mix(in srgb, var(--primary-soft) 26%, transparent);
   color: rgba(228, 228, 231, 0.88);
 }
 
 [data-theme="dark"] .accounts-page .pagination-container .tag-filter-btn.single-filter-btn:hover:not(:disabled),
 [data-theme="dark"] .accounts-page .pagination-container .tag-filter-btn.single-filter-btn.active {
-  background: rgba(37, 99, 235, 0.24);
-  border-color: rgba(96, 165, 250, 0.44);
+  background: color-mix(in srgb, var(--primary) 24%, transparent);
+  border-color: color-mix(in srgb, var(--primary-soft) 44%, transparent);
   color: rgba(250, 250, 250, 0.96);
 }
 
 [data-theme="dark"] .accounts-page .pagination-container .single-filter-icon {
-  color: rgba(96, 165, 250, 0.9);
+  color: color-mix(in srgb, var(--primary-soft) 90%, transparent);
 }
 
 [data-theme="dark"] .accounts-page .pagination-btn:hover:not(:disabled) {
@@ -1887,11 +1887,11 @@
 }
 
 .account-folder-card:hover {
-  border-color: var(--primary, #3b82f6);
+  border-color: var(--primary);
 }
 
 .folder-card-icon {
-  color: var(--primary, #3b82f6);
+  color: var(--primary);
   opacity: 0.8;
 }
 
@@ -1928,7 +1928,7 @@
   font-size: 12px;
   padding: 1px 6px;
   border-radius: var(--radius-md);
-  background: var(--surface-tertiary, rgba(59,130,246,0.08));
+  background: var(--surface-tertiary, color-mix(in srgb, var(--primary) 8%, transparent));
   color: var(--text-secondary, #71717a);
   word-break: break-all;
   white-space: normal;
@@ -1939,8 +1939,8 @@
   font-size: 0.65rem;
   padding: 1px 6px;
   border-radius: var(--radius-md);
-  background: var(--surface-tertiary, rgba(59,130,246,0.08));
-  color: var(--primary, #3b82f6);
+  background: var(--surface-tertiary, color-mix(in srgb, var(--primary) 8%, transparent));
+  color: var(--primary);
   font-weight: 600;
 }
 
@@ -1963,7 +1963,7 @@
   gap: 4px;
   background: none;
   border: none;
-  color: var(--primary, #3b82f6);
+  color: var(--primary);
   cursor: pointer;
   padding: 2px 6px;
   border-radius: var(--radius-md);
@@ -1972,7 +1972,7 @@
 }
 
 .breadcrumb-back:hover {
-  background: var(--surface-tertiary, rgba(59,130,246,0.08));
+  background: var(--surface-tertiary, color-mix(in srgb, var(--primary) 8%, transparent));
 }
 
 .breadcrumb-sep {
@@ -2027,8 +2027,8 @@
 }
 
 [data-theme="dark"] .account-folder-card:hover {
-  border-color: var(--primary, #3b82f6);
-  box-shadow: 0 8px 24px rgba(29,78,216,0.2);
+  border-color: var(--primary);
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--primary-hover) 20%, transparent);
 }
 
 [data-theme="dark"] .folder-card-name {

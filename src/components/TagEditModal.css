@@ -89,8 +89,8 @@
 }
 
 .tag-notes-section textarea:focus {
-  border-color: rgba(59, 130, 246, 0.6);
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+  border-color: color-mix(in srgb, var(--primary) 60%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 12%, transparent);
 }
 
 .tag-notes-section textarea::placeholder {
@@ -172,14 +172,14 @@
   border-radius: var(--radius-full);
   font-size: 12px;
   color: #18181b;
-  background: rgba(191, 219, 254, 0.75);
-  border: 1px solid rgba(59, 130, 246, 0.35);
+  background: color-mix(in srgb, var(--primary-softer) 75%, transparent);
+  border: 1px solid color-mix(in srgb, var(--primary) 35%, transparent);
 }
 
 [data-theme="dark"] .tag-chip {
   color: #e4e4e7;
-  background: rgba(37, 99, 235, 0.35);
-  border-color: rgba(96, 165, 250, 0.35);
+  background: color-mix(in srgb, var(--primary) 35%, transparent);
+  border-color: color-mix(in srgb, var(--primary-soft) 35%, transparent);
   box-shadow: 0 8px 18px rgba(9, 9, 11, 0.28);
 }
 
@@ -198,7 +198,7 @@
 
 [data-theme="dark"] .tag-remove {
   background: rgba(255, 255, 255, 0.08);
-  color: rgba(191, 219, 254, 0.95);
+  color: color-mix(in srgb, var(--primary-softer) 95%, transparent);
 }
 
 .tag-remove:hover {
@@ -208,7 +208,7 @@
 
 [data-theme="dark"] .tag-remove:hover {
   background: rgba(255, 255, 255, 0.14);
-  color: #dbeafe;
+  color: var(--primary-softer);
 }
 
 .tag-input-row {
@@ -249,8 +249,8 @@
 }
 
 .tag-input-wrap input:focus {
-  border-color: rgba(59, 130, 246, 0.6);
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+  border-color: color-mix(in srgb, var(--primary) 60%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 12%, transparent);
 }
 
 .tag-add-btn {

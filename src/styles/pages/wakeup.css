@@ -30,8 +30,8 @@
 }
 
 .wakeup-global-toggle.is-on {
-  border-color: rgba(59, 130, 246, 0.35);
-  box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.2);
+  border-color: color-mix(in srgb, var(--primary) 35%, transparent);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--primary) 20%, transparent);
 }
 
 .wakeup-global-toggle .pill {
@@ -103,7 +103,7 @@
   position: relative;
   overflow: hidden;
   background: rgba(255, 255, 255, 0.98);
-  border: 1px solid rgba(191, 219, 254, 0.9);
+  border: 1px solid color-mix(in srgb, var(--primary-softer) 90%, transparent);
   border-radius: var(--radius-xl);
   padding: 15px;
   box-shadow:
@@ -125,11 +125,11 @@
 }
 
 .wakeup-task-card:hover {
-  border-color: rgba(147, 197, 253, 0.98);
+  border-color: color-mix(in srgb, var(--primary-soft) 98%, transparent);
 }
 
 .wakeup-task-card.is-enabled {
-  border-color: rgba(147, 197, 253, 0.92);
+  border-color: color-mix(in srgb, var(--primary-soft) 92%, transparent);
 }
 
 .wakeup-task-card.is-disabled {
@@ -186,7 +186,7 @@
 }
 
 .wakeup-task-section-primary {
-  border-color: rgba(191, 219, 254, 0.98);
+  border-color: color-mix(in srgb, var(--primary-softer) 98%, transparent);
   background: rgba(245, 249, 255, 0.98);
 }
 
@@ -214,8 +214,8 @@
   gap: 6px;
   padding: 4px 8px;
   border-radius: var(--radius-full);
-  background: rgba(59, 130, 246, 0.08);
-  color: #1d4ed8;
+  background: color-mix(in srgb, var(--primary) 8%, transparent);
+  color: var(--primary-hover);
   font-weight: 600;
 }
 
@@ -256,7 +256,7 @@
 }
 
 .wakeup-task-actions .btn.icon-only:hover {
-  border-color: rgba(191, 219, 254, 0.98);
+  border-color: color-mix(in srgb, var(--primary-softer) 98%, transparent);
   background: rgba(248, 250, 255, 0.98);
   color: var(--text-primary);
 }
@@ -264,7 +264,7 @@
 .wakeup-task-actions .btn-danger.icon-only {
   border-color: rgba(254, 202, 202, 0.98);
   background: rgba(254, 242, 242, 0.98);
-  color: #dc2626;
+  color: var(--danger);
 }
 
 .wakeup-task-actions .btn-danger.icon-only:hover {
@@ -331,7 +331,7 @@
 .wakeup-select:focus {
   outline: none;
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.1);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary-hover) 10%, transparent);
 }
 
 select.wakeup-input,
@@ -603,8 +603,8 @@ select.wakeup-input::-ms-expand,
 }
 
 .wakeup-history-item.is-failed {
-  border-color: rgba(239, 68, 68, 0.3);
-  background: rgba(239, 68, 68, 0.04);
+  border-color: color-mix(in srgb, var(--danger) 30%, transparent);
+  background: color-mix(in srgb, var(--danger) 4%, transparent);
 }
 
 .wakeup-history-item.is-success {
@@ -638,8 +638,8 @@ select.wakeup-input::-ms-expand,
 }
 
 .wakeup-history-badge.manual {
-  background: rgba(59, 130, 246, 0.12);
-  color: #1d4ed8;
+  background: color-mix(in srgb, var(--primary) 12%, transparent);
+  color: var(--primary-hover);
 }
 
 .wakeup-history-badge.auto {
@@ -662,7 +662,7 @@ select.wakeup-input::-ms-expand,
 
 .wakeup-history-message {
   font-size: 12px;
-  color: #dc2626;
+  color: var(--danger);
   white-space: pre-line;
 }
 
@@ -681,14 +681,14 @@ select.wakeup-input::-ms-expand,
   gap: 8px;
   padding: 10px;
   border-radius: var(--radius-xl);
-  border: 1px solid rgba(220, 38, 38, 0.25);
-  background: rgba(220, 38, 38, 0.06);
+  border: 1px solid color-mix(in srgb, var(--danger) 25%, transparent);
+  background: color-mix(in srgb, var(--danger) 6%, transparent);
   color: var(--text-primary);
 }
 
 .wakeup-error-panel.is-verification_required {
-  border-color: rgba(59, 130, 246, 0.3);
-  background: rgba(59, 130, 246, 0.08);
+  border-color: color-mix(in srgb, var(--primary) 30%, transparent);
+  background: color-mix(in srgb, var(--primary) 8%, transparent);
 }
 
 .wakeup-error-title {
@@ -776,7 +776,7 @@ select.wakeup-input::-ms-expand,
 }
 
 [data-theme="dark"] .wakeup-task-card.is-enabled {
-  border-color: rgba(96, 165, 250, 0.3);
+  border-color: color-mix(in srgb, var(--primary-soft) 30%, transparent);
 }
 
 [data-theme="dark"] .wakeup-task-card.is-disabled {
@@ -802,7 +802,7 @@ select.wakeup-input::-ms-expand,
 }
 
 [data-theme="dark"] .wakeup-task-section-primary {
-  border-color: rgba(96, 165, 250, 0.24);
+  border-color: color-mix(in srgb, var(--primary-soft) 24%, transparent);
   background: rgba(17, 24, 39, 0.74);
 }
 
@@ -811,8 +811,8 @@ select.wakeup-input::-ms-expand,
 }
 
 [data-theme="dark"] .wakeup-task-meta-schedule span {
-  background: rgba(37, 99, 235, 0.18);
-  color: #93c5fd;
+  background: color-mix(in srgb, var(--primary) 18%, transparent);
+  color: var(--primary-soft);
 }
 
 [data-theme="dark"] .wakeup-task-meta,
@@ -835,7 +835,7 @@ select.wakeup-input::-ms-expand,
 }
 
 [data-theme="dark"] .wakeup-task-actions .btn.icon-only:hover {
-  border-color: rgba(96, 165, 250, 0.32);
+  border-color: color-mix(in srgb, var(--primary-soft) 32%, transparent);
   background: rgba(39, 39, 42, 0.98);
   color: #e4e4e7;
 }
@@ -915,5 +915,5 @@ select.wakeup-input::-ms-expand,
 }
 
 [data-theme="dark"] .accounts-page .card-action-btn.export-btn {
-  color: #5eead4;
+  color: var(--accent-api-soft);
 }

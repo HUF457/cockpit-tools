@@ -506,7 +506,7 @@ body.floating-card-overlay-root,
 }
 
 .floating-card-progress-bar--low {
-  background: #f97316;
+  background: var(--warning-strong);
 }
 
 .floating-card-progress-bar--critical {

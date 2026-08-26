@@ -60,7 +60,7 @@
 }
 
 .nav-item.active {
-  background: rgba(29, 78, 216, 0.08); /* Primary light */
+  background: color-mix(in srgb, var(--primary-hover) 8%, transparent); /* Primary light */
   color: var(--primary);
   font-weight: 600;
 }

@@ -36,10 +36,10 @@
   height: 38px;
   flex: 0 0 auto;
   border-radius: 50%;
-  color: var(--accent-primary, #3b82f6);
+  color: var(--accent-primary, var(--primary));
   background: color-mix(
     in srgb,
-    var(--accent-primary, #3b82f6) 14%,
+    var(--accent-primary, var(--primary)) 14%,
     transparent
   );
 }
@@ -198,8 +198,8 @@
 }
 
 .codex-launch-preview-status-badge.warning {
-  color: var(--warning, #f59e0b);
-  background: color-mix(in srgb, var(--warning, #f59e0b) 11%, transparent);
+  color: var(--warning);
+  background: color-mix(in srgb, var(--warning) 11%, transparent);
 }
 
 .codex-launch-preview-status-badge.neutral {
@@ -604,7 +604,7 @@
   padding: 10px 12px;
   border-radius: var(--radius-xl);
   color: var(--warning-color, #b7791f);
-  background: color-mix(in srgb, #f59e0b 10%, transparent);
+  background: color-mix(in srgb, var(--warning) 10%, transparent);
   font-size: 13px;
   line-height: 1.5;
 }
@@ -638,10 +638,10 @@
   height: 32px;
   flex: 0 0 auto;
   border-radius: 50%;
-  color: var(--accent-primary, #3b82f6);
+  color: var(--accent-primary, var(--primary));
   background: color-mix(
     in srgb,
-    var(--accent-primary, #3b82f6) 12%,
+    var(--accent-primary, var(--primary)) 12%,
     transparent
   );
 }

@@ -114,9 +114,9 @@ export function FileCorruptedModal({ error, onClose }: FileCorruptedModalProps) 
               marginTop: 12,
               padding: '8px 12px',
               borderRadius: 'var(--radius-xl)',
-              background: 'rgba(239, 68, 68, 0.08)',
-              border: '1px solid rgba(239, 68, 68, 0.2)',
-              color: 'var(--danger, #ef4444)',
+              background: 'color-mix(in srgb, var(--danger) 8%, transparent)',
+              border: '1px solid color-mix(in srgb, var(--danger) 20%, transparent)',
+              color: 'var(--danger)',
               fontSize: 13,
             }}>
               {actionError}

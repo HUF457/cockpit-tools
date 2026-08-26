@@ -895,6 +895,8 @@ export function AccountsPage({ onNavigate }: AccountsPageProps) {
   } | null>(null)
 
   // Available color options
+  // User-facing categorical palette for group colors — literal values on purpose,
+  // independent from the UI accent tokens.
   const colorOptions = [
     { index: 0, color: '#8b5cf6', name: 'Purple' },
     { index: 1, color: '#3b82f6', name: 'Blue' },
@@ -5231,7 +5233,7 @@ export function AccountsPage({ onNavigate }: AccountsPageProps) {
                         <div
                           style={{
                             fontSize: 12,
-                            color: item.success ? 'var(--success, #10b981)' : 'var(--danger, #ef4444)',
+                            color: item.success ? 'var(--success, #10b981)' : 'var(--danger)',
                           }}
                         >
                           {item.success
@@ -5285,7 +5287,7 @@ export function AccountsPage({ onNavigate }: AccountsPageProps) {
                         })}
                       </div>
                       {!item.success && (
-                        <div style={{ fontSize: 12, color: 'var(--danger, #ef4444)' }}>
+                        <div style={{ fontSize: 12, color: 'var(--danger)' }}>
                           {t('accounts.switchHistory.error', {
                             stage: formatSwitchHistoryStage(item.errorStage),
                             code: item.errorCode || '-',

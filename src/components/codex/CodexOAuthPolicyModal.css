@@ -77,10 +77,10 @@
 .codex-oauth-policy-modal__error {
   margin: 12px 24px 0;
   padding: 9px 11px;
-  border: 1px solid color-mix(in srgb, var(--danger, #ef4444) 35%, transparent);
+  border: 1px solid color-mix(in srgb, var(--danger) 35%, transparent);
   border-radius: var(--radius-xl);
-  background: color-mix(in srgb, var(--danger, #ef4444) 8%, transparent);
-  color: var(--danger, #ef4444);
+  background: color-mix(in srgb, var(--danger) 8%, transparent);
+  color: var(--danger);
   font-size: 12px;
 }
 

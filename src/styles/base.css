@@ -9,17 +9,25 @@
   --font-sans: 'Inter', 'Segoe UI', sans-serif;
   --font-mono: 'JetBrains Mono', 'SFMono-Regular', monospace;
 
-  /* Brand Colors */
-  --primary: #2563eb;
-  --primary-hover: #1d4ed8;
-  --primary-light: rgba(37, 99, 235, 0.1);
-  --accent: #2563eb;
+  /* Brand Colors — desaturated steel blue (no default-framework blue) */
+  --primary: #3d6484;
+  --primary-hover: #345671;
+  --primary-light: color-mix(in srgb, var(--primary) 10%, transparent);
+  --accent: var(--primary);
+  /* Derived accent ramp — replaces hardcoded blue-200/300/400/900 shades */
+  --primary-soft: color-mix(in srgb, var(--primary) 55%, white);
+  --primary-softer: color-mix(in srgb, var(--primary) 32%, white);
+  --primary-deep: color-mix(in srgb, var(--primary) 78%, black);
 
   /* Status Colors */
   --success: #16a34a;
   --warning: #d97706;
   --warning-strong: #ea580c;
   --danger: #dc2626;
+
+  /* Secondary accent — reserved for API-key/local-API surfaces only */
+  --accent-api: #0f766e;
+  --accent-api-soft: color-mix(in srgb, var(--accent-api) 55%, white);
 
   /* Background Colors */
   --bg-primary: #f4f4f5;
@@ -34,7 +42,7 @@
   /* Text Colors */
   --text-primary: #18181b;
   --text-secondary: #51525c;
-  --text-muted: #83839b;
+  --text-muted: #7e7e89;
 
   /* Border Colors */
   --border: rgba(0, 0, 0, 0.12);
@@ -67,17 +75,23 @@
 
 /* === Dark Theme === */
 [data-theme="dark"] {
-  /* Brand Colors - slightly brighter for dark mode */
-  --primary: #3b82f6;
-  --primary-hover: #2563eb;
-  --primary-light: rgba(59, 130, 246, 0.14);
-  --accent: #3b82f6;
+  /* Brand Colors - slightly brighter for dark mode, still desaturated */
+  --primary: #6c92b4;
+  --primary-hover: #7fa3c4;
+  --primary-light: color-mix(in srgb, var(--primary) 14%, transparent);
+  --accent: var(--primary);
+  --primary-soft: color-mix(in srgb, var(--primary) 72%, white);
+  --primary-softer: color-mix(in srgb, var(--primary) 46%, white);
+  --primary-deep: color-mix(in srgb, var(--primary) 55%, black);
 
   /* Status Colors */
   --success: #22c55e;
   --warning: #f59e0b;
   --warning-strong: #f97316;
   --danger: #ef4444;
+
+  --accent-api: #2f9d8f;
+  --accent-api-soft: color-mix(in srgb, var(--accent-api) 62%, white);
 
   /* Background Colors - dark palette */
   --bg-primary: #131316;

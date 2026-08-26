@@ -100,7 +100,7 @@
 }
 
 .close-option-btn.quit .option-icon {
-  background: #ef4444;
+  background: var(--danger);
   color: white;
 }
 
