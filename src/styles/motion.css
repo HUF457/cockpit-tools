@@ -42,6 +42,17 @@
      - The unlock celebration in pages/settings/Settings.css.
    Nothing else gets a bespoke curve.
 
+   ONE EASING FOR TRANSITIONS. Every `transition` in the app uses
+   --ease-standard; --ease-entrance belongs to the keyframes below,
+   which is what makes an entrance read as an entrance.
+
+   `transition: all` is still widespread and still tolerated: it is
+   how most hover states here are written, and none of them
+   currently animate geometry by accident. Prefer naming the
+   properties in new code — with `all`, any property added to a
+   :hover rule later starts animating without anyone deciding it
+   should.
+
    Adding a surface? Register it in the blocks at the bottom of
    this file rather than declaring a local @keyframes — duplicate
    global keyframe names silently overwrite each other. */
