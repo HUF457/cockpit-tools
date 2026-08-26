@@ -6476,23 +6476,72 @@ pub fn filter_account_ids_by_quota_refresh_policy(account_ids: &[String]) -> Vec
 }
 
 /// 列出所有账号
+/// Number of accounts below which the fan-out costs more than it saves.
+const CODEX_ACCOUNT_PARALLEL_LOAD_THRESHOLD: usize = 24;
+/// Detail files are small; past this many workers the disk, not the CPU, is the limit.
+const CODEX_ACCOUNT_PARALLEL_LOAD_MAX_WORKERS: usize = 8;
+
+/// Read and decrypt every indexed account detail, preserving index order.
+///
+/// Each entry is an independent file read plus an AES-GCM open, and the two
+/// together cost about a millisecond apiece. Walking a few hundred accounts
+/// serially therefore kept the whole list command busy for hundreds of
+/// milliseconds while the UI sat on a spinner, so split the walk across a small
+/// pool of scoped threads.
+fn load_indexed_accounts(
+    summaries: &[CodexAccountSummary],
+) -> Vec<Result<Option<CodexAccount>, String>> {
+    let load_one = |summary: &CodexAccountSummary| load_account_with_summary(&summary.id, Some(summary));
+
+    let workers = if summaries.len() < CODEX_ACCOUNT_PARALLEL_LOAD_THRESHOLD {
+        1
+    } else {
+        std::thread::available_parallelism()
+            .map(|value| value.get())
+            .unwrap_or(1)
+            .clamp(1, CODEX_ACCOUNT_PARALLEL_LOAD_MAX_WORKERS)
+    };
+
+    if workers <= 1 {
+        return summaries.iter().map(load_one).collect();
+    }
+
+    let chunk_size = summaries.len().div_ceil(workers);
+    let chunks: Vec<&[CodexAccountSummary]> = summaries.chunks(chunk_size).collect();
+    let mut results: Vec<Vec<Result<Option<CodexAccount>, String>>> = Vec::new();
+
+    std::thread::scope(|scope| {
+        let handles: Vec<_> = chunks
+            .iter()
+            .map(|chunk| scope.spawn(move || chunk.iter().map(load_one).collect::<Vec<_>>()))
+            .collect();
+        for handle in handles {
+            // A panic inside a detail load must not take the whole listing down;
+            // report the chunk as unreadable and let the caller's repair path decide.
+            results.push(handle.join().unwrap_or_else(|_| {
+                vec![Err("读取账号详情线程异常退出".to_string())]
+            }));
+        }
+    });
+
+    results.into_iter().flatten().collect()
+}
+
 pub fn list_accounts() -> Vec<CodexAccount> {
     let mut index = load_account_index();
-    let accounts: Vec<CodexAccount> = index
-        .accounts
-        .iter()
-        .filter_map(
-            |summary| match load_account_with_summary(&summary.id, Some(summary)) {
-                Ok(account) => account,
-                Err(error) => {
-                    logger::log_warn(&format!(
-                        "[Codex Account] 跳过无法读取的账号详情: account_id={}, error={}",
-                        summary.id, error
-                    ));
-                    None
-                }
-            },
-        )
+    let accounts: Vec<CodexAccount> = load_indexed_accounts(&index.accounts)
+        .into_iter()
+        .zip(index.accounts.iter())
+        .filter_map(|(loaded, summary)| match loaded {
+            Ok(account) => account,
+            Err(error) => {
+                logger::log_warn(&format!(
+                    "[Codex Account] 跳过无法读取的账号详情: account_id={}, error={}",
+                    summary.id, error
+                ));
+                None
+            }
+        })
         .collect();
     if sync_loaded_accounts_to_index_cache(&mut index, &accounts) {
         if let Err(error) = save_account_index(&index) {
@@ -6513,8 +6562,11 @@ pub fn list_accounts_checked() -> Result<Vec<CodexAccount>, String> {
     let mut missing_detail_ids = Vec::new();
     let mut has_non_missing_failure = false;
 
-    for summary in &index.accounts {
-        match load_account_with_summary(&summary.id, Some(summary)) {
+    for (loaded, summary) in load_indexed_accounts(&index.accounts)
+        .into_iter()
+        .zip(index.accounts.iter())
+    {
+        match loaded {
             Ok(Some(account)) => accounts.push(account),
             Ok(None) => {
                 missing_detail_ids.push(summary.id.clone());
