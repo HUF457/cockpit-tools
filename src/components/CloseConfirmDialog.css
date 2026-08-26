@@ -95,7 +95,7 @@
 }
 
 .close-option-btn.minimize .option-icon {
-  background: #3b82f6;
+  background: var(--primary);
   color: white;
 }
 
