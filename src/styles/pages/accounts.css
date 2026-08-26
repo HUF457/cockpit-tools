@@ -371,7 +371,7 @@
 .instance-plan-badge.plan-badge-style-soft {
   filter: saturate(0.85);
   opacity: 0.92;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
 }
 .tier-badge.plan-badge-style-mono,
 .instance-plan-badge.plan-badge-style-mono {
@@ -835,7 +835,7 @@
 .codex-custom-sort-index {
   width: 28px;
   height: 28px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1476,7 +1476,7 @@
 .accounts-page .tier-badge,
 .accounts-page .verification-status-pill {
   padding: 2px 6px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   font-size: 9px;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -1533,7 +1533,7 @@
   align-items: center;
   gap: 3px;
   padding: 2px 6px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   font-size: 9px;
   font-weight: 700;
   line-height: 1.2;
@@ -1698,7 +1698,7 @@
 .accounts-page .card-action-btn {
   width: 24px;
   height: 24px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   color: var(--text-secondary);
   border: 1px solid transparent;
 }

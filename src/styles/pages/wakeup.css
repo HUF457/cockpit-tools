@@ -24,7 +24,7 @@
   gap: 10px;
   background: var(--bg-tertiary);
   border: 1px solid var(--border);
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-md);
   padding: 6px 10px;
   min-height: 38px;
 }
@@ -213,7 +213,7 @@
   align-items: center;
   gap: 6px;
   padding: 4px 8px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   background: color-mix(in srgb, var(--primary) 8%, transparent);
   color: var(--primary-hover);
   font-weight: 600;
@@ -444,7 +444,7 @@ select.wakeup-input::-ms-expand,
 
 .wakeup-chip {
   padding: 6px 12px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   border: 1px solid var(--border);
   background: var(--bg-secondary);
   font-size: 12px;
@@ -631,7 +631,7 @@ select.wakeup-input::-ms-expand,
 
 .wakeup-history-badge {
   padding: 2px 8px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   font-size: 11px;
   background: var(--bg-tertiary);
   color: var(--text-secondary);

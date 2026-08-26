@@ -157,7 +157,7 @@
   min-width: 24px;
   height: 20px;
   padding: 0 7px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   background: var(--primary-light);
   color: var(--primary);
   display: inline-flex;

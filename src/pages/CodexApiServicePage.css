@@ -954,7 +954,7 @@
   max-width: 100%;
   padding: 4px 8px;
   border: 1px solid color-mix(in srgb, var(--accent) 16%, var(--codex-api-border-soft));
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   background: color-mix(in srgb, var(--accent) 7%, transparent);
   color: var(--text-secondary);
   font-size: 11px;
@@ -1248,7 +1248,7 @@
 .api-key-policy-dirty {
   padding: 2px 6px;
   border: 1px solid color-mix(in srgb, var(--warning) 32%, var(--codex-api-border-soft));
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   background: color-mix(in srgb, var(--warning) 8%, transparent);
   color: var(--warning);
   line-height: 1.2;
@@ -1720,7 +1720,7 @@ html[data-reduced-motion="true"] .codex-api-service-key-advanced-toggle[aria-exp
   max-width: 100%;
   padding: 3px 6px;
   border: 1px solid var(--codex-api-border-soft);
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   background: color-mix(in srgb, var(--bg-card) 82%, transparent);
   color: var(--text-secondary);
   font-size: 11px;

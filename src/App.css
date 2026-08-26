@@ -767,7 +767,7 @@
   width: fit-content;
   height: 18px;
   padding: 0 7px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   background: color-mix(in srgb, var(--primary) 12%, transparent);
   color: var(--primary);
   display: inline-flex;
@@ -794,7 +794,7 @@
   width: fit-content;
   height: 22px;
   padding: 0 8px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   border: 1px solid color-mix(in srgb, var(--primary) 24%, transparent);
   background: color-mix(in srgb, var(--primary) 8%, transparent);
   color: var(--primary);

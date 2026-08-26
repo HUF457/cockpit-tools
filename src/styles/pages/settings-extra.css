@@ -75,7 +75,7 @@
   align-items: center;
   gap: 8px;
   padding: 6px 12px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   font-size: 13px;
   font-weight: 500;
 }

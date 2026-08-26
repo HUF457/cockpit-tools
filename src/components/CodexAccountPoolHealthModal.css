@@ -107,7 +107,7 @@
   gap: 4px;
   flex-shrink: 0;
   padding: 2px 8px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   border: 1px solid var(--border-light);
   background: color-mix(in srgb, var(--bg-secondary) 88%, transparent);
   color: var(--text-secondary);

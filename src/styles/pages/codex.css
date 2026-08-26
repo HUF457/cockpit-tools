@@ -116,7 +116,7 @@
   align-items: center;
   height: 24px;
   padding: 0 9px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   background: color-mix(in srgb, var(--primary) 10%, transparent);
   color: var(--primary);
   font-size: 12px;
@@ -402,7 +402,7 @@
   margin-top: 9px;
   padding: 5px 10px;
   border: 0;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   background: var(--primary);
   color: #fff;
   font-size: 12px;
@@ -553,7 +553,7 @@
   align-items: center;
   justify-content: center;
   padding: 4px 10px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -951,7 +951,7 @@
   width: auto;
   align-self: flex-start;
   padding: 2px 8px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   border: none;
   background: rgba(14, 165, 233, 0.08);
   cursor: pointer;
@@ -1402,7 +1402,7 @@
 .codex-batch-delete-job__status {
   flex-shrink: 0;
   padding: 3px 8px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   background: color-mix(in srgb, var(--primary) 10%, var(--bg-surface));
   color: var(--primary);
   font-size: 12px;
@@ -2369,7 +2369,7 @@
   align-items: center;
   height: 24px;
   padding: 0 10px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   font-size: 11.5px;
   font-weight: 700;
   color: var(--text-secondary);
@@ -2520,7 +2520,7 @@
   align-items: center;
   height: 20px;
   padding: 0 8px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   font-size: 11px;
   font-weight: 700;
   color: var(--ssh-accent, var(--primary));
@@ -2910,7 +2910,7 @@
   align-items: center;
   gap: 4px;
   padding: 2px 8px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   font-size: 11px;
   font-weight: 600;
   line-height: 1;
@@ -3848,7 +3848,7 @@
   width: 100%;
   min-height: 42px;
   border: none;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   background: #18181b;
   color: #fff;
   font-weight: 800;
@@ -4404,7 +4404,7 @@
   align-items: center;
   flex-shrink: 0;
   padding: 2px 6px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   font-size: 10px;
   font-weight: 700;
   line-height: 1;
@@ -5360,7 +5360,7 @@
 .codex-custom-sort-index {
   width: 28px;
   height: 28px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -6375,7 +6375,7 @@
 .codex-account-note-mail-preview__status {
   width: fit-content;
   padding: 2px 8px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   background: color-mix(in srgb, var(--bg-primary) 60%, transparent);
 }
 
@@ -6593,7 +6593,7 @@
 .codex-device-auth-status {
   flex: 0 0 auto;
   padding: 4px 8px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   background: color-mix(in srgb, var(--primary) 12%, var(--bg-card));
   color: var(--primary);
   font-size: 11px !important;
@@ -6696,7 +6696,7 @@
 .codex-add-modal .api-model-catalog-count {
   flex: 0 0 auto;
   padding: 3px 8px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   background: color-mix(in srgb, var(--primary) 10%, var(--bg-tertiary));
   color: var(--primary);
   font-size: 11px;
@@ -9635,7 +9635,7 @@
   display: inline-flex;
   align-items: center;
   padding: 6px 10px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   font-size: 12px;
   font-weight: 600;
 }
@@ -9850,7 +9850,7 @@
   display: inline-flex;
   align-self: flex-start;
   padding: 6px 10px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -9969,7 +9969,7 @@
   display: inline-flex;
   align-items: center;
   padding: 6px 10px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   background: color-mix(in srgb, var(--primary-softer) 22%, transparent);
   color: var(--primary-deep);
   font-size: 12px;
@@ -10190,7 +10190,7 @@
   display: inline-flex;
   align-items: center;
   padding: 4px 10px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   font-size: 12px;
   font-weight: 600;
 }
@@ -10458,7 +10458,7 @@
   display: inline-flex;
   align-items: center;
   padding: 6px 10px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   background: color-mix(in srgb, var(--primary) 10%, transparent);
   color: var(--primary-hover);
   font-size: 12px;
@@ -10655,7 +10655,7 @@
   align-items: center;
   min-height: 22px;
   padding: 2px 8px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   background: rgba(250, 250, 250, 0.96);
   border: 1px solid rgba(228, 228, 231, 0.95);
   color: var(--text-secondary);
@@ -11073,7 +11073,7 @@
   display: inline-flex;
   align-self: flex-start;
   padding: 3px 7px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   border: 1px solid color-mix(in srgb, var(--primary-softer) 95%, transparent);
   background: rgba(248, 250, 255, 0.96);
   color: var(--primary-hover);
@@ -11166,7 +11166,7 @@
   align-items: center;
   gap: 8px;
   padding: 6px 11px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   border: 1px solid rgba(228, 228, 231, 0.98);
   background: rgba(255, 255, 255, 0.9);
   color: var(--text-secondary);
@@ -11212,7 +11212,7 @@
   color: var(--text-primary);
   font-size: 12px;
   padding: 1px 6px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   background: rgba(255, 255, 255, 0.88);
 }
 
@@ -11269,7 +11269,7 @@
   align-items: center;
   max-width: 100%;
   padding: 3px 8px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   border: 1px solid rgba(228, 228, 231, 0.98);
   background: rgba(250, 250, 250, 0.9);
   font-size: 12px;
@@ -11347,7 +11347,7 @@
   align-items: center;
   gap: 6px;
   padding: 4px 8px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   font-size: 11px;
   font-weight: 700;
   white-space: nowrap;
@@ -11462,7 +11462,7 @@
   align-items: center;
   gap: 8px;
   padding: 5px 9px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   border: 1px solid rgba(228, 228, 231, 0.98);
   background: rgba(250, 250, 250, 0.94);
 }
@@ -12898,7 +12898,7 @@
   display: inline-flex;
   align-items: center;
   padding: 4px 10px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   font-size: 12px;
   background: color-mix(in srgb, var(--primary) 10%, transparent);
   color: var(--primary-hover);
@@ -13184,7 +13184,7 @@
 
 .codex-session-restore-modal__summary span {
   padding: 4px 8px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   background: var(--bg-secondary);
 }
 
@@ -13285,7 +13285,7 @@
 
 .codex-session-target-modal__summary span {
   padding: 4px 8px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   background: var(--bg-secondary);
 }
 
@@ -13300,7 +13300,7 @@
 
 .codex-session-import-modal__summary span {
   padding: 4px 8px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   background: var(--bg-secondary);
 }
 
@@ -13315,7 +13315,7 @@
 
 .codex-session-export-modal__summary span {
   padding: 4px 8px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   background: var(--bg-secondary);
 }
 
@@ -14069,7 +14069,7 @@ html[data-reduced-motion="true"] .codex-accounts-page .codex-accounts-grid .code
   align-items: center;
   padding: 6px 12px;
   border: 1px solid var(--border);
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   background: color-mix(in srgb, var(--bg-card) 88%, transparent);
   color: inherit;
   cursor: pointer;

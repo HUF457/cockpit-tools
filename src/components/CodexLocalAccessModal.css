@@ -162,7 +162,7 @@
   width: 100%;
   min-width: 0;
   height: 30px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-md);
   border: 1px solid
     color-mix(in srgb, var(--primary) 20%, rgba(161, 161, 170, 0.18));
   background: color-mix(in srgb, var(--primary) 4%, rgba(255, 255, 255, 0.9));
@@ -1154,7 +1154,7 @@
 .codex-local-access-custom-routing-account .tier-badge {
   flex-shrink: 0;
   padding: 4px 10px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.05em;
@@ -1526,7 +1526,7 @@
   align-items: center;
   min-height: 22px;
   padding: 0 8px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   border: 1px solid color-mix(in srgb, var(--primary) 28%, var(--border));
   background: color-mix(in srgb, var(--primary) 12%, var(--bg-card));
   color: var(--primary);
@@ -1799,7 +1799,7 @@
 .codex-local-access-view-only-badge {
   margin-right: auto;
   padding: 3px 8px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   background: color-mix(in srgb, var(--primary) 9%, transparent);
   color: var(--text-secondary);
   font-size: 11px;
@@ -2000,7 +2000,7 @@
   align-items: center;
   min-height: 28px;
   padding: 0 10px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   border: 1px solid rgba(161, 161, 170, 0.14);
   background: rgba(161, 161, 170, 0.08);
   font-size: 11px;
@@ -2316,7 +2316,7 @@
   align-items: center;
   flex: 0 0 auto;
   padding: 3px 8px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   border: 1px solid color-mix(in srgb, var(--primary) 24%, transparent);
   background: rgba(219, 234, 254, 0.7);
   color: var(--primary-deep);
