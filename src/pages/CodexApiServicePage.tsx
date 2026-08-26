@@ -40,6 +40,7 @@ import { confirm as confirmDialog } from "@tauri-apps/plugin-dialog";
 import { useTranslation } from "react-i18next";
 import { CodexIcon } from "../components/icons/CodexIcon";
 import { ManualHelpIconButton } from "../components/ManualHelpIconButton";
+import { SettingsSelect } from "../components/SettingsSelect";
 import { PlatformGroupSwitcher } from "../components/platform/PlatformGroupSwitcher";
 import {
   findGroupByPlatform,
@@ -5901,7 +5902,8 @@ export function CodexApiServicePage() {
                     <span>
                       {t("codex.apiService.timeouts.presetSelect", "选择方案")}
                     </span>
-                    <select
+                    <SettingsSelect
+                      className="settings-select-block"
                       value={selectedTimeoutPresetId}
                       onChange={(event) =>
                         applyTimeoutPreset(event.target.value)
@@ -5912,7 +5914,7 @@ export function CodexApiServicePage() {
                           {preset.name}
                         </option>
                       ))}
-                    </select>
+                    </SettingsSelect>
                   </label>
                   <label className="codex-api-service-timeout-preset-name">
                     <span>

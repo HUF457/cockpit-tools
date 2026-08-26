@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Check, Copy, KeyRound } from 'lucide-react';
+import { SettingsSelect } from './SettingsSelect';
 import {
   getMfaOtpToken,
   getMfaTimeRemaining,
@@ -80,7 +81,8 @@ export function MfaQuickCodeSelect({ className = '' }: MfaQuickCodeSelectProps) 
         </span>
       </div>
       <div className="mfa-quick-code-select__controls">
-        <select
+        <SettingsSelect
+          className="settings-select-block"
           value={selectedRecord?.id ?? ''}
           onChange={(event) => setSelectedId(event.target.value)}
           aria-label={t('mfaQuick.selectLabel', '选择 2FA 秘钥')}
@@ -90,7 +92,7 @@ export function MfaQuickCodeSelect({ className = '' }: MfaQuickCodeSelectProps) 
               {formatMfaOption(record, t('mfaQuick.unnamedSecret', '未命名秘钥'))}
             </option>
           ))}
-        </select>
+        </SettingsSelect>
         <div className="mfa-quick-code-select__code" aria-live="polite">
           <span className={token ? '' : 'invalid'}>
             {token || t('mfaQuick.invalidCode', '无效秘钥')}

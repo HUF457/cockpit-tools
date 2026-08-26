@@ -61,6 +61,7 @@ import {
 import { ALL_PLATFORM_IDS, PlatformId } from '../types/platform';
 import { getPlatformLabel } from '../utils/platformMeta';
 import { presentWindowsOperationError } from '../utils/windowsOperationDialog';
+import { SettingsSelect } from './SettingsSelect';
 
 type TransferFeedbackTone = 'loading' | 'success' | 'error';
 type FeedbackSetter = Dispatch<SetStateAction<TransferFeedback | null>>;
@@ -1907,7 +1908,7 @@ export function SettingsAccountTransferSection({
                     <div className="settings-backup-manager-desc">
                       {t('settings.transfer.backup.typeDesc')}
                     </div>
-                    <select
+                    <SettingsSelect
                       className="settings-select"
                       value={backupMode}
                       onChange={(event) => {
@@ -1918,7 +1919,7 @@ export function SettingsAccountTransferSection({
                       <option value="full">{t('settings.transfer.backup.typeFull')}</option>
                       <option value="accounts">{t('settings.transfer.backup.typeAccounts')}</option>
                       <option value="config">{t('settings.transfer.backup.typeConfig')}</option>
-                    </select>
+                    </SettingsSelect>
                   </div>
 
                   <div className="settings-backup-manager-card">
@@ -2053,7 +2054,7 @@ export function SettingsAccountTransferSection({
                   {backupPlatformOptions.length > 0 && (
                     <div className="settings-backup-platform-filter">
                       <span>{t('settings.transfer.backup.platformFilterLabel')}</span>
-                      <select
+                      <SettingsSelect
                         className="settings-select"
                         value={backupPlatformFilter}
                         onChange={(event) =>
@@ -2067,7 +2068,7 @@ export function SettingsAccountTransferSection({
                             {getPlatformLabel(platform, t)}
                           </option>
                         ))}
-                      </select>
+                      </SettingsSelect>
                     </div>
                   )}
 

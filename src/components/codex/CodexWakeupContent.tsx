@@ -76,6 +76,7 @@ import {
   PRIVACY_MODE_CHANGED_EVENT,
 } from '../../utils/privacy';
 import { isReducedMotionEnabled } from '../../utils/reducedMotion';
+import { SettingsSelect } from '../SettingsSelect';
 
 const WAKEUP_ACCOUNT_PAGE_SIZE_OPTIONS = [50, 100, 200] as const;
 
@@ -3048,8 +3049,8 @@ export function CodexWakeupContent({
 
               <div className="wakeup-form-group">
                 <label>{t('codex.wakeup.presetDefaultReasoningLabel')}</label>
-                <select
-                  className="wakeup-input"
+                <SettingsSelect
+                  className="settings-select-block"
                   value={presetDraft.defaultReasoningEffort}
                   onChange={(event) =>
                     setPresetDraft((current) => ({
@@ -3064,7 +3065,7 @@ export function CodexWakeupContent({
                       {reasoningEffortLabel(effort, t)}
                     </option>
                   ))}
-                </select>
+                </SettingsSelect>
               </div>
             </div>
             <div className="modal-footer">
@@ -3434,8 +3435,8 @@ export function CodexWakeupContent({
 
               <div className="wakeup-form-group">
                 <label>{t('wakeup.form.executionMode')}</label>
-                <select
-                  className="wakeup-select"
+                <SettingsSelect
+                  className="settings-select-block"
                   value={taskDraft.executionMode}
                   onChange={(event) =>
                     setTaskDraft((current) => ({
@@ -3446,7 +3447,7 @@ export function CodexWakeupContent({
                 >
                   <option value="auto">{t('wakeup.form.executionModeAuto')}</option>
                   <option value="confirm">{t('wakeup.form.executionModeConfirm')}</option>
-                </select>
+                </SettingsSelect>
               </div>
 
               {taskDraft.executionMode === 'confirm' && (

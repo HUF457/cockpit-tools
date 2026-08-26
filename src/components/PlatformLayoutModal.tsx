@@ -42,6 +42,7 @@ import {
 import { CLASSIC_SIDEBAR_ENTRY_LIMIT, ORIGINAL_SIDEBAR_ENTRY_LIMIT, useSideNavLayoutStore } from '../stores/useSideNavLayoutStore';
 import { getPlatformLabel, renderPlatformIcon } from '../utils/platformMeta';
 import { useEscClose } from '../hooks/useEscClose';
+import { SettingsSelect } from './SettingsSelect';
 import {
   PLATFORM_LAYOUT_ICON_STORAGE_KEY,
   persistPlatformLayoutCustomIcons,
@@ -1645,7 +1646,8 @@ export function PlatformLayoutModal({
 
                 <label className="platform-layout-group-field">
                   <span>{t('platformLayout.groupDefault', '默认平台')}</span>
-                  <select
+                  <SettingsSelect
+                    className="settings-select-block"
                     value={groupDraftDefaultPlatformId}
                     onChange={(event) => setGroupDraftDefaultPlatformId(event.target.value as PlatformId)}
                     disabled={groupDraftPlatformIds.length === 0}
@@ -1655,7 +1657,7 @@ export function PlatformLayoutModal({
                         {getPlatformLabel(platformId, t)}
                       </option>
                     ))}
-                  </select>
+                  </SettingsSelect>
                 </label>
               </div>
 

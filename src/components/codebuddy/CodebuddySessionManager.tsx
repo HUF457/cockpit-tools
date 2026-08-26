@@ -17,6 +17,7 @@ import type {
 import * as sessionService from '../../services/codebuddySessionService';
 import type { CodebuddySuiteAccountBase } from '../../types/codebuddy-suite';
 import { getAccountDisplayName } from '../../utils/codebuddy-suite/quota-model';
+import { SettingsSelect } from '../SettingsSelect';
 import {
   buildSessionGroups,
   formatRelativeTime,
@@ -175,8 +176,8 @@ export function CodebuddySessionManager({ platform, accounts = [] }: Props) {
             )}
           </div>
 
-          <select
-            className="codex-session-manager__status-select"
+          <SettingsSelect
+            className="settings-select-compact"
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
             disabled={loading}
@@ -184,7 +185,7 @@ export function CodebuddySessionManager({ platform, accounts = [] }: Props) {
             <option value="">{t('codebuddy.sessionManager.statusAll', '全部状态')}</option>
             <option value="Completed">{t('codebuddy.sessionManager.statusCompleted', '已完成')}</option>
             <option value="InProgress">{t('codebuddy.sessionManager.statusInProgress', '进行中')}</option>
-          </select>
+          </SettingsSelect>
         </div>
 
         <div className="codex-session-manager__actions">

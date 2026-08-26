@@ -73,6 +73,7 @@ import { CodexSshSyncSettingsControl } from './codex/CodexSshSyncSettingsControl
 import { getCodexExperimentalModelErrorMessage } from '../utils/codexExperimentalModel';
 import { CodexExperimentalModelEditor } from './codex/CodexExperimentalModelEditor';
 import { CodexOAuthPolicyModal } from './codex/CodexOAuthPolicyModal';
+import { SettingsSelect } from './SettingsSelect';
 import './QuickSettingsPopover.css';
 
 /** GeneralConfig from backend */
@@ -1746,7 +1747,7 @@ export function QuickSettingsPopover({ type }: QuickSettingsPopoverProps) {
                       <span className="qs-input-unit">%</span>
                     </div>
                   ) : (
-                    <select
+                    <SettingsSelect
                       className="qs-select"
                       value={String(quotaAlertThresholdValue)}
                       onChange={(e) => handleQuotaAlertThresholdSelectChange(e.target.value)}
@@ -1761,7 +1762,7 @@ export function QuickSettingsPopover({ type }: QuickSettingsPopoverProps) {
                       <option value="40">40%</option>
                       <option value="60">60%</option>
                       <option value="custom">{t('quickSettings.customInput', '自定义')}</option>
-                    </select>
+                    </SettingsSelect>
                   )}
                 </div>
               </div>
@@ -2275,7 +2276,7 @@ export function QuickSettingsPopover({ type }: QuickSettingsPopoverProps) {
                     <span className="qs-input-unit">{t('settings.general.minutes')}</span>
                   </div>
                 ) : (
-                  <select
+                  <SettingsSelect
                     className="qs-select"
                     value={String(refreshValue)}
                     onChange={(e) => handleRefreshSelectChange(e.target.value)}
@@ -2291,7 +2292,7 @@ export function QuickSettingsPopover({ type }: QuickSettingsPopoverProps) {
                     <option value="10">10 {t('settings.general.minutes')}</option>
                     <option value="15">15 {t('settings.general.minutes')}</option>
                     <option value="custom">{t('quickSettings.customInput', '自定义')}</option>
-                  </select>
+                  </SettingsSelect>
                 )}
               </div>
             </div>
@@ -2325,7 +2326,7 @@ export function QuickSettingsPopover({ type }: QuickSettingsPopoverProps) {
                     <span className="qs-input-unit">{t('settings.general.minutes')}</span>
                   </div>
                 ) : (
-                  <select
+                  <SettingsSelect
                     className="qs-select"
                     value={currentAccountRefreshDisplayValue}
                     onChange={(e) => handleCurrentAccountRefreshSelectChange(e.target.value)}
@@ -2345,7 +2346,7 @@ export function QuickSettingsPopover({ type }: QuickSettingsPopoverProps) {
                     <option value="10">10 {t('settings.general.minutes')}</option>
                     <option value="15">15 {t('settings.general.minutes')}</option>
                     <option value="custom">{t('quickSettings.customInput', '自定义')}</option>
-                  </select>
+                  </SettingsSelect>
                 )}
                 <div className="qs-hint" style={{ marginTop: 6 }}>
                   {isCurrentAccountRefreshAllowed
@@ -2880,7 +2881,7 @@ export function QuickSettingsPopover({ type }: QuickSettingsPopoverProps) {
                     <span>{t('codex.list.planBadgeStyle', '套餐徽章样式')}</span>
                   </div>
                   <div className="qs-row-control">
-                    <select
+                    <SettingsSelect
                       className="qs-select"
                       value={codexPlanBadgeStyle}
                       onChange={(e) =>
@@ -2891,7 +2892,7 @@ export function QuickSettingsPopover({ type }: QuickSettingsPopoverProps) {
                       <option value="outline">{t('codex.list.planBadgeStyleOutline', '描边')}</option>
                       <option value="soft">{t('codex.list.planBadgeStyleSoft', '柔和')}</option>
                       <option value="mono">{t('codex.list.planBadgeStyleMono', '单色')}</option>
-                    </select>
+                    </SettingsSelect>
                   </div>
                 </div>
 
@@ -3236,7 +3237,7 @@ export function QuickSettingsPopover({ type }: QuickSettingsPopoverProps) {
                             <span className="qs-input-unit">%</span>
                           </div>
                         ) : (
-                          <select
+                          <SettingsSelect
                             className="qs-select"
                             value={String(config.auto_switch_threshold)}
                             onChange={(e) => handleThresholdSelectChange(e.target.value)}
@@ -3251,7 +3252,7 @@ export function QuickSettingsPopover({ type }: QuickSettingsPopoverProps) {
                             <option value="40">40%</option>
                             <option value="60">60%</option>
                             <option value="custom">{t('quickSettings.customInput', '自定义')}</option>
-                          </select>
+                          </SettingsSelect>
                         )}
                       </div>
                     </div>
@@ -3301,7 +3302,7 @@ export function QuickSettingsPopover({ type }: QuickSettingsPopoverProps) {
                               />
                             </div>
                           ) : (
-                            <select
+                            <SettingsSelect
                               className="qs-select"
                               value={String(creditsAutoSwitchThresholdValue)}
                               onChange={(e) => handleCreditsThresholdSelectChange(e.target.value)}
@@ -3316,7 +3317,7 @@ export function QuickSettingsPopover({ type }: QuickSettingsPopoverProps) {
                               <option value="10">10</option>
                               <option value="20">20</option>
                               <option value="custom">{t('quickSettings.customInput', '自定义')}</option>
-                            </select>
+                            </SettingsSelect>
                           )}
                         </div>
                       </div>
@@ -3327,7 +3328,7 @@ export function QuickSettingsPopover({ type }: QuickSettingsPopoverProps) {
                         <span>{t('quickSettings.autoSwitch.triggerModel', '触发模型')}</span>
                       </div>
                       <div className="qs-row-control">
-                        <select
+                        <SettingsSelect
                           className="qs-select"
                           value={autoSwitchScopeMode}
                           onChange={(e) => handleAutoSwitchScopeModeChange(e.target.value)}
@@ -3338,7 +3339,7 @@ export function QuickSettingsPopover({ type }: QuickSettingsPopoverProps) {
                           <option value="selected_groups">
                             {t('quickSettings.autoSwitch.scopeSelectedGroups', '指定模型分组')}
                           </option>
-                        </select>
+                        </SettingsSelect>
                       </div>
                     </div>
 

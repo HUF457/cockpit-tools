@@ -6,6 +6,7 @@ import { openUrl } from '@tauri-apps/plugin-opener';
 import { ChevronLeft, ShieldCheck, X } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { ModalErrorMessage, useModalErrorState } from '../components/ModalErrorMessage';
+import { SettingsSelect } from '../components/SettingsSelect';
 import { useEscClose } from '../hooks/useEscClose';
 import { OverviewTabsHeader } from '../components/OverviewTabsHeader';
 import { MultiSelectFilterDropdown, type MultiSelectFilterOption } from '../components/MultiSelectFilterDropdown';
@@ -1353,36 +1354,32 @@ export function WakeupVerificationPage({ onNavigate }: WakeupVerificationPagePro
               <ModalErrorMessage message={configModalError} scrollKey={configModalErrorScrollKey} />
               <div className="wakeup-form-group">
                 <label>{t('wakeup.form.antigravityVersion', 'Antigravity IDE Version')}</label>
-                <div className="verification-select-wrap">
-                  <select
-                    className="wakeup-input verification-select"
-                    value={officialLsVersionMode}
-                    onChange={(event) => handleOfficialLsVersionModeChange(event.target.value)}
-                  >
-                    <option value="gte_1_21_6">&gt;=1.21.6</option>
-                    <option value="lt_1_21_6">&lt;1.21.6</option>
-                  </select>
-                </div>
+                <SettingsSelect
+                  className="settings-select-block"
+                  value={officialLsVersionMode}
+                  onChange={(event) => handleOfficialLsVersionModeChange(event.target.value)}
+                >
+                  <option value="gte_1_21_6">&gt;=1.21.6</option>
+                  <option value="lt_1_21_6">&lt;1.21.6</option>
+                </SettingsSelect>
               </div>
               <div className="wakeup-form-group">
                 <label>{t('wakeup.form.modelSelect')}</label>
-                <div className="verification-select-wrap">
-                  <select
-                    className="wakeup-input verification-select"
-                    value={selectedModel}
-                    onChange={(event) => setSelectedModel(event.target.value)}
-                  >
-                    {filteredModels.length === 0 ? (
-                      <option value="">{t('wakeup.form.modelsEmpty')}</option>
-                    ) : (
-                      filteredModels.map((model) => (
-                        <option key={model.id} value={model.id}>
-                          {model.displayName || getAntigravityModelDisplayName(model.id) || model.id}
-                        </option>
-                      ))
-                    )}
-                  </select>
-                </div>
+                <SettingsSelect
+                  className="settings-select-block"
+                  value={selectedModel}
+                  onChange={(event) => setSelectedModel(event.target.value)}
+                >
+                  {filteredModels.length === 0 ? (
+                    <option value="">{t('wakeup.form.modelsEmpty')}</option>
+                  ) : (
+                    filteredModels.map((model) => (
+                      <option key={model.id} value={model.id}>
+                        {model.displayName || getAntigravityModelDisplayName(model.id) || model.id}
+                      </option>
+                    ))
+                  )}
+                </SettingsSelect>
               </div>
               <div className="verification-confirm-hint verification-run-hint">
                 <h3>{t('wakeup.verification.runHint.title')}</h3>

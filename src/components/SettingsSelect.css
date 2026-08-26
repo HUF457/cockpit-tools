@@ -45,6 +45,21 @@
   cursor: not-allowed;
 }
 
+/* Form-field variant: fills its row like sibling text inputs. */
+.settings-select-trigger.settings-select-block {
+  display: flex;
+  width: 100%;
+  min-height: 40px;
+}
+
+/* Compact chip variant for dense toolbars and meta rows. */
+.settings-select-trigger.settings-select-compact {
+  min-width: 0;
+  padding: 3px 8px;
+  font-size: 12px;
+  gap: 5px;
+}
+
 .settings-select-trigger-label {
   min-width: 0;
   flex: 1;

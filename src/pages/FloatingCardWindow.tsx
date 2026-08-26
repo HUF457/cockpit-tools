@@ -110,6 +110,7 @@ import {
   type AccountSyncEventPayload,
   type ActivePlatformFocusPayload,
 } from '../utils/accountSyncEvents';
+import { SettingsSelect } from '../components/SettingsSelect';
 import './FloatingCardWindow.css';
 
 const windowInstance = getCurrentWindow();
@@ -1564,7 +1565,7 @@ export function FloatingCardWindow() {
                   {platformLabel}
                 </div>
               ) : (
-                <select
+                <SettingsSelect
                   className="floating-card-platform-select"
                   value={selectedPlatform}
                   onChange={(event) => setSelectedPlatform(event.target.value as PlatformId)}
@@ -1575,7 +1576,7 @@ export function FloatingCardWindow() {
                       {getPlatformLabel(platformId, t)}
                     </option>
                   ))}
-                </select>
+                </SettingsSelect>
               )}
             </div>
 

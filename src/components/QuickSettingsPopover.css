@@ -227,8 +227,9 @@
   gap: 8px;
 }
 
-/* Select */
-.qs-select {
+/* Select — scoped to native elements; SettingsSelect triggers style themselves */
+select.qs-select,
+input.qs-select {
   padding: 6px 30px 6px 12px;
   border-radius: var(--radius-xl);
   border: 1px solid var(--border);
@@ -246,11 +247,13 @@
   transition: all 0.15s;
 }
 
-.qs-select:hover {
+select.qs-select:hover,
+input.qs-select:hover {
   border-color: var(--border-light);
 }
 
-.qs-select:focus {
+select.qs-select:focus,
+input.qs-select:focus {
   border-color: var(--primary);
   box-shadow: 0 0 0 2px color-mix(in srgb, var(--primary) 15%, transparent);
 }
@@ -278,7 +281,7 @@
   width: 100%;
 }
 
-.qs-inline-input .qs-select {
+.qs-inline-input input.qs-select {
   width: 100%;
 }
 

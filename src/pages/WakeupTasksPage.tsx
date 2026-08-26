@@ -37,6 +37,7 @@ import {
 import { ModalErrorMessage, useModalErrorState } from '../components/ModalErrorMessage';
 import { useEscClose } from '../hooks/useEscClose';
 import { OverviewTabsHeader } from '../components/OverviewTabsHeader';
+import { SettingsSelect } from '../components/SettingsSelect';
 import { useAntigravityRuntimeTarget } from '../hooks/useAntigravityRuntimeTarget';
 
 const TASKS_STORAGE_KEY = 'agtools.wakeup.tasks';
@@ -2383,14 +2384,14 @@ export function WakeupTasksPage({ onNavigate }: WakeupPageProps) {
             <div className="modal-body">
               <div className="wakeup-form-group">
                 <label>{t('wakeup.form.antigravityVersion', 'Antigravity IDE Version')}</label>
-                <select
-                  className="wakeup-input wakeup-select"
+                <SettingsSelect
+                  className="settings-select-block"
                   value={officialLsVersionMode}
                   onChange={(event) => handleOfficialLsVersionModeChange(event.target.value)}
                 >
                   <option value="gte_1_21_6">&gt;=1.21.6</option>
                   <option value="lt_1_21_6">&lt;1.21.6</option>
-                </select>
+                </SettingsSelect>
               </div>
               <div className="wakeup-form-group">
                 <label>{t('wakeup.test.modelsLabel')}</label>
@@ -2655,14 +2656,14 @@ export function WakeupTasksPage({ onNavigate }: WakeupPageProps) {
             <div className="modal-body">
               <div className="wakeup-form-group">
                 <label>{t('wakeup.form.antigravityVersion', 'Antigravity IDE Version')}</label>
-                <select
-                  className="wakeup-input wakeup-select"
+                <SettingsSelect
+                  className="settings-select-block"
                   value={officialLsVersionMode}
                   onChange={(event) => handleOfficialLsVersionModeChange(event.target.value)}
                 >
                   <option value="gte_1_21_6">&gt;=1.21.6</option>
                   <option value="lt_1_21_6">&lt;1.21.6</option>
-                </select>
+                </SettingsSelect>
               </div>
               <div className="wakeup-form-group">
                 <label>{t('wakeup.form.taskName')}</label>
@@ -2883,15 +2884,15 @@ export function WakeupTasksPage({ onNavigate }: WakeupPageProps) {
                 <div className="wakeup-mode-panel">
                   <div className="wakeup-form-group">
                     <label>{t('wakeup.form.repeatMode')}</label>
-                    <select
-                      className="wakeup-input wakeup-select"
+                    <SettingsSelect
+                      className="settings-select-block"
                       value={formRepeatMode}
                       onChange={(event) => setFormRepeatMode(event.target.value as RepeatMode)}
                     >
                       <option value="daily">{t('wakeup.form.repeatDaily')}</option>
                       <option value="weekly">{t('wakeup.form.repeatWeekly')}</option>
                       <option value="interval">{t('wakeup.form.repeatInterval')}</option>
-                    </select>
+                    </SettingsSelect>
                   </div>
 
                   {formRepeatMode === 'daily' && (
@@ -3252,8 +3253,8 @@ export function WakeupTasksPage({ onNavigate }: WakeupPageProps) {
 
               <div className="wakeup-form-group">
                 <label>{t('wakeup.form.executionMode', '执行模式')}</label>
-                <select
-                  className="wakeup-select"
+                <SettingsSelect
+                  className="settings-select-block"
                   value={formExecutionMode}
                   onChange={(event) =>
                     setFormExecutionMode(event.target.value as 'auto' | 'confirm')
@@ -3261,7 +3262,7 @@ export function WakeupTasksPage({ onNavigate }: WakeupPageProps) {
                 >
                   <option value="auto">{t('wakeup.form.executionModeAuto', '直接执行')}</option>
                   <option value="confirm">{t('wakeup.form.executionModeConfirm', '需要确认')}</option>
-                </select>
+                </SettingsSelect>
               </div>
 
               {formExecutionMode === 'confirm' && (

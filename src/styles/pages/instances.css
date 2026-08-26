@@ -196,17 +196,14 @@
   cursor: pointer;
 }
 
-.instances-page .sort-select::after {
-  content: "";
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  width: 6px;
-  height: 6px;
-  border-right: 2px solid var(--text-muted);
-  border-bottom: 2px solid var(--text-muted);
-  transform: translateY(-50%) rotate(45deg);
-  pointer-events: none;
+.instances-page .sort-select .settings-select-trigger {
+  width: 100%;
+  min-width: 0;
+  min-height: 32px;
+  padding-left: 30px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
 }
 
 .instances-page .sort-direction-btn {

@@ -69,6 +69,7 @@ import type { CodexAppSpeed } from "../types/codex";
 import { getCodexExperimentalModelErrorMessage } from "../utils/codexExperimentalModel";
 import { isCodexInstanceAccountConflict } from "../utils/codexInstanceLaunchConflict";
 import { presentWindowsOperationError } from "../utils/windowsOperationDialog";
+import { SettingsSelect } from "./SettingsSelect";
 
 type MessageState = { text: string; tone?: "error" };
 type AccountLike = {
@@ -2208,7 +2209,7 @@ export function InstancesManager<TAccount extends AccountLike>({
           </div>
           <div className="sort-select">
             <ArrowDownWideNarrow size={14} className="sort-icon" />
-            <select
+            <SettingsSelect
               value={sortField}
               onChange={(event) =>
                 setSortField(event.target.value as InstanceSortField)
@@ -2221,7 +2222,7 @@ export function InstancesManager<TAccount extends AccountLike>({
               <option value="lastLaunchedAt">
                 {t("instances.sort.lastLaunchedAt", "按启动时间")}
               </option>
-            </select>
+            </SettingsSelect>
           </div>
           <button
             className="sort-direction-btn"

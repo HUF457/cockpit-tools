@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { ChevronDown, Copy, FileText, FolderOpen, RefreshCw, X } from 'lucide-react';
+import { Copy, FileText, FolderOpen, RefreshCw, X } from 'lucide-react';
+import { SettingsSelect } from './SettingsSelect';
 import { useTranslation } from 'react-i18next';
 import { getLogSnapshot, openLogDirectory, type LogSnapshot } from '../services/logService';
 import { useEscClose } from '../hooks/useEscClose';
@@ -252,24 +253,21 @@ export function LogViewerModal({ open, onClose }: LogViewerModalProps) {
             <div className="log-viewer-meta-item log-viewer-file-item">
               <FileText size={14} />
               {snapshot?.available_files?.length ? (
-                <div className="log-viewer-select-wrap">
-                  <select
-                    className="log-viewer-select"
-                    value={activeFileName}
-                    onChange={(event) => {
-                      setSelectedFileName(event.target.value);
-                      setError('');
-                    }}
-                    aria-label={t('logViewer.fileLabel', '日志文件')}
-                  >
-                    {snapshot.available_files.map((file) => (
-                      <option key={file.log_file_name} value={file.log_file_name}>
-                        {file.log_file_name}
-                      </option>
-                    ))}
-                  </select>
-                  <ChevronDown size={14} />
-                </div>
+                <SettingsSelect
+                  className="settings-select-compact"
+                  value={activeFileName}
+                  onChange={(event) => {
+                    setSelectedFileName(event.target.value);
+                    setError('');
+                  }}
+                  aria-label={t('logViewer.fileLabel', '日志文件')}
+                >
+                  {snapshot.available_files.map((file) => (
+                    <option key={file.log_file_name} value={file.log_file_name}>
+                      {file.log_file_name}
+                    </option>
+                  ))}
+                </SettingsSelect>
               ) : (
                 <span className="log-viewer-path-text">-</span>
               )}
@@ -287,21 +285,18 @@ export function LogViewerModal({ open, onClose }: LogViewerModalProps) {
                 <span className="log-viewer-line-limit-label">
                   {t('logViewer.levelLabel', '级别')}
                 </span>
-                <div className="log-viewer-select-wrap log-viewer-level-select-wrap">
-                  <select
-                    className="log-viewer-select"
-                    value={levelFilter}
-                    onChange={(event) => setLevelFilter(event.target.value as LogLevelFilter)}
-                    aria-label={t('logViewer.levelLabel', '级别')}
-                  >
-                    {levelOptions.map((option) => (
-                      <option key={option.value} value={option.value}>
-                        {option.label}
-                      </option>
-                    ))}
-                  </select>
-                  <ChevronDown size={14} />
-                </div>
+                <SettingsSelect
+                  className="settings-select-compact"
+                  value={levelFilter}
+                  onChange={(event) => setLevelFilter(event.target.value as LogLevelFilter)}
+                  aria-label={t('logViewer.levelLabel', '级别')}
+                >
+                  {levelOptions.map((option) => (
+                    <option key={option.value} value={option.value}>
+                      {option.label}
+                    </option>
+                  ))}
+                </SettingsSelect>
               </div>
               <div className="log-viewer-line-limit-wrap">
                 <span className="log-viewer-line-limit-label">
