@@ -580,15 +580,6 @@ input.qs-select:focus {
   margin: 0;
 }
 
-.qs-codex-quick-field .qs-select {
-  width: 100%;
-  min-height: 36px;
-  padding: 7px 10px;
-  border-radius: var(--radius-xl);
-  font-size: 13px;
-  line-height: 1.35;
-}
-
 .qs-codex-quick-field-error {
   font-size: 11px;
   color: var(--danger);

@@ -68,9 +68,9 @@
   gap: 12px;
   padding: 10px 12px;
   border-radius: var(--radius-xl);
-  border: 1px solid rgba(14, 165, 233, 0.28);
-  background: rgba(125, 211, 252, 0.12);
-  color: #18181b;
+  border: 1px solid color-mix(in srgb, var(--primary) 28%, transparent);
+  background: color-mix(in srgb, var(--primary) 10%, transparent);
+  color: var(--text-primary);
 }
 
 .ghcp-accounts-page .status-banner.error {
