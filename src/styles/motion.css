@@ -22,8 +22,10 @@
        drawer, full-panel swap.
 
      data (--motion-data, 400ms)
-       Value-driven bars that move because the number moved, not
-       because the user clicked. Never gates interaction.
+       A value changed on its own and the change itself is the
+       message: usage bars growing, the verification-code card
+       flashing when a new code lands. Never gates interaction —
+       the value is already readable before the motion ends.
 
    ENTRANCES ONLY. React unmounts these surfaces synchronously, so
    there is no exit animation anywhere; a surface that fades in and
@@ -55,7 +57,10 @@
 
    Adding a surface? Register it in the blocks at the bottom of
    this file rather than declaring a local @keyframes — duplicate
-   global keyframe names silently overwrite each other. */
+   global keyframe names silently overwrite each other. A one-off
+   data-tier cue may keep its keyframes next to the rule that uses
+   them, but only under a name prefixed with its own component;
+   the duration and easing still come from the tokens. */
 
 :root {
   --motion-micro: 120ms;
