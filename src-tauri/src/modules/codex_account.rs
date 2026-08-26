@@ -5796,8 +5796,9 @@ fn repair_account_index_from_details_with_previous(
     account_ids.sort();
     let mut summaries = Vec::with_capacity(account_ids.len());
     let mut failed = Vec::new();
+    let context = CodexAccountLoadContext::new();
     for account_id in account_ids {
-        match load_account_with_summary(&account_id, summary_by_id.get(&account_id)) {
+        match load_account_with_context(&account_id, summary_by_id.get(&account_id), &context) {
             Ok(Some(account)) => summaries.push(account_summary_from_account(&account)),
             Ok(None) => failed.push(format!("{}: 详情文件不存在", account_id)),
             Err(error) => failed.push(format!("{}: {}", account_id, error)),
