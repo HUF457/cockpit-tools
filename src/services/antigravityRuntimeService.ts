@@ -52,6 +52,15 @@ type IdleWindow = Window & {
   requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
 };
 
+// The renderer goes idle long before the backend does, so an idle callback on
+// its own still lands inside the startup window. Hold for a fixed delay first,
+// by which point account loading and the update check have drained.
+const FULL_SCAN_BOOT_DELAY_MS = 10_000;
+
+function delay(ms: number): Promise<void> {
+  return new Promise((resolve) => window.setTimeout(resolve, ms));
+}
+
 function whenIdle(timeoutMs = 5_000): Promise<void> {
   return new Promise((resolve) => {
     const ric = (window as IdleWindow).requestIdleCallback;
@@ -84,6 +93,7 @@ export async function resolvePreferredAntigravityRuntimeTarget(
   // answer below - so keep it out of the startup window, where it otherwise
   // competes with account loading and the update check for CPU. Running the
   // targets in sequence also stops two scans from pinning two cores at once.
+  await delay(FULL_SCAN_BOOT_DELAY_MS);
   await whenIdle();
 
   if (await detectTargetVersion(currentTarget, 'full')) {
