@@ -2503,12 +2503,13 @@ export function useProviderAccountsPage<TAccount extends ProviderAccountBase>(
   ]);
 
   // ─── Flow Notice ──────────────────────────────────────────────────────
+  // Collapsed by default; only an explicit '0' (user expanded it) keeps it open.
   const [isFlowNoticeCollapsed, setIsFlowNoticeCollapsed] = useState<boolean>(() => {
-    if (!flowNoticeCollapsedKey) return false;
+    if (!flowNoticeCollapsedKey) return true;
     try {
-      return localStorage.getItem(flowNoticeCollapsedKey) === '1';
+      return localStorage.getItem(flowNoticeCollapsedKey) !== '0';
     } catch {
-      return false;
+      return true;
     }
   });
 

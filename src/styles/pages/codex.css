@@ -3868,15 +3868,15 @@
 }
 
 [data-theme="dark"] .codex-reset-credit-confirm-modal {
-  border-color: rgba(96, 165, 250, 0.18);
-  background: #111827;
+  border-color: rgba(161, 161, 170, 0.18);
+  background: #18181b;
   box-shadow:
     0 28px 72px rgba(0, 0, 0, 0.48),
     0 0 0 1px rgba(161, 161, 170, 0.08);
 }
 
 [data-theme="dark"] .codex-reset-credit-confirm-visual {
-  background: #0c1626;
+  background: #09090b;
 }
 
 [data-theme="dark"] .codex-reset-credit-confirm-close {

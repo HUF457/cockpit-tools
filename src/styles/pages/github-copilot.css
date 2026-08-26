@@ -163,9 +163,10 @@
 
 /* 使用通用的 page-header 样式，不再覆盖 */
 
+/* Neutral collapsible help row (collapsed by default), not a colored callout. */
 .ghcp-flow-notice {
-  border: 1px solid rgba(59, 130, 246, 0.28);
-  background: var(--primary-light);
+  border: 1px solid var(--border-light);
+  background: var(--bg-secondary);
   border-radius: var(--radius-md);
   padding: 8px 10px;
   display: flex;
@@ -191,7 +192,7 @@
 }
 
 .ghcp-flow-notice-arrow {
-  color: #2563eb;
+  color: var(--text-muted);
   transition: transform 0.2s ease;
 }
 
@@ -207,9 +208,9 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: #1d4ed8;
+  color: var(--text-secondary);
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .ghcp-flow-notice-desc {
@@ -3156,16 +3157,16 @@
 }
 
 [data-theme="dark"] .ghcp-flow-notice {
-  border-color: rgba(96, 165, 250, 0.35);
-  background: var(--primary-light);
+  border-color: var(--border);
+  background: var(--bg-secondary);
 }
 
 [data-theme="dark"] .ghcp-flow-notice-arrow {
-  color: #93c5fd;
+  color: var(--text-muted);
 }
 
 [data-theme="dark"] .ghcp-flow-notice-title {
-  color: #93c5fd;
+  color: var(--text-secondary);
 }
 
 [data-theme="dark"] .qoder-accounts-page .qoder-usage-section .quota-bar-track {

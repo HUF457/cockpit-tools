@@ -34,7 +34,7 @@
   width: 14px;
   height: 14px;
   border-radius: var(--radius-full);
-  background: #111827;
+  background: #18181b;
   border: 2px solid #fde68a;
   box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.28);
   pointer-events: none;

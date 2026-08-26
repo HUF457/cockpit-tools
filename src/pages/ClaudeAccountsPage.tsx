@@ -794,11 +794,12 @@ export function ClaudeAccountsPage({ subPlatform = 'desktop' }: ClaudeAccountsPa
   const [searchQuery, setSearchQuery] = useState('');
   const [privacyModeEnabled, setPrivacyModeEnabled] = useState(isPrivacyModeEnabledByDefault);
   const [message, setMessage] = useState<{ text: string; tone?: 'error' | 'success' } | null>(null);
+  // Collapsed by default; only an explicit 'false' (user expanded it) keeps it open.
   const [isFlowNoticeCollapsed, setIsFlowNoticeCollapsed] = useState(() => {
     try {
-      return localStorage.getItem(CLAUDE_FLOW_NOTICE_COLLAPSED_KEY) === 'true';
+      return localStorage.getItem(CLAUDE_FLOW_NOTICE_COLLAPSED_KEY) !== 'false';
     } catch {
-      return false;
+      return true;
     }
   });
   const [showAddModal, setShowAddModal] = useState(false);

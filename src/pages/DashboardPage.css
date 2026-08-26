@@ -417,15 +417,15 @@
   flex: 1;
 }
 
+/* Quiet empty state: plain muted text, matching .empty-slot-text, instead of a
+   filled dashed box repeated across every platform card. */
 .empty-slot {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100%;
   color: var(--text-muted);
-  background: var(--bg-tertiary);
-  border-radius: var(--radius-md);
-  border: 1px dashed var(--border);
+  font-size: 13px;
 }
 
 .account-mini-header {

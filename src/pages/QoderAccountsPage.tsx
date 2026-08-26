@@ -350,7 +350,8 @@ export function QoderAccountsPage() {
       : false,
   );
   const [isFlowNoticeCollapsed, setIsFlowNoticeCollapsed] = useState<boolean>(() =>
-    readBooleanStorage(QODER_FLOW_NOTICE_COLLAPSED_KEY, false),
+    // Collapsed by default; an explicit stored '0' (user expanded it) keeps it open.
+    readBooleanStorage(QODER_FLOW_NOTICE_COLLAPSED_KEY, true),
   );
   const [privacyModeEnabled, setPrivacyModeEnabled] = useState<boolean>(() =>
     isPrivacyModeEnabledByDefault(),
