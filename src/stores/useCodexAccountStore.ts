@@ -22,6 +22,8 @@ const CODEX_CURRENT_ACCOUNT_CACHE_KEY = `agtools.codex.accounts.current${STORAGE
 const CODEX_PROFILE_SYNC_IN_FLIGHT = new Set<string>();
 const CODEX_PROFILE_SYNC_LAST_ATTEMPT = new Map<string, number>();
 const CODEX_PROFILE_SYNC_RETRY_INTERVAL_MS = 5 * 60 * 1000;
+/** How often a profile-hydration sweep commits what it has gathered so far. */
+const CODEX_PROFILE_SYNC_FLUSH_INTERVAL_MS = 500;
 let fetchCodexAccountsSeq = 0;
 let fetchCodexCurrentAccountSeq = 0;
 
@@ -393,33 +395,61 @@ export const useCodexAccountStore = create<CodexAccountState>((set, get) => ({
           CODEX_PROFILE_SYNC_RETRY_INTERVAL_MS,
     );
 
-    for (const account of candidates) {
-      CODEX_PROFILE_SYNC_IN_FLIGHT.add(account.id);
-      CODEX_PROFILE_SYNC_LAST_ATTEMPT.set(account.id, now);
-      try {
-        const updatedAccount = await codexService.refreshCodexAccountProfile(account.id);
-        set((state) => {
-          const nextAccounts = state.accounts.map((item) =>
-            item.id === updatedAccount.id ? { ...item, ...updatedAccount } : item,
-          );
-          const nextCurrentAccount =
-            state.currentAccount?.id === updatedAccount.id
-              ? { ...state.currentAccount, ...updatedAccount }
-              : state.currentAccount;
+    // Committing each profile on its own used to cost one store write, one full
+    // re-render of the (very large) Codex page, and one JSON.stringify of the
+    // entire account list into localStorage - per account. That is O(N^2) bytes
+    // of synchronous serialisation on the main thread and N re-renders, so a
+    // library of a few hundred accounts stalled the UI for seconds right after
+    // the page opened. Batch the commits instead, flushing on an interval so
+    // progress still shows up while the sync runs.
+    const pending = new Map<string, CodexAccount>();
+    let lastFlushAt = Date.now();
 
-          persistCodexAccountsCache(nextAccounts);
-          persistCodexCurrentAccountCache(nextCurrentAccount);
-
-          return {
-            accounts: nextAccounts,
-            currentAccount: nextCurrentAccount,
-          };
+    const flushPendingProfiles = () => {
+      if (pending.size === 0) return;
+      const updates = new Map(pending);
+      pending.clear();
+      lastFlushAt = Date.now();
+      set((state) => {
+        const nextAccounts = state.accounts.map((item) => {
+          const updated = updates.get(item.id);
+          return updated ? { ...item, ...updated } : item;
         });
-      } catch (e) {
-        console.warn('刷新 Codex 账号资料失败:', account.id, e);
-      } finally {
-        CODEX_PROFILE_SYNC_IN_FLIGHT.delete(account.id);
+        const currentAccount = state.currentAccount;
+        const currentUpdate = currentAccount ? updates.get(currentAccount.id) : undefined;
+        const nextCurrentAccount =
+          currentAccount && currentUpdate
+            ? { ...currentAccount, ...currentUpdate }
+            : currentAccount;
+
+        persistCodexAccountsCache(nextAccounts);
+        persistCodexCurrentAccountCache(nextCurrentAccount);
+
+        return {
+          accounts: nextAccounts,
+          currentAccount: nextCurrentAccount,
+        };
+      });
+    };
+
+    try {
+      for (const account of candidates) {
+        CODEX_PROFILE_SYNC_IN_FLIGHT.add(account.id);
+        CODEX_PROFILE_SYNC_LAST_ATTEMPT.set(account.id, now);
+        try {
+          const updatedAccount = await codexService.refreshCodexAccountProfile(account.id);
+          pending.set(updatedAccount.id, updatedAccount);
+          if (Date.now() - lastFlushAt >= CODEX_PROFILE_SYNC_FLUSH_INTERVAL_MS) {
+            flushPendingProfiles();
+          }
+        } catch (e) {
+          console.warn('刷新 Codex 账号资料失败:', account.id, e);
+        } finally {
+          CODEX_PROFILE_SYNC_IN_FLIGHT.delete(account.id);
+        }
       }
+    } finally {
+      flushPendingProfiles();
     }
   },
 
