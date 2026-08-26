@@ -9,15 +9,18 @@
   --font-sans: 'Inter', 'Segoe UI', sans-serif;
   --font-mono: 'JetBrains Mono', 'SFMono-Regular', monospace;
 
-  /* Brand Colors 鈥?desaturated steel blue (no default-framework blue) */
+  /* Brand Colors — desaturated steel blue (no default-framework blue) */
   --primary: #3d6484;
   --primary-hover: #345671;
   --primary-light: color-mix(in srgb, var(--primary) 10%, transparent);
   --accent: var(--primary);
-  /* Derived accent ramp 鈥?replaces hardcoded blue-200/300/400/900 shades */
+  /* Derived accent ramp — replaces hardcoded blue-200/300/400/900 shades */
   --primary-soft: color-mix(in srgb, var(--primary) 55%, white);
   --primary-softer: color-mix(in srgb, var(--primary) 32%, white);
   --primary-deep: color-mix(in srgb, var(--primary) 78%, black);
+  /* Foreground for anything painted on --primary/--accent. Theme packs whose
+     brand colour is light flip this to their darkest ink. */
+  --on-primary: #ffffff;
 
   /* Status Colors */
   --success: #16a34a;
@@ -25,7 +28,7 @@
   --warning-strong: #ea580c;
   --danger: #dc2626;
 
-  /* Secondary accent 鈥?reserved for API-key/local-API surfaces only */
+  /* Secondary accent — reserved for API-key/local-API surfaces only */
   --accent-api: #0f766e;
   --accent-api-soft: color-mix(in srgb, var(--accent-api) 55%, white);
 
@@ -58,7 +61,7 @@
   --gradient-success: var(--success);
   --gradient-danger: var(--danger);
 
-  /* Radius 鈥?exactly 3 rendered tiers + pill/circle exception, kept on the
+  /* Radius — exactly 3 rendered tiers + pill/circle exception, kept on the
      large-rounded-rectangle scale the product is designed around.
      sm: tiny inline elements (badges, chips)
      md: controls (buttons, inputs, tabs, nav items); lg is a legacy alias
@@ -72,6 +75,47 @@
 
   /* Component sizing */
   --modal-close-icon-size: 16px;
+
+  /* Alias names that page stylesheets grew independently. They resolve through
+     var(), so a theme pack drives them without restating anything. Several were
+     never declared at all: `border: 1px solid var(--border-color)` is invalid
+     at computed-value time and renders no border, and `color: var(--text-tertiary)`
+     silently inherits. */
+  --color-primary: var(--primary);
+  --accent-color: var(--accent);
+  --accent-primary: var(--primary);
+  --primary-foreground: var(--on-primary);
+
+  --color-info: var(--primary);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--danger);
+  --error: var(--danger);
+  --error-color: var(--danger);
+  --warning-color: var(--warning);
+  --text-success: var(--success);
+  --text-warning: var(--warning);
+  --text-error: var(--danger);
+  --bg-success: color-mix(in srgb, var(--success) 12%, transparent);
+  --bg-warning: color-mix(in srgb, var(--warning) 12%, transparent);
+  --bg-error: color-mix(in srgb, var(--danger) 12%, transparent);
+
+  --surface-secondary: var(--bg-secondary);
+  --surface-tertiary: var(--bg-tertiary);
+  --bg-input: var(--bg-secondary);
+  --input-background: var(--bg-secondary);
+  --hover: var(--bg-hover);
+
+  --text-tertiary: var(--text-muted);
+  --text-disabled: var(--text-muted);
+
+  --border-color: var(--border);
+  --border-secondary: var(--border-light);
+  --border-strong: var(--border);
+  --border-hover: var(--primary);
+
+  --shadow-xs: var(--shadow-sm);
+  --shadow-xl: var(--shadow-lg);
 }
 
 /* === Dark Theme === */
@@ -84,6 +128,7 @@
   --primary-soft: color-mix(in srgb, var(--primary) 72%, white);
   --primary-softer: color-mix(in srgb, var(--primary) 46%, white);
   --primary-deep: color-mix(in srgb, var(--primary) 55%, black);
+  --on-primary: #ffffff;
 
   /* Status Colors */
   --success: #22c55e;
@@ -121,57 +166,269 @@
   color-scheme: dark;
 }
 
-/* Theme color packs (#1399) 鈥?layered on light/dark base */
+/* ============================================
+   Theme color packs (#1399)
+
+   A pack replaces the whole neutral ramp, not just the accent: page/surface/
+   panel backgrounds, the three text tiers, both border tiers, the hover wash,
+   the status ramp and the API accent. Anything derived from those with var()
+   or color-mix() (--bg-card, --bg-surface, --primary-light, --primary-soft,
+   --primary-softer, --primary-deep, --gradient-*) re-resolves on its own.
+
+   Every pack declares the same variable list twice. The unqualified block is
+   the light palette; because it sits after [data-theme="dark"] and carries the
+   same specificity, the [data-theme="dark"] block must repeat every variable
+   or the light value leaks into dark mode.
+   ============================================ */
+
+/* --- Nord: Polar Night / Snow Storm / Frost / Aurora --- */
 [data-theme-color="nord"] {
   --primary: #5e81ac;
-  --primary-hover: #81a1c1;
-  --accent: #88c0d0;
+  --primary-hover: #4c6f9a;
+  --accent: #5e81ac;
+  --on-primary: #eceff4;
+  --accent-api: #3b7f7d;
+
+  --success: #55703f;
+  --warning: #97722c;
+  --warning-strong: #b4562f;
+  --danger: #a8434c;
+
+  --bg-primary: #e5e9f0;
+  --bg-secondary: #f7f9fc;
+  --bg-tertiary: #d8dee9;
+  --bg-hover: rgba(46, 52, 64, 0.07);
+
+  --text-primary: #2e3440;
+  --text-secondary: #434c5e;
+  --text-muted: #6a7383;
+
+  --border: rgba(46, 52, 64, 0.16);
+  --border-light: rgba(46, 52, 64, 0.09);
 }
 [data-theme-color="nord"][data-theme="dark"] {
+  --primary: #81a1c1;
+  --primary-hover: #90b0cf;
+  --accent: #88c0d0;
+  --on-primary: #2e3440;
+  --accent-api: #8fbcbb;
+
+  --success: #a3be8c;
+  --warning: #ebcb8b;
+  --warning-strong: #d08770;
+  --danger: #bf616a;
+
   --bg-primary: #2e3440;
   --bg-secondary: #3b4252;
   --bg-tertiary: #434c5e;
+  --bg-hover: rgba(236, 239, 244, 0.08);
+
   --text-primary: #eceff4;
-  --text-secondary: #d8dee9;
+  --text-secondary: #cdd5e2;
+  --text-muted: #98a2b3;
+
+  --border: rgba(216, 222, 233, 0.16);
+  --border-light: rgba(216, 222, 233, 0.08);
 }
+
+/* --- Tokyo Night: Day (light) / Night (dark) --- */
 [data-theme-color="tokyo-night"] {
-  --primary: #7aa2f7;
-  --primary-hover: #89b4fa;
-  --accent: #bb9af7;
+  --primary: #2e7de9;
+  --primary-hover: #1a63c4;
+  --accent: #7847bd;
+  --on-primary: #ffffff;
+  --accent-api: #007197;
+
+  --success: #587539;
+  --warning: #8c6c3e;
+  --warning-strong: #b15c00;
+  --danger: #c64343;
+
+  --bg-primary: #e1e2e7;
+  --bg-secondary: #f2f3f7;
+  --bg-tertiary: #d0d5e3;
+  --bg-hover: rgba(55, 96, 191, 0.08);
+
+  --text-primary: #3760bf;
+  --text-secondary: #4c5c9c;
+  --text-muted: #7982ab;
+
+  --border: rgba(55, 96, 191, 0.18);
+  --border-light: rgba(55, 96, 191, 0.1);
 }
 [data-theme-color="tokyo-night"][data-theme="dark"] {
+  --primary: #7aa2f7;
+  --primary-hover: #8cb0ff;
+  --accent: #bb9af7;
+  --on-primary: #1a1b26;
+  --accent-api: #7dcfff;
+
+  --success: #9ece6a;
+  --warning: #e0af68;
+  --warning-strong: #ff9e64;
+  --danger: #f7768e;
+
   --bg-primary: #1a1b26;
   --bg-secondary: #24283b;
   --bg-tertiary: #414868;
+  --bg-hover: rgba(192, 202, 245, 0.08);
+
   --text-primary: #c0caf5;
   --text-secondary: #a9b1d6;
+  --text-muted: #7f88b0;
+
+  --border: rgba(192, 202, 245, 0.15);
+  --border-light: rgba(192, 202, 245, 0.07);
 }
+
+/* --- Catppuccin: Latte (light) / Mocha (dark) --- */
 [data-theme-color="catppuccin"] {
-  --primary: #89b4fa;
-  --accent: #cba6f7;
+  --primary: #1e66f5;
+  --primary-hover: #1552cc;
+  --accent: #8839ef;
+  --on-primary: #ffffff;
+  --accent-api: #179299;
+
+  --success: #40a02b;
+  --warning: #b57a18;
+  --warning-strong: #e05a09;
+  --danger: #d20f39;
+
+  --bg-primary: #e6e9ef;
+  --bg-secondary: #f5f6fa;
+  --bg-tertiary: #ccd0da;
+  --bg-hover: rgba(76, 79, 105, 0.07);
+
+  --text-primary: #4c4f69;
+  --text-secondary: #5c5f77;
+  --text-muted: #8c8fa1;
+
+  --border: rgba(76, 79, 105, 0.16);
+  --border-light: rgba(76, 79, 105, 0.09);
 }
 [data-theme-color="catppuccin"][data-theme="dark"] {
+  --primary: #89b4fa;
+  --primary-hover: #a0c4ff;
+  --accent: #cba6f7;
+  --on-primary: #1e1e2e;
+  --accent-api: #94e2d5;
+
+  --success: #a6e3a1;
+  --warning: #f9e2af;
+  --warning-strong: #fab387;
+  --danger: #f38ba8;
+
   --bg-primary: #1e1e2e;
   --bg-secondary: #313244;
+  --bg-tertiary: #45475a;
+  --bg-hover: rgba(205, 214, 244, 0.08);
+
   --text-primary: #cdd6f4;
+  --text-secondary: #bac2de;
+  --text-muted: #9399b2;
+
+  --border: rgba(205, 214, 244, 0.15);
+  --border-light: rgba(205, 214, 244, 0.07);
 }
+
+/* --- Gruvbox: light medium / dark medium --- */
 [data-theme-color="gruvbox"] {
-  --primary: #d79921;
-  --accent: #689d6a;
+  --primary: #b57614;
+  --primary-hover: #99610f;
+  --accent: #427b58;
+  --on-primary: #fbf1c7;
+  --accent-api: #076678;
+
+  --success: #79740e;
+  --warning: #b57614;
+  --warning-strong: #af3a03;
+  --danger: #9d0006;
+
+  --bg-primary: #ebdbb2;
+  --bg-secondary: #fbf1c7;
+  --bg-tertiary: #d5c4a1;
+  --bg-hover: rgba(60, 56, 54, 0.08);
+
+  --text-primary: #282828;
+  --text-secondary: #504945;
+  --text-muted: #7c6f64;
+
+  --border: rgba(60, 56, 54, 0.2);
+  --border-light: rgba(60, 56, 54, 0.11);
 }
 [data-theme-color="gruvbox"][data-theme="dark"] {
+  --primary: #d79921;
+  --primary-hover: #e8ad2e;
+  --accent: #8ec07c;
+  --on-primary: #282828;
+  --accent-api: #83a598;
+
+  --success: #b8bb26;
+  --warning: #fabd2f;
+  --warning-strong: #fe8019;
+  --danger: #fb4934;
+
   --bg-primary: #282828;
   --bg-secondary: #3c3836;
+  --bg-tertiary: #504945;
+  --bg-hover: rgba(235, 219, 178, 0.08);
+
   --text-primary: #ebdbb2;
+  --text-secondary: #d5c4a1;
+  --text-muted: #a89984;
+
+  --border: rgba(235, 219, 178, 0.16);
+  --border-light: rgba(235, 219, 178, 0.08);
 }
+
+/* --- Everforest: light medium / dark medium --- */
 [data-theme-color="everforest"] {
-  --primary: #a7c080;
-  --accent: #7fbbb3;
+  --primary: #6f7f2e;
+  --primary-hover: #5c6b23;
+  --accent: #35a77c;
+  --on-primary: #fdf6e3;
+  --accent-api: #3a94c5;
+
+  --success: #6f7f2e;
+  --warning: #a97e00;
+  --warning-strong: #dd6a1c;
+  --danger: #d0403d;
+
+  --bg-primary: #f4f0d9;
+  --bg-secondary: #fdf6e3;
+  --bg-tertiary: #e6e2cc;
+  --bg-hover: rgba(92, 106, 114, 0.08);
+
+  --text-primary: #414b50;
+  --text-secondary: #5c6a72;
+  --text-muted: #829181;
+
+  --border: rgba(92, 106, 114, 0.2);
+  --border-light: rgba(92, 106, 114, 0.11);
 }
 [data-theme-color="everforest"][data-theme="dark"] {
+  --primary: #a7c080;
+  --primary-hover: #b8ce93;
+  --accent: #83c092;
+  --on-primary: #2d353b;
+  --accent-api: #7fbbb3;
+
+  --success: #a7c080;
+  --warning: #dbbc7f;
+  --warning-strong: #e69875;
+  --danger: #e67e80;
+
   --bg-primary: #2d353b;
   --bg-secondary: #343f44;
+  --bg-tertiary: #3d484d;
+  --bg-hover: rgba(211, 198, 170, 0.08);
+
   --text-primary: #d3c6aa;
+  --text-secondary: #9da9a0;
+  --text-muted: #859289;
+
+  --border: rgba(211, 198, 170, 0.16);
+  --border-light: rgba(211, 198, 170, 0.08);
 }
 
 * {
