@@ -129,6 +129,15 @@
    Every surface that appears on top of the page gets its entrance
    from here, so the app cannot drift back into "some of them
    animate". Local rules must not re-declare these.
+
+   The lists below are shorter than the number of dialogs in the
+   app, and that is correct: a per-dialog class like
+   `.global-modal-overlay` is a modifier that rides on
+   `.modal-overlay` in the same class attribute, and a
+   `menuClassName` handed to SingleSelectDropdown lands next to
+   `.single-select-dropdown-menu`. Both already inherit their
+   entrance. Only add a selector here for a surface that is built
+   by hand instead of through one of those two components.
    ============================================ */
 
 /* --- Scrims: the dimmed backdrop behind a modal --- */
@@ -177,7 +186,8 @@
 .codex-visibility-repair-instance-menu,
 .codex-wakeup-single-select-panel-portal,
 .codex-experimental-model-editor__reasoning-menu,
-.codex-experimental-model-editor__context-menu {
+.codex-experimental-model-editor__context-menu,
+.account-select-menu {
   animation: ct-menu-in var(--motion-meso) var(--ease-entrance);
 }
 
